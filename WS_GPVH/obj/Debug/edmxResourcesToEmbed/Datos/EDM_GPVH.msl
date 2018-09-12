@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model_GPVHStoreContainer" CdmEntityContainer="EDM_GPVH">
+    <EntitySetMapping Name="DOCUMENTO">
+      <EntityTypeMapping TypeName="Model_GPVH.DOCUMENTO">
+        <MappingFragment StoreEntitySet="DOCUMENTO">
+          <ScalarProperty Name="ID_DOCUMENTO" ColumnName="ID_DOCUMENTO" />
+          <ScalarProperty Name="NOMBRE_DOCUMENTO" ColumnName="NOMBRE_DOCUMENTO" />
+          <ScalarProperty Name="FORMATO_DOCUMENTO" ColumnName="FORMATO_DOCUMENTO" />
+          <ScalarProperty Name="FEC_CREACION" ColumnName="FEC_CREACION" />
+          <ScalarProperty Name="DIRECTORIO_DOCUMENTO" ColumnName="DIRECTORIO_DOCUMENTO" />
+          <ScalarProperty Name="PERMISO_ID_PERMISO" ColumnName="PERMISO_ID_PERMISO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FUNCIONARIO">
+      <EntityTypeMapping TypeName="Model_GPVH.FUNCIONARIO">
+        <MappingFragment StoreEntitySet="FUNCIONARIO">
+          <ScalarProperty Name="RUN_SIN_DV" ColumnName="RUN_SIN_DV" />
+          <ScalarProperty Name="RUN_DV" ColumnName="RUN_DV" />
+          <ScalarProperty Name="NOM_FUNCIONARIO" ColumnName="NOM_FUNCIONARIO" />
+          <ScalarProperty Name="AP_PATERNO" ColumnName="AP_PATERNO" />
+          <ScalarProperty Name="AP_MATERNO" ColumnName="AP_MATERNO" />
+          <ScalarProperty Name="FEC_NACIMIENTO" ColumnName="FEC_NACIMIENTO" />
+          <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+          <ScalarProperty Name="DIREC_FUNCIONARIO" ColumnName="DIREC_FUNCIONARIO" />
+          <ScalarProperty Name="TIPO_FUNCIONARIO" ColumnName="TIPO_FUNCIONARIO" />
+          <ScalarProperty Name="HABILITADO" ColumnName="HABILITADO" />
+          <ScalarProperty Name="UNIDAD_ID_UNIDAD" ColumnName="UNIDAD_ID_UNIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RESOLUCION">
+      <EntityTypeMapping TypeName="Model_GPVH.RESOLUCION">
+        <MappingFragment StoreEntitySet="RESOLUCION">
+          <ScalarProperty Name="ID_RESOLUCION" ColumnName="ID_RESOLUCION" />
+          <ScalarProperty Name="FEC_RESOLUCION" ColumnName="FEC_RESOLUCION" />
+          <ScalarProperty Name="ESTADO_RESOLUCION" ColumnName="ESTADO_RESOLUCION" />
+          <ScalarProperty Name="PERMISO_ID_PERMISO" ColumnName="PERMISO_ID_PERMISO" />
+          <ScalarProperty Name="RESOLVENTE_RUN_SIN_DV" ColumnName="RESOLVENTE_RUN_SIN_DV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOL_PERMISO">
+      <EntityTypeMapping TypeName="Model_GPVH.SOL_PERMISO">
+        <MappingFragment StoreEntitySet="SOL_PERMISO">
+          <ScalarProperty Name="ID_PERMISO" ColumnName="ID_PERMISO" />
+          <ScalarProperty Name="TIPO_PERMISO" ColumnName="TIPO_PERMISO" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
+          <ScalarProperty Name="FECHA_TERMINO" ColumnName="FECHA_TERMINO" />
+          <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
+          <ScalarProperty Name="DESC_PERMISO" ColumnName="DESC_PERMISO" />
+          <ScalarProperty Name="SOLICITANTE_RUN_SIN_DV" ColumnName="SOLICITANTE_RUN_SIN_DV" />
+          <ScalarProperty Name="AUTORIZANTE_RUN_SIN_DV" ColumnName="AUTORIZANTE_RUN_SIN_DV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UNIDAD">
+      <EntityTypeMapping TypeName="Model_GPVH.UNIDAD">
+        <MappingFragment StoreEntitySet="UNIDAD">
+          <ScalarProperty Name="ID_UNIDAD" ColumnName="ID_UNIDAD" />
+          <ScalarProperty Name="NOMBRE_UNIDAD" ColumnName="NOMBRE_UNIDAD" />
+          <ScalarProperty Name="DESCRIPCION_UNIDAD" ColumnName="DESCRIPCION_UNIDAD" />
+          <ScalarProperty Name="DIRECCION_UNIDAD" ColumnName="DIRECCION_UNIDAD" />
+          <ScalarProperty Name="HABILITADO" ColumnName="HABILITADO" />
+          <ScalarProperty Name="UNIDAD_PADRE_ID_UNIDAD" ColumnName="UNIDAD_PADRE_ID_UNIDAD" />
+          <ScalarProperty Name="JEFE_UNIDAD_RUN_SIN_DV" ColumnName="JEFE_UNIDAD_RUN_SIN_DV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="Model_GPVH.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
+          <ScalarProperty Name="CLAVE" ColumnName="CLAVE" />
+          <ScalarProperty Name="TIPO_USUARIO" ColumnName="TIPO_USUARIO" />
+          <ScalarProperty Name="FUNCIONARIO_RUN_SIN_DV" ColumnName="FUNCIONARIO_RUN_SIN_DV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model_GPVH.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DOCUMENTO">
+    <Key>
+      <PropertyRef Name="ID_DOCUMENTO" />
+    </Key>
+    <Property Name="ID_DOCUMENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE_DOCUMENTO" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="FORMATO_DOCUMENTO" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="FEC_CREACION" Type="date" Nullable="false" />
+    <Property Name="DIRECTORIO_DOCUMENTO" Type="varchar2" MaxLength="254" Nullable="false" />
+    <Property Name="PERMISO_ID_PERMISO" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUNCIONARIO">
+    <Key>
+      <PropertyRef Name="RUN_SIN_DV" />
+    </Key>
+    <Property Name="RUN_SIN_DV" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RUN_DV" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOM_FUNCIONARIO" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="AP_PATERNO" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="AP_MATERNO" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="FEC_NACIMIENTO" Type="date" Nullable="false" />
+    <Property Name="CORREO" Type="varchar2" MaxLength="100" Nullable="false" />
+    <Property Name="DIREC_FUNCIONARIO" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="TIPO_FUNCIONARIO" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="HABILITADO" Type="number" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="UNIDAD_ID_UNIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RESOLUCION">
+    <Key>
+      <PropertyRef Name="ID_RESOLUCION" />
+    </Key>
+    <Property Name="ID_RESOLUCION" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FEC_RESOLUCION" Type="date" Nullable="false" />
+    <Property Name="ESTADO_RESOLUCION" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PERMISO_ID_PERMISO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RESOLVENTE_RUN_SIN_DV" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="SOL_PERMISO">
+    <Key>
+      <PropertyRef Name="ID_PERMISO" />
+    </Key>
+    <Property Name="ID_PERMISO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TIPO_PERMISO" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="ESTADO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FECHA_INICIO" Type="date" Nullable="false" />
+    <Property Name="FECHA_TERMINO" Type="date" Nullable="false" />
+    <Property Name="FECHA_SOLICITUD" Type="date" Nullable="false" />
+    <Property Name="DESC_PERMISO" Type="varchar2" MaxLength="254" Nullable="false" />
+    <Property Name="SOLICITANTE_RUN_SIN_DV" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="AUTORIZANTE_RUN_SIN_DV" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="UNIDAD">
+    <Key>
+      <PropertyRef Name="ID_UNIDAD" />
+    </Key>
+    <Property Name="ID_UNIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE_UNIDAD" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="DESCRIPCION_UNIDAD" Type="varchar2" MaxLength="254" Nullable="false" />
+    <Property Name="DIRECCION_UNIDAD" Type="varchar2" MaxLength="80" Nullable="false" />
+    <Property Name="HABILITADO" Type="number" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="UNIDAD_PADRE_ID_UNIDAD" Type="number" Precision="38" Scale="0" />
+    <Property Name="JEFE_UNIDAD_RUN_SIN_DV" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="ID_USUARIO" />
+    </Key>
+    <Property Name="ID_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE_USUARIO" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="CLAVE" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="TIPO_USUARIO" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="FUNCIONARIO_RUN_SIN_DV" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DOCUMENTO_PERMISO">
+    <End Role="SOL_PERMISO" Type="Self.SOL_PERMISO" Multiplicity="1" />
+    <End Role="DOCUMENTO" Type="Self.DOCUMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOL_PERMISO">
+        <PropertyRef Name="ID_PERMISO" />
+      </Principal>
+      <Dependent Role="DOCUMENTO">
+        <PropertyRef Name="PERMISO_ID_PERMISO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FUNCIONARIO_UNIDAD">
+    <End Role="UNIDAD" Type="Self.UNIDAD" Multiplicity="1" />
+    <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNIDAD">
+        <PropertyRef Name="ID_UNIDAD" />
+      </Principal>
+      <Dependent Role="FUNCIONARIO">
+        <PropertyRef Name="UNIDAD_ID_UNIDAD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERMISO_AUTORIZANTE">
+    <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+    <End Role="SOL_PERMISO" Type="Self.SOL_PERMISO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUNCIONARIO">
+        <PropertyRef Name="RUN_SIN_DV" />
+      </Principal>
+      <Dependent Role="SOL_PERMISO">
+        <PropertyRef Name="AUTORIZANTE_RUN_SIN_DV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERMISO_SOLICITANTE">
+    <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
+    <End Role="SOL_PERMISO" Type="Self.SOL_PERMISO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUNCIONARIO">
+        <PropertyRef Name="RUN_SIN_DV" />
+      </Principal>
+      <Dependent Role="SOL_PERMISO">
+        <PropertyRef Name="SOLICITANTE_RUN_SIN_DV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESOLUCION_PERMISO">
+    <End Role="SOL_PERMISO" Type="Self.SOL_PERMISO" Multiplicity="1" />
+    <End Role="RESOLUCION" Type="Self.RESOLUCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOL_PERMISO">
+        <PropertyRef Name="ID_PERMISO" />
+      </Principal>
+      <Dependent Role="RESOLUCION">
+        <PropertyRef Name="PERMISO_ID_PERMISO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESOLUCION_RESOLVENTE">
+    <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+    <End Role="RESOLUCION" Type="Self.RESOLUCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUNCIONARIO">
+        <PropertyRef Name="RUN_SIN_DV" />
+      </Principal>
+      <Dependent Role="RESOLUCION">
+        <PropertyRef Name="RESOLVENTE_RUN_SIN_DV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UNIDAD_JEFE">
+    <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="0..1" />
+    <End Role="UNIDAD" Type="Self.UNIDAD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUNCIONARIO">
+        <PropertyRef Name="RUN_SIN_DV" />
+      </Principal>
+      <Dependent Role="UNIDAD">
+        <PropertyRef Name="JEFE_UNIDAD_RUN_SIN_DV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UNIDAD_UNIDADPADRE">
+    <End Role="UNIDAD" Type="Self.UNIDAD" Multiplicity="0..1" />
+    <End Role="UNIDAD1" Type="Self.UNIDAD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNIDAD">
+        <PropertyRef Name="ID_UNIDAD" />
+      </Principal>
+      <Dependent Role="UNIDAD1">
+        <PropertyRef Name="UNIDAD_PADRE_ID_UNIDAD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIO_FUNCIONARIO">
+    <End Role="FUNCIONARIO" Type="Self.FUNCIONARIO" Multiplicity="1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUNCIONARIO">
+        <PropertyRef Name="RUN_SIN_DV" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="FUNCIONARIO_RUN_SIN_DV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Model_GPVHStoreContainer">
+    <EntitySet Name="DOCUMENTO" EntityType="Self.DOCUMENTO" Schema="PRUEBA" store:Type="Tables" />
+    <EntitySet Name="FUNCIONARIO" EntityType="Self.FUNCIONARIO" Schema="PRUEBA" store:Type="Tables" />
+    <EntitySet Name="RESOLUCION" EntityType="Self.RESOLUCION" Schema="PRUEBA" store:Type="Tables" />
+    <EntitySet Name="SOL_PERMISO" EntityType="Self.SOL_PERMISO" Schema="PRUEBA" store:Type="Tables" />
+    <EntitySet Name="UNIDAD" EntityType="Self.UNIDAD" Schema="PRUEBA" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="PRUEBA" store:Type="Tables" />
+    <AssociationSet Name="FK_DOCUMENTO_PERMISO" Association="Self.FK_DOCUMENTO_PERMISO">
+      <End Role="SOL_PERMISO" EntitySet="SOL_PERMISO" />
+      <End Role="DOCUMENTO" EntitySet="DOCUMENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FUNCIONARIO_UNIDAD" Association="Self.FK_FUNCIONARIO_UNIDAD">
+      <End Role="UNIDAD" EntitySet="UNIDAD" />
+      <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERMISO_AUTORIZANTE" Association="Self.FK_PERMISO_AUTORIZANTE">
+      <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+      <End Role="SOL_PERMISO" EntitySet="SOL_PERMISO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERMISO_SOLICITANTE" Association="Self.FK_PERMISO_SOLICITANTE">
+      <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+      <End Role="SOL_PERMISO" EntitySet="SOL_PERMISO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESOLUCION_PERMISO" Association="Self.FK_RESOLUCION_PERMISO">
+      <End Role="SOL_PERMISO" EntitySet="SOL_PERMISO" />
+      <End Role="RESOLUCION" EntitySet="RESOLUCION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESOLUCION_RESOLVENTE" Association="Self.FK_RESOLUCION_RESOLVENTE">
+      <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+      <End Role="RESOLUCION" EntitySet="RESOLUCION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UNIDAD_JEFE" Association="Self.FK_UNIDAD_JEFE">
+      <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+      <End Role="UNIDAD" EntitySet="UNIDAD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UNIDAD_UNIDADPADRE" Association="Self.FK_UNIDAD_UNIDADPADRE">
+      <End Role="UNIDAD" EntitySet="UNIDAD" />
+      <End Role="UNIDAD1" EntitySet="UNIDAD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIO_FUNCIONARIO" Association="Self.FK_USUARIO_FUNCIONARIO">
+      <End Role="FUNCIONARIO" EntitySet="FUNCIONARIO" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
