@@ -71,6 +71,12 @@
     <Compile Include="Formularios\Form_Inicio.Designer.cs">
       <DependentUpon>Form_Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Login\Form_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Login\Form_Login.Designer.cs">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Mantenedores\Funcionario\Form_M_Funcionario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Formularios\Login\Form_Login.resx">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Mantenedores\Funcionario\Form_M_Funcionario.resx">
       <DependentUpon>Form_M_Funcionario.cs</DependentUpon>
     </EmbeddedResource>
@@ -291,6 +300,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LB_GPVH\LB_GPVH.csproj">
+      <Project>{60dea010-c448-4035-b2ca-0f2aea824bba}</Project>
+      <Name>LB_GPVH</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
