@@ -128,7 +128,7 @@ namespace WS_GPVH
             con.ConnectionString = conString;
             con.Open();
             OracleCommand cmd = con.CreateCommand();
-            cmd.CommandText = "Select * from usuario where nombre_usuario = " + nombre + " clave = " + clave;
+            cmd.CommandText = "Select * from usuario where nombre_usuario = '" + nombre + "' AND clave = '" + clave + "'";
             OracleDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {

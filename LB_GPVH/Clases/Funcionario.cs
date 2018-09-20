@@ -87,5 +87,13 @@ namespace LB_GPVH.Clases
         }
 
 
+        public string NombreCompleto
+        {
+            get
+            {
+                return nombre + " " + apellidoPaterno + " " + apellidoMaterno;
+            }
+        }
+
     }
 }
