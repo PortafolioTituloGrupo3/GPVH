@@ -21,3 +21,32 @@ C:\Users\thor\documents\visual studio 2015\Projects\GestionDePermisosVistaHermos
 C:\Users\thor\documents\visual studio 2015\Projects\GestionDePermisosVistaHermosa\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Usuario.Form_M_Usuario.resources
 C:\Users\thor\documents\visual studio 2015\Projects\GestionDePermisosVistaHermosa\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Usuario.Form_M_Usuario_Agregar.resources
 C:\Users\thor\documents\visual studio 2015\Projects\GestionDePermisosVistaHermosa\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Usuario.Form_M_Usuario_Modificar.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\WF_GPVH.exe.config
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\WF_GPVH.exe
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\WF_GPVH.pdb
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\EntityFramework.dll
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\LB_GPVH.dll
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\LB_GPVH.pdb
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\EntityFramework.xml
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csprojAssemblyReference.cache
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Login.Form_Login.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Funcionario.Form_M_Funcionario.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Funcionario.Form_M_Funcionario_Agregar.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Funcionario.Form_M_Funcionario_Modificar.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Unidad.Form_M_Unidad.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Unidad.Form_M_Unidad_Agregar.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Unidad.Form_M_Unidad_Modificar.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Usuario.Form_M_Usuario.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Usuario.Form_M_Usuario_Agregar.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Usuario.Form_M_Usuario_Modificar.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Properties.Resources.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csproj.GenerateResource.cache
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csproj.CoreCompileInputs.cache
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csproj.CopyComplete
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.exe
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.pdb
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Menu.Form_Menu_Administrador.resources

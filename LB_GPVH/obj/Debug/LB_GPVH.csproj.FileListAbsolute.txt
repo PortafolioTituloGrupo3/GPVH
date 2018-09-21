@@ -1,0 +1,6 @@
+C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\bin\Debug\LB_GPVH.dll
+C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\bin\Debug\LB_GPVH.pdb
+C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\obj\Debug\LB_GPVH.csprojAssemblyReference.cache
+C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\obj\Debug\LB_GPVH.csproj.CoreCompileInputs.cache
+C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\obj\Debug\LB_GPVH.dll
+C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\obj\Debug\LB_GPVH.pdb

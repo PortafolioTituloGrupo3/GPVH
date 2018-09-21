@@ -70,7 +70,6 @@
             this.label6.Size = new System.Drawing.Size(27, 13);
             this.label6.TabIndex = 25;
             this.label6.Text = "Jefe";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -80,7 +79,6 @@
             this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 24;
             this.label5.Text = "Unidad padre";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label3
             // 
@@ -118,7 +116,6 @@
             this.ddl_jefe.Name = "ddl_jefe";
             this.ddl_jefe.Size = new System.Drawing.Size(121, 21);
             this.ddl_jefe.TabIndex = 19;
-            this.ddl_jefe.SelectedIndexChanged += new System.EventHandler(this.ddl_jefe_SelectedIndexChanged);
             // 
             // ddl_padre
             // 
@@ -127,7 +124,6 @@
             this.ddl_padre.Name = "ddl_padre";
             this.ddl_padre.Size = new System.Drawing.Size(121, 21);
             this.ddl_padre.TabIndex = 18;
-            this.ddl_padre.SelectedIndexChanged += new System.EventHandler(this.ddl_padre_SelectedIndexChanged);
             // 
             // txt_direccion
             // 

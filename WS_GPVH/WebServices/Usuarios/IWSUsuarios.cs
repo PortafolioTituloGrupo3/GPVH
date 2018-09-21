@@ -25,6 +25,10 @@ namespace WS_GPVH
         [OperationContract]
         int deleteUsuario(int id);
         // TODO: agregue aquí sus operaciones de servicio
+
+        [OperationContract]
+        Usuario AutenticarUsuario(string nombre, string clave); // Autentica el usuario, devuelve null si la contraseña y clave no son validas.
+
     }
 
     [DataContract]
