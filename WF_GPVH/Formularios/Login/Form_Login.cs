@@ -45,6 +45,10 @@ namespace WF_GPVH.Formularios.Login
                             new Menu.Form_Menu_Administrador(this,sesion).Show();
                             this.Hide();
                             break;
+                        case TipoUsuario.JefeUnidadSuperior:
+                            new Menu.Form_Menu_Jefe_Unidad_Superior(this, sesion).Show();
+                            this.Hide();
+                            break;
                     }
                 }
                 else

@@ -106,6 +106,7 @@
             this.Controls.Add(this.btnGestionarUsuario);
             this.Controls.Add(this.btnGestionarFuncionario);
             this.Name = "Form_Menu_Administrador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Menu_Administrador";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Menu_Administrador_FormClosing);
             this.ResumeLayout(false);
