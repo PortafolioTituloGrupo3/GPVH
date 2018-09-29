@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -41,6 +45,7 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
       <Private>True</Private>
@@ -54,6 +59,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,12 +77,6 @@
     </Compile>
     <Compile Include="Formularios\Form_Inicio.Designer.cs">
       <DependentUpon>Form_Inicio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Login\Form_Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Login\Form_Login.Designer.cs">
-      <DependentUpon>Form_Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Mantenedores\Funcionario\Form_M_Funcionario.cs">
       <SubType>Form</SubType>
@@ -131,20 +132,43 @@
     <Compile Include="Formularios\Mantenedores\Usuario\Form_M_Usuario_Modificar.Designer.cs">
       <DependentUpon>Form_M_Usuario_Modificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Menu\Form_Menu_Administrador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Menu\Form_Menu_Administrador.Designer.cs">
-      <DependentUpon>Form_Menu_Administrador.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Menu\Form_Menu_Jefe_Unidad_Superior.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Menu\Form_Menu_Jefe_Unidad_Superior.Designer.cs">
-      <DependentUpon>Form_Menu_Jefe_Unidad_Superior.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\Form_test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Form_test.Designer.cs">
+      <DependentUpon>Form_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Crystal Report\Form_View_Unidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Crystal Report\Form_View_Unidad.Designer.cs">
+      <DependentUpon>Form_View_Unidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Crystal Report\nepecio2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>nepecio2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Crystal Report\Reporte_Unidades.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporte_Unidades.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\DataSet\DataSet_Unidad.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_Unidad.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\nepecio.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>nepecio.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Service References\ServiceWSFuncionarios\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -160,9 +184,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Formularios\Login\Form_Login.resx">
-      <DependentUpon>Form_Login.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Mantenedores\Funcionario\Form_M_Funcionario.resx">
       <DependentUpon>Form_M_Funcionario.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,12 +211,6 @@
     <EmbeddedResource Include="Formularios\Mantenedores\Usuario\Form_M_Usuario_Modificar.resx">
       <DependentUpon>Form_M_Usuario_Modificar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Menu\Form_Menu_Administrador.resx">
-      <DependentUpon>Form_Menu_Administrador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Menu\Form_Menu_Jefe_Unidad_Superior.resx">
-      <DependentUpon>Form_Menu_Jefe_Unidad_Superior.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -205,6 +220,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reportes\Form_test.resx">
+      <DependentUpon>Form_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Crystal Report\Form_View_Unidad.resx">
+      <DependentUpon>Form_View_Unidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Crystal Report\nepecio2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>nepecio2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Crystal Report\Reporte_Unidades.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Reporte_Unidades.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\nepecio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>nepecio.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -215,6 +248,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Reportes\DataSet\DataSet_Unidad.xsc">
+      <DependentUpon>DataSet_Unidad.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSet\DataSet_Unidad.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_Unidad.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DataSet\DataSet_Unidad.xss">
+      <DependentUpon>DataSet_Unidad.xsd</DependentUpon>
+    </None>
     <None Include="Service References\ServiceWSFuncionarios\WF_GPVH.ServiceWSFuncionarios.Funcionario.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -320,12 +364,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LB_GPVH\LB_GPVH.csproj">
-      <Project>{60dea010-c448-4035-b2ca-0f2aea824bba}</Project>
-      <Name>LB_GPVH</Name>
-    </ProjectReference>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

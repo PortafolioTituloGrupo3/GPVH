@@ -45,11 +45,11 @@
             this.btn_agregar.UseVisualStyleBackColor = true;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
-            // dgv_funcionarios
+            // dgv_Unidades
             // 
             this.dgv_Unidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Unidades.Location = new System.Drawing.Point(12, 12);
-            this.dgv_Unidades.Name = "dgv_funcionarios";
+            this.dgv_Unidades.Name = "dgv_Unidades";
             this.dgv_Unidades.Size = new System.Drawing.Size(649, 150);
             this.dgv_Unidades.TabIndex = 1;
             // 
@@ -77,7 +77,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 295);
+            this.ClientSize = new System.Drawing.Size(679, 297);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_editar);
             this.Controls.Add(this.dgv_Unidades);
