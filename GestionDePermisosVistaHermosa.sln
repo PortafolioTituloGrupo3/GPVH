@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WF_GPVH", "WF_GPVH\WF_GPVH.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WS_GPVH", "WS_GPVH\WS_GPVH.csproj", "{859360F4-A4D4-4471-9190-409EDCC42BBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LB_GPVH", "LB_GPVH\LB_GPVH.csproj", "{60DEA010-C448-4035-B2CA-0F2AEA824BBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{859360F4-A4D4-4471-9190-409EDCC42BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{859360F4-A4D4-4471-9190-409EDCC42BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{859360F4-A4D4-4471-9190-409EDCC42BBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60DEA010-C448-4035-B2CA-0F2AEA824BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60DEA010-C448-4035-B2CA-0F2AEA824BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60DEA010-C448-4035-B2CA-0F2AEA824BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60DEA010-C448-4035-B2CA-0F2AEA824BBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

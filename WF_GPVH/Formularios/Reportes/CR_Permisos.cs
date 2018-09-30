@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WF_GPVH.Reportes {
+namespace WF_GPVH.Formularios.Reportes {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace WF_GPVH.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class nepecio : ReportClass {
+    public class CR_Permisos : ReportClass {
         
-        public nepecio() {
+        public CR_Permisos() {
         }
         
         public override string ResourceName {
             get {
-                return "nepecio.rpt";
+                return "CR_Permisos.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace WF_GPVH.Reportes {
         
         public override string FullResourceName {
             get {
-                return "WF_GPVH.Reportes.nepecio.rpt";
+                return "WF_GPVH.Formularios.Reportes.CR_Permisos.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace WF_GPVH.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class Cachednepecio : Component, ICachedReport {
+    public class CachedCR_Permisos : Component, ICachedReport {
         
-        public Cachednepecio() {
+        public CachedCR_Permisos() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace WF_GPVH.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            nepecio rpt = new nepecio();
+            CR_Permisos rpt = new CR_Permisos();
             rpt.Site = this.Site;
             return rpt;
         }

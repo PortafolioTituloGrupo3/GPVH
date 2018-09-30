@@ -103,6 +103,7 @@
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="WebServices\Funcionarios\WSFuncionarios.svc" />
+    <Content Include="WebServices\Reportes\WSReportes.svc" />
     <Content Include="WebServices\Unidades\WSUnidades.svc" />
     <Content Include="WebServices\Usuarios\WSUsuarios.svc" />
     <Content Include="Web.config" />
@@ -111,6 +112,10 @@
     <Compile Include="WebServices\Funcionarios\IWSFuncionarios.cs" />
     <Compile Include="WebServices\Funcionarios\WSFuncionarios.svc.cs">
       <DependentUpon>WSFuncionarios.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WebServices\Reportes\IWSReportes.cs" />
+    <Compile Include="WebServices\Reportes\WSReportes.svc.cs">
+      <DependentUpon>WSReportes.svc</DependentUpon>
     </Compile>
     <Compile Include="WebServices\Unidades\IWSUnidades.cs" />
     <Compile Include="WebServices\Unidades\WSUnidades.svc.cs">

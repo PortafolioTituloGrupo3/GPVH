@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2474/WebServices/Reportes/WSReportes.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WS_GPVH.WebServices.Reportes" />
+  <xs:element name="ReportePermisos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="inicio" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="termino" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReportePermisosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WS_GPVH.WebServices.Reportes" minOccurs="0" name="ReportePermisosResult" nillable="true" type="q1:ArrayOfFilaReportePermisos" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
