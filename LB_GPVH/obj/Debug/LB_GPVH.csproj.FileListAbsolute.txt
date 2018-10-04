@@ -4,3 +4,10 @@ C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\obj\Debug\LB_GPVH.csprojAssemblyReferen
 C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\obj\Debug\LB_GPVH.csproj.CoreCompileInputs.cache
 C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\obj\Debug\LB_GPVH.dll
 C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\obj\Debug\LB_GPVH.pdb
+C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\bin\Debug\ApplicationInsights.config
+C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\bin\Debug\LB_GPVH.dll.config
+C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\bin\Debug\WS_GPVH.dll
+C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\bin\Debug\WS_GPVH.pdb
+C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\bin\Debug\WS_GPVH.dll.config
+C:\Users\drjma\Source\Repos\GPVH\LB_GPVH\obj\Debug\LB_GPVH.csproj.CopyComplete

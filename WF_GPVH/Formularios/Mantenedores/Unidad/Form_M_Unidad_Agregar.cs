@@ -7,16 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Mantenedores.Unidad
 {
     public partial class Form_M_Unidad_Agregar : Form
     {
         Form_M_Unidad padreTemp = null;
+        GestionadorUnidad gestionador = null;
+        LB_GPVH.Modelo.Unidad unidad;
+
+
+
         public Form_M_Unidad_Agregar(Form_M_Unidad formPadre)
         {
             InitializeComponent();
             padreTemp = formPadre;
+            gestionador = new GestionadorUnidad();
+            unidad = new LB_GPVH.Modelo.Unidad();
+
+
+
+
             using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
             {
                 Dictionary<int, string> salida = new Dictionary<int, string>();
@@ -72,6 +84,36 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
         {
             padreTemp.Enabled = true;
             this.Close();
+        }
+
+        private void txt_nombre_TextChanged(object sender, EventArgs e)
+        {
+            //Realiza validaciones sobre el nombre y ve si es valido
+            switch (gestionador.ValidarCaracterNombreUnidad(unidad, txt_nombre.Text))
+            {
+                case GestionadorUnidad.ResultadoGestionUnidad.CaracteresNombreInvalido:
+                    lblErrorNombre.Text = "El nombre tiene caracteres invalidos";
+                    lblErrorNombre.Visible = true;
+                    break;
+                default:
+                    lblErrorNombre.Visible = false;
+                    break;
+            }
+        }
+
+        private void txt_nombre_Leave(object sender, EventArgs e)
+        {
+            //Realiza validaciones sobre el nombre y ve si es valido
+            switch (gestionador.ValidarCaracterNombreUnidad(unidad, txt_nombre.Text))
+            {
+                case GestionadorUnidad.ResultadoGestionUnidad.CaracteresNombreInvalido:
+                    lblErrorNombre.Text = "El nombre tiene caracteres invalidos";
+                    lblErrorNombre.Visible = true;
+                    break;
+                default:
+                    lblErrorNombre.Visible = false;
+                    break;
+            }
         }
     }
 }

@@ -206,6 +206,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\LB_GPVH.ServiceWSUnidades.Unidad.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -230,9 +231,6 @@
     </None>
     <None Include="Service References\ServiceWSFuncionarios\WSFuncionarios3.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSUnidades\WF_GPVH.ServiceWSUnidades.Unidad.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServiceWSUnidades\WSUnidades.wsdl" />
     <None Include="Service References\ServiceWSUnidades\WSUnidades.xsd">
@@ -323,6 +321,10 @@
     <ProjectReference Include="..\LB_GPVH\LB_GPVH.csproj">
       <Project>{60dea010-c448-4035-b2ca-0f2aea824bba}</Project>
       <Name>LB_GPVH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WS_GPVH\WS_GPVH.csproj">
+      <Project>{859360f4-a4d4-4471-9190-409edcc42bba}</Project>
+      <Name>WS_GPVH</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

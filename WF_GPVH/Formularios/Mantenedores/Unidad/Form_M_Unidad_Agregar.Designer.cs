@@ -40,6 +40,7 @@
             this.txt_direccion = new System.Windows.Forms.TextBox();
             this.txt_descripcion = new System.Windows.Forms.TextBox();
             this.txt_nombre = new System.Windows.Forms.TextBox();
+            this.lblErrorNombre = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_cancelar
@@ -146,12 +147,26 @@
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(121, 20);
             this.txt_nombre.TabIndex = 14;
+            this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
+            this.txt_nombre.Leave += new System.EventHandler(this.txt_nombre_Leave);
+            // 
+            // lblErrorNombre
+            // 
+            this.lblErrorNombre.AutoSize = true;
+            this.lblErrorNombre.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorNombre.Location = new System.Drawing.Point(227, 35);
+            this.lblErrorNombre.Name = "lblErrorNombre";
+            this.lblErrorNombre.Size = new System.Drawing.Size(86, 13);
+            this.lblErrorNombre.TabIndex = 28;
+            this.lblErrorNombre.Text = "Caracter invalido";
+            this.lblErrorNombre.Visible = false;
             // 
             // Form_M_Unidad_Agregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(358, 301);
+            this.Controls.Add(this.lblErrorNombre);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_agregar);
             this.Controls.Add(this.label6);
@@ -185,5 +200,6 @@
         private System.Windows.Forms.TextBox txt_direccion;
         private System.Windows.Forms.TextBox txt_descripcion;
         private System.Windows.Forms.TextBox txt_nombre;
+        private System.Windows.Forms.Label lblErrorNombre;
     }
 }

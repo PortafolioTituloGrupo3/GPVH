@@ -196,6 +196,22 @@ namespace WS_GPVH.WebServices.Unidades
             if (int.TryParse(valor, out salida)) return salida;
             return null;
         }
+
+        public bool unidadExiste(string nombre)
+        {
+            //Creacion de comando Oracle
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = conString;
+            con.Open();
+            OracleCommand cmd = con.CreateCommand();
+            cmd.CommandText = "Select * from unidad where UPPER(nombre_unidad) = UPPER('" + nombre + "')";
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                return true;
+            }
+            return false;
+        }
     }
 
 }
