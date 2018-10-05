@@ -16,10 +16,10 @@ namespace WF_GPVH.ServiceWSUnidades {
     public interface IWSUnidades {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getListadoUnidades", ReplyAction="http://tempuri.org/IWSUnidades/getListadoUnidadesResponse")]
-        LB_GPVH.ServiceWSUnidades.Unidad[] getListadoUnidades();
+        WS_GPVH.WebServices.Unidades.Unidad[] getListadoUnidades();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getListadoUnidades", ReplyAction="http://tempuri.org/IWSUnidades/getListadoUnidadesResponse")]
-        System.Threading.Tasks.Task<LB_GPVH.ServiceWSUnidades.Unidad[]> getListadoUnidadesAsync();
+        System.Threading.Tasks.Task<WS_GPVH.WebServices.Unidades.Unidad[]> getListadoUnidadesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/unidadExiste", ReplyAction="http://tempuri.org/IWSUnidades/unidadExisteResponse")]
         bool unidadExiste(string nombre);
@@ -28,10 +28,10 @@ namespace WF_GPVH.ServiceWSUnidades {
         System.Threading.Tasks.Task<bool> unidadExisteAsync(string nombre);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getListadoUnidadesNoHijas", ReplyAction="http://tempuri.org/IWSUnidades/getListadoUnidadesNoHijasResponse")]
-        LB_GPVH.ServiceWSUnidades.Unidad[] getListadoUnidadesNoHijas(int id_unidad);
+        WS_GPVH.WebServices.Unidades.Unidad[] getListadoUnidadesNoHijas(int id_unidad);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getListadoUnidadesNoHijas", ReplyAction="http://tempuri.org/IWSUnidades/getListadoUnidadesNoHijasResponse")]
-        System.Threading.Tasks.Task<LB_GPVH.ServiceWSUnidades.Unidad[]> getListadoUnidadesNoHijasAsync(int id_unidad);
+        System.Threading.Tasks.Task<WS_GPVH.WebServices.Unidades.Unidad[]> getListadoUnidadesNoHijasAsync(int id_unidad);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getListadoUnidadesNoHijasClaveValor", ReplyAction="http://tempuri.org/IWSUnidades/getListadoUnidadesNoHijasClaveValorResponse")]
         System.Collections.Generic.Dictionary<int, string> getListadoUnidadesNoHijasClaveValor(int id_unidad);
@@ -46,10 +46,10 @@ namespace WF_GPVH.ServiceWSUnidades {
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> getListadoUnidadesClaveValorAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getUnidadById", ReplyAction="http://tempuri.org/IWSUnidades/getUnidadByIdResponse")]
-        LB_GPVH.ServiceWSUnidades.Unidad getUnidadById(int id_unidad);
+        WS_GPVH.WebServices.Unidades.Unidad getUnidadById(int id_unidad);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getUnidadById", ReplyAction="http://tempuri.org/IWSUnidades/getUnidadByIdResponse")]
-        System.Threading.Tasks.Task<LB_GPVH.ServiceWSUnidades.Unidad> getUnidadByIdAsync(int id_unidad);
+        System.Threading.Tasks.Task<WS_GPVH.WebServices.Unidades.Unidad> getUnidadByIdAsync(int id_unidad);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/addUnidad", ReplyAction="http://tempuri.org/IWSUnidades/addUnidadResponse")]
         int addUnidad(string nombre, string descripcion, string direccion, System.Nullable<int> unidad_padre, System.Nullable<int> jefe);
@@ -70,10 +70,10 @@ namespace WF_GPVH.ServiceWSUnidades {
         System.Threading.Tasks.Task<int> deleteUnidadAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/filterListadoUnidades", ReplyAction="http://tempuri.org/IWSUnidades/filterListadoUnidadesResponse")]
-        System.Collections.Generic.Dictionary<int, string> filterListadoUnidades(LB_GPVH.ServiceWSUnidades.Unidad[] listado);
+        System.Collections.Generic.Dictionary<int, string> filterListadoUnidades(WS_GPVH.WebServices.Unidades.Unidad[] listado);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/filterListadoUnidades", ReplyAction="http://tempuri.org/IWSUnidades/filterListadoUnidadesResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> filterListadoUnidadesAsync(LB_GPVH.ServiceWSUnidades.Unidad[] listado);
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> filterListadoUnidadesAsync(WS_GPVH.WebServices.Unidades.Unidad[] listado);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -103,11 +103,11 @@ namespace WF_GPVH.ServiceWSUnidades {
                 base(binding, remoteAddress) {
         }
         
-        public LB_GPVH.ServiceWSUnidades.Unidad[] getListadoUnidades() {
+        public WS_GPVH.WebServices.Unidades.Unidad[] getListadoUnidades() {
             return base.Channel.getListadoUnidades();
         }
         
-        public System.Threading.Tasks.Task<LB_GPVH.ServiceWSUnidades.Unidad[]> getListadoUnidadesAsync() {
+        public System.Threading.Tasks.Task<WS_GPVH.WebServices.Unidades.Unidad[]> getListadoUnidadesAsync() {
             return base.Channel.getListadoUnidadesAsync();
         }
         
@@ -119,11 +119,11 @@ namespace WF_GPVH.ServiceWSUnidades {
             return base.Channel.unidadExisteAsync(nombre);
         }
         
-        public LB_GPVH.ServiceWSUnidades.Unidad[] getListadoUnidadesNoHijas(int id_unidad) {
+        public WS_GPVH.WebServices.Unidades.Unidad[] getListadoUnidadesNoHijas(int id_unidad) {
             return base.Channel.getListadoUnidadesNoHijas(id_unidad);
         }
         
-        public System.Threading.Tasks.Task<LB_GPVH.ServiceWSUnidades.Unidad[]> getListadoUnidadesNoHijasAsync(int id_unidad) {
+        public System.Threading.Tasks.Task<WS_GPVH.WebServices.Unidades.Unidad[]> getListadoUnidadesNoHijasAsync(int id_unidad) {
             return base.Channel.getListadoUnidadesNoHijasAsync(id_unidad);
         }
         
@@ -143,11 +143,11 @@ namespace WF_GPVH.ServiceWSUnidades {
             return base.Channel.getListadoUnidadesClaveValorAsync();
         }
         
-        public LB_GPVH.ServiceWSUnidades.Unidad getUnidadById(int id_unidad) {
+        public WS_GPVH.WebServices.Unidades.Unidad getUnidadById(int id_unidad) {
             return base.Channel.getUnidadById(id_unidad);
         }
         
-        public System.Threading.Tasks.Task<LB_GPVH.ServiceWSUnidades.Unidad> getUnidadByIdAsync(int id_unidad) {
+        public System.Threading.Tasks.Task<WS_GPVH.WebServices.Unidades.Unidad> getUnidadByIdAsync(int id_unidad) {
             return base.Channel.getUnidadByIdAsync(id_unidad);
         }
         
@@ -175,11 +175,11 @@ namespace WF_GPVH.ServiceWSUnidades {
             return base.Channel.deleteUnidadAsync(id);
         }
         
-        public System.Collections.Generic.Dictionary<int, string> filterListadoUnidades(LB_GPVH.ServiceWSUnidades.Unidad[] listado) {
+        public System.Collections.Generic.Dictionary<int, string> filterListadoUnidades(WS_GPVH.WebServices.Unidades.Unidad[] listado) {
             return base.Channel.filterListadoUnidades(listado);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> filterListadoUnidadesAsync(LB_GPVH.ServiceWSUnidades.Unidad[] listado) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> filterListadoUnidadesAsync(WS_GPVH.WebServices.Unidades.Unidad[] listado) {
             return base.Channel.filterListadoUnidadesAsync(listado);
         }
     }

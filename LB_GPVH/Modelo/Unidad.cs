@@ -23,13 +23,21 @@ namespace LB_GPVH.Modelo
         {
             UnidadPadre = null;
             Jefe = null;
-            funcionarios = new List<Funcionario>();
-
+            funcionarios = null;
+            nombre = "";
+            descripcion = "";
+            direccion = "";
+            habilitado = true;
         }
 
         public List<Funcionario> Funcionarios
         {
-            get { return funcionarios; }
+            get {
+                if(funcionarios == null)
+                {
+                    funcionarios = new List<Funcionario>();
+                }
+                return funcionarios; }
             set { funcionarios = value; }
         }
 
@@ -92,7 +100,7 @@ namespace LB_GPVH.Modelo
 
         public bool ValidarNombre(string pNombre)
         {
-            if(!AuxiliarString.ContieneCaracteresAlfabeto(pNombre))
+            if(!AuxiliarString.ContieneCaracteresAlfabeto(pNombre,true))
             {
                 return false;
             }
@@ -101,15 +109,36 @@ namespace LB_GPVH.Modelo
             return true;
         }
 
+        public bool ValidarDescripcion(string pDescripcion)
+        {
+            if (AuxiliarString.ContieneCaracteresInvalidos(pDescripcion))
+            {
+                return false;
+            }
+
+            descripcion = pDescripcion;
+            return true;
+        }
+
+        public bool ValidarDireccion(string pDireccion)
+        {
+            if (AuxiliarString.ContieneCaracteresInvalidos(pDireccion))
+            {
+                return false;
+            }
+
+            direccion = pDireccion;
+            return true;
+        }
+        
+
 
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
-
-
-
+        
 
 
     }

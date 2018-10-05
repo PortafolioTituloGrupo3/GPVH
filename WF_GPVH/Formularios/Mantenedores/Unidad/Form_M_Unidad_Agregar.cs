@@ -16,7 +16,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
         Form_M_Unidad padreTemp = null;
         GestionadorUnidad gestionador = null;
         LB_GPVH.Modelo.Unidad unidad;
-
+        bool nombreValido, direccionValida, descripcionValida;
 
 
         public Form_M_Unidad_Agregar(Form_M_Unidad formPadre)
@@ -25,10 +25,20 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             padreTemp = formPadre;
             gestionador = new GestionadorUnidad();
             unidad = new LB_GPVH.Modelo.Unidad();
+            nombreValido = true;
+            direccionValida = true;
+            descripcionValida = true;
 
 
+            this.ddl_padre.DisplayMember = "Value";
+            this.ddl_padre.ValueMember = "Key";
+            this.ddl_padre.DataSource = new BindingSource(gestionador.DiccionarioUnidadClaveValor(), null);
 
+            this.ddl_jefe.DisplayMember = "Value";
+            this.ddl_jefe.ValueMember = "Key";
+            this.ddl_jefe.DataSource = new BindingSource(new GestionadorFuncionario().DiccionarioFuncionariosNoJefes(), null);
 
+            /*
             using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
             {
                 Dictionary<int, string> salida = new Dictionary<int, string>();
@@ -47,13 +57,59 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                 this.ddl_jefe.ValueMember = "Key";
                 this.ddl_jefe.DataSource = new BindingSource(salida, null);
             }
-
+            */
         }
 
 
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
+            if(direccionValida&&nombreValido&&descripcionValida)
+            {
+                GestionadorUnidad.ResultadoGestionUnidad resultado = gestionador.AgregarUnidad(unidad);
+                switch(resultado)
+                {
+                    case GestionadorUnidad.ResultadoGestionUnidad.DescripcionVacia:
+                        MessageBox.Show("No se pudo ingresar la unidad: La descripcion esta vacia.");
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.DireccionVacia:
+                        MessageBox.Show("No se pudo ingresar la unidad: La direccion esta vacia.");
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.NombreVacio:
+                        MessageBox.Show("No se pudo ingresar la unidad: El nombre esta vacio.");
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.Invalido:
+                        MessageBox.Show("Ocurrio un error no controlado al ingresar.");
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.Valido:
+                        MessageBox.Show("La unidad se ingreso correctamente.");
+                        break;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No se pudo ingresar la unidad: Existen datos inválidos.");
+            }
+
+
+            /*
+            int? padre;
+            if (unidad.UnidadPadre == null)
+                padre = null;
+            else
+                padre = unidad.UnidadPadre.Id;
+            int? jefe;
+            if (unidad.Jefe == null)
+                jefe = null;
+            else
+                jefe = unidad.Jefe.Run;
+            if(unidad.Nombre == null)
+                MessageBox.Show("nombre is null");
+
+
+            MessageBox.Show(unidad.Nombre+" "+unidad.Descripcion+" "+ unidad.Direccion+" "+padre+" "+jefe);
+            /*
             string nombre = this.txt_nombre.Text;
             string descripcion = this.txt_descripcion.Text;
             string direccion = this.txt_direccion.Text;
@@ -67,6 +123,9 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                 jefe = null;
             else
                 jefe = int.Parse(this.ddl_jefe.SelectedValue.ToString());
+
+
+            /*
             using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
             {
                 int salida = serviceUnidades.addUnidad(nombre, descripcion, direccion, padre, jefe);
@@ -78,6 +137,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                 else
                     MessageBox.Show("ERROR NRO: " + salida);
             }
+            */
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -92,7 +152,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             switch (gestionador.ValidarCaracterNombreUnidad(unidad, txt_nombre.Text))
             {
                 case GestionadorUnidad.ResultadoGestionUnidad.CaracteresNombreInvalido:
-                    lblErrorNombre.Text = "El nombre tiene caracteres invalidos";
+                    lblErrorNombre.Text = "El nombre tiene caracteres inválidos";
                     lblErrorNombre.Visible = true;
                     break;
                 default:
@@ -104,16 +164,73 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
         private void txt_nombre_Leave(object sender, EventArgs e)
         {
             //Realiza validaciones sobre el nombre y ve si es valido
-            switch (gestionador.ValidarCaracterNombreUnidad(unidad, txt_nombre.Text))
+            switch (gestionador.ValidarNombreUnidad(unidad, txt_nombre.Text))
             {
-                case GestionadorUnidad.ResultadoGestionUnidad.CaracteresNombreInvalido:
-                    lblErrorNombre.Text = "El nombre tiene caracteres invalidos";
+                case GestionadorUnidad.ResultadoGestionUnidad.UnidadExiste:
+                    lblErrorNombre.Text = "El nombre de la unidad ya existe";
                     lblErrorNombre.Visible = true;
+                    nombreValido = false;
+                    break;
+                case GestionadorUnidad.ResultadoGestionUnidad.CaracteresNombreInvalido:
+                    lblErrorNombre.Text = "El nombre tiene caracteres inválidos";
+                    lblErrorNombre.Visible = true;
+                    nombreValido = false;
                     break;
                 default:
                     lblErrorNombre.Visible = false;
+                    nombreValido = true;
                     break;
             }
+        }
+
+        private void txt_descripcion_TextChanged(object sender, EventArgs e)
+        {
+            //Realiza validaciones sobre la descripcion y ve si es valido
+            switch (gestionador.ValidarDescripcion(unidad, txt_descripcion.Text))
+            {
+                case GestionadorUnidad.ResultadoGestionUnidad.CaracteresDescripcionInvalido:
+                    lblErrorDescripcion.Text = "La descripción tiene caracteres inválidos";
+                    lblErrorDescripcion.Visible = true;
+                    descripcionValida = false;
+                    break;
+                default:
+                    lblErrorDescripcion.Visible = false;
+                    descripcionValida = true;
+                    break;
+            }
+        }
+
+        private void txt_direccion_TextChanged(object sender, EventArgs e)
+        {
+            //Realiza validaciones sobre la direccion y ve si es valido
+            switch (gestionador.ValidarDireccion(unidad, txt_direccion.Text))
+            {
+                case GestionadorUnidad.ResultadoGestionUnidad.CaracteresDireccionInvalido:
+                    lblErrorDireccion.Text = "La dirección tiene caracteres inválidos";
+                    lblErrorDireccion.Visible = true;
+                    direccionValida = false;
+                    break;
+                default:
+                    lblErrorDireccion.Visible = false;
+                    direccionValida = true;
+                    break;
+            }
+        }
+
+        private void ddl_padre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gestionador.setPadre(unidad, int.Parse(this.ddl_padre.SelectedValue.ToString()), ddl_padre.Text);
+        }
+
+        private void ddl_jefe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gestionador.setJefe(unidad, int.Parse(this.ddl_jefe.SelectedValue.ToString()), ddl_jefe.Text);
+
+        }
+
+        private void Form_M_Unidad_Agregar_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            padreTemp.Dispose();
         }
     }
 }

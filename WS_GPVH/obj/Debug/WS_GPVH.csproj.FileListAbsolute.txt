@@ -41,8 +41,8 @@ C:\Users\drjma\Source\Repos\GPVH\WS_GPVH\bin\Microsoft.AI.ServerTelemetryChannel
 C:\Users\drjma\Source\Repos\GPVH\WS_GPVH\bin\Microsoft.AI.Web.xml
 C:\Users\drjma\Source\Repos\GPVH\WS_GPVH\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\drjma\Source\Repos\GPVH\WS_GPVH\bin\Microsoft.ApplicationInsights.xml
-C:\Users\drjma\Source\Repos\GPVH\WS_GPVH\obj\Debug\WS_GPVH.csprojAssemblyReference.cache
 C:\Users\drjma\Source\Repos\GPVH\WS_GPVH\obj\Debug\WS_GPVH.csproj.CoreCompileInputs.cache
 C:\Users\drjma\Source\Repos\GPVH\WS_GPVH\obj\Debug\WS_GPVH.csproj.CopyComplete
 C:\Users\drjma\Source\Repos\GPVH\WS_GPVH\obj\Debug\WS_GPVH.dll
 C:\Users\drjma\Source\Repos\GPVH\WS_GPVH\obj\Debug\WS_GPVH.pdb
+C:\Users\drjma\Source\Repos\GPVH\WS_GPVH\obj\Debug\WS_GPVH.csprojAssemblyReference.cache

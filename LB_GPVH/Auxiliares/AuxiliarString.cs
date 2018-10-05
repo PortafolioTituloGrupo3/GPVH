@@ -28,7 +28,13 @@ namespace LB_GPVH.Auxiliares
             for (int i = 0; i < cadena.Length; i++)
             {
                 int charACCII = (int)cadena[i];
-                if (charACCII >= 65 && charACCII <= 90) //caracter del 'A' al 'Z', incluyendo al '@'
+
+                if (charACCII >= 48 && charACCII <= 57) //caracter del '1' al '9', incluyendo al '@'
+                {
+                    continue;
+                }
+
+                if (charACCII >= 64 && charACCII <= 90) //caracter del 'A' al 'Z', incluyendo al '@'
                 {
                     continue;
                 }
@@ -73,7 +79,7 @@ namespace LB_GPVH.Auxiliares
 
 
         //Verifica que los caracteres de la cadena pertenescan al alfabeto
-        public static bool ContieneCaracteresAlfabeto(String cadena)
+        public static bool ContieneCaracteresAlfabeto(String cadena, bool espacios)
         {
 
             for (int i = 0; i < cadena.Length; i++)
@@ -99,12 +105,37 @@ namespace LB_GPVH.Auxiliares
                     continue;
                 }
 
+                if (charACCII == 32 && espacios) //caracter [BARRA ESPACIADORA]
+                {
+                    continue;
+                }
+
                 return false;
             }
 
             return true;
 
         }
+
+        //Verifica que los caracteres de la cadena pertenescan al alfabeto
+        public static bool EsNumerico(String cadena, bool espacios)
+        {
+
+            for (int i = 0; i < cadena.Length; i++)
+            {
+                int charACCII = (int)cadena[i];
+                if (charACCII >= 48 && charACCII <= 57) //caracter del '1' al '9', incluyendo al '@'
+                {
+                    continue;
+                }
+
+                return false;
+            }
+
+            return true;
+
+        }
+
 
 
 

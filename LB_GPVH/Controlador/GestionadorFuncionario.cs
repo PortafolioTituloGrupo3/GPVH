@@ -30,5 +30,20 @@ namespace LB_GPVH.Controlador
             }
 
         }
+
+
+
+        public Dictionary<int, string> DiccionarioFuncionariosNoJefes()
+        { 
+            using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
+            {
+                Dictionary<int, string> diccionario = new Dictionary<int, string>();
+                //Cargar datos de funcionarios en ComboBox
+                diccionario = serviceFuncionarios.getListadoFuncionariosNoJefesClaveValor();
+                return diccionario;
+            }
+        }
+
+
     }
 }

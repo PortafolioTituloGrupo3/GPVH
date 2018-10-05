@@ -39,6 +39,7 @@ namespace WS_GPVH.WebServices.Unidades
                 //Se agrega la unidad
                 ListadoUnidades.Add(unidadTemp);
             }
+            con.Close();
             return ListadoUnidades;
         }
         public List<Unidad> getListadoUnidadesNoHijas(int id_unidad)
@@ -67,6 +68,7 @@ namespace WS_GPVH.WebServices.Unidades
                 //Se agrega la unidad
                 ListadoUnidades.Add(unidadTemp);
             }
+            con.Close();
             return ListadoUnidades;
         }
         public Dictionary<int, string> getListadoUnidadesNoHijasClaveValor(int id_unidad) //Obtiene los datos filtrados, entregando solo una clave y el valor
@@ -88,6 +90,7 @@ namespace WS_GPVH.WebServices.Unidades
                 //Se agregan los datos al diccionario
                 ListadoUnidades.Add(reader.GetInt32(0), reader.GetString(1));
             }
+            con.Close();
             return ListadoUnidades;
         }
         public Unidad getUnidadById(int id_unidad)
@@ -111,6 +114,7 @@ namespace WS_GPVH.WebServices.Unidades
                 unidad.Unidad_id_unidad = this.parseNullableInt(reader.GetValue(5).ToString());
                 unidad.Funcionario_run_sin_dv = this.parseNullableInt(reader.GetValue(6).ToString());
             }
+            con.Close();
             return unidad;
         }
         
@@ -134,6 +138,7 @@ namespace WS_GPVH.WebServices.Unidades
             cmd.Parameters.Add("P_RETURN_VALUE", OracleDbType.Int32).Direction = System.Data.ParameterDirection.Output;
             cmd.ExecuteNonQuery();
             int salida = int.Parse(cmd.Parameters["P_RETURN_VALUE"].Value.ToString());
+            con.Close();
             return salida;
         }
         public int modifyUnidad(int id_unidad, string nombre, string descripcion, string direccion,
@@ -160,6 +165,7 @@ namespace WS_GPVH.WebServices.Unidades
             cmd.Parameters.Add("P_RETURN_VALUE", OracleDbType.Int32).Direction = System.Data.ParameterDirection.Output;
             cmd.ExecuteNonQuery();
             int salida = int.Parse(cmd.Parameters["P_RETURN_VALUE"].Value.ToString());
+            con.Close();
             return salida;
         }
         public int deleteUnidad(int id)
@@ -177,6 +183,7 @@ namespace WS_GPVH.WebServices.Unidades
             cmd.Parameters.Add("P_RETURN_VALUE", OracleDbType.Int32).Direction = System.Data.ParameterDirection.Output;
             cmd.ExecuteNonQuery();
             int salida = int.Parse(cmd.Parameters["P_RETURN_VALUE"].Value.ToString());
+            con.Close();
             return salida;
         }
         public Dictionary<int, string> filterListadoUnidades(List<Unidad> listado)
@@ -210,6 +217,7 @@ namespace WS_GPVH.WebServices.Unidades
             {
                 return true;
             }
+            con.Close();
             return false;
         }
     }
