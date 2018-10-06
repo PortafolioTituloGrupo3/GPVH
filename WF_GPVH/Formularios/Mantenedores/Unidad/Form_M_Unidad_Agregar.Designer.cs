@@ -73,6 +73,7 @@
             this.label6.Size = new System.Drawing.Size(27, 13);
             this.label6.TabIndex = 25;
             this.label6.Text = "Jefe";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -82,6 +83,7 @@
             this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 24;
             this.label5.Text = "Unidad padre";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label3
             // 

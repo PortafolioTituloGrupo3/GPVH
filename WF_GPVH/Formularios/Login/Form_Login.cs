@@ -22,6 +22,7 @@ namespace WF_GPVH.Formularios.Login
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
+            /** ESTO GUATEO, DEBE SER UN PROBLEMA DEL GITHUB POR QUE EL WSUSUARIOS NO TIENE LOS METODOS
             using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
             {
                 ServiceWSUsuarios.Usuario wsUsuario = serviceUsuarios.AutenticarUsuario(txbNombre.Text, txbClave.Text);
@@ -59,7 +60,7 @@ namespace WF_GPVH.Formularios.Login
                 }
 
 
-            }
+            }**/
         }
     }
 }

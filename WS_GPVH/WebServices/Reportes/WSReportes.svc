@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WS_GPVH.WebServices.Reportes.WSReportes" CodeBehind="WSReportes.svc.cs" %>
