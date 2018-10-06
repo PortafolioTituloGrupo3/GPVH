@@ -6,8 +6,7 @@ using System.Windows.Forms;
 using WF_GPVH.Formularios.Mantenedores.Unidad;
 using WF_GPVH.Formularios.Mantenedores.Funcionario;
 using WF_GPVH.Formularios.Mantenedores.Usuario;
-using WF_GPVH.Formularios.Reportes;
-
+using WF_GPVH.Formularios.Login;
 
 namespace WF_GPVH
 {
@@ -21,7 +20,7 @@ namespace WF_GPVH
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Reporte_Permisos());
+            Application.Run(new Form_M_Unidad());
         }
     }
 }

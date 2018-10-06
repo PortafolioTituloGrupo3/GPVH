@@ -7,15 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LB_GPVH.Controlador;
+using LB_GPVH.Modelo;
+using LB_GPVH.Auxiliares;
 
 namespace WF_GPVH.Formularios.Mantenedores.Unidad
 {
     public partial class Form_M_Unidad : Form
     {
+        private GestionadorUnidad gestionador;
+        private List<LB_GPVH.Modelo.Unidad> unidades;
+
         public Form_M_Unidad()
         {
             InitializeComponent();
             this.loadUnidades();
+            
+            gestionador = new GestionadorUnidad();
+            unidades = gestionador.ListarUnidades();
+            CargarHeadersGridView(gestionador.ListarNombresParametros());
+            CargarUnidadGridview(this.unidades);
+
+            /*
+            bool prueba = AuxiliarString.ContieneCaracteresInvalidos("asdf");
+            if(prueba)
+                MessageBox.Show("invalido");
+            else
+                MessageBox.Show("valido");
+            */
         }
 
         public void loadUnidades()
@@ -29,16 +48,23 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                 this.dgv_Unidades.AutoGenerateColumns = false;
                 this.dgv_Unidades.AutoSize = true;
                 this.dgv_Unidades.DataSource = listadoUnidades;
-                if (dgv_Unidades.ColumnCount<=0) {
-                    //Se agreagan las columnas de forma personalisada
-                    this.addColumn(0, "Id_unidad", "ID", false, "-1", dgv_Unidades);
-                    this.addColumn(0, "Nombre_unidad", "Nombre", true, "UNIDAD SIN NOMBRE", dgv_Unidades);
-                    this.addColumn(0, "Descripcion_unidad", "Descripcion", true, "SIN DESRIPCION", dgv_Unidades);
-                    this.addColumn(0, "Direccion_unidad", "Direccion", true, "SIN DIRECCION", dgv_Unidades);
-                    this.addColumn(1, "Habilitado", "Habilitado", true, "1", dgv_Unidades);
-                    this.addColumn(0, "Unidad_id_unidad", "Unidad padre", true, "---", dgv_Unidades);
-                    this.addColumn(0, "Funcionario_run_sin_dv", "Jefe unidad", true, "SIN JEFE", dgv_Unidades);
+
+
+
+
+                if (dgv_Unidades.ColumnCount <= 0) {
+                    DataTable espCol = new DataTable();
+                    espCol.Columns.Add("tipoColumna", typeof(int));
+                    espCol.Columns.Add("property", typeof(int));
+                    espCol.Columns.Add("titulo", typeof(int));
+                    espCol.Columns.Add("visible", typeof(int));
+                    espCol.Columns.Add("valorPorDefecto", typeof(int));
+
+
+
+                    
                 }
+                
             }
         }
         //Funcion que agregara columnas con los parametros ingresados
@@ -94,7 +120,9 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                 int id_unidad_actual = int.Parse(this.dgv_Unidades.CurrentRow.Cells[0].Value.ToString());
                 using(ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
                 {
-                    int salida = serviceUnidades.deleteUnidad(id_unidad_actual);
+                    MessageBox.Show("Datos eliminados con exito!"+  this.dgv_Unidades.CurrentRow.Index);
+                    int salida = 0;//serviceUnidades.deleteUnidad(id_unidad_actual);
+
                     if (salida == 0)
                     {
                         MessageBox.Show("Datos eliminados con exito!");
@@ -103,6 +131,25 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                         MessageBox.Show("ERROR NRO: " + salida);
                 }
             }
+        }
+
+        public void CargarUnidadGridview(List<LB_GPVH.Modelo.Unidad> unidades)
+        {
+            this.dgv_Unidades.AutoGenerateColumns = false;
+            this.dgv_Unidades.AutoSize = true;
+            this.dgv_Unidades.DataSource = unidades;
+        }
+
+        public void CargarHeadersGridView(List<String> nombrePropiedades)
+        {
+            //Se agreagan las columnas de forma personalisada
+            this.addColumn(0, nombrePropiedades[0], "ID", false, "-1", dgv_Unidades);
+            this.addColumn(0, nombrePropiedades[1], "Nombre", true, "UNIDAD SIN NOMBRE", dgv_Unidades);
+            this.addColumn(0, nombrePropiedades[2], "Descripcion", true, "SIN DESRIPCION", dgv_Unidades);
+            this.addColumn(0, nombrePropiedades[3], "Direccion", true, "SIN DIRECCION", dgv_Unidades);
+            this.addColumn(1, nombrePropiedades[4], "Habilitado", true, "1", dgv_Unidades);
+            this.addColumn(0, nombrePropiedades[5], "Unidad padre", true, "---", dgv_Unidades);
+            this.addColumn(0, nombrePropiedades[6], "Jefe unidad", true, "SIN JEFE", dgv_Unidades);
         }
     }
 }

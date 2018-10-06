@@ -15,6 +15,8 @@ namespace WS_GPVH.WebServices.Unidades
         [OperationContract]
         List<Unidad> getListadoUnidades();
         [OperationContract]
+        bool unidadExiste(string nombre);
+        [OperationContract]
         List<Unidad> getListadoUnidadesNoHijas(int id_unidad);
         [OperationContract]
         Dictionary<int, string> getListadoUnidadesNoHijasClaveValor(int id_unidad);

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LB_GPVH.Clases;
+using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Menu
 {

@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,12 +43,135 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\Funcionario.cs" />
-    <Compile Include="Clases\Sesion.cs" />
-    <Compile Include="Clases\Unidad.cs" />
-    <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="Auxiliares\AuxiliarString.cs" />
+    <Compile Include="Connected Services\ServiceWSFuncionarios\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceWSUnidades\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ServiceWSUsuarios\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Controlador\GestionadorFuncionario.cs" />
+    <Compile Include="Controlador\GestionadorUnidad.cs" />
+    <Compile Include="Controlador\IVistaMUnidad.cs" />
+    <Compile Include="Modelo\Funcionario.cs" />
+    <Compile Include="Controlador\Sesion.cs" />
+    <Compile Include="Modelo\Unidad.cs" />
+    <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Connected Services\ServiceWSFuncionarios\WSFuncionarios.wsdl" />
+    <None Include="Connected Services\ServiceWSFuncionarios\WSFuncionarios.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceWSFuncionarios\WSFuncionarios1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceWSFuncionarios\WSFuncionarios2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceWSFuncionarios\WSFuncionarios3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceWSUnidades\WSUnidades.wsdl" />
+    <None Include="Connected Services\ServiceWSUnidades\WSUnidades.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceWSUnidades\WSUnidades1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceWSUnidades\WSUnidades2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceWSUnidades\WSUnidades3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceWSUsuarios\WSUsuarios.wsdl" />
+    <None Include="Connected Services\ServiceWSUsuarios\WSUsuarios.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceWSUsuarios\WSUsuarios1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceWSUsuarios\WSUsuarios2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\WS_GPVH.Usuario.datasource" />
+    <None Include="Properties\DataSources\WS_GPVH.WebServices.Funcionarios.Funcionario.datasource" />
+    <None Include="Properties\DataSources\WS_GPVH.WebServices.Unidades.Unidad.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceWSFuncionarios\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceWSUnidades\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceWSUsuarios\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSUnidades\WSUnidades.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSUnidades\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSUnidades\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSUnidades\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WS_GPVH\WS_GPVH.csproj">
+      <Project>{859360f4-a4d4-4471-9190-409edcc42bba}</Project>
+      <Name>WS_GPVH</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ServiceWSUnidades\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSFuncionarios\WSFuncionarios.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSFuncionarios\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSFuncionarios\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSFuncionarios\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSUsuarios\WSUsuarios.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSUsuarios\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSUsuarios\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSUsuarios\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
