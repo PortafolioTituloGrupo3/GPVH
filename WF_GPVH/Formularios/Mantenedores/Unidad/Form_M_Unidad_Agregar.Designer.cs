@@ -121,7 +121,7 @@
             this.ddl_jefe.Name = "ddl_jefe";
             this.ddl_jefe.Size = new System.Drawing.Size(121, 21);
             this.ddl_jefe.TabIndex = 19;
-            this.ddl_jefe.SelectedIndexChanged += new System.EventHandler(this.ddl_jefe_SelectedIndexChanged);
+            this.ddl_jefe.SelectedIndexChanged += new System.EventHandler(this.ddl_padre_SelectedIndexChanged);
             // 
             // ddl_padre
             // 

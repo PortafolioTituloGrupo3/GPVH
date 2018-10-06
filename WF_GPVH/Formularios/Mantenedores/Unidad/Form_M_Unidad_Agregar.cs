@@ -139,23 +139,13 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             }
             */
         }
-
-        private void ddl_padre_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void label6_Click(object sender, EventArgs e)
         {
 
         }
 
         private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ddl_jefe_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

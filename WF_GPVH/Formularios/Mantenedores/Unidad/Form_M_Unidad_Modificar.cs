@@ -19,7 +19,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             InitializeComponent();
             padreTemp = formPadre;
             id_unidad = id;
-            WS_GPVH.WebServices.Unidades.Unidad unidadTemp;
+            ServiceWSUnidades.Unidad unidadTemp;
             using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
             {
                 unidadTemp = serviceUnidades.getUnidadById(id_unidad);

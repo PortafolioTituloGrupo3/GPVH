@@ -9,17 +9,160 @@
 //------------------------------------------------------------------------------
 
 namespace WF_GPVH.ServiceWSUnidades {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Unidad", Namespace="http://schemas.datacontract.org/2004/07/WS_GPVH.WebServices.Unidades")]
+    [System.SerializableAttribute()]
+    public partial class Unidad : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Descripcion_unidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Direccion_unidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> Funcionario_run_sin_dvField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int HabilitadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_unidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Nombre_unidadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> Unidad_id_unidadField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion_unidad {
+            get {
+                return this.Descripcion_unidadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Descripcion_unidadField, value) != true)) {
+                    this.Descripcion_unidadField = value;
+                    this.RaisePropertyChanged("Descripcion_unidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Direccion_unidad {
+            get {
+                return this.Direccion_unidadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Direccion_unidadField, value) != true)) {
+                    this.Direccion_unidadField = value;
+                    this.RaisePropertyChanged("Direccion_unidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Funcionario_run_sin_dv {
+            get {
+                return this.Funcionario_run_sin_dvField;
+            }
+            set {
+                if ((this.Funcionario_run_sin_dvField.Equals(value) != true)) {
+                    this.Funcionario_run_sin_dvField = value;
+                    this.RaisePropertyChanged("Funcionario_run_sin_dv");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Habilitado {
+            get {
+                return this.HabilitadoField;
+            }
+            set {
+                if ((this.HabilitadoField.Equals(value) != true)) {
+                    this.HabilitadoField = value;
+                    this.RaisePropertyChanged("Habilitado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_unidad {
+            get {
+                return this.Id_unidadField;
+            }
+            set {
+                if ((this.Id_unidadField.Equals(value) != true)) {
+                    this.Id_unidadField = value;
+                    this.RaisePropertyChanged("Id_unidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre_unidad {
+            get {
+                return this.Nombre_unidadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Nombre_unidadField, value) != true)) {
+                    this.Nombre_unidadField = value;
+                    this.RaisePropertyChanged("Nombre_unidad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Unidad_id_unidad {
+            get {
+                return this.Unidad_id_unidadField;
+            }
+            set {
+                if ((this.Unidad_id_unidadField.Equals(value) != true)) {
+                    this.Unidad_id_unidadField = value;
+                    this.RaisePropertyChanged("Unidad_id_unidad");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceWSUnidades.IWSUnidades")]
     public interface IWSUnidades {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getListadoUnidades", ReplyAction="http://tempuri.org/IWSUnidades/getListadoUnidadesResponse")]
-        WS_GPVH.WebServices.Unidades.Unidad[] getListadoUnidades();
+        WF_GPVH.ServiceWSUnidades.Unidad[] getListadoUnidades();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getListadoUnidades", ReplyAction="http://tempuri.org/IWSUnidades/getListadoUnidadesResponse")]
-        System.Threading.Tasks.Task<WS_GPVH.WebServices.Unidades.Unidad[]> getListadoUnidadesAsync();
+        System.Threading.Tasks.Task<WF_GPVH.ServiceWSUnidades.Unidad[]> getListadoUnidadesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/unidadExiste", ReplyAction="http://tempuri.org/IWSUnidades/unidadExisteResponse")]
         bool unidadExiste(string nombre);
@@ -28,10 +171,10 @@ namespace WF_GPVH.ServiceWSUnidades {
         System.Threading.Tasks.Task<bool> unidadExisteAsync(string nombre);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getListadoUnidadesNoHijas", ReplyAction="http://tempuri.org/IWSUnidades/getListadoUnidadesNoHijasResponse")]
-        WS_GPVH.WebServices.Unidades.Unidad[] getListadoUnidadesNoHijas(int id_unidad);
+        WF_GPVH.ServiceWSUnidades.Unidad[] getListadoUnidadesNoHijas(int id_unidad);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getListadoUnidadesNoHijas", ReplyAction="http://tempuri.org/IWSUnidades/getListadoUnidadesNoHijasResponse")]
-        System.Threading.Tasks.Task<WS_GPVH.WebServices.Unidades.Unidad[]> getListadoUnidadesNoHijasAsync(int id_unidad);
+        System.Threading.Tasks.Task<WF_GPVH.ServiceWSUnidades.Unidad[]> getListadoUnidadesNoHijasAsync(int id_unidad);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getListadoUnidadesNoHijasClaveValor", ReplyAction="http://tempuri.org/IWSUnidades/getListadoUnidadesNoHijasClaveValorResponse")]
         System.Collections.Generic.Dictionary<int, string> getListadoUnidadesNoHijasClaveValor(int id_unidad);
@@ -46,10 +189,10 @@ namespace WF_GPVH.ServiceWSUnidades {
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> getListadoUnidadesClaveValorAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getUnidadById", ReplyAction="http://tempuri.org/IWSUnidades/getUnidadByIdResponse")]
-        WS_GPVH.WebServices.Unidades.Unidad getUnidadById(int id_unidad);
+        WF_GPVH.ServiceWSUnidades.Unidad getUnidadById(int id_unidad);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/getUnidadById", ReplyAction="http://tempuri.org/IWSUnidades/getUnidadByIdResponse")]
-        System.Threading.Tasks.Task<WS_GPVH.WebServices.Unidades.Unidad> getUnidadByIdAsync(int id_unidad);
+        System.Threading.Tasks.Task<WF_GPVH.ServiceWSUnidades.Unidad> getUnidadByIdAsync(int id_unidad);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/addUnidad", ReplyAction="http://tempuri.org/IWSUnidades/addUnidadResponse")]
         int addUnidad(string nombre, string descripcion, string direccion, System.Nullable<int> unidad_padre, System.Nullable<int> jefe);
@@ -70,10 +213,10 @@ namespace WF_GPVH.ServiceWSUnidades {
         System.Threading.Tasks.Task<int> deleteUnidadAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/filterListadoUnidades", ReplyAction="http://tempuri.org/IWSUnidades/filterListadoUnidadesResponse")]
-        System.Collections.Generic.Dictionary<int, string> filterListadoUnidades(WS_GPVH.WebServices.Unidades.Unidad[] listado);
+        System.Collections.Generic.Dictionary<int, string> filterListadoUnidades(WF_GPVH.ServiceWSUnidades.Unidad[] listado);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSUnidades/filterListadoUnidades", ReplyAction="http://tempuri.org/IWSUnidades/filterListadoUnidadesResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> filterListadoUnidadesAsync(WS_GPVH.WebServices.Unidades.Unidad[] listado);
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> filterListadoUnidadesAsync(WF_GPVH.ServiceWSUnidades.Unidad[] listado);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -103,11 +246,11 @@ namespace WF_GPVH.ServiceWSUnidades {
                 base(binding, remoteAddress) {
         }
         
-        public WS_GPVH.WebServices.Unidades.Unidad[] getListadoUnidades() {
+        public WF_GPVH.ServiceWSUnidades.Unidad[] getListadoUnidades() {
             return base.Channel.getListadoUnidades();
         }
         
-        public System.Threading.Tasks.Task<WS_GPVH.WebServices.Unidades.Unidad[]> getListadoUnidadesAsync() {
+        public System.Threading.Tasks.Task<WF_GPVH.ServiceWSUnidades.Unidad[]> getListadoUnidadesAsync() {
             return base.Channel.getListadoUnidadesAsync();
         }
         
@@ -119,11 +262,11 @@ namespace WF_GPVH.ServiceWSUnidades {
             return base.Channel.unidadExisteAsync(nombre);
         }
         
-        public WS_GPVH.WebServices.Unidades.Unidad[] getListadoUnidadesNoHijas(int id_unidad) {
+        public WF_GPVH.ServiceWSUnidades.Unidad[] getListadoUnidadesNoHijas(int id_unidad) {
             return base.Channel.getListadoUnidadesNoHijas(id_unidad);
         }
         
-        public System.Threading.Tasks.Task<WS_GPVH.WebServices.Unidades.Unidad[]> getListadoUnidadesNoHijasAsync(int id_unidad) {
+        public System.Threading.Tasks.Task<WF_GPVH.ServiceWSUnidades.Unidad[]> getListadoUnidadesNoHijasAsync(int id_unidad) {
             return base.Channel.getListadoUnidadesNoHijasAsync(id_unidad);
         }
         
@@ -143,11 +286,11 @@ namespace WF_GPVH.ServiceWSUnidades {
             return base.Channel.getListadoUnidadesClaveValorAsync();
         }
         
-        public WS_GPVH.WebServices.Unidades.Unidad getUnidadById(int id_unidad) {
+        public WF_GPVH.ServiceWSUnidades.Unidad getUnidadById(int id_unidad) {
             return base.Channel.getUnidadById(id_unidad);
         }
         
-        public System.Threading.Tasks.Task<WS_GPVH.WebServices.Unidades.Unidad> getUnidadByIdAsync(int id_unidad) {
+        public System.Threading.Tasks.Task<WF_GPVH.ServiceWSUnidades.Unidad> getUnidadByIdAsync(int id_unidad) {
             return base.Channel.getUnidadByIdAsync(id_unidad);
         }
         
@@ -175,11 +318,11 @@ namespace WF_GPVH.ServiceWSUnidades {
             return base.Channel.deleteUnidadAsync(id);
         }
         
-        public System.Collections.Generic.Dictionary<int, string> filterListadoUnidades(WS_GPVH.WebServices.Unidades.Unidad[] listado) {
+        public System.Collections.Generic.Dictionary<int, string> filterListadoUnidades(WF_GPVH.ServiceWSUnidades.Unidad[] listado) {
             return base.Channel.filterListadoUnidades(listado);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> filterListadoUnidadesAsync(WS_GPVH.WebServices.Unidades.Unidad[] listado) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<int, string>> filterListadoUnidadesAsync(WF_GPVH.ServiceWSUnidades.Unidad[] listado) {
             return base.Channel.filterListadoUnidadesAsync(listado);
         }
     }
