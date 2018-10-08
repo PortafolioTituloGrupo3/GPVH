@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LB_GPVH.Auxiliares;
 
 namespace LB_GPVH.Modelo
 {
@@ -17,12 +18,42 @@ namespace LB_GPVH.Modelo
         private string correo;
         private string direccion;
         private string tipo;
+        private bool habilitado;
+        private Unidad unidad;
+
+
 
         public Funcionario()
         {
-
+            run = -1;
+            dv = -1;
+            nombre = "";
+            apellidoPaterno = "";
+            apellidoMaterno = "";
+            correo = "";
+            direccion = "";
+            tipo = "";
+            habilitado = true;
+            unidad = null;
         }
 
+
+        public string NombreUnidad
+        {
+            get { return unidad.Nombre; }
+        }
+
+        public Unidad Unidad
+        {
+            get { return unidad; }
+            set { unidad = value; }
+        }
+
+        public bool Habilitado
+        {
+            get { return habilitado; }
+            set { habilitado = value; }
+        }
 
         public string Tipo
         {
@@ -87,6 +118,40 @@ namespace LB_GPVH.Modelo
         }
 
 
+
+        public bool Modulo11(int run, int dv)
+        {
+            int resto = run, suma = 0, multiplicador = 2;
+            while(true)
+            {
+                suma += multiplicador * (resto % 10);
+                resto /= 10;
+                if(resto == 0)
+                {
+                    break;
+                }
+                if(multiplicador == 7)
+                {
+                    multiplicador = 2;
+                }
+                else
+                {
+                    multiplicador++;
+                }
+            }
+            if(dv == (11-(suma%11)))
+            {
+                this.run = run;
+                this.dv = dv;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
         public string NombreCompleto
         {
             get
@@ -94,6 +159,73 @@ namespace LB_GPVH.Modelo
                 return nombre + " " + apellidoPaterno + " " + apellidoMaterno;
             }
         }
+
+        public bool ValidarDireccion(string pDireccion)
+        {
+            if (AuxiliarString.ContieneCaracteresInvalidos(pDireccion))
+            {
+                return false;
+            }
+
+            direccion = pDireccion;
+            return true;
+        }
+
+        public bool ValidarNombre(string pNombre)
+        {
+            if (!AuxiliarString.ContieneCaracteresAlfabeto(pNombre,false))
+            {
+                return false;
+            }
+
+            nombre = pNombre;
+            return true;
+        }
+
+        public bool ValidarApellidoPaterno(string pApellidoPaterno)
+        {
+            if (!AuxiliarString.ContieneCaracteresAlfabeto(pApellidoPaterno, false))
+            {
+                return false;
+            }
+
+            this.apellidoPaterno = pApellidoPaterno;
+            return true;
+        }
+
+        public bool ValidarApellidoMaterno(string pApellidoMaterno)
+        {
+            if (!AuxiliarString.ContieneCaracteresAlfabeto(pApellidoMaterno, false))
+            {
+                return false;
+            }
+
+            this.apellidoMaterno = pApellidoMaterno;
+            return true;
+        }
+
+        public bool ValidarCorreo(string pCorreo)
+        {
+            if (AuxiliarString.ContieneCaracteresInvalidos(pCorreo))
+            {
+                return false;
+            }
+
+            this.correo = pCorreo;
+            return true;
+        }
+
+        public bool ValidaFechaNacimiento(DateTime pFechaNacimiento)
+        {
+
+            if((System.DateTime.Today - pFechaNacimiento).Days < 365.25 * 18)
+            {
+                return false;
+            }
+            this.fechaNacimiento = pFechaNacimiento;
+            return true;
+        }
+
 
     }
 }

@@ -34,14 +34,17 @@
             this.chk_habilitado = new System.Windows.Forms.CheckBox();
             this.ddl_padre = new System.Windows.Forms.ComboBox();
             this.ddl_jefe = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.lblDireccion = new System.Windows.Forms.Label();
+            this.lblHabilitado = new System.Windows.Forms.Label();
+            this.lblUnidadPadre = new System.Windows.Forms.Label();
+            this.lblJefe = new System.Windows.Forms.Label();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
+            this.lblErrorNombre = new System.Windows.Forms.Label();
+            this.lblErrorDescripcion = new System.Windows.Forms.Label();
+            this.lblErrorDireccion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt_nombre
@@ -51,6 +54,7 @@
             this.txt_nombre.Size = new System.Drawing.Size(121, 20);
             this.txt_nombre.TabIndex = 0;
             this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
+            this.txt_nombre.Leave += new System.EventHandler(this.txt_nombre_Leave);
             // 
             // txt_descripcion
             // 
@@ -81,6 +85,7 @@
             // 
             // ddl_padre
             // 
+            this.ddl_padre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddl_padre.FormattingEnabled = true;
             this.ddl_padre.Location = new System.Drawing.Point(85, 164);
             this.ddl_padre.Name = "ddl_padre";
@@ -90,8 +95,8 @@
             // 
             // ddl_jefe
             // 
-            this.ddl_jefe.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ddl_jefe.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.ddl_jefe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddl_jefe.FormattingEnabled = true;
             this.ddl_jefe.Location = new System.Drawing.Point(85, 192);
             this.ddl_jefe.Name = "ddl_jefe";
@@ -99,65 +104,59 @@
             this.ddl_jefe.TabIndex = 5;
             this.ddl_jefe.SelectedIndexChanged += new System.EventHandler(this.ddl_jefe_SelectedIndexChanged);
             // 
-            // label1
+            // lblNombre
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 41);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Nombre";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(13, 41);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.TabIndex = 6;
+            this.lblNombre.Text = "Nombre";
             // 
-            // label2
+            // lblDescripcion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Descripcion";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Location = new System.Drawing.Point(13, 67);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
+            this.lblDescripcion.TabIndex = 7;
+            this.lblDescripcion.Text = "Descripcion";
             // 
-            // label3
+            // lblDireccion
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 116);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Direccion";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.lblDireccion.AutoSize = true;
+            this.lblDireccion.Location = new System.Drawing.Point(13, 116);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(52, 13);
+            this.lblDireccion.TabIndex = 8;
+            this.lblDireccion.Text = "Direccion";
             // 
-            // label4
+            // lblHabilitado
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 141);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Habilitado";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.lblHabilitado.AutoSize = true;
+            this.lblHabilitado.Location = new System.Drawing.Point(13, 141);
+            this.lblHabilitado.Name = "lblHabilitado";
+            this.lblHabilitado.Size = new System.Drawing.Size(54, 13);
+            this.lblHabilitado.TabIndex = 9;
+            this.lblHabilitado.Text = "Habilitado";
             // 
-            // label5
+            // lblUnidadPadre
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 167);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Unidad padre";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.lblUnidadPadre.AutoSize = true;
+            this.lblUnidadPadre.Location = new System.Drawing.Point(13, 167);
+            this.lblUnidadPadre.Name = "lblUnidadPadre";
+            this.lblUnidadPadre.Size = new System.Drawing.Size(71, 13);
+            this.lblUnidadPadre.TabIndex = 10;
+            this.lblUnidadPadre.Text = "Unidad padre";
             // 
-            // label6
+            // lblJefe
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 195);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(27, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Jefe";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.lblJefe.AutoSize = true;
+            this.lblJefe.Location = new System.Drawing.Point(13, 195);
+            this.lblJefe.Name = "lblJefe";
+            this.lblJefe.Size = new System.Drawing.Size(27, 13);
+            this.lblJefe.TabIndex = 11;
+            this.lblJefe.Text = "Jefe";
             // 
             // btn_modificar
             // 
@@ -179,19 +178,55 @@
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
+            // lblErrorNombre
+            // 
+            this.lblErrorNombre.AutoSize = true;
+            this.lblErrorNombre.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorNombre.Location = new System.Drawing.Point(213, 38);
+            this.lblErrorNombre.Name = "lblErrorNombre";
+            this.lblErrorNombre.Size = new System.Drawing.Size(87, 13);
+            this.lblErrorNombre.TabIndex = 14;
+            this.lblErrorNombre.Text = "Caracter Invalido";
+            this.lblErrorNombre.Visible = false;
+            // 
+            // lblErrorDescripcion
+            // 
+            this.lblErrorDescripcion.AutoSize = true;
+            this.lblErrorDescripcion.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorDescripcion.Location = new System.Drawing.Point(212, 70);
+            this.lblErrorDescripcion.Name = "lblErrorDescripcion";
+            this.lblErrorDescripcion.Size = new System.Drawing.Size(87, 13);
+            this.lblErrorDescripcion.TabIndex = 15;
+            this.lblErrorDescripcion.Text = "Caracter Invalido";
+            this.lblErrorDescripcion.Visible = false;
+            // 
+            // lblErrorDireccion
+            // 
+            this.lblErrorDireccion.AutoSize = true;
+            this.lblErrorDireccion.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorDireccion.Location = new System.Drawing.Point(213, 116);
+            this.lblErrorDireccion.Name = "lblErrorDireccion";
+            this.lblErrorDireccion.Size = new System.Drawing.Size(87, 13);
+            this.lblErrorDireccion.TabIndex = 16;
+            this.lblErrorDireccion.Text = "Caracter Invalido";
+            this.lblErrorDireccion.Visible = false;
+            // 
             // Form_M_Unidad_Modificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 267);
+            this.ClientSize = new System.Drawing.Size(573, 267);
+            this.Controls.Add(this.lblErrorDireccion);
+            this.Controls.Add(this.lblErrorDescripcion);
+            this.Controls.Add(this.lblErrorNombre);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_modificar);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblJefe);
+            this.Controls.Add(this.lblUnidadPadre);
+            this.Controls.Add(this.lblHabilitado);
+            this.Controls.Add(this.lblDireccion);
+            this.Controls.Add(this.lblDescripcion);
+            this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.ddl_jefe);
             this.Controls.Add(this.ddl_padre);
             this.Controls.Add(this.chk_habilitado);
@@ -200,6 +235,7 @@
             this.Controls.Add(this.txt_nombre);
             this.Name = "Form_M_Unidad_Modificar";
             this.Text = "Form_M_Unidad_Modificar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_M_Unidad_Modificar_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,13 +249,16 @@
         private System.Windows.Forms.CheckBox chk_habilitado;
         private System.Windows.Forms.ComboBox ddl_padre;
         private System.Windows.Forms.ComboBox ddl_jefe;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.Label lblDireccion;
+        private System.Windows.Forms.Label lblHabilitado;
+        private System.Windows.Forms.Label lblUnidadPadre;
+        private System.Windows.Forms.Label lblJefe;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.Label lblErrorNombre;
+        private System.Windows.Forms.Label lblErrorDescripcion;
+        private System.Windows.Forms.Label lblErrorDireccion;
     }
 }

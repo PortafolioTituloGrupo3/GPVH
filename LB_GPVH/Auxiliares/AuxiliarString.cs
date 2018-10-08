@@ -29,7 +29,7 @@ namespace LB_GPVH.Auxiliares
             {
                 int charACCII = (int)cadena[i];
 
-                if (charACCII >= 48 && charACCII <= 57) //caracter del '1' al '9', incluyendo al '@'
+                if (charACCII >= 48 && charACCII <= 57) //caracter del '1' al '9'
                 {
                     continue;
                 }
@@ -55,6 +55,11 @@ namespace LB_GPVH.Auxiliares
                 }
 
                 if (charACCII == 46) //caracter '.'
+                {
+                    continue;
+                }
+
+                if (charACCII == 44) //caracter ','
                 {
                     continue;
                 }
@@ -117,14 +122,14 @@ namespace LB_GPVH.Auxiliares
 
         }
 
-        //Verifica que los caracteres de la cadena pertenescan al alfabeto
+        //Verifica que los caracteres de la cadena pertenescan a numeros naturales (incluyendo al 0)
         public static bool EsNumerico(String cadena, bool espacios)
         {
 
             for (int i = 0; i < cadena.Length; i++)
             {
                 int charACCII = (int)cadena[i];
-                if (charACCII >= 48 && charACCII <= 57) //caracter del '1' al '9', incluyendo al '@'
+                if (charACCII >= 48 && charACCII <= 57) //caracter del '0' al '9'
                 {
                     continue;
                 }
@@ -134,6 +139,15 @@ namespace LB_GPVH.Auxiliares
 
             return true;
 
+        }
+
+        //Verifica si un caracter es numerico
+        public static bool EsNumerico(char caracter)
+        {
+            if (caracter >= 48 && caracter <= 57) //caracter del '0' al '9'
+                return true;
+            else
+                return false;
         }
 
 

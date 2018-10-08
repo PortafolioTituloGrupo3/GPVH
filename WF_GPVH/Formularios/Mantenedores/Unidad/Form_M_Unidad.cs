@@ -21,10 +21,8 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
         public Form_M_Unidad()
         {
             InitializeComponent();
-            this.loadUnidades();
-            
             gestionador = new GestionadorUnidad();
-            unidades = gestionador.ListarUnidades();
+            this.loadUnidades();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             CargarUnidadGridview(this.unidades);
 
@@ -39,6 +37,10 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
 
         public void loadUnidades()
         {
+            unidades = gestionador.ListarUnidades();
+            CargarUnidadGridview(this.unidades);
+
+            /*
             this.dgv_Unidades.DataSource = null;
             //Diccionario que contendra el <codigoProducto, nombreProducto>
             using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
@@ -49,24 +51,18 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                 this.dgv_Unidades.AutoSize = true;
                 this.dgv_Unidades.DataSource = listadoUnidades;
 
-
-
-
                 if (dgv_Unidades.ColumnCount <= 0) {
                     DataTable espCol = new DataTable();
                     espCol.Columns.Add("tipoColumna", typeof(int));
                     espCol.Columns.Add("property", typeof(int));
                     espCol.Columns.Add("titulo", typeof(int));
                     espCol.Columns.Add("visible", typeof(int));
-                    espCol.Columns.Add("valorPorDefecto", typeof(int));
-
-
-
-                    
+                    espCol.Columns.Add("valorPorDefecto", typeof(int));   
                 }
-                
             }
+            */
         }
+
         //Funcion que agregara columnas con los parametros ingresados
         private void addColumn(int tipoColumna, string property, string titulo, bool visible,
                                             string valorPorDefecto, DataGridView dgv)
@@ -93,42 +89,42 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             column.DefaultCellStyle.NullValue = valorPorDefecto;
             dgv.Columns.Add(column);
         }
+
         private void btn_editar_Click(object sender, EventArgs e)
         {
             if (this.dgv_Unidades.CurrentRow == null)
                 MessageBox.Show("Primero debes seleccionar una fila!");
             else
             {
-                int id_unidad_actual = int.Parse(this.dgv_Unidades.CurrentRow.Cells[0].Value.ToString());
+                int id_unidad_actual =  int.Parse(this.dgv_Unidades.CurrentRow.Cells[0].Value.ToString());
                 Form_M_Unidad_Modificar popUpEditar = new Form_M_Unidad_Modificar(this, id_unidad_actual);
                 popUpEditar.Show();
                 this.Enabled = false;
             }
         }
+
         private void btn_agregar_Click(object sender, EventArgs e)
         {
             Form_M_Unidad_Agregar popUpAgregar = new Form_M_Unidad_Agregar(this);
             popUpAgregar.Show();
             this.Enabled = false;
         }
+
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
             if (this.dgv_Unidades.CurrentRow == null)
                 MessageBox.Show("Primero debes seleccionar una fila!");
             else
             {
-                int id_unidad_actual = int.Parse(this.dgv_Unidades.CurrentRow.Cells[0].Value.ToString());
-                using(ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
+                switch (gestionador.EliminarUnidad(unidades[this.dgv_Unidades.CurrentRow.Index].Id)) // Se entrega el id de la unidad seleccionada al gestionador para que este proceda a eliminar tal unidad.
                 {
-                    MessageBox.Show("Datos eliminados con exito!"+  this.dgv_Unidades.CurrentRow.Index);
-                    int salida = 0;//serviceUnidades.deleteUnidad(id_unidad_actual);
-
-                    if (salida == 0)
-                    {
+                    case GestionadorUnidad.ResultadoGestionUnidad.Valido:
                         MessageBox.Show("Datos eliminados con exito!");
-                    }
-                    else
-                        MessageBox.Show("ERROR NRO: " + salida);
+                        loadUnidades();
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.Invalido:
+                        MessageBox.Show("Ocurrio un error no controlado durante la eliminacion.");
+                        break;
                 }
             }
         }

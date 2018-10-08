@@ -51,6 +51,13 @@
             this.txt_direccion = new System.Windows.Forms.TextBox();
             this.txt_nombre = new System.Windows.Forms.TextBox();
             this.txt_dv = new System.Windows.Forms.TextBox();
+            this.lblErrorRun = new System.Windows.Forms.Label();
+            this.lblErrorNombre = new System.Windows.Forms.Label();
+            this.lblErrorApellidoPaterno = new System.Windows.Forms.Label();
+            this.lblErrorApellidoMaterno = new System.Windows.Forms.Label();
+            this.lblErrorCorreo = new System.Windows.Forms.Label();
+            this.lblErrorDireccion = new System.Windows.Forms.Label();
+            this.lblErrorFechaNacimiento = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cld_nacimiento
@@ -59,6 +66,8 @@
             this.cld_nacimiento.Name = "cld_nacimiento";
             this.cld_nacimiento.Size = new System.Drawing.Size(200, 20);
             this.cld_nacimiento.TabIndex = 59;
+            this.cld_nacimiento.Value = new System.DateTime(1944, 6, 6, 23, 56, 0, 0);
+            this.cld_nacimiento.ValueChanged += new System.EventHandler(this.cld_nacimiento_ValueChanged);
             // 
             // label9
             // 
@@ -75,6 +84,7 @@
             this.txt_correo.Name = "txt_correo";
             this.txt_correo.Size = new System.Drawing.Size(121, 20);
             this.txt_correo.TabIndex = 57;
+            this.txt_correo.TextChanged += new System.EventHandler(this.txt_correo_TextChanged);
             // 
             // label8
             // 
@@ -100,6 +110,7 @@
             this.txt_ap_mat.Name = "txt_ap_mat";
             this.txt_ap_mat.Size = new System.Drawing.Size(121, 20);
             this.txt_ap_mat.TabIndex = 54;
+            this.txt_ap_mat.TextChanged += new System.EventHandler(this.txt_ap_mat_TextChanged);
             // 
             // txt_ap_pat
             // 
@@ -107,6 +118,7 @@
             this.txt_ap_pat.Name = "txt_ap_pat";
             this.txt_ap_pat.Size = new System.Drawing.Size(121, 20);
             this.txt_ap_pat.TabIndex = 53;
+            this.txt_ap_pat.TextChanged += new System.EventHandler(this.txt_ap_pat_TextChanged);
             // 
             // lbl_run
             // 
@@ -120,9 +132,13 @@
             // txt_run
             // 
             this.txt_run.Location = new System.Drawing.Point(120, 17);
+            this.txt_run.MaxLength = 8;
             this.txt_run.Name = "txt_run";
             this.txt_run.Size = new System.Drawing.Size(93, 20);
             this.txt_run.TabIndex = 51;
+            this.txt_run.TextChanged += new System.EventHandler(this.txt_run_TextChanged);
+            this.txt_run.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_run_KeyPress);
+            this.txt_run.Leave += new System.EventHandler(this.txt_run_Leave);
             // 
             // btn_cancelar
             // 
@@ -206,6 +222,7 @@
             this.ddl_tipo.Name = "ddl_tipo";
             this.ddl_tipo.Size = new System.Drawing.Size(121, 21);
             this.ddl_tipo.TabIndex = 42;
+            this.ddl_tipo.SelectedIndexChanged += new System.EventHandler(this.ddl_tipo_SelectedIndexChanged);
             // 
             // ddl_unidad
             // 
@@ -215,6 +232,7 @@
             this.ddl_unidad.Name = "ddl_unidad";
             this.ddl_unidad.Size = new System.Drawing.Size(121, 21);
             this.ddl_unidad.TabIndex = 41;
+            this.ddl_unidad.SelectedIndexChanged += new System.EventHandler(this.ddl_unidad_SelectedIndexChanged);
             // 
             // chk_habilitado
             // 
@@ -231,6 +249,7 @@
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.Size = new System.Drawing.Size(121, 20);
             this.txt_direccion.TabIndex = 39;
+            this.txt_direccion.TextChanged += new System.EventHandler(this.txt_direccion_TextChanged);
             // 
             // txt_nombre
             // 
@@ -238,19 +257,108 @@
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(121, 20);
             this.txt_nombre.TabIndex = 38;
+            this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
             // 
             // txt_dv
             // 
             this.txt_dv.Location = new System.Drawing.Point(219, 17);
+            this.txt_dv.MaxLength = 1;
             this.txt_dv.Name = "txt_dv";
             this.txt_dv.Size = new System.Drawing.Size(22, 20);
             this.txt_dv.TabIndex = 60;
+            this.txt_dv.TextChanged += new System.EventHandler(this.txt_dv_TextChanged);
+            this.txt_dv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_dv_KeyPress);
+            this.txt_dv.Leave += new System.EventHandler(this.txt_dv_Leave);
+            // 
+            // lblErrorRun
+            // 
+            this.lblErrorRun.AutoSize = true;
+            this.lblErrorRun.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorRun.Location = new System.Drawing.Point(248, 20);
+            this.lblErrorRun.Name = "lblErrorRun";
+            this.lblErrorRun.Size = new System.Drawing.Size(71, 13);
+            this.lblErrorRun.TabIndex = 61;
+            this.lblErrorRun.Text = "RUN Invalido";
+            this.lblErrorRun.Visible = false;
+            // 
+            // lblErrorNombre
+            // 
+            this.lblErrorNombre.AutoSize = true;
+            this.lblErrorNombre.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorNombre.Location = new System.Drawing.Point(249, 49);
+            this.lblErrorNombre.Name = "lblErrorNombre";
+            this.lblErrorNombre.Size = new System.Drawing.Size(84, 13);
+            this.lblErrorNombre.TabIndex = 62;
+            this.lblErrorNombre.Text = "Nombre Invalido";
+            this.lblErrorNombre.Visible = false;
+            // 
+            // lblErrorApellidoPaterno
+            // 
+            this.lblErrorApellidoPaterno.AutoSize = true;
+            this.lblErrorApellidoPaterno.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorApellidoPaterno.Location = new System.Drawing.Point(249, 75);
+            this.lblErrorApellidoPaterno.Name = "lblErrorApellidoPaterno";
+            this.lblErrorApellidoPaterno.Size = new System.Drawing.Size(124, 13);
+            this.lblErrorApellidoPaterno.TabIndex = 63;
+            this.lblErrorApellidoPaterno.Text = "Apellido Paterno Invalido";
+            this.lblErrorApellidoPaterno.Visible = false;
+            // 
+            // lblErrorApellidoMaterno
+            // 
+            this.lblErrorApellidoMaterno.AutoSize = true;
+            this.lblErrorApellidoMaterno.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorApellidoMaterno.Location = new System.Drawing.Point(249, 101);
+            this.lblErrorApellidoMaterno.Name = "lblErrorApellidoMaterno";
+            this.lblErrorApellidoMaterno.Size = new System.Drawing.Size(126, 13);
+            this.lblErrorApellidoMaterno.TabIndex = 64;
+            this.lblErrorApellidoMaterno.Text = "Apellido Materno Invalido";
+            this.lblErrorApellidoMaterno.Visible = false;
+            // 
+            // lblErrorCorreo
+            // 
+            this.lblErrorCorreo.AutoSize = true;
+            this.lblErrorCorreo.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCorreo.Location = new System.Drawing.Point(249, 149);
+            this.lblErrorCorreo.Name = "lblErrorCorreo";
+            this.lblErrorCorreo.Size = new System.Drawing.Size(78, 13);
+            this.lblErrorCorreo.TabIndex = 65;
+            this.lblErrorCorreo.Text = "Correo Invalido";
+            this.lblErrorCorreo.Visible = false;
+            // 
+            // lblErrorDireccion
+            // 
+            this.lblErrorDireccion.AutoSize = true;
+            this.lblErrorDireccion.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorDireccion.Location = new System.Drawing.Point(249, 175);
+            this.lblErrorDireccion.Name = "lblErrorDireccion";
+            this.lblErrorDireccion.Size = new System.Drawing.Size(92, 13);
+            this.lblErrorDireccion.TabIndex = 66;
+            this.lblErrorDireccion.Text = "Direccion Invalida";
+            this.lblErrorDireccion.Visible = false;
+            // 
+            // lblErrorFechaNacimiento
+            // 
+            this.lblErrorFechaNacimiento.AutoSize = true;
+            this.lblErrorFechaNacimiento.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorFechaNacimiento.Location = new System.Drawing.Point(326, 127);
+            this.lblErrorFechaNacimiento.Name = "lblErrorFechaNacimiento";
+            this.lblErrorFechaNacimiento.Size = new System.Drawing.Size(133, 13);
+            this.lblErrorFechaNacimiento.TabIndex = 67;
+            this.lblErrorFechaNacimiento.Text = "Fecha Nacimiento Invalida";
+            this.lblErrorFechaNacimiento.Visible = false;
             // 
             // Form_M_Funcionario_Agregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 339);
+            this.ClientSize = new System.Drawing.Size(500, 339);
+            this.Controls.Add(this.lblErrorFechaNacimiento);
+            this.Controls.Add(this.lblErrorDireccion);
+            this.Controls.Add(this.lblErrorCorreo);
+            this.Controls.Add(this.lblErrorApellidoMaterno);
+            this.Controls.Add(this.lblErrorApellidoPaterno);
+            this.Controls.Add(this.lblErrorNombre);
+            this.Controls.Add(this.lblErrorRun);
             this.Controls.Add(this.txt_dv);
             this.Controls.Add(this.cld_nacimiento);
             this.Controls.Add(this.label9);
@@ -276,6 +384,7 @@
             this.Controls.Add(this.txt_nombre);
             this.Name = "Form_M_Funcionario_Agregar";
             this.Text = "Form_M_Funcionario_Agregar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_M_Funcionario_Agregar_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,5 +415,12 @@
         private System.Windows.Forms.TextBox txt_direccion;
         private System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.TextBox txt_dv;
+        private System.Windows.Forms.Label lblErrorRun;
+        private System.Windows.Forms.Label lblErrorNombre;
+        private System.Windows.Forms.Label lblErrorApellidoPaterno;
+        private System.Windows.Forms.Label lblErrorApellidoMaterno;
+        private System.Windows.Forms.Label lblErrorCorreo;
+        private System.Windows.Forms.Label lblErrorDireccion;
+        private System.Windows.Forms.Label lblErrorFechaNacimiento;
     }
 }

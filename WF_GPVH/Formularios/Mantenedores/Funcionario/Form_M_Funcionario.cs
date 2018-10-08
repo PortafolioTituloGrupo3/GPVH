@@ -8,19 +8,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WF_GPVH.Formularios.Mantenedores.Funcionario;
+using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 {
     public partial class Form_M_Funcionario : Form
     {
+        private GestionadorFuncionario gestionador;
+        private List<LB_GPVH.Modelo.Funcionario> funcionarios;
+
         public Form_M_Funcionario()
         {
             InitializeComponent();
+            gestionador = new GestionadorFuncionario();
             this.loadFuncionarios();
+            CargarHeadersGridView(gestionador.ListarNombresParametros());
+            CargarUnidadGridView(this.funcionarios);
+
+
+
         }
 
         public void loadFuncionarios()
         {
+            funcionarios = gestionador.ListarFuncionarios();
+            CargarUnidadGridView(this.funcionarios);
+
+
+
+            /*
             this.dgv_funcionarios.DataSource = null;
             //Diccionario que contendra el <codigoProducto, nombreProducto>
             using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios= new ServiceWSFuncionarios.WSFuncionariosClient())
@@ -46,6 +62,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                     this.addColumn(0, "unidad_id_unidad", "Unidad", true, "SIN UNIDAD", dgv_funcionarios);
                 }
             }
+            */
         }
         //Funcion que agregara columnas con los parametros ingresados
         private void addColumn(int tipoColumna, string property, string titulo, bool visible,
@@ -87,8 +104,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                 MessageBox.Show("Primero debes seleccionar una fila!");
             else
             {
-                int id_usuario_actual = int.Parse(this.dgv_funcionarios.CurrentRow.Cells[0].Value.ToString());
-                Form_M_Funcionario_Modificar popUpEditar = new Form_M_Funcionario_Modificar(this, id_usuario_actual);
+                Form_M_Funcionario_Modificar popUpEditar = new Form_M_Funcionario_Modificar(this, funcionarios[dgv_funcionarios.CurrentRow.Index].Run);
                 popUpEditar.Show();
                 this.Enabled = false;
             }
@@ -113,6 +129,31 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                         MessageBox.Show("ERROR NRO: " + salida);
                 }
             }
+        }
+
+
+
+        public void CargarUnidadGridView(List<LB_GPVH.Modelo.Funcionario> funcionarios)
+        {
+            this.dgv_funcionarios.AutoGenerateColumns = false;
+            this.dgv_funcionarios.AutoSize = true;
+            this.dgv_funcionarios.DataSource = funcionarios;
+        }
+
+        public void CargarHeadersGridView(List<String> nombrePropiedades)
+        {
+            //Se agreagan las columnas de forma personalisada
+            this.addColumn(0, nombrePropiedades[0], "RUN", true, "1", dgv_funcionarios);
+            this.addColumn(0, nombrePropiedades[1], "DV", true, "9", dgv_funcionarios);
+            this.addColumn(0, nombrePropiedades[2], "Nombre", true, "FUNCIONARIO SIN NOMBRE", dgv_funcionarios);
+            this.addColumn(0, nombrePropiedades[3], "Apellido Paterno", true, "SIN APELLIDO PATERNO", dgv_funcionarios);
+            this.addColumn(0, nombrePropiedades[4], "Apellido Materno", true, "SIN APELLIDO MATERNO", dgv_funcionarios);
+            this.addColumn(0, nombrePropiedades[5], "Fecha Nacimiento", true, "SIN FECHA", dgv_funcionarios);
+            this.addColumn(0, nombrePropiedades[6], "Correo", true, "SIN CORREO", dgv_funcionarios);
+            this.addColumn(0, nombrePropiedades[7], "Direccion", true, "SIN DIRECCION", dgv_funcionarios);
+            this.addColumn(0, nombrePropiedades[8], "Tipo funcionario", true, "SIN TIPO", dgv_funcionarios);
+            this.addColumn(1, nombrePropiedades[9], "Habilitado", true, "1", dgv_funcionarios);
+            this.addColumn(0, nombrePropiedades[10], "Unidad", true, "SIN UNIDAD", dgv_funcionarios);
         }
     }
 }

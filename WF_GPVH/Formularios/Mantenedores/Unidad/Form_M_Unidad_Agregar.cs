@@ -32,7 +32,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
 
             this.ddl_padre.DisplayMember = "Value";
             this.ddl_padre.ValueMember = "Key";
-            this.ddl_padre.DataSource = new BindingSource(gestionador.DiccionarioUnidadClaveValor(), null);
+            this.ddl_padre.DataSource = new BindingSource(gestionador.DiccionarioUnidadClaveValor(true), null);
 
             this.ddl_jefe.DisplayMember = "Value";
             this.ddl_jefe.ValueMember = "Key";
@@ -82,6 +82,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                         MessageBox.Show("Ocurrio un error no controlado al ingresar.");
                         break;
                     case GestionadorUnidad.ResultadoGestionUnidad.Valido:
+                        padreTemp.loadUnidades();
                         MessageBox.Show("La unidad se ingreso correctamente.");
                         break;
                 }
@@ -164,9 +165,11 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                 case GestionadorUnidad.ResultadoGestionUnidad.CaracteresNombreInvalido:
                     lblErrorNombre.Text = "El nombre tiene caracteres inválidos";
                     lblErrorNombre.Visible = true;
+                    nombreValido = false;
                     break;
                 default:
                     lblErrorNombre.Visible = false;
+                    nombreValido = true;
                     break;
             }
         }
@@ -229,12 +232,18 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
 
         private void ddl_padre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gestionador.setPadre(unidad, int.Parse(this.ddl_padre.SelectedValue.ToString()), ddl_padre.Text);
+            if (this.ddl_padre.SelectedIndex != 0)
+                gestionador.SetPadre(unidad, int.Parse(this.ddl_padre.SelectedValue.ToString()), ddl_padre.Text);
+            else
+                gestionador.EliminarPadre(unidad);
         }
 
         private void ddl_jefe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gestionador.setJefe(unidad, int.Parse(this.ddl_jefe.SelectedValue.ToString()), ddl_jefe.Text);
+            if (this.ddl_jefe.SelectedIndex != 0)
+                gestionador.SetJefe(unidad, int.Parse(this.ddl_jefe.SelectedValue.ToString()), ddl_jefe.Text);
+            else
+                gestionador.EliminarJefe(unidad);
 
         }
 
