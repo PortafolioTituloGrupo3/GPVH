@@ -17,7 +17,7 @@ namespace LB_GPVH.Modelo
         private DateTime fechaNacimiento;
         private string correo;
         private string direccion;
-        private string tipo;
+        private string cargo;
         private bool habilitado;
         private Unidad unidad;
 
@@ -32,7 +32,7 @@ namespace LB_GPVH.Modelo
             apellidoMaterno = "";
             correo = "";
             direccion = "";
-            tipo = "";
+            cargo = "";
             habilitado = true;
             unidad = null;
         }
@@ -55,10 +55,10 @@ namespace LB_GPVH.Modelo
             set { habilitado = value; }
         }
 
-        public string Tipo
+        public string Cargo
         {
-            get { return tipo; }
-            set { tipo = value; }
+            get { return cargo; }
+            set { cargo = value; }
         }
 
 
@@ -201,6 +201,17 @@ namespace LB_GPVH.Modelo
             }
 
             this.apellidoMaterno = pApellidoMaterno;
+            return true;
+        }
+
+        public bool ValidarCargo(string pCargo)
+        {
+            if (!AuxiliarString.ContieneCaracteresAlfabeto(pCargo, false))
+            {
+                return false;
+            }
+
+            this.cargo = pCargo;
             return true;
         }
 

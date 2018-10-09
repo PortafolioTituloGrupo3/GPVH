@@ -17,7 +17,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
         Form_M_Funcionario padreTemp = null;
         GestionadorFuncionario gestionador;
         LB_GPVH.Modelo.Funcionario funcionario;
-        bool nombreValido, apellidoPaternoValido, apellidoMaternoValido, direccionValida, correoValido, runValido, fechaNacimientoValida;
+        bool nombreValido, apellidoPaternoValido, apellidoMaternoValido, direccionValida, correoValido, runValido, fechaNacimientoValida, cargoValido;
 
 
         public Form_M_Funcionario_Agregar(Form_M_Funcionario formPadre)
@@ -26,16 +26,17 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             padreTemp = formPadre;
             gestionador = new GestionadorFuncionario();
             funcionario = new LB_GPVH.Modelo.Funcionario();
-
-            this.loadDdlTipos();
+            
             this.loadDdlUnidades();
             nombreValido = true;
             apellidoPaternoValido = true;
             apellidoMaternoValido = true;
             direccionValida = true;
             correoValido = true;
+            cargoValido = true;
             fechaNacimientoValida = false;
             runValido = false;
+            gestionador.ValidarFechaNacimientoFuncionario(funcionario, cld_nacimiento.Value);
 
         }
 
@@ -46,15 +47,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             this.ddl_unidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadClaveValor(false), null);
             this.ddl_unidad.SelectedIndex = 0;
         }
-        private void loadDdlTipos()
-        {
-            this.ddl_tipo.Items.Add("Administrador");
-            this.ddl_tipo.Items.Add("Jefe Unidad Superior");
-            this.ddl_tipo.Items.Add("Jefe Unidad Interna");
-            this.ddl_tipo.Items.Add("Alcalde");
-            this.ddl_tipo.Items.Add("Funcionario");
-            this.ddl_tipo.SelectedIndex = 0;
-        }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
@@ -64,7 +56,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
-            if (direccionValida && nombreValido && correoValido && apellidoPaternoValido && apellidoMaternoValido && fechaNacimientoValida && runValido)
+            if (direccionValida && nombreValido && correoValido && apellidoPaternoValido && apellidoMaternoValido && fechaNacimientoValida && runValido && cargoValido)
             {
                 GestionadorFuncionario.ResultadoGestionFuncionario resultado = gestionador.AgregarFuncionario(funcionario);
                 switch (resultado)
@@ -194,12 +186,12 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 
         private void ddl_tipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gestionador.setTipoFuncionario(funcionario, ddl_unidad.Text);
+            
         }
 
         private void cld_nacimiento_ValueChanged(object sender, EventArgs e)
         {
-            //Realiza validaciones sobre el nombre y ve si es valido
+            //Realiza validaciones sobre la fecha de nacimiento y ve si es valida
             switch (gestionador.ValidarFechaNacimientoFuncionario(funcionario, cld_nacimiento.Value))
             {
                 case GestionadorFuncionario.ResultadoGestionFuncionario.FechaInvalida:
@@ -210,6 +202,23 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                 default:
                     lblErrorFechaNacimiento.Visible = false;
                     fechaNacimientoValida = true;
+                    break;
+            }
+        }
+
+        private void txt_cargo_TextChanged(object sender, EventArgs e)
+        {
+            //Realiza validaciones sobre el cargo y ve si es valido
+            switch (gestionador.ValidarCaracterNombreFuncionario(funcionario, txt_nombre.Text))
+            {
+                case GestionadorFuncionario.ResultadoGestionFuncionario.CaracteresCargoInvalido:
+                    lblErrorCargo.Text = "El cargo tiene caracteres inválidos";
+                    lblErrorCargo.Visible = true;
+                    cargoValido = false;
+                    break;
+                default:
+                    lblErrorCargo.Visible = false;
+                    cargoValido = true;
                     break;
             }
         }

@@ -17,6 +17,7 @@ namespace LB_GPVH.Controlador
             CaracteresApellidoMaternoInvalido,
             CaracteresDireccionInvalido,
             CaracteresCorreoInvalido,
+            CaracteresCargoInvalido,
             RunExiste,
             DvInvalido,
             FechaInvalida,
@@ -41,7 +42,8 @@ namespace LB_GPVH.Controlador
                 funcionario.ApellidoPaterno = wsFuncionario.Ap_paterno;
                 funcionario.ApellidoMaterno = wsFuncionario.Ap_materno;
                 funcionario.Correo = wsFuncionario.Correo;
-                funcionario.Tipo = wsFuncionario.Tipo_funcionario;
+                funcionario.Direccion = wsFuncionario.Direc_funcionario;
+                funcionario.Cargo = wsFuncionario.Cargo;
                 funcionario.FechaNacimiento = wsFuncionario.Fec_nacimiento;
                 funcionario.Habilitado = (wsFuncionario.Habilitado == 0) ? false : true;
                 return funcionario;
@@ -49,6 +51,30 @@ namespace LB_GPVH.Controlador
             }
 
         }
+
+        public Funcionario BuscarFuncionario(int run)
+        {
+            using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
+            {
+                var wsFuncionario = serviceFuncionarios.getFuncionarioByRun(run);
+                Funcionario funcionario = new Funcionario();
+                funcionario.Run = wsFuncionario.Run_sin_dv;
+                funcionario.Dv = wsFuncionario.Run_dv;
+                funcionario.Nombre = wsFuncionario.Nom_funcionario;
+                funcionario.ApellidoPaterno = wsFuncionario.Ap_paterno;
+                funcionario.ApellidoMaterno = wsFuncionario.Ap_materno;
+                funcionario.Correo = wsFuncionario.Correo;
+                funcionario.Direccion = wsFuncionario.Direc_funcionario;
+                funcionario.Cargo = wsFuncionario.Cargo;
+                funcionario.FechaNacimiento = wsFuncionario.Fec_nacimiento;
+                funcionario.Habilitado = (wsFuncionario.Habilitado == 0) ? false : true;
+                funcionario.Unidad = new GestionadorUnidad().BuscarPorIdParcial(wsFuncionario.Unidad_id_unidad);
+                return funcionario;
+
+            }
+
+        }
+
 
         public List<Funcionario> ListarFuncionarios()
         {
@@ -66,7 +92,7 @@ namespace LB_GPVH.Controlador
                     funcionario.ApellidoPaterno = wsFuncionario.Ap_paterno;
                     funcionario.ApellidoMaterno = wsFuncionario.Ap_materno;
                     funcionario.Correo = wsFuncionario.Correo;
-                    funcionario.Tipo = wsFuncionario.Tipo_funcionario;
+                    funcionario.Cargo = wsFuncionario.Cargo;
                     funcionario.FechaNacimiento = wsFuncionario.Fec_nacimiento;
                     funcionario.Habilitado = (wsFuncionario.Habilitado == 0) ? false : true;
                     funcionario.Unidad = new GestionadorUnidad().BuscarPorIdParcial(wsFuncionario.Unidad_id_unidad);
@@ -92,7 +118,7 @@ namespace LB_GPVH.Controlador
                 else
                     unidad = funcionario.Unidad.Id;
                 int codigoRetorno = serviceFuncionarios.addFuncionario(funcionario.Run, funcionario.Dv, funcionario.Nombre, funcionario.ApellidoPaterno, funcionario.ApellidoMaterno, funcionario.FechaNacimiento,
-                                                                    funcionario.Correo, funcionario.Direccion, funcionario.Tipo, funcionario.Unidad.Id);
+                                                                    funcionario.Correo, funcionario.Direccion, funcionario.Cargo, funcionario.Unidad.Id);
                 switch (codigoRetorno)
                 {
                     case 0:
@@ -101,7 +127,6 @@ namespace LB_GPVH.Controlador
                         return ResultadoGestionFuncionario.Invalido;
                 }
             }
-
             /*
             int run = int.Parse(this.txt_run.Text);
             int dv = int.Parse(this.txt_dv.Text);
@@ -127,8 +152,32 @@ namespace LB_GPVH.Controlador
                     MessageBox.Show("ERROR NRO: " + salida);
             }
             */
+        }
 
-
+        public ResultadoGestionFuncionario ModificarFuncionario(Funcionario funcionario)
+        {
+            using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
+            {
+                ResultadoGestionFuncionario validacion = this.ValidarFuncionario(funcionario);
+                if (validacion != ResultadoGestionFuncionario.Valido)
+                {
+                    return validacion;
+                }
+                int? unidad;
+                if (funcionario.Unidad == null)
+                    unidad = null;
+                else
+                    unidad = funcionario.Unidad.Id;
+                int codigoRetorno = serviceFuncionarios.modifyFuncionario(funcionario.Run, funcionario.Nombre, funcionario.ApellidoPaterno, funcionario.ApellidoMaterno, funcionario.FechaNacimiento,
+                                                                    funcionario.Correo, funcionario.Direccion, funcionario.Cargo, funcionario.Habilitado, funcionario.Unidad.Id);
+                switch (codigoRetorno)
+                {
+                    case 0:
+                        return ResultadoGestionFuncionario.Valido;
+                    default:
+                        return ResultadoGestionFuncionario.Invalido;
+                }
+            }
         }
 
 
@@ -194,10 +243,7 @@ namespace LB_GPVH.Controlador
             return parametros;
         }
 
-        public void setTipoFuncionario(Funcionario funcionario, string tipo)
-        {
-            funcionario.Tipo = tipo;
-        }
+        
 
         public void setUnidadFuncionario(Funcionario funcionario, int idUnidad, string nombreUnidad)
         {
@@ -281,6 +327,16 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionFuncionario.Valido;
         }
+
+        public ResultadoGestionFuncionario ValidarCaracterCargo(Funcionario funcionario, string cargo)
+        {
+            if (!funcionario.ValidarCargo(cargo))
+            {
+                return ResultadoGestionFuncionario.CaracteresCargoInvalido;
+            }
+            return ResultadoGestionFuncionario.Valido;
+        }
+
 
         public ResultadoGestionFuncionario ValidarFechaNacimientoFuncionario(Funcionario funcionario, DateTime fechaNacimiento)
         {

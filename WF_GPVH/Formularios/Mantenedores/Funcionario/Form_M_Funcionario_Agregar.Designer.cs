@@ -45,7 +45,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ddl_tipo = new System.Windows.Forms.ComboBox();
             this.ddl_unidad = new System.Windows.Forms.ComboBox();
             this.chk_habilitado = new System.Windows.Forms.CheckBox();
             this.txt_direccion = new System.Windows.Forms.TextBox();
@@ -58,6 +57,8 @@
             this.lblErrorCorreo = new System.Windows.Forms.Label();
             this.lblErrorDireccion = new System.Windows.Forms.Label();
             this.lblErrorFechaNacimiento = new System.Windows.Forms.Label();
+            this.txt_cargo = new System.Windows.Forms.TextBox();
+            this.lblErrorCargo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cld_nacimiento
@@ -72,7 +73,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(25, 127);
+            this.label9.Location = new System.Drawing.Point(30, 127);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(91, 13);
             this.label9.TabIndex = 58;
@@ -163,7 +164,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 226);
+            this.label6.Location = new System.Drawing.Point(30, 246);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 48;
@@ -172,16 +173,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 254);
+            this.label5.Location = new System.Drawing.Point(30, 196);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 13);
+            this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 47;
-            this.label5.Text = "Tipo funcionario";
+            this.label5.Text = "Cargo";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 200);
+            this.label4.Location = new System.Drawing.Point(30, 221);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 46;
@@ -214,21 +215,11 @@
             this.label1.TabIndex = 43;
             this.label1.Text = "Nombre";
             // 
-            // ddl_tipo
-            // 
-            this.ddl_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddl_tipo.FormattingEnabled = true;
-            this.ddl_tipo.Location = new System.Drawing.Point(120, 251);
-            this.ddl_tipo.Name = "ddl_tipo";
-            this.ddl_tipo.Size = new System.Drawing.Size(121, 21);
-            this.ddl_tipo.TabIndex = 42;
-            this.ddl_tipo.SelectedIndexChanged += new System.EventHandler(this.ddl_tipo_SelectedIndexChanged);
-            // 
             // ddl_unidad
             // 
             this.ddl_unidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddl_unidad.FormattingEnabled = true;
-            this.ddl_unidad.Location = new System.Drawing.Point(120, 223);
+            this.ddl_unidad.Location = new System.Drawing.Point(120, 240);
             this.ddl_unidad.Name = "ddl_unidad";
             this.ddl_unidad.Size = new System.Drawing.Size(121, 21);
             this.ddl_unidad.TabIndex = 41;
@@ -237,7 +228,7 @@
             // chk_habilitado
             // 
             this.chk_habilitado.AutoSize = true;
-            this.chk_habilitado.Location = new System.Drawing.Point(120, 200);
+            this.chk_habilitado.Location = new System.Drawing.Point(120, 220);
             this.chk_habilitado.Name = "chk_habilitado";
             this.chk_habilitado.Size = new System.Drawing.Size(15, 14);
             this.chk_habilitado.TabIndex = 40;
@@ -347,11 +338,32 @@
             this.lblErrorFechaNacimiento.Text = "Fecha Nacimiento Invalida";
             this.lblErrorFechaNacimiento.Visible = false;
             // 
+            // txt_cargo
+            // 
+            this.txt_cargo.Location = new System.Drawing.Point(120, 196);
+            this.txt_cargo.Name = "txt_cargo";
+            this.txt_cargo.Size = new System.Drawing.Size(121, 20);
+            this.txt_cargo.TabIndex = 68;
+            this.txt_cargo.TextChanged += new System.EventHandler(this.txt_cargo_TextChanged);
+            // 
+            // lblErrorCargo
+            // 
+            this.lblErrorCargo.AutoSize = true;
+            this.lblErrorCargo.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCargo.Location = new System.Drawing.Point(249, 199);
+            this.lblErrorCargo.Name = "lblErrorCargo";
+            this.lblErrorCargo.Size = new System.Drawing.Size(75, 13);
+            this.lblErrorCargo.TabIndex = 69;
+            this.lblErrorCargo.Text = "Cargo Invalido";
+            this.lblErrorCargo.Visible = false;
+            // 
             // Form_M_Funcionario_Agregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 339);
+            this.Controls.Add(this.lblErrorCargo);
+            this.Controls.Add(this.txt_cargo);
             this.Controls.Add(this.lblErrorFechaNacimiento);
             this.Controls.Add(this.lblErrorDireccion);
             this.Controls.Add(this.lblErrorCorreo);
@@ -377,7 +389,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.ddl_tipo);
             this.Controls.Add(this.ddl_unidad);
             this.Controls.Add(this.chk_habilitado);
             this.Controls.Add(this.txt_direccion);
@@ -409,7 +420,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox ddl_tipo;
         private System.Windows.Forms.ComboBox ddl_unidad;
         private System.Windows.Forms.CheckBox chk_habilitado;
         private System.Windows.Forms.TextBox txt_direccion;
@@ -422,5 +432,7 @@
         private System.Windows.Forms.Label lblErrorCorreo;
         private System.Windows.Forms.Label lblErrorDireccion;
         private System.Windows.Forms.Label lblErrorFechaNacimiento;
+        private System.Windows.Forms.TextBox txt_cargo;
+        private System.Windows.Forms.Label lblErrorCargo;
     }
 }

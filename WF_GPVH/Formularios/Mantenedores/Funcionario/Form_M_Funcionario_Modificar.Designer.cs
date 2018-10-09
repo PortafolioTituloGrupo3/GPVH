@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ddl_tipo = new System.Windows.Forms.ComboBox();
             this.ddl_unidad = new System.Windows.Forms.ComboBox();
             this.chk_habilitado = new System.Windows.Forms.CheckBox();
             this.txt_direccion = new System.Windows.Forms.TextBox();
@@ -50,6 +49,14 @@
             this.txt_correo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cld_nacimiento = new System.Windows.Forms.DateTimePicker();
+            this.lblErrorFechaNacimiento = new System.Windows.Forms.Label();
+            this.lblErrorDireccion = new System.Windows.Forms.Label();
+            this.lblErrorCorreo = new System.Windows.Forms.Label();
+            this.lblErrorApellidoMaterno = new System.Windows.Forms.Label();
+            this.lblErrorApellidoPaterno = new System.Windows.Forms.Label();
+            this.lblErrorNombre = new System.Windows.Forms.Label();
+            this.lblErrorCargo = new System.Windows.Forms.Label();
+            this.txt_cargo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btn_cancelar
@@ -75,7 +82,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 221);
+            this.label6.Location = new System.Drawing.Point(28, 244);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 25;
@@ -84,16 +91,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 249);
+            this.label5.Location = new System.Drawing.Point(28, 195);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 13);
+            this.label5.Size = new System.Drawing.Size(35, 13);
             this.label5.TabIndex = 24;
-            this.label5.Text = "Tipo funcionario";
+            this.label5.Text = "Cargo";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 195);
+            this.label4.Location = new System.Drawing.Point(28, 220);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 23;
@@ -126,28 +133,20 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Nombre";
             // 
-            // ddl_tipo
-            // 
-            this.ddl_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddl_tipo.FormattingEnabled = true;
-            this.ddl_tipo.Location = new System.Drawing.Point(118, 246);
-            this.ddl_tipo.Name = "ddl_tipo";
-            this.ddl_tipo.Size = new System.Drawing.Size(121, 21);
-            this.ddl_tipo.TabIndex = 19;
-            // 
             // ddl_unidad
             // 
             this.ddl_unidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddl_unidad.FormattingEnabled = true;
-            this.ddl_unidad.Location = new System.Drawing.Point(118, 218);
+            this.ddl_unidad.Location = new System.Drawing.Point(118, 241);
             this.ddl_unidad.Name = "ddl_unidad";
             this.ddl_unidad.Size = new System.Drawing.Size(121, 21);
             this.ddl_unidad.TabIndex = 18;
+            this.ddl_unidad.SelectedIndexChanged += new System.EventHandler(this.ddl_unidad_SelectedIndexChanged);
             // 
             // chk_habilitado
             // 
             this.chk_habilitado.AutoSize = true;
-            this.chk_habilitado.Location = new System.Drawing.Point(118, 195);
+            this.chk_habilitado.Location = new System.Drawing.Point(118, 220);
             this.chk_habilitado.Name = "chk_habilitado";
             this.chk_habilitado.Size = new System.Drawing.Size(15, 14);
             this.chk_habilitado.TabIndex = 17;
@@ -159,6 +158,7 @@
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.Size = new System.Drawing.Size(121, 20);
             this.txt_direccion.TabIndex = 16;
+            this.txt_direccion.TextChanged += new System.EventHandler(this.txt_direccion_TextChanged);
             // 
             // txt_nombre
             // 
@@ -166,11 +166,13 @@
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(121, 20);
             this.txt_nombre.TabIndex = 14;
+            this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
             // 
             // txt_run
             // 
             this.txt_run.Location = new System.Drawing.Point(118, 12);
             this.txt_run.Name = "txt_run";
+            this.txt_run.ReadOnly = true;
             this.txt_run.Size = new System.Drawing.Size(121, 20);
             this.txt_run.TabIndex = 28;
             // 
@@ -189,6 +191,7 @@
             this.txt_ap_pat.Name = "txt_ap_pat";
             this.txt_ap_pat.Size = new System.Drawing.Size(121, 20);
             this.txt_ap_pat.TabIndex = 30;
+            this.txt_ap_pat.TextChanged += new System.EventHandler(this.txt_ap_pat_TextChanged);
             // 
             // txt_ap_mat
             // 
@@ -196,6 +199,7 @@
             this.txt_ap_mat.Name = "txt_ap_mat";
             this.txt_ap_mat.Size = new System.Drawing.Size(121, 20);
             this.txt_ap_mat.TabIndex = 31;
+            this.txt_ap_mat.TextChanged += new System.EventHandler(this.txt_ap_mat_TextChanged);
             // 
             // label7
             // 
@@ -221,11 +225,12 @@
             this.txt_correo.Name = "txt_correo";
             this.txt_correo.Size = new System.Drawing.Size(121, 20);
             this.txt_correo.TabIndex = 34;
+            this.txt_correo.TextChanged += new System.EventHandler(this.txt_correo_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(23, 122);
+            this.label9.Location = new System.Drawing.Point(28, 122);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(91, 13);
             this.label9.TabIndex = 36;
@@ -237,12 +242,106 @@
             this.cld_nacimiento.Name = "cld_nacimiento";
             this.cld_nacimiento.Size = new System.Drawing.Size(200, 20);
             this.cld_nacimiento.TabIndex = 37;
+            this.cld_nacimiento.ValueChanged += new System.EventHandler(this.cld_nacimiento_ValueChanged);
+            // 
+            // lblErrorFechaNacimiento
+            // 
+            this.lblErrorFechaNacimiento.AutoSize = true;
+            this.lblErrorFechaNacimiento.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorFechaNacimiento.Location = new System.Drawing.Point(325, 122);
+            this.lblErrorFechaNacimiento.Name = "lblErrorFechaNacimiento";
+            this.lblErrorFechaNacimiento.Size = new System.Drawing.Size(133, 13);
+            this.lblErrorFechaNacimiento.TabIndex = 74;
+            this.lblErrorFechaNacimiento.Text = "Fecha Nacimiento Invalida";
+            this.lblErrorFechaNacimiento.Visible = false;
+            // 
+            // lblErrorDireccion
+            // 
+            this.lblErrorDireccion.AutoSize = true;
+            this.lblErrorDireccion.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorDireccion.Location = new System.Drawing.Point(248, 170);
+            this.lblErrorDireccion.Name = "lblErrorDireccion";
+            this.lblErrorDireccion.Size = new System.Drawing.Size(92, 13);
+            this.lblErrorDireccion.TabIndex = 73;
+            this.lblErrorDireccion.Text = "Direccion Invalida";
+            this.lblErrorDireccion.Visible = false;
+            // 
+            // lblErrorCorreo
+            // 
+            this.lblErrorCorreo.AutoSize = true;
+            this.lblErrorCorreo.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCorreo.Location = new System.Drawing.Point(248, 144);
+            this.lblErrorCorreo.Name = "lblErrorCorreo";
+            this.lblErrorCorreo.Size = new System.Drawing.Size(78, 13);
+            this.lblErrorCorreo.TabIndex = 72;
+            this.lblErrorCorreo.Text = "Correo Invalido";
+            this.lblErrorCorreo.Visible = false;
+            // 
+            // lblErrorApellidoMaterno
+            // 
+            this.lblErrorApellidoMaterno.AutoSize = true;
+            this.lblErrorApellidoMaterno.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorApellidoMaterno.Location = new System.Drawing.Point(248, 96);
+            this.lblErrorApellidoMaterno.Name = "lblErrorApellidoMaterno";
+            this.lblErrorApellidoMaterno.Size = new System.Drawing.Size(126, 13);
+            this.lblErrorApellidoMaterno.TabIndex = 71;
+            this.lblErrorApellidoMaterno.Text = "Apellido Materno Invalido";
+            this.lblErrorApellidoMaterno.Visible = false;
+            // 
+            // lblErrorApellidoPaterno
+            // 
+            this.lblErrorApellidoPaterno.AutoSize = true;
+            this.lblErrorApellidoPaterno.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorApellidoPaterno.Location = new System.Drawing.Point(248, 70);
+            this.lblErrorApellidoPaterno.Name = "lblErrorApellidoPaterno";
+            this.lblErrorApellidoPaterno.Size = new System.Drawing.Size(124, 13);
+            this.lblErrorApellidoPaterno.TabIndex = 70;
+            this.lblErrorApellidoPaterno.Text = "Apellido Paterno Invalido";
+            this.lblErrorApellidoPaterno.Visible = false;
+            // 
+            // lblErrorNombre
+            // 
+            this.lblErrorNombre.AutoSize = true;
+            this.lblErrorNombre.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorNombre.Location = new System.Drawing.Point(248, 44);
+            this.lblErrorNombre.Name = "lblErrorNombre";
+            this.lblErrorNombre.Size = new System.Drawing.Size(84, 13);
+            this.lblErrorNombre.TabIndex = 69;
+            this.lblErrorNombre.Text = "Nombre Invalido";
+            this.lblErrorNombre.Visible = false;
+            // 
+            // lblErrorCargo
+            // 
+            this.lblErrorCargo.AutoSize = true;
+            this.lblErrorCargo.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorCargo.Location = new System.Drawing.Point(247, 195);
+            this.lblErrorCargo.Name = "lblErrorCargo";
+            this.lblErrorCargo.Size = new System.Drawing.Size(75, 13);
+            this.lblErrorCargo.TabIndex = 76;
+            this.lblErrorCargo.Text = "Cargo Invalido";
+            this.lblErrorCargo.Visible = false;
+            // 
+            // txt_cargo
+            // 
+            this.txt_cargo.Location = new System.Drawing.Point(118, 192);
+            this.txt_cargo.Name = "txt_cargo";
+            this.txt_cargo.Size = new System.Drawing.Size(121, 20);
+            this.txt_cargo.TabIndex = 75;
+            this.txt_cargo.TextChanged += new System.EventHandler(this.txt_cargo_TextChanged);
             // 
             // Form_M_Funcionario_Modificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 309);
+            this.ClientSize = new System.Drawing.Size(669, 309);
+            this.Controls.Add(this.lblErrorCargo);
+            this.Controls.Add(this.txt_cargo);
+            this.Controls.Add(this.lblErrorFechaNacimiento);
+            this.Controls.Add(this.lblErrorDireccion);
+            this.Controls.Add(this.lblErrorCorreo);
+            this.Controls.Add(this.lblErrorApellidoMaterno);
+            this.Controls.Add(this.lblErrorApellidoPaterno);
+            this.Controls.Add(this.lblErrorNombre);
             this.Controls.Add(this.cld_nacimiento);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txt_correo);
@@ -260,13 +359,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.ddl_tipo);
             this.Controls.Add(this.ddl_unidad);
             this.Controls.Add(this.chk_habilitado);
             this.Controls.Add(this.txt_direccion);
             this.Controls.Add(this.txt_nombre);
             this.Name = "Form_M_Funcionario_Modificar";
             this.Text = "Form_M_Funcionario_Modificar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_M_Funcionario_Modificar_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,7 +381,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox ddl_tipo;
         private System.Windows.Forms.ComboBox ddl_unidad;
         private System.Windows.Forms.CheckBox chk_habilitado;
         private System.Windows.Forms.TextBox txt_direccion;
@@ -296,5 +394,13 @@
         private System.Windows.Forms.TextBox txt_correo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker cld_nacimiento;
+        private System.Windows.Forms.Label lblErrorFechaNacimiento;
+        private System.Windows.Forms.Label lblErrorDireccion;
+        private System.Windows.Forms.Label lblErrorCorreo;
+        private System.Windows.Forms.Label lblErrorApellidoMaterno;
+        private System.Windows.Forms.Label lblErrorApellidoPaterno;
+        private System.Windows.Forms.Label lblErrorNombre;
+        private System.Windows.Forms.Label lblErrorCargo;
+        private System.Windows.Forms.TextBox txt_cargo;
     }
 }
