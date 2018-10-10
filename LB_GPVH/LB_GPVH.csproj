@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Controlador\GestionadorFuncionario.cs" />
     <Compile Include="Controlador\GestionadorUnidad.cs" />
+    <Compile Include="Controlador\GestionadorUsuario.cs" />
     <Compile Include="Controlador\IVistaMUnidad.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
     <Compile Include="Controlador\Sesion.cs" />

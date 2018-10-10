@@ -158,6 +158,22 @@ namespace LB_GPVH.Controlador
             }
         }
 
+        public ResultadoGestionUnidad EliminarUnidad(int id)
+        {
+            using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
+            {
+                int salida = serviceUnidades.deleteUnidad(id);
+
+                if (salida == 0)
+                {
+                    return ResultadoGestionUnidad.Valido;
+                }
+                else
+                    return ResultadoGestionUnidad.Invalido;
+            }
+
+        }
+
         public ResultadoGestionUnidad ValidarUnidad(Unidad unidad)
         {
             if (unidad.Nombre.Length == 0)
@@ -327,21 +343,7 @@ namespace LB_GPVH.Controlador
             return ResultadoGestionUnidad.Valido;
         }
 
-        public ResultadoGestionUnidad EliminarUnidad(int id)
-        {
-            using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
-            {
-                int salida = serviceUnidades.deleteUnidad(id);
-
-                if (salida == 0)
-                {
-                    return ResultadoGestionUnidad.Valido;
-                }
-                else
-                    return ResultadoGestionUnidad.Invalido;
-            }
-            
-        }
+        
 
     }
 }

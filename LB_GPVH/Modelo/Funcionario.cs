@@ -162,7 +162,7 @@ namespace LB_GPVH.Modelo
 
         public bool ValidarDireccion(string pDireccion)
         {
-            if (AuxiliarString.ContieneCaracteresInvalidos(pDireccion))
+            if (AuxiliarString.ContieneCaracteresInvalidos(pDireccion,true,true,false))
             {
                 return false;
             }
@@ -217,7 +217,7 @@ namespace LB_GPVH.Modelo
 
         public bool ValidarCorreo(string pCorreo)
         {
-            if (AuxiliarString.ContieneCaracteresInvalidos(pCorreo))
+            if (AuxiliarString.ContieneCaracteresInvalidos(pCorreo,false,false, true))
             {
                 return false;
             }

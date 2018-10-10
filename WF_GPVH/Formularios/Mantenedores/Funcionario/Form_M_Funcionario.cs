@@ -21,49 +21,17 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
         {
             InitializeComponent();
             gestionador = new GestionadorFuncionario();
-            this.loadFuncionarios();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
-            CargarUnidadGridView(this.funcionarios);
-
-
-
+            this.loadFuncionarios();
+            
         }
 
         public void loadFuncionarios()
         {
             funcionarios = gestionador.ListarFuncionarios();
-            CargarUnidadGridView(this.funcionarios);
-
-
-
-            /*
-            this.dgv_funcionarios.DataSource = null;
-            //Diccionario que contendra el <codigoProducto, nombreProducto>
-            using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios= new ServiceWSFuncionarios.WSFuncionariosClient())
-            {
-                var listadoFuncionarios = serviceFuncionarios.getListadoFuncionarios();
-                //Inicialisar DGV
-                this.dgv_funcionarios.AutoGenerateColumns = false;
-                this.dgv_funcionarios.AutoSize = true;
-                this.dgv_funcionarios.DataSource = listadoFuncionarios;
-                if (dgv_funcionarios.ColumnCount <= 0)
-                {
-                    //Se agreagan las columnas de forma personalisada
-                    this.addColumn(0, "run_sin_dv", "RUN", true, "1", dgv_funcionarios);
-                    this.addColumn(0, "run_dv", "DV", true, "9", dgv_funcionarios);
-                    this.addColumn(0, "nom_funcionario", "Nombre", true, "FUNCIONARIO SIN NOMBRE", dgv_funcionarios);
-                    this.addColumn(0, "ap_paterno", "Apellido Paterno", true, "SIN APELLIDO PATERNO", dgv_funcionarios);
-                    this.addColumn(0, "ap_materno", "Apellido Materno", true, "SIN APELLIDO MATERNO", dgv_funcionarios);
-                    this.addColumn(0, "fec_nacimiento", "Fecha Nacimiento", true, "SIN FECHA", dgv_funcionarios);
-                    this.addColumn(0, "correo", "Correo", true, "SIN CORREO", dgv_funcionarios);
-                    this.addColumn(0, "direc_funcionario", "Direccion", true, "SIN DIRECCION", dgv_funcionarios);
-                    this.addColumn(0, "tipo_funcionario", "Tipo funcionario", true, "SIN TIPO", dgv_funcionarios);
-                    this.addColumn(1, "habilitado", "Habilitado", true, "1", dgv_funcionarios);
-                    this.addColumn(0, "unidad_id_unidad", "Unidad", true, "SIN UNIDAD", dgv_funcionarios);
-                }
-            }
-            */
+            CargarFuncionariosGridView(this.funcionarios);
         }
+
         //Funcion que agregara columnas con los parametros ingresados
         private void addColumn(int tipoColumna, string property, string titulo, bool visible,
                                             string valorPorDefecto, DataGridView dgv)
@@ -113,31 +81,38 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
             if (this.dgv_funcionarios.CurrentRow == null)
-                MessageBox.Show("Primero debes seleccionar una fila!");
+                MessageBox.Show("Primero debe seleccionar una fila!");
             else
             {
-                int id_usuario_actual = int.Parse(this.dgv_funcionarios.CurrentRow.Cells[0].Value.ToString());
-                using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionario = new ServiceWSFuncionarios.WSFuncionariosClient())
+                switch (gestionador.EliminarFuncionario(funcionarios[this.dgv_funcionarios.CurrentRow.Index].Run)) // Se entrega el run del funcionario seleccionado al gestionador para que este proceda a eliminar tal funcionario.
                 {
-                    int salida = serviceFuncionario.deleteFuncionario(id_usuario_actual);
-                    if (salida == 0)
-                    {
-                        this.loadFuncionarios();
-                        MessageBox.Show("Datos eliminados con exito!");
-                    }
-                    else
-                        MessageBox.Show("ERROR NRO: " + salida);
+                    case GestionadorFuncionario.ResultadoGestionFuncionario.Valido:
+                        MessageBox.Show("Funcionario eliminado con exito!");
+                        loadFuncionarios();
+                        break;
+                    case GestionadorFuncionario.ResultadoGestionFuncionario.Invalido:
+                        MessageBox.Show("Ocurrio un error no controlado durante la eliminacion.");
+                        break;
                 }
             }
         }
 
 
 
-        public void CargarUnidadGridView(List<LB_GPVH.Modelo.Funcionario> funcionarios)
+        public void CargarFuncionariosGridView(List<LB_GPVH.Modelo.Funcionario> funcionarios)
         {
             this.dgv_funcionarios.AutoGenerateColumns = false;
             this.dgv_funcionarios.AutoSize = true;
-            this.dgv_funcionarios.DataSource = funcionarios;
+            if (chkVerSoloHabilitados.Checked)
+            {
+                dgv_funcionarios.DataSource = funcionarios.Where(s => s.Habilitado = true).ToList();
+                dgv_funcionarios.Columns[9].Visible = false;
+            }
+            else
+            {
+                dgv_funcionarios.DataSource = funcionarios;
+                dgv_funcionarios.Columns[9].Visible = true;
+            }
         }
 
         public void CargarHeadersGridView(List<String> nombrePropiedades)
@@ -151,9 +126,14 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             this.addColumn(0, nombrePropiedades[5], "Fecha Nacimiento", true, "SIN FECHA", dgv_funcionarios);
             this.addColumn(0, nombrePropiedades[6], "Correo", true, "SIN CORREO", dgv_funcionarios);
             this.addColumn(0, nombrePropiedades[7], "Direccion", true, "SIN DIRECCION", dgv_funcionarios);
-            this.addColumn(0, nombrePropiedades[8], "Tipo funcionario", true, "SIN TIPO", dgv_funcionarios);
+            this.addColumn(0, nombrePropiedades[8], "Cargo", true, "SIN TIPO", dgv_funcionarios);
             this.addColumn(1, nombrePropiedades[9], "Habilitado", true, "1", dgv_funcionarios);
             this.addColumn(0, nombrePropiedades[10], "Unidad", true, "SIN UNIDAD", dgv_funcionarios);
+        }
+
+        private void chkVerSoloHabilitados_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarFuncionariosGridView(funcionarios);
         }
     }
 }

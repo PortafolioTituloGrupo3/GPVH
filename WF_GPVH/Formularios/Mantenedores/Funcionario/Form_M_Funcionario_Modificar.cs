@@ -87,14 +87,14 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                         break;
                     case GestionadorFuncionario.ResultadoGestionFuncionario.Valido:
                         padreTemp.loadFuncionarios();
-                        MessageBox.Show("La unidad se modificó correctamente.");
+                        MessageBox.Show("El funcionario se modificó correctamente.");
                         break;
                 }
 
             }
             else
             {
-                MessageBox.Show("No se pudo ingresar la unidad: Existen datos inválidos.");
+                MessageBox.Show("No se pudo modificar el funcionario: Existen datos inválidos.");
             }
 
 
@@ -284,11 +284,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
         private void ddl_unidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             gestionador.setUnidadFuncionario(funcionario, int.Parse(this.ddl_unidad.SelectedValue.ToString()), ddl_unidad.Text);
-        }
-
-        private void ddl_tipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }

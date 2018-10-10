@@ -180,6 +180,22 @@ namespace LB_GPVH.Controlador
             }
         }
 
+        public ResultadoGestionFuncionario EliminarFuncionario(int run)
+        {
+            using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionario = new ServiceWSFuncionarios.WSFuncionariosClient())
+            {
+                int salida = serviceFuncionario.deleteFuncionario(run);
+
+                if (salida == 0)
+                {
+                    return ResultadoGestionFuncionario.Valido;
+                }
+                else
+                    return ResultadoGestionFuncionario.Invalido;
+            }
+
+        }
+
 
         public ResultadoGestionFuncionario ValidarFuncionario(Funcionario funcionario)
         {
@@ -224,6 +240,31 @@ namespace LB_GPVH.Controlador
             }
         }
 
+        public Dictionary<int, string> DiccionarioFuncionariosClaveValor(bool primeraFilaVacia)
+        {
+            using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
+            {
+
+                Dictionary<int, string> lista = serviceFuncionarios.getListadoFuncionariosClaveValor();
+                if(primeraFilaVacia)
+                {
+                    Dictionary<int, string> listaFinal = new Dictionary<int, string>();
+                    //Cargar datos de funcionarios en ComboBox
+                    listaFinal.Add(-1, "");
+                    foreach (var unidad in lista)
+                    {
+                        listaFinal.Add(unidad.Key, unidad.Value);
+                    }
+                    return listaFinal;
+                }
+                else
+                {
+                    return lista;
+                }
+                
+            }
+        }
+
 
         public List<String> ListarNombresParametros()
         {
@@ -236,7 +277,7 @@ namespace LB_GPVH.Controlador
             parametros.Add("FechaNacimiento");
             parametros.Add("Correo");
             parametros.Add("Direccion");
-            parametros.Add("Tipo");
+            parametros.Add("Cargo");
             parametros.Add("Habilitado");
             parametros.Add("NombreUnidad");
 

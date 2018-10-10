@@ -7,20 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Mantenedores.Usuario
 {
     public partial class Form_M_Usuario : Form
     {
+        private GestionadorUsuario gestionador;
+        private List<LB_GPVH.Modelo.Usuario> usuarios;
+
         public Form_M_Usuario()
         {
             InitializeComponent();
+            gestionador = new GestionadorUsuario();
+            CargarHeadersGridView(gestionador.ListarNombresParametros());
             this.loadUsuarios();
 
+            this.dgv_Usuarios.Columns[2].Visible = false;
         }
 
         public void loadUsuarios()
         {
+            usuarios = gestionador.ListarFUsuarios();
+            CargarUsuariosGridView(this.usuarios);
+
+
+            /*
             this.dgv_Usuarios.DataSource = null;
             //Diccionario que contendra el <codigoProducto, nombreProducto>
             using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
@@ -40,7 +52,9 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                     this.addColumn(0, "Funcionario_run_sin_dv", "RUN funcionario", true, "SIN FUNCIONARIO", dgv_Usuarios);
                 }
             }
+            */
         }
+
         private void addColumn(int tipoColumna, string property, string titulo, bool visible,
                                             string valorPorDefecto, DataGridView dgv)
         {
@@ -86,6 +100,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                 this.Enabled = false;
             }
         }
+
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
             if (this.dgv_Usuarios.CurrentRow == null)
@@ -105,6 +120,24 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                     this.loadUsuarios();
                 }
             }
+        }
+
+
+        public void CargarUsuariosGridView(List<LB_GPVH.Modelo.Usuario> usuarios)
+        {
+            this.dgv_Usuarios.AutoGenerateColumns = false;
+            this.dgv_Usuarios.AutoSize = true;
+            this.dgv_Usuarios.DataSource = usuarios;
+        }
+
+        public void CargarHeadersGridView(List<String> nombrePropiedades)
+        {
+            //Se agreagan las columnas de forma personalisada
+            this.addColumn(0, nombrePropiedades[0], "ID", false, "-1", dgv_Usuarios);
+            this.addColumn(0, nombrePropiedades[1], "Nombre", true, "UNIDAD SIN NOMBRE", dgv_Usuarios);
+            this.addColumn(0, nombrePropiedades[2], "Clave", true, "SIN CLAVE", dgv_Usuarios);
+            this.addColumn(0, nombrePropiedades[3], "Tipo", true, "SIN TIPO", dgv_Usuarios);
+            this.addColumn(0, nombrePropiedades[4], "RUN funcionario", true, "SIN FUNCIONARIO", dgv_Usuarios);
         }
     }
 }

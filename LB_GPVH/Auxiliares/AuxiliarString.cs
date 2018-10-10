@@ -22,7 +22,7 @@ namespace LB_GPVH.Auxiliares
         }
 
         //Verifica el codigo ASCII de cada letra de la cadena y verifica que sus caracter sean valido en un contexto general
-        public static bool ContieneCaracteresInvalidos(String cadena)
+        public static bool ContieneCaracteresInvalidos(String cadena, bool permiteEspacios, bool permiteComas,bool permiteArroba)
         {
 
             for (int i = 0; i < cadena.Length; i++)
@@ -34,7 +34,12 @@ namespace LB_GPVH.Auxiliares
                     continue;
                 }
 
-                if (charACCII >= 64 && charACCII <= 90) //caracter del 'A' al 'Z', incluyendo al '@'
+                if (charACCII == 64 && permiteArroba) //caracter '@'
+                {
+                    continue;
+                }
+
+                if (charACCII >= 65 && charACCII <= 90) //caracter del 'A' al 'Z'
                 {
                     continue;
                 }
@@ -49,7 +54,7 @@ namespace LB_GPVH.Auxiliares
                     continue;
                 }
 
-                if (charACCII == 32) //caracter [BARRA ESPACIADORA]
+                if (charACCII == 32 && permiteEspacios) //caracter [BARRA ESPACIADORA]
                 {
                     continue;
                 }
@@ -59,7 +64,7 @@ namespace LB_GPVH.Auxiliares
                     continue;
                 }
 
-                if (charACCII == 44) //caracter ','
+                if (charACCII == 44 && permiteComas) //caracter ','
                 {
                     continue;
                 }
@@ -81,10 +86,8 @@ namespace LB_GPVH.Auxiliares
 
         }
 
-
-
         //Verifica que los caracteres de la cadena pertenescan al alfabeto
-        public static bool ContieneCaracteresAlfabeto(String cadena, bool espacios)
+        public static bool ContieneCaracteresAlfabeto(String cadena, bool permiteEspacios)
         {
 
             for (int i = 0; i < cadena.Length; i++)
@@ -110,7 +113,7 @@ namespace LB_GPVH.Auxiliares
                     continue;
                 }
 
-                if (charACCII == 32 && espacios) //caracter [BARRA ESPACIADORA]
+                if (charACCII == 32 && permiteEspacios) //caracter [BARRA ESPACIADORA]
                 {
                     continue;
                 }

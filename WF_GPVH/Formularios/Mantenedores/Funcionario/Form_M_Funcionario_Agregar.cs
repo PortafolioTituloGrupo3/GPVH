@@ -37,7 +37,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             fechaNacimientoValida = false;
             runValido = false;
             gestionador.ValidarFechaNacimientoFuncionario(funcionario, cld_nacimiento.Value);
-
         }
 
         private void loadDdlUnidades()
@@ -81,14 +80,13 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                         break;
                     case GestionadorFuncionario.ResultadoGestionFuncionario.Valido:
                         padreTemp.loadFuncionarios();
-                        MessageBox.Show("La unidad se ingreso correctamente.");
+                        MessageBox.Show("El funcionario se ingreso correctamente.");
                         break;
                 }
-
             }
             else
             {
-                MessageBox.Show("No se pudo ingresar la unidad: Existen datos inválidos.");
+                MessageBox.Show("No se pudo ingresar el funcionario: Existen datos inválidos.");
             }
 
 
@@ -156,7 +154,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 
         private void txt_run_Leave(object sender, EventArgs e)
         {
-
             if(txt_run.Text.Length > 0 && txt_dv.Text.Length > 0)
             {
                 validarRun();
@@ -183,12 +180,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
         {
             gestionador.setUnidadFuncionario(funcionario, int.Parse(this.ddl_unidad.SelectedValue.ToString()), ddl_unidad.Text);
         }
-
-        private void ddl_tipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
+        
         private void cld_nacimiento_ValueChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre la fecha de nacimiento y ve si es valida

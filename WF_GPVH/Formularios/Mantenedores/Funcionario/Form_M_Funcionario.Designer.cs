@@ -32,6 +32,7 @@
             this.btn_editar = new System.Windows.Forms.Button();
             this.dgv_funcionarios = new System.Windows.Forms.DataGridView();
             this.btn_agregar = new System.Windows.Forms.Button();
+            this.chkVerSoloHabilitados = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_funcionarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,11 +74,25 @@
             this.btn_agregar.UseVisualStyleBackColor = true;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
+            // chkVerSoloHabilitados
+            // 
+            this.chkVerSoloHabilitados.AutoSize = true;
+            this.chkVerSoloHabilitados.Checked = true;
+            this.chkVerSoloHabilitados.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkVerSoloHabilitados.Location = new System.Drawing.Point(481, 173);
+            this.chkVerSoloHabilitados.Name = "chkVerSoloHabilitados";
+            this.chkVerSoloHabilitados.Size = new System.Drawing.Size(117, 17);
+            this.chkVerSoloHabilitados.TabIndex = 25;
+            this.chkVerSoloHabilitados.Text = "Ver solo habilitados";
+            this.chkVerSoloHabilitados.UseVisualStyleBackColor = true;
+            this.chkVerSoloHabilitados.CheckedChanged += new System.EventHandler(this.chkVerSoloHabilitados_CheckedChanged);
+            // 
             // Form_M_Funcionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 276);
+            this.Controls.Add(this.chkVerSoloHabilitados);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_editar);
             this.Controls.Add(this.dgv_funcionarios);
@@ -86,6 +101,7 @@
             this.Text = "Form_M_Funcionario";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_funcionarios)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -95,5 +111,6 @@
         private System.Windows.Forms.Button btn_editar;
         private System.Windows.Forms.DataGridView dgv_funcionarios;
         private System.Windows.Forms.Button btn_agregar;
+        private System.Windows.Forms.CheckBox chkVerSoloHabilitados;
     }
 }

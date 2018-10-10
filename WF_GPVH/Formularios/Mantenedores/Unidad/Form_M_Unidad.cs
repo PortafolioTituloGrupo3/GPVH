@@ -113,7 +113,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
             if (this.dgv_Unidades.CurrentRow == null)
-                MessageBox.Show("Primero debes seleccionar una fila!");
+                MessageBox.Show("Primero debe seleccionar una fila!");
             else
             {
                 switch (gestionador.EliminarUnidad(unidades[this.dgv_Unidades.CurrentRow.Index].Id)) // Se entrega el id de la unidad seleccionada al gestionador para que este proceda a eliminar tal unidad.
