@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:2474/WebServices/Permisos/WSPermisos.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WS_GPVH.WebServices.Permisos" />
+  <xs:element name="getPermisosByFuncionario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="run" type="xs:int" />
+        <xs:element minOccurs="0" name="condicion" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPermisosByFuncionarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WS_GPVH.WebServices.Permisos" minOccurs="0" name="getPermisosByFuncionarioResult" nillable="true" type="q1:ArrayOfPermiso" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

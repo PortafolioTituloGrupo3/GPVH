@@ -42,6 +42,7 @@ C:\Users\thor\documents\visual studio 2015\Projects\GestionDePermisosVistaHermos
 C:\Users\thor\documents\visual studio 2015\Projects\GestionDePermisosVistaHermosa\WF_GPVH\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\thor\documents\visual studio 2015\Projects\GestionDePermisosVistaHermosa\WF_GPVH\obj\Debug\WF_GPVH.Reportes.Crystal_Report.Form_View_Unidad.resources
 C:\Users\thor\documents\visual studio 2015\Projects\GestionDePermisosVistaHermosa\WF_GPVH\obj\Debug\WF_GPVH.Reportes.Crystal_Report.Form_test.resources
+C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csprojResolveAssemblyReference.cache
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Login.Form_Login.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Funcionario.Form_M_Funcionario.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Funcionario.Form_M_Funcionario_Agregar.resources
@@ -54,11 +55,13 @@ C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedor
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Usuario.Form_M_Usuario.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Usuario.Form_M_Usuario_Agregar.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Usuario.Form_M_Usuario_Modificar.resources
+C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Reportes.Antecedences.Form_Antecedentes.resources
+C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Reportes.Antecedences.Form_Listado_Funcionarios.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Reportes.Form_Reporte_Permisos.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Properties.Resources.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csproj.GenerateResource.Cache
-C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csprojResolveAssemblyReference.cache
 C:\Users\thor\source\repos\GPVH\WF_GPVH\bin\Debug\WF_GPVH.exe.config
+C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Reportes.Antecedences.Form_Listado_Permisos_Filtrado.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\bin\Debug\WF_GPVH.exe
 C:\Users\thor\source\repos\GPVH\WF_GPVH\bin\Debug\WF_GPVH.pdb
 C:\Users\thor\source\repos\GPVH\WF_GPVH\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll

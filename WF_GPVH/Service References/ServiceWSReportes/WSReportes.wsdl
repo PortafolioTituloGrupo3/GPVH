@@ -13,16 +13,35 @@
   <wsdl:message name="IWSReportes_ReportePermisos_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReportePermisosResponse" />
   </wsdl:message>
+  <wsdl:message name="IWSReportes_ReporteAntecedentes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReporteAntecedentes" />
+  </wsdl:message>
+  <wsdl:message name="IWSReportes_ReporteAntecedentes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReporteAntecedentesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IWSReportes">
     <wsdl:operation name="ReportePermisos">
       <wsdl:input wsaw:Action="http://tempuri.org/IWSReportes/ReportePermisos" message="tns:IWSReportes_ReportePermisos_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWSReportes/ReportePermisosResponse" message="tns:IWSReportes_ReportePermisos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReporteAntecedentes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWSReportes/ReporteAntecedentes" message="tns:IWSReportes_ReporteAntecedentes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWSReportes/ReporteAntecedentesResponse" message="tns:IWSReportes_ReporteAntecedentes_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IWSReportes" type="tns:IWSReportes">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="ReportePermisos">
       <soap:operation soapAction="http://tempuri.org/IWSReportes/ReportePermisos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReporteAntecedentes">
+      <soap:operation soapAction="http://tempuri.org/IWSReportes/ReporteAntecedentes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

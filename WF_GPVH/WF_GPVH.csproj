@@ -150,6 +150,30 @@
     <Compile Include="Formularios\Mantenedores\Usuario\Form_M_Usuario_Modificar.Designer.cs">
       <DependentUpon>Form_M_Usuario_Modificar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Reportes\Antecedences\CR_antecedentes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CR_antecedentes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Antecedences\Form_Antecedentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Antecedences\Form_Antecedentes.Designer.cs">
+      <DependentUpon>Form_Antecedentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Antecedences\Form_Listado_Funcionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Antecedences\Form_Listado_Funcionarios.Designer.cs">
+      <DependentUpon>Form_Listado_Funcionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Antecedences\Form_Listado_Permisos_Filtrado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Antecedences\Form_Listado_Permisos_Filtrado.Designer.cs">
+      <DependentUpon>Form_Listado_Permisos_Filtrado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Reportes\CR_Permisos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -168,6 +192,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceWSFuncionarios\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceWSPermisos\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -222,6 +251,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Mantenedores\Usuario\Form_M_Usuario_Modificar.resx">
       <DependentUpon>Form_M_Usuario_Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\Antecedences\CR_antecedentes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CR_antecedentes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\Antecedences\Form_Antecedentes.resx">
+      <DependentUpon>Form_Antecedentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\Antecedences\Form_Listado_Funcionarios.resx">
+      <DependentUpon>Form_Listado_Funcionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\Antecedences\Form_Listado_Permisos_Filtrado.resx">
+      <DependentUpon>Form_Listado_Permisos_Filtrado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\CR_Permisos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -286,6 +328,22 @@
     <None Include="Service References\ServiceWSFuncionarios\WSFuncionarios3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceWSPermisos\WF_GPVH.ServiceWSPermisos.Permiso.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceWSPermisos\WSPermisos.wsdl" />
+    <None Include="Service References\ServiceWSPermisos\WSPermisos.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceWSPermisos\WSPermisos1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceWSPermisos\WSPermisos2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceWSReportes\WF_GPVH.ServiceWSReportes.Antecedentes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceWSReportes\WF_GPVH.ServiceWSReportes.FilaReportePermisos.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -339,6 +397,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServiceWSFuncionarios\" />
+    <WCFMetadataStorage Include="Service References\ServiceWSPermisos\" />
     <WCFMetadataStorage Include="Service References\ServiceWSReportes\" />
     <WCFMetadataStorage Include="Service References\ServiceWSUnidades\" />
     <WCFMetadataStorage Include="Service References\ServiceWSUsuarios\" />
@@ -422,6 +481,13 @@
     <Content Include="obj\Debug\TempPE\Service References.ServiceWSUnidades.Reference.cs.dll" />
     <Content Include="obj\Debug\TempPE\Service References.ServiceWSUsuarios.Reference.cs.dll" />
     <Content Include="obj\Debug\WF_GPVH.csproj.FileListAbsolute.txt" />
+    <None Include="Service References\ServiceWSPermisos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceWSPermisos\configuration.svcinfo" />
+    <None Include="Service References\ServiceWSPermisos\configuration91.svcinfo" />
+    <None Include="Service References\ServiceWSPermisos\WSPermisos.disco" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\Reportes\Crystal Report\" />
