@@ -40,10 +40,10 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                 switch (resultado)
                 {
                     case GestionadorUsuario.ResultadoGestionUsuario.NombreVacio:
-                        MessageBox.Show("No se pudo ingresar el funcionario: El apellido paterno esta vacio.");
+                        MessageBox.Show("No se pudo ingresar el usuario: El nombre esta vacio.");
                         break;
                     case GestionadorUsuario.ResultadoGestionUsuario.ClaveVacia:
-                        MessageBox.Show("No se pudo ingresar el funcionario: El apellido materno esta vacio");
+                        MessageBox.Show("No se pudo ingresar el usuario: La clave esta vacio");
                         break;
                     case GestionadorUsuario.ResultadoGestionUsuario.Invalido:
                         MessageBox.Show("Ocurrio un error no controlado al ingresar.");
@@ -56,7 +56,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
             }
             else
             {
-                MessageBox.Show("No se pudo ingresar la unidad: Existen datos inválidos.");
+                MessageBox.Show("No se pudo ingresar el usuario: Existen datos inválidos.");
             }
 
 
@@ -90,6 +90,13 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
             this.ddl_tipo.DataSource = MetodosTipoUsuario.Listar();
         }
 
+        private void loadDdlFuncionarios()
+        {
+            this.ddl_funcionarios.DisplayMember = "Value";
+            this.ddl_funcionarios.ValueMember = "Key";
+            this.ddl_funcionarios.DataSource = new BindingSource(new GestionadorFuncionario().DiccionarioFuncionariosClaveValor(false), null);
+        }
+
         private void txt_clave_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre la clave y ve si es valida
@@ -112,7 +119,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
             //Verifica que la clave de confirmacion sea la misma que la clave de 
             switch (gestionador.ValidarClaveConfirmacion(txt_clave.Text, txt_clave_confirmacion.Text))
             {
-                case GestionadorUsuario.ResultadoGestionUsuario.CaracteresClaveInvalido:
+                case GestionadorUsuario.ResultadoGestionUsuario.ClaveConfirmacionInvalida:
                     lblErrorClaveConfirmacion.Text = "La clave de confirmacion no corresponde a la clave";
                     lblErrorClaveConfirmacion.Visible = true;
                     claveConfirmacionValida = false;
@@ -154,12 +161,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
             gestionador.setFuncionarioUsuario(usuario, int.Parse(this.ddl_funcionarios.SelectedValue.ToString()), ddl_funcionarios.Text);
         }
 
-        private void loadDdlFuncionarios()
-        {
-            this.ddl_funcionarios.DisplayMember = "Value";
-            this.ddl_funcionarios.ValueMember = "Key";
-            this.ddl_funcionarios.DataSource = new BindingSource(new GestionadorFuncionario().DiccionarioFuncionariosClaveValor(false), null);
-        }
+        
 
         private void txt_nombre_TextChanged(object sender, EventArgs e)
         {

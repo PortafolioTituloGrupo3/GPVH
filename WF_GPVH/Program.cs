@@ -20,7 +20,7 @@ namespace WF_GPVH
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_M_Funcionario());
+            Application.Run(new Form_M_Usuario());
         }
     }
 }

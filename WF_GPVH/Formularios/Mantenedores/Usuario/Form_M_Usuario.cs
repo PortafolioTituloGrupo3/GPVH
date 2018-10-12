@@ -28,7 +28,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
 
         public void loadUsuarios()
         {
-            usuarios = gestionador.ListarFUsuarios();
+            usuarios = gestionador.ListarUsuarios();
             CargarUsuariosGridView(this.usuarios);
 
 
@@ -94,8 +94,8 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                 MessageBox.Show("Primero debes seleccionar una fila!");
             else
             {
-                int id_usuario_actual = int.Parse(this.dgv_Usuarios.CurrentRow.Cells[0].Value.ToString());
-                Form_M_Usuario_Modificar popUpEditar = new Form_M_Usuario_Modificar(this, id_usuario_actual);
+                //int id_usuario_actual = int.Parse(this.dgv_Usuarios.CurrentRow.Cells[0].Value.ToString());
+                Form_M_Usuario_Modificar popUpEditar = new Form_M_Usuario_Modificar(this, usuarios[dgv_Usuarios.CurrentRow.Index].Id);
                 popUpEditar.Show();
                 this.Enabled = false;
             }
@@ -107,17 +107,15 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                 MessageBox.Show("Primero debes seleccionar una fila!");
             else
             {
-                int id_usuario_actual = int.Parse(this.dgv_Usuarios.CurrentRow.Cells[0].Value.ToString());
-                using (ServiceWSUsuarios.WSUsuariosClient serviceUsuario = new ServiceWSUsuarios.WSUsuariosClient())
+                switch (gestionador.EliminarUsuario(usuarios[this.dgv_Usuarios.CurrentRow.Index].Id)) // Se entrega el id del usuario seleccionado al gestionador para que este proceda a eliminar tal cuenta de usuario.
                 {
-                    int salida = serviceUsuario.deleteUsuario(id_usuario_actual);
-                    if (salida == 0)
-                    {
-                        MessageBox.Show("Datos eliminados con exito!");
-                    }
-                    else
-                        MessageBox.Show("ERROR NRO: " + salida);
-                    this.loadUsuarios();
+                    case GestionadorUsuario.ResultadoGestionUsuario.Valido:
+                        MessageBox.Show("Funcionario eliminado con exito!");
+                        loadUsuarios();
+                        break;
+                    case GestionadorUsuario.ResultadoGestionUsuario.Invalido:
+                        MessageBox.Show("Ocurrio un error no controlado durante la eliminacion.");
+                        break;
                 }
             }
         }

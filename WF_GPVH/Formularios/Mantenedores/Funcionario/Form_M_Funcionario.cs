@@ -16,6 +16,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
     {
         private GestionadorFuncionario gestionador;
         private List<LB_GPVH.Modelo.Funcionario> funcionarios;
+        private List<LB_GPVH.Modelo.Funcionario> funcionariosGridView;
 
         public Form_M_Funcionario()
         {
@@ -23,7 +24,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             gestionador = new GestionadorFuncionario();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             this.loadFuncionarios();
-            
+            this.loadDdlUnidades();
         }
 
         public void loadFuncionarios()
@@ -31,6 +32,16 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             funcionarios = gestionador.ListarFuncionarios();
             CargarFuncionariosGridView(this.funcionarios);
         }
+
+        private void loadDdlUnidades()
+        {
+            this.ddl_unidad.DisplayMember = "Value";
+            this.ddl_unidad.ValueMember = "Key";
+            this.ddl_unidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadClaveValor(true), null);
+            this.ddl_unidad.SelectedIndex = 0;
+        }
+
+
 
         //Funcion que agregara columnas con los parametros ingresados
         private void addColumn(int tipoColumna, string property, string titulo, bool visible,
@@ -72,7 +83,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                 MessageBox.Show("Primero debes seleccionar una fila!");
             else
             {
-                Form_M_Funcionario_Modificar popUpEditar = new Form_M_Funcionario_Modificar(this, funcionarios[dgv_funcionarios.CurrentRow.Index].Run);
+                Form_M_Funcionario_Modificar popUpEditar = new Form_M_Funcionario_Modificar(this, funcionariosGridView[dgv_funcionarios.CurrentRow.Index].Run);
                 popUpEditar.Show();
                 this.Enabled = false;
             }
@@ -84,7 +95,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                 MessageBox.Show("Primero debe seleccionar una fila!");
             else
             {
-                switch (gestionador.EliminarFuncionario(funcionarios[this.dgv_funcionarios.CurrentRow.Index].Run)) // Se entrega el run del funcionario seleccionado al gestionador para que este proceda a eliminar tal funcionario.
+                switch (gestionador.EliminarFuncionario(funcionariosGridView[this.dgv_funcionarios.CurrentRow.Index].Run)) // Se entrega el run del funcionario seleccionado al gestionador para que este proceda a eliminar tal funcionario.
                 {
                     case GestionadorFuncionario.ResultadoGestionFuncionario.Valido:
                         MessageBox.Show("Funcionario eliminado con exito!");
@@ -103,16 +114,24 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
         {
             this.dgv_funcionarios.AutoGenerateColumns = false;
             this.dgv_funcionarios.AutoSize = true;
+            IEnumerable<LB_GPVH.Modelo.Funcionario> funcionariosFiltrados;
             if (chkVerSoloHabilitados.Checked)
             {
-                dgv_funcionarios.DataSource = funcionarios.Where(s => s.Habilitado = true).ToList();
+                funcionariosFiltrados = funcionarios.Where(s => s.Habilitado == true);
                 dgv_funcionarios.Columns[9].Visible = false;
             }
             else
             {
-                dgv_funcionarios.DataSource = funcionarios;
+                funcionariosFiltrados = funcionarios;
                 dgv_funcionarios.Columns[9].Visible = true;
             }
+            if(ddl_unidad.SelectedIndex != 0 && ddl_unidad.SelectedIndex != -1) // Por defecto un combobox tiene seleccionado al indexo -1
+            {
+                int idUnidad = (int)ddl_unidad.SelectedValue;
+                funcionariosFiltrados = funcionariosFiltrados.Where(s => s.Unidad.Id == idUnidad);
+            }
+            funcionariosGridView = funcionariosFiltrados.ToList();
+            dgv_funcionarios.DataSource = funcionariosGridView;
         }
 
         public void CargarHeadersGridView(List<String> nombrePropiedades)
@@ -132,6 +151,11 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
         }
 
         private void chkVerSoloHabilitados_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarFuncionariosGridView(funcionarios);
+        }
+
+        private void ddl_unidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarFuncionariosGridView(funcionarios);
         }
