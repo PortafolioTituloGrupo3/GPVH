@@ -13,7 +13,7 @@ using LB_GPVH.Auxiliares;
 
 namespace WF_GPVH.Formularios.Mantenedores.Unidad
 {
-    public partial class Form_M_Unidad : Form
+    public partial class Form_M_Unidad : MetroFramework.Forms.MetroForm
     {
         private GestionadorUnidad gestionador;
         private List<LB_GPVH.Modelo.Unidad> unidades;
@@ -90,45 +90,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             dgv.Columns.Add(column);
         }
 
-        private void btn_editar_Click(object sender, EventArgs e)
-        {
-            if (this.dgv_Unidades.CurrentRow == null)
-                MessageBox.Show("Primero debes seleccionar una fila!");
-            else
-            {
-                int id_unidad_actual =  int.Parse(this.dgv_Unidades.CurrentRow.Cells[0].Value.ToString());
-                Form_M_Unidad_Modificar popUpEditar = new Form_M_Unidad_Modificar(this, id_unidad_actual);
-                popUpEditar.Show();
-                this.Enabled = false;
-            }
-        }
-
-        private void btn_agregar_Click(object sender, EventArgs e)
-        {
-            Form_M_Unidad_Agregar popUpAgregar = new Form_M_Unidad_Agregar(this);
-            popUpAgregar.Show();
-            this.Enabled = false;
-        }
-
-        private void btn_eliminar_Click(object sender, EventArgs e)
-        {
-            if (this.dgv_Unidades.CurrentRow == null)
-                MessageBox.Show("Primero debe seleccionar una fila!");
-            else
-            {
-                switch (gestionador.EliminarUnidad(unidades[this.dgv_Unidades.CurrentRow.Index].Id)) // Se entrega el id de la unidad seleccionada al gestionador para que este proceda a eliminar tal unidad.
-                {
-                    case GestionadorUnidad.ResultadoGestionUnidad.Valido:
-                        MessageBox.Show("Datos eliminados con exito!");
-                        loadUnidades();
-                        break;
-                    case GestionadorUnidad.ResultadoGestionUnidad.Invalido:
-                        MessageBox.Show("Ocurrio un error no controlado durante la eliminacion.");
-                        break;
-                }
-            }
-        }
-
         public void CargarUnidadGridview(List<LB_GPVH.Modelo.Unidad> unidades)
         {
             this.dgv_Unidades.AutoGenerateColumns = false;
@@ -146,6 +107,45 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             this.addColumn(1, nombrePropiedades[4], "Habilitado", true, "1", dgv_Unidades);
             this.addColumn(0, nombrePropiedades[5], "Unidad padre", true, "---", dgv_Unidades);
             this.addColumn(0, nombrePropiedades[6], "Jefe unidad", true, "SIN JEFE", dgv_Unidades);
+        }
+
+        private void mtAgregar_Click(object sender, EventArgs e)
+        {
+            Form_M_Unidad_Agregar popUpAgregar = new Form_M_Unidad_Agregar(this);
+            popUpAgregar.Show();
+            this.Enabled = false;
+        }
+
+        private void mtEditar_Click(object sender, EventArgs e)
+        {
+            if (this.dgv_Unidades.CurrentRow == null)
+                MessageBox.Show("Primero debes seleccionar una fila!");
+            else
+            {
+                int id_unidad_actual = int.Parse(this.dgv_Unidades.CurrentRow.Cells[0].Value.ToString());
+                Form_M_Unidad_Modificar popUpEditar = new Form_M_Unidad_Modificar(this, id_unidad_actual);
+                popUpEditar.Show();
+                this.Enabled = false;
+            }
+        }
+
+        private void mtEliminar_Click(object sender, EventArgs e)
+        {
+            if (this.dgv_Unidades.CurrentRow == null)
+                MessageBox.Show("Primero debe seleccionar una fila!");
+            else
+            {
+                switch (gestionador.EliminarUnidad(unidades[this.dgv_Unidades.CurrentRow.Index].Id)) // Se entrega el id de la unidad seleccionada al gestionador para que este proceda a eliminar tal unidad.
+                {
+                    case GestionadorUnidad.ResultadoGestionUnidad.Valido:
+                        MessageBox.Show("Datos eliminados con exito!");
+                        loadUnidades();
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.Invalido:
+                        MessageBox.Show("Ocurrio un error no controlado durante la eliminacion.");
+                        break;
+                }
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ using LB_GPVH.Enums;
 
 namespace WF_GPVH.Formularios.Mantenedores.Usuario
 {
-    public partial class Form_M_Usuario_Agregar : Form
+    public partial class Form_M_Usuario_Agregar : MetroFramework.Forms.MetroForm
     {
         Form_M_Usuario padreTemp = null;
         LB_GPVH.Modelo.Usuario usuario;
@@ -154,6 +154,40 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
         private void ddl_tipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             gestionador.setTipoUsuario(usuario, ddl_tipo.Text);
+        }
+
+        private void mtAgregar_Click(object sender, EventArgs e)
+        {
+            if (nombreValido && claveValida && claveConfirmacionValida)
+            {
+                GestionadorUsuario.ResultadoGestionUsuario resultado = gestionador.AgregarUsuario(usuario);
+                switch (resultado)
+                {
+                    case GestionadorUsuario.ResultadoGestionUsuario.NombreVacio:
+                        MessageBox.Show("No se pudo ingresar el usuario: El nombre esta vacio.");
+                        break;
+                    case GestionadorUsuario.ResultadoGestionUsuario.ClaveVacia:
+                        MessageBox.Show("No se pudo ingresar el usuario: La clave esta vacio");
+                        break;
+                    case GestionadorUsuario.ResultadoGestionUsuario.Invalido:
+                        MessageBox.Show("Ocurrio un error no controlado al ingresar.");
+                        break;
+                    case GestionadorUsuario.ResultadoGestionUsuario.Valido:
+                        padreTemp.loadUsuarios();
+                        MessageBox.Show("El usuario se ingreso correctamente.");
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se pudo ingresar el usuario: Existen datos inválidos.");
+            }
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            padreTemp.Enabled = true;
+            this.Dispose();
         }
 
         private void ddl_funcionarios_SelectedIndexChanged(object sender, EventArgs e)

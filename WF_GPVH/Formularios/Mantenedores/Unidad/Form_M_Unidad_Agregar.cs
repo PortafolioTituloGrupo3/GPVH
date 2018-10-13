@@ -11,7 +11,7 @@ using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Mantenedores.Unidad
 {
-    public partial class Form_M_Unidad_Agregar : Form
+    public partial class Form_M_Unidad_Agregar : MetroFramework.Forms.MetroForm
     {
         Form_M_Unidad padreTemp = null;
         GestionadorUnidad gestionador = null;
@@ -60,103 +60,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             */
         }
 
-
-
-        private void btn_agregar_Click(object sender, EventArgs e)
-        {
-            if(direccionValida&&nombreValido&&descripcionValida)
-            {
-                GestionadorUnidad.ResultadoGestionUnidad resultado = gestionador.AgregarUnidad(unidad);
-                switch(resultado)
-                {
-                    case GestionadorUnidad.ResultadoGestionUnidad.DescripcionVacia:
-                        MessageBox.Show("No se pudo ingresar la unidad: La descripcion esta vacia.");
-                        break;
-                    case GestionadorUnidad.ResultadoGestionUnidad.DireccionVacia:
-                        MessageBox.Show("No se pudo ingresar la unidad: La direccion esta vacia.");
-                        break;
-                    case GestionadorUnidad.ResultadoGestionUnidad.NombreVacio:
-                        MessageBox.Show("No se pudo ingresar la unidad: El nombre esta vacio.");
-                        break;
-                    case GestionadorUnidad.ResultadoGestionUnidad.Invalido:
-                        MessageBox.Show("Ocurrio un error no controlado al ingresar.");
-                        break;
-                    case GestionadorUnidad.ResultadoGestionUnidad.Valido:
-                        padreTemp.loadUnidades();
-                        MessageBox.Show("La unidad se ingreso correctamente.");
-                        break;
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("No se pudo ingresar la unidad: Existen datos inválidos.");
-            }
-
-
-            /*
-            int? padre;
-            if (unidad.UnidadPadre == null)
-                padre = null;
-            else
-                padre = unidad.UnidadPadre.Id;
-            int? jefe;
-            if (unidad.Jefe == null)
-                jefe = null;
-            else
-                jefe = unidad.Jefe.Run;
-            if(unidad.Nombre == null)
-                MessageBox.Show("nombre is null");
-
-
-            MessageBox.Show(unidad.Nombre+" "+unidad.Descripcion+" "+ unidad.Direccion+" "+padre+" "+jefe);
-            /*
-            string nombre = this.txt_nombre.Text;
-            string descripcion = this.txt_descripcion.Text;
-            string direccion = this.txt_direccion.Text;
-            int? padre;
-            if (this.ddl_padre.SelectedValue == null)
-                padre = null;
-            else
-                padre = int.Parse(this.ddl_padre.SelectedValue.ToString());
-            int? jefe;
-            if (this.ddl_jefe.SelectedValue == null)
-                jefe = null;
-            else
-                jefe = int.Parse(this.ddl_jefe.SelectedValue.ToString());
-
-
-            /*
-            using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
-            {
-                int salida = serviceUnidades.addUnidad(nombre, descripcion, direccion, padre, jefe);
-                if (salida == 0)
-                {
-                    padreTemp.loadUnidades();
-                    MessageBox.Show("Datos agregados con exito!");
-                }
-                else
-                    MessageBox.Show("ERROR NRO: " + salida);
-            }
-            */
-        }
         
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_cancelar_Click(object sender, EventArgs e)
-        {
-            padreTemp.Enabled = true;
-            this.Close();
-        }
-
         private void txt_nombre_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre el nombre y ve si es valido
@@ -238,13 +142,50 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                 gestionador.EliminarPadre(unidad);
         }
 
+        private void mtAgregar_Click(object sender, EventArgs e)
+        {
+            if (direccionValida && nombreValido && descripcionValida)
+            {
+                GestionadorUnidad.ResultadoGestionUnidad resultado = gestionador.AgregarUnidad(unidad);
+                switch (resultado)
+                {
+                    case GestionadorUnidad.ResultadoGestionUnidad.DescripcionVacia:
+                        MessageBox.Show("No se pudo ingresar la unidad: La descripcion esta vacia.");
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.DireccionVacia:
+                        MessageBox.Show("No se pudo ingresar la unidad: La direccion esta vacia.");
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.NombreVacio:
+                        MessageBox.Show("No se pudo ingresar la unidad: El nombre esta vacio.");
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.Invalido:
+                        MessageBox.Show("Ocurrio un error no controlado al ingresar.");
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.Valido:
+                        padreTemp.loadUnidades();
+                        MessageBox.Show("La unidad se ingreso correctamente.");
+                        break;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No se pudo ingresar la unidad: Existen datos inválidos.");
+            }
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            padreTemp.Enabled = true;
+            this.Close();
+        }
+
         private void ddl_jefe_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.ddl_jefe.SelectedIndex != 0)
                 gestionador.SetJefe(unidad, int.Parse(this.ddl_jefe.SelectedValue.ToString()), ddl_jefe.Text);
             else
                 gestionador.EliminarJefe(unidad);
-
         }
 
         private void Form_M_Unidad_Agregar_FormClosing(object sender, FormClosingEventArgs e)

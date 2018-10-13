@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace WF_GPVH.Formularios.Mantenedores.Usuario
 {
-    public partial class Form_M_Usuario_Modificar : Form
+    public partial class Form_M_Usuario_Modificar : MetroFramework.Forms.MetroForm
     {
         Form_M_Usuario padreTemp = null;
         LB_GPVH.Modelo.Usuario usuario;
@@ -172,6 +172,40 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                     claveValida = true;
                     break;
             }
+        }
+
+        private void mtModificar_Click(object sender, EventArgs e)
+        {
+            if (nombreValido && claveValida && claveConfirmacionValida)
+            {
+                GestionadorUsuario.ResultadoGestionUsuario resultado = gestionador.ModificarUsuario(usuario);
+                switch (resultado)
+                {
+                    case GestionadorUsuario.ResultadoGestionUsuario.NombreVacio:
+                        MessageBox.Show("No se pudo modificar el usuario: El nombre esta vacio.");
+                        break;
+                    case GestionadorUsuario.ResultadoGestionUsuario.ClaveVacia:
+                        MessageBox.Show("No se pudo modificar el usuario: La clave esta vacio");
+                        break;
+                    case GestionadorUsuario.ResultadoGestionUsuario.Invalido:
+                        MessageBox.Show("Ocurrio un error no controlado al modificar.");
+                        break;
+                    case GestionadorUsuario.ResultadoGestionUsuario.Valido:
+                        padreTemp.loadUsuarios();
+                        MessageBox.Show("El usuario se modificó correctamente.");
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el usuario: Existen datos inválidos.");
+            }
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            padreTemp.Enabled = true;
+            this.Close(); 
         }
 
         private void CargarCamposUsuario()

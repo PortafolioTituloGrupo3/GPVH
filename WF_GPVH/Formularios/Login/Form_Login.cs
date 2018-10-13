@@ -13,16 +13,16 @@ using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Login
 {
-    public partial class Form_Login : Form
+    public partial class Form_Login : MetroFramework.Forms.MetroForm
     {
         public Form_Login()
         {
             InitializeComponent();
         }
-
-        private void btnIniciar_Click(object sender, EventArgs e)
+        
+        private void mtIniciarSesion_Click(object sender, EventArgs e)
         {
-            /** ESTO GUATEO, DEBE SER UN PROBLEMA DEL GITHUB POR QUE EL WSUSUARIOS NO TIENE LOS METODOS
+            /*
             using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
             {
                 ServiceWSUsuarios.Usuario wsUsuario = serviceUsuarios.AutenticarUsuario(txbNombre.Text, txbClave.Text);
@@ -44,7 +44,7 @@ namespace WF_GPVH.Formularios.Login
                     switch (usuario.Tipo)
                     {
                         case TipoUsuario.Administrador:
-                            new Menu.Form_Menu_Administrador(this,sesion).Show();
+                            new Menu.Form_Menu_Administrador(this, sesion).Show();
                             this.Hide();
                             break;
                         case TipoUsuario.JefeUnidadSuperior:
@@ -60,7 +60,8 @@ namespace WF_GPVH.Formularios.Login
                 }
 
 
-            }**/
+            }
+            */
         }
     }
 }

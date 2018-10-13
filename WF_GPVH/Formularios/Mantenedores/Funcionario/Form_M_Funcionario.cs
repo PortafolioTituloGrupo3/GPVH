@@ -12,7 +12,7 @@ using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 {
-    public partial class Form_M_Funcionario : Form
+    public partial class Form_M_Funcionario : MetroFramework.Forms.MetroForm
     {
         private GestionadorFuncionario gestionador;
         private List<LB_GPVH.Modelo.Funcionario> funcionarios;
@@ -35,10 +35,10 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 
         private void loadDdlUnidades()
         {
-            this.ddl_unidad.DisplayMember = "Value";
-            this.ddl_unidad.ValueMember = "Key";
-            this.ddl_unidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadClaveValor(true), null);
-            this.ddl_unidad.SelectedIndex = 0;
+            this.mcmbUnidad.DisplayMember = "Value";
+            this.mcmbUnidad.ValueMember = "Key";
+            this.mcmbUnidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadClaveValor(true), null);
+            this.mcmbUnidad.SelectedIndex = 0;
         }
 
 
@@ -68,34 +68,78 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             column.Visible = visible;
             column.DefaultCellStyle.NullValue = valorPorDefecto;
             dgv.Columns.Add(column);
+            dgv.Refresh();
+            
         }
 
-        private void btn_agregar_Click(object sender, EventArgs e)
+
+
+        public void CargarFuncionariosGridView(List<LB_GPVH.Modelo.Funcionario> funcionarios)
+        {
+            this.mgFuncionarios.AutoGenerateColumns = false;
+            this.mgFuncionarios.AutoSize = true;
+            IEnumerable<LB_GPVH.Modelo.Funcionario> funcionariosFiltrados;
+            if (mchkVerSoloHabilitados.Checked)
+            {
+                funcionariosFiltrados = funcionarios.Where(s => s.Habilitado == true);
+                mgFuncionarios.Columns[9].Visible = false;
+            }
+            else
+            {
+                funcionariosFiltrados = funcionarios;
+                mgFuncionarios.Columns[9].Visible = true;
+            }
+            if(mcmbUnidad.SelectedIndex != 0 && mcmbUnidad.SelectedIndex != -1) // Por defecto un combobox tiene seleccionado al indexo -1
+            {
+                int idUnidad = (int)mcmbUnidad.SelectedValue;
+                funcionariosFiltrados = funcionariosFiltrados.Where(s => s.Unidad.Id == idUnidad);
+            }
+            funcionariosGridView = funcionariosFiltrados.ToList();
+            mgFuncionarios.DataSource = funcionariosGridView;
+        }
+
+        public void CargarHeadersGridView(List<String> nombrePropiedades)
+        {
+            //Se agreagan las columnas de forma personalisada
+            this.addColumn(0, nombrePropiedades[0], "RUN", true, "1", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[1], "DV", true, "9", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[2], "Nombre", true, "FUNCIONARIO SIN NOMBRE", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[3], "Apellido Paterno", true, "SIN APELLIDO PATERNO", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[4], "Apellido Materno", true, "SIN APELLIDO MATERNO", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[5], "Fecha Nacimiento", true, "SIN FECHA", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[6], "Correo", true, "SIN CORREO", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[7], "Direccion", true, "SIN DIRECCION", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[8], "Cargo", true, "SIN TIPO", mgFuncionarios);
+            this.addColumn(1, nombrePropiedades[9], "Habilitado", true, "1", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[10], "Unidad", true, "SIN UNIDAD", mgFuncionarios);
+        }
+
+        private void mtAgregar_Click(object sender, EventArgs e)
         {
             Form_M_Funcionario_Agregar popUpAgregar = new Form_M_Funcionario_Agregar(this);
             popUpAgregar.Show();
             this.Enabled = false;
         }
 
-        private void btn_editar_Click(object sender, EventArgs e)
+        private void mtEditar_Click(object sender, EventArgs e)
         {
-            if (this.dgv_funcionarios.CurrentRow == null)
+            if (this.mgFuncionarios.CurrentRow == null)
                 MessageBox.Show("Primero debes seleccionar una fila!");
             else
             {
-                Form_M_Funcionario_Modificar popUpEditar = new Form_M_Funcionario_Modificar(this, funcionariosGridView[dgv_funcionarios.CurrentRow.Index].Run);
+                Form_M_Funcionario_Modificar popUpEditar = new Form_M_Funcionario_Modificar(this, funcionariosGridView[mgFuncionarios.CurrentRow.Index].Run);
                 popUpEditar.Show();
                 this.Enabled = false;
             }
         }
 
-        private void btn_eliminar_Click(object sender, EventArgs e)
+        private void mtEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dgv_funcionarios.CurrentRow == null)
+            if (this.mgFuncionarios.CurrentRow == null)
                 MessageBox.Show("Primero debe seleccionar una fila!");
             else
             {
-                switch (gestionador.EliminarFuncionario(funcionariosGridView[this.dgv_funcionarios.CurrentRow.Index].Run)) // Se entrega el run del funcionario seleccionado al gestionador para que este proceda a eliminar tal funcionario.
+                switch (gestionador.EliminarFuncionario(funcionariosGridView[this.mgFuncionarios.CurrentRow.Index].Run)) // Se entrega el run del funcionario seleccionado al gestionador para que este proceda a eliminar tal funcionario.
                 {
                     case GestionadorFuncionario.ResultadoGestionFuncionario.Valido:
                         MessageBox.Show("Funcionario eliminado con exito!");
@@ -108,54 +152,12 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             }
         }
 
-
-
-        public void CargarFuncionariosGridView(List<LB_GPVH.Modelo.Funcionario> funcionarios)
-        {
-            this.dgv_funcionarios.AutoGenerateColumns = false;
-            this.dgv_funcionarios.AutoSize = true;
-            IEnumerable<LB_GPVH.Modelo.Funcionario> funcionariosFiltrados;
-            if (chkVerSoloHabilitados.Checked)
-            {
-                funcionariosFiltrados = funcionarios.Where(s => s.Habilitado == true);
-                dgv_funcionarios.Columns[9].Visible = false;
-            }
-            else
-            {
-                funcionariosFiltrados = funcionarios;
-                dgv_funcionarios.Columns[9].Visible = true;
-            }
-            if(ddl_unidad.SelectedIndex != 0 && ddl_unidad.SelectedIndex != -1) // Por defecto un combobox tiene seleccionado al indexo -1
-            {
-                int idUnidad = (int)ddl_unidad.SelectedValue;
-                funcionariosFiltrados = funcionariosFiltrados.Where(s => s.Unidad.Id == idUnidad);
-            }
-            funcionariosGridView = funcionariosFiltrados.ToList();
-            dgv_funcionarios.DataSource = funcionariosGridView;
-        }
-
-        public void CargarHeadersGridView(List<String> nombrePropiedades)
-        {
-            //Se agreagan las columnas de forma personalisada
-            this.addColumn(0, nombrePropiedades[0], "RUN", true, "1", dgv_funcionarios);
-            this.addColumn(0, nombrePropiedades[1], "DV", true, "9", dgv_funcionarios);
-            this.addColumn(0, nombrePropiedades[2], "Nombre", true, "FUNCIONARIO SIN NOMBRE", dgv_funcionarios);
-            this.addColumn(0, nombrePropiedades[3], "Apellido Paterno", true, "SIN APELLIDO PATERNO", dgv_funcionarios);
-            this.addColumn(0, nombrePropiedades[4], "Apellido Materno", true, "SIN APELLIDO MATERNO", dgv_funcionarios);
-            this.addColumn(0, nombrePropiedades[5], "Fecha Nacimiento", true, "SIN FECHA", dgv_funcionarios);
-            this.addColumn(0, nombrePropiedades[6], "Correo", true, "SIN CORREO", dgv_funcionarios);
-            this.addColumn(0, nombrePropiedades[7], "Direccion", true, "SIN DIRECCION", dgv_funcionarios);
-            this.addColumn(0, nombrePropiedades[8], "Cargo", true, "SIN TIPO", dgv_funcionarios);
-            this.addColumn(1, nombrePropiedades[9], "Habilitado", true, "1", dgv_funcionarios);
-            this.addColumn(0, nombrePropiedades[10], "Unidad", true, "SIN UNIDAD", dgv_funcionarios);
-        }
-
-        private void chkVerSoloHabilitados_CheckedChanged(object sender, EventArgs e)
+        private void mchkVerSoloHabilitados_CheckedChanged(object sender, EventArgs e)
         {
             CargarFuncionariosGridView(funcionarios);
         }
 
-        private void ddl_unidad_SelectedIndexChanged(object sender, EventArgs e)
+        private void mcmbUnidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarFuncionariosGridView(funcionarios);
         }

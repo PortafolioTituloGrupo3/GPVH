@@ -11,7 +11,7 @@ using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Mantenedores.Unidad
 {
-    public partial class Form_M_Unidad_Modificar : Form
+    public partial class Form_M_Unidad_Modificar : MetroFramework.Forms.MetroForm
     {
         Form_M_Unidad padreTemp = null;
         LB_GPVH.Modelo.Unidad unidad;
@@ -228,6 +228,43 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                         nombreValido = true;
                         break;
                 }
+            }
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            padreTemp.Enabled = true;
+            this.Dispose();
+        }
+
+        private void mtAgregar_Click(object sender, EventArgs e)
+        {
+            if (direccionValida && nombreValido && descripcionValida)
+            {
+                GestionadorUnidad.ResultadoGestionUnidad resultado = gestionador.ModificarUnidad(unidad);
+                switch (resultado)
+                {
+                    case GestionadorUnidad.ResultadoGestionUnidad.DescripcionVacia:
+                        MessageBox.Show("No se pudo modificar la unidad: La descripcion esta vacia.");
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.DireccionVacia:
+                        MessageBox.Show("No se pudo modificar la unidad: La direccion esta vacia.");
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.NombreVacio:
+                        MessageBox.Show("No se pudo modificar la unidad: El nombre esta vacio.");
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.Invalido:
+                        MessageBox.Show("Ocurrio un error no controlado al modificar.");
+                        break;
+                    case GestionadorUnidad.ResultadoGestionUnidad.Valido:
+                        padreTemp.loadUnidades();
+                        MessageBox.Show("La unidad se modifico correctamente.");
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar la unidad: Existen datos inválidos.");
             }
         }
 

@@ -11,13 +11,13 @@ using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 {
-    public partial class Form_M_Funcionario_Modificar : Form
+    public partial class Form_M_Funcionario_Modificar : MetroFramework.Forms.MetroForm
     {
         Form_M_Funcionario padreTemp = null;
         GestionadorFuncionario gestionador;
         LB_GPVH.Modelo.Funcionario funcionario;
         bool nombreValido, apellidoPaternoValido, apellidoMaternoValido, direccionValida, correoValido, fechaNacimientoValida, cargoValido;
-
+        
 
         public Form_M_Funcionario_Modificar(Form_M_Funcionario formPadre, int run)
         {
@@ -196,6 +196,50 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             padreTemp.Close();
         }
 
+        private void mtModificar_Click(object sender, EventArgs e)
+        {
+            if (direccionValida && nombreValido && correoValido && apellidoPaternoValido && apellidoMaternoValido && fechaNacimientoValida && cargoValido)
+            {
+                GestionadorFuncionario.ResultadoGestionFuncionario resultado = gestionador.ModificarFuncionario(funcionario);
+                switch (resultado)
+                {
+                    case GestionadorFuncionario.ResultadoGestionFuncionario.ApellidoPaternoVacio:
+                        MessageBox.Show("No se pudo modificar el funcionario: El apellido paterno esta vacio.");
+                        break;
+                    case GestionadorFuncionario.ResultadoGestionFuncionario.ApellidoMaternoVacio:
+                        MessageBox.Show("No se pudo modificar el funcionario: El apellido materno esta vacio");
+                        break;
+                    case GestionadorFuncionario.ResultadoGestionFuncionario.CorreoVacio:
+                        MessageBox.Show("No se pudo modificar el funcionario: El correo esta vacio");
+                        break;
+                    case GestionadorFuncionario.ResultadoGestionFuncionario.DireccionVacia:
+                        MessageBox.Show("No se pudo modificar el funcionario: La direccion esta vacia.");
+                        break;
+                    case GestionadorFuncionario.ResultadoGestionFuncionario.NombreVacio:
+                        MessageBox.Show("No se pudo modificar el funcionario: El nombre esta vacio");
+                        break;
+                    case GestionadorFuncionario.ResultadoGestionFuncionario.Invalido:
+                        MessageBox.Show("Ocurrio un error no controlado al modificar.");
+                        break;
+                    case GestionadorFuncionario.ResultadoGestionFuncionario.Valido:
+                        padreTemp.loadFuncionarios();
+                        MessageBox.Show("El funcionario se modificó correctamente.");
+                        break;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el funcionario: Existen datos inválidos.");
+            }
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            padreTemp.Enabled = true;
+            this.Dispose();
+        }
+
         private void cld_nacimiento_ValueChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre la fecha de nacimiento y ve si es valida
@@ -236,13 +280,13 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             switch (gestionador.ValidarCaracterApellidoMaternoFuncionario(funcionario, txt_ap_mat.Text))
             {
                 case GestionadorFuncionario.ResultadoGestionFuncionario.CaracteresApellidoMaternoInvalido:
-                    lblErrorApellidoPaterno.Text = "El apellido materno tiene caracteres inválidos";
-                    lblErrorApellidoPaterno.Visible = true;
-                    apellidoPaternoValido = false;
+                    lblErrorApellidoMaterno.Text = "El apellido materno tiene caracteres inválidos";
+                    lblErrorApellidoMaterno.Visible = true;
+                    apellidoMaternoValido = false;
                     break;
                 default:
-                    lblErrorApellidoPaterno.Visible = false;
-                    apellidoPaternoValido = true;
+                    lblErrorApellidoMaterno.Visible = false;
+                    apellidoMaternoValido = true;
                     break;
             }
         }

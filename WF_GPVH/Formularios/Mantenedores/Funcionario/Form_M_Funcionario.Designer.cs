@@ -28,114 +28,162 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_eliminar = new System.Windows.Forms.Button();
-            this.btn_editar = new System.Windows.Forms.Button();
-            this.dgv_funcionarios = new System.Windows.Forms.DataGridView();
-            this.btn_agregar = new System.Windows.Forms.Button();
-            this.chkVerSoloHabilitados = new System.Windows.Forms.CheckBox();
-            this.ddl_unidad = new System.Windows.Forms.ComboBox();
-            this.lblUnidad = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_funcionarios)).BeginInit();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.mgFuncionarios = new MetroFramework.Controls.MetroGrid();
+            this.mtAgregar = new MetroFramework.Controls.MetroTile();
+            this.mtEditar = new MetroFramework.Controls.MetroTile();
+            this.mtEliminar = new MetroFramework.Controls.MetroTile();
+            this.mlblUnidad = new MetroFramework.Controls.MetroLabel();
+            this.mcmbUnidad = new MetroFramework.Controls.MetroComboBox();
+            this.mchkVerSoloHabilitados = new MetroFramework.Controls.MetroCheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.mgFuncionarios)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_eliminar
+            // mgFuncionarios
             // 
-            this.btn_eliminar.Location = new System.Drawing.Point(227, 168);
-            this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(128, 23);
-            this.btn_eliminar.TabIndex = 24;
-            this.btn_eliminar.Text = "Eliminar seleccionado";
-            this.btn_eliminar.UseVisualStyleBackColor = true;
-            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            this.mgFuncionarios.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.mgFuncionarios.AllowUserToAddRows = false;
+            this.mgFuncionarios.AllowUserToDeleteRows = false;
+            this.mgFuncionarios.AllowUserToResizeColumns = false;
+            this.mgFuncionarios.AllowUserToResizeRows = false;
+            this.mgFuncionarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.mgFuncionarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mgFuncionarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.mgFuncionarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mgFuncionarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.mgFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mgFuncionarios.DefaultCellStyle = dataGridViewCellStyle5;
+            this.mgFuncionarios.EnableHeadersVisualStyles = false;
+            this.mgFuncionarios.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.mgFuncionarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.mgFuncionarios.Location = new System.Drawing.Point(11, 63);
+            this.mgFuncionarios.MaximumSize = new System.Drawing.Size(650, 164);
+            this.mgFuncionarios.MultiSelect = false;
+            this.mgFuncionarios.Name = "mgFuncionarios";
+            this.mgFuncionarios.ReadOnly = true;
+            this.mgFuncionarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mgFuncionarios.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.mgFuncionarios.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.mgFuncionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.mgFuncionarios.Size = new System.Drawing.Size(649, 164);
+            this.mgFuncionarios.TabIndex = 28;
             // 
-            // btn_editar
+            // mtAgregar
             // 
-            this.btn_editar.Location = new System.Drawing.Point(93, 168);
-            this.btn_editar.Name = "btn_editar";
-            this.btn_editar.Size = new System.Drawing.Size(128, 23);
-            this.btn_editar.TabIndex = 23;
-            this.btn_editar.Text = "Editar seleccionado";
-            this.btn_editar.UseVisualStyleBackColor = true;
-            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
+            this.mtAgregar.ActiveControl = null;
+            this.mtAgregar.Location = new System.Drawing.Point(11, 251);
+            this.mtAgregar.Name = "mtAgregar";
+            this.mtAgregar.Size = new System.Drawing.Size(75, 60);
+            this.mtAgregar.TabIndex = 29;
+            this.mtAgregar.Text = "Agregar";
+            this.mtAgregar.UseSelectable = true;
+            this.mtAgregar.Click += new System.EventHandler(this.mtAgregar_Click);
             // 
-            // dgv_funcionarios
+            // mtEditar
             // 
-            this.dgv_funcionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_funcionarios.Location = new System.Drawing.Point(12, 12);
-            this.dgv_funcionarios.Name = "dgv_funcionarios";
-            this.dgv_funcionarios.Size = new System.Drawing.Size(649, 150);
-            this.dgv_funcionarios.TabIndex = 22;
+            this.mtEditar.ActiveControl = null;
+            this.mtEditar.Location = new System.Drawing.Point(92, 251);
+            this.mtEditar.Name = "mtEditar";
+            this.mtEditar.Size = new System.Drawing.Size(75, 60);
+            this.mtEditar.TabIndex = 30;
+            this.mtEditar.Text = "Editar";
+            this.mtEditar.UseSelectable = true;
+            this.mtEditar.Click += new System.EventHandler(this.mtEditar_Click);
             // 
-            // btn_agregar
+            // mtEliminar
             // 
-            this.btn_agregar.Location = new System.Drawing.Point(12, 168);
-            this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(75, 23);
-            this.btn_agregar.TabIndex = 21;
-            this.btn_agregar.Text = "Agregar";
-            this.btn_agregar.UseVisualStyleBackColor = true;
-            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
+            this.mtEliminar.ActiveControl = null;
+            this.mtEliminar.Location = new System.Drawing.Point(173, 251);
+            this.mtEliminar.Name = "mtEliminar";
+            this.mtEliminar.Size = new System.Drawing.Size(75, 60);
+            this.mtEliminar.TabIndex = 31;
+            this.mtEliminar.Text = "Eliminar";
+            this.mtEliminar.UseSelectable = true;
+            this.mtEliminar.Click += new System.EventHandler(this.mtEliminar_Click);
             // 
-            // chkVerSoloHabilitados
+            // mlblUnidad
             // 
-            this.chkVerSoloHabilitados.AutoSize = true;
-            this.chkVerSoloHabilitados.Checked = true;
-            this.chkVerSoloHabilitados.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkVerSoloHabilitados.Location = new System.Drawing.Point(544, 174);
-            this.chkVerSoloHabilitados.Name = "chkVerSoloHabilitados";
-            this.chkVerSoloHabilitados.Size = new System.Drawing.Size(117, 17);
-            this.chkVerSoloHabilitados.TabIndex = 25;
-            this.chkVerSoloHabilitados.Text = "Ver solo habilitados";
-            this.chkVerSoloHabilitados.UseVisualStyleBackColor = true;
-            this.chkVerSoloHabilitados.CheckedChanged += new System.EventHandler(this.chkVerSoloHabilitados_CheckedChanged);
+            this.mlblUnidad.AutoSize = true;
+            this.mlblUnidad.Location = new System.Drawing.Point(483, 282);
+            this.mlblUnidad.Name = "mlblUnidad";
+            this.mlblUnidad.Size = new System.Drawing.Size(54, 19);
+            this.mlblUnidad.TabIndex = 32;
+            this.mlblUnidad.Text = "Unidad:";
             // 
-            // ddl_unidad
+            // mcmbUnidad
             // 
-            this.ddl_unidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddl_unidad.FormattingEnabled = true;
-            this.ddl_unidad.Location = new System.Drawing.Point(544, 207);
-            this.ddl_unidad.Name = "ddl_unidad";
-            this.ddl_unidad.Size = new System.Drawing.Size(121, 21);
-            this.ddl_unidad.TabIndex = 26;
-            this.ddl_unidad.SelectedIndexChanged += new System.EventHandler(this.ddl_unidad_SelectedIndexChanged);
+            this.mcmbUnidad.FormattingEnabled = true;
+            this.mcmbUnidad.ItemHeight = 23;
+            this.mcmbUnidad.Location = new System.Drawing.Point(543, 282);
+            this.mcmbUnidad.Name = "mcmbUnidad";
+            this.mcmbUnidad.Size = new System.Drawing.Size(117, 29);
+            this.mcmbUnidad.TabIndex = 33;
+            this.mcmbUnidad.UseSelectable = true;
+            this.mcmbUnidad.SelectedIndexChanged += new System.EventHandler(this.mcmbUnidad_SelectedIndexChanged);
             // 
-            // lblUnidad
+            // mchkVerSoloHabilitados
             // 
-            this.lblUnidad.AutoSize = true;
-            this.lblUnidad.Location = new System.Drawing.Point(494, 210);
-            this.lblUnidad.Name = "lblUnidad";
-            this.lblUnidad.Size = new System.Drawing.Size(44, 13);
-            this.lblUnidad.TabIndex = 27;
-            this.lblUnidad.Text = "Unidad:";
+            this.mchkVerSoloHabilitados.AutoSize = true;
+            this.mchkVerSoloHabilitados.Checked = true;
+            this.mchkVerSoloHabilitados.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.mchkVerSoloHabilitados.Location = new System.Drawing.Point(543, 251);
+            this.mchkVerSoloHabilitados.Name = "mchkVerSoloHabilitados";
+            this.mchkVerSoloHabilitados.Size = new System.Drawing.Size(125, 15);
+            this.mchkVerSoloHabilitados.TabIndex = 34;
+            this.mchkVerSoloHabilitados.Text = "Ver solo habilitados";
+            this.mchkVerSoloHabilitados.UseSelectable = true;
+            this.mchkVerSoloHabilitados.CheckedChanged += new System.EventHandler(this.mchkVerSoloHabilitados_CheckedChanged);
             // 
             // Form_M_Funcionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 276);
-            this.Controls.Add(this.lblUnidad);
-            this.Controls.Add(this.ddl_unidad);
-            this.Controls.Add(this.chkVerSoloHabilitados);
-            this.Controls.Add(this.btn_eliminar);
-            this.Controls.Add(this.btn_editar);
-            this.Controls.Add(this.dgv_funcionarios);
-            this.Controls.Add(this.btn_agregar);
+            this.ClientSize = new System.Drawing.Size(683, 342);
+            this.Controls.Add(this.mchkVerSoloHabilitados);
+            this.Controls.Add(this.mcmbUnidad);
+            this.Controls.Add(this.mlblUnidad);
+            this.Controls.Add(this.mtEliminar);
+            this.Controls.Add(this.mtEditar);
+            this.Controls.Add(this.mtAgregar);
+            this.Controls.Add(this.mgFuncionarios);
             this.Name = "Form_M_Funcionario";
             this.Text = "Form_M_Funcionario";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_funcionarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mgFuncionarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_eliminar;
-        private System.Windows.Forms.Button btn_editar;
-        private System.Windows.Forms.DataGridView dgv_funcionarios;
-        private System.Windows.Forms.Button btn_agregar;
-        private System.Windows.Forms.CheckBox chkVerSoloHabilitados;
-        private System.Windows.Forms.ComboBox ddl_unidad;
-        private System.Windows.Forms.Label lblUnidad;
+        private MetroFramework.Controls.MetroGrid mgFuncionarios;
+        private MetroFramework.Controls.MetroTile mtAgregar;
+        private MetroFramework.Controls.MetroTile mtEditar;
+        private MetroFramework.Controls.MetroTile mtEliminar;
+        private MetroFramework.Controls.MetroLabel mlblUnidad;
+        private MetroFramework.Controls.MetroComboBox mcmbUnidad;
+        private MetroFramework.Controls.MetroCheckBox mchkVerSoloHabilitados;
     }
 }

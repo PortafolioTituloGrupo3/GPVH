@@ -92,6 +92,7 @@ namespace LB_GPVH.Controlador
                     funcionario.ApellidoPaterno = wsFuncionario.Ap_paterno;
                     funcionario.ApellidoMaterno = wsFuncionario.Ap_materno;
                     funcionario.Correo = wsFuncionario.Correo;
+                    funcionario.Direccion = wsFuncionario.Direc_funcionario;
                     funcionario.Cargo = wsFuncionario.Cargo;
                     funcionario.FechaNacimiento = wsFuncionario.Fec_nacimiento;
                     funcionario.Habilitado = (wsFuncionario.Habilitado == 0) ? false : true;
