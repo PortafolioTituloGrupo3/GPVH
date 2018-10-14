@@ -8,45 +8,41 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WF_GPVH.Formularios.Mantenedores.Funcionario;
+using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 {
-    public partial class Form_M_Funcionario : Form
+    public partial class Form_M_Funcionario : MetroFramework.Forms.MetroForm
     {
+        private GestionadorFuncionario gestionador;
+        private List<LB_GPVH.Modelo.Funcionario> funcionarios;
+        private List<LB_GPVH.Modelo.Funcionario> funcionariosGridView;
+
         public Form_M_Funcionario()
         {
             InitializeComponent();
+            gestionador = new GestionadorFuncionario();
+            CargarHeadersGridView(gestionador.ListarNombresParametros());
             this.loadFuncionarios();
+            this.loadDdlUnidades();
         }
 
         public void loadFuncionarios()
         {
-            this.dgv_funcionarios.DataSource = null;
-            //Diccionario que contendra el <codigoProducto, nombreProducto>
-            using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios= new ServiceWSFuncionarios.WSFuncionariosClient())
-            {
-                var listadoFuncionarios = serviceFuncionarios.getListadoFuncionarios();
-                //Inicialisar DGV
-                this.dgv_funcionarios.AutoGenerateColumns = false;
-                this.dgv_funcionarios.AutoSize = true;
-                this.dgv_funcionarios.DataSource = listadoFuncionarios;
-                if (dgv_funcionarios.ColumnCount <= 0)
-                {
-                    //Se agreagan las columnas de forma personalisada
-                    this.addColumn(0, "run_sin_dv", "RUN", true, "1", dgv_funcionarios);
-                    this.addColumn(0, "run_dv", "DV", true, "9", dgv_funcionarios);
-                    this.addColumn(0, "nom_funcionario", "Nombre", true, "FUNCIONARIO SIN NOMBRE", dgv_funcionarios);
-                    this.addColumn(0, "ap_paterno", "Apellido Paterno", true, "SIN APELLIDO PATERNO", dgv_funcionarios);
-                    this.addColumn(0, "ap_materno", "Apellido Materno", true, "SIN APELLIDO MATERNO", dgv_funcionarios);
-                    this.addColumn(0, "fec_nacimiento", "Fecha Nacimiento", true, "SIN FECHA", dgv_funcionarios);
-                    this.addColumn(0, "correo", "Correo", true, "SIN CORREO", dgv_funcionarios);
-                    this.addColumn(0, "direc_funcionario", "Direccion", true, "SIN DIRECCION", dgv_funcionarios);
-                    this.addColumn(0, "tipo_funcionario", "Tipo funcionario", true, "SIN TIPO", dgv_funcionarios);
-                    this.addColumn(1, "habilitado", "Habilitado", true, "1", dgv_funcionarios);
-                    this.addColumn(0, "unidad_id_unidad", "Unidad", true, "SIN UNIDAD", dgv_funcionarios);
-                }
-            }
+            funcionarios = gestionador.ListarFuncionarios();
+            CargarFuncionariosGridView(this.funcionarios);
         }
+
+        private void loadDdlUnidades()
+        {
+            this.mcmbUnidad.DisplayMember = "Value";
+            this.mcmbUnidad.ValueMember = "Key";
+            this.mcmbUnidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadClaveValor(true), null);
+            this.mcmbUnidad.SelectedIndex = 0;
+        }
+
+
+
         //Funcion que agregara columnas con los parametros ingresados
         private void addColumn(int tipoColumna, string property, string titulo, bool visible,
                                             string valorPorDefecto, DataGridView dgv)
@@ -72,47 +68,98 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             column.Visible = visible;
             column.DefaultCellStyle.NullValue = valorPorDefecto;
             dgv.Columns.Add(column);
+            dgv.Refresh();
+            
         }
 
-        private void btn_agregar_Click(object sender, EventArgs e)
+
+
+        public void CargarFuncionariosGridView(List<LB_GPVH.Modelo.Funcionario> funcionarios)
+        {
+            this.mgFuncionarios.AutoGenerateColumns = false;
+            this.mgFuncionarios.AutoSize = true;
+            IEnumerable<LB_GPVH.Modelo.Funcionario> funcionariosFiltrados;
+            if (mchkVerSoloHabilitados.Checked)
+            {
+                funcionariosFiltrados = funcionarios.Where(s => s.Habilitado == true);
+                mgFuncionarios.Columns[9].Visible = false;
+            }
+            else
+            {
+                funcionariosFiltrados = funcionarios;
+                mgFuncionarios.Columns[9].Visible = true;
+            }
+            if(mcmbUnidad.SelectedIndex != 0 && mcmbUnidad.SelectedIndex != -1) // Por defecto un combobox tiene seleccionado al indexo -1
+            {
+                int idUnidad = (int)mcmbUnidad.SelectedValue;
+                funcionariosFiltrados = funcionariosFiltrados.Where(s => s.Unidad.Id == idUnidad);
+            }
+            funcionariosGridView = funcionariosFiltrados.ToList();
+            mgFuncionarios.DataSource = funcionariosGridView;
+        }
+
+        public void CargarHeadersGridView(List<String> nombrePropiedades)
+        {
+            //Se agreagan las columnas de forma personalisada
+            this.addColumn(0, nombrePropiedades[0], "RUN", true, "1", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[1], "DV", true, "9", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[2], "Nombre", true, "FUNCIONARIO SIN NOMBRE", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[3], "Apellido Paterno", true, "SIN APELLIDO PATERNO", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[4], "Apellido Materno", true, "SIN APELLIDO MATERNO", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[5], "Fecha Nacimiento", true, "SIN FECHA", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[6], "Correo", true, "SIN CORREO", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[7], "Direccion", true, "SIN DIRECCION", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[8], "Cargo", true, "SIN TIPO", mgFuncionarios);
+            this.addColumn(1, nombrePropiedades[9], "Habilitado", true, "1", mgFuncionarios);
+            this.addColumn(0, nombrePropiedades[10], "Unidad", true, "SIN UNIDAD", mgFuncionarios);
+        }
+
+        private void mtAgregar_Click(object sender, EventArgs e)
         {
             Form_M_Funcionario_Agregar popUpAgregar = new Form_M_Funcionario_Agregar(this);
             popUpAgregar.Show();
             this.Enabled = false;
         }
 
-        private void btn_editar_Click(object sender, EventArgs e)
+        private void mtEditar_Click(object sender, EventArgs e)
         {
-            if (this.dgv_funcionarios.CurrentRow == null)
+            if (this.mgFuncionarios.CurrentRow == null)
                 MessageBox.Show("Primero debes seleccionar una fila!");
             else
             {
-                int id_usuario_actual = int.Parse(this.dgv_funcionarios.CurrentRow.Cells[0].Value.ToString());
-                Form_M_Funcionario_Modificar popUpEditar = new Form_M_Funcionario_Modificar(this, id_usuario_actual);
+                Form_M_Funcionario_Modificar popUpEditar = new Form_M_Funcionario_Modificar(this, funcionariosGridView[mgFuncionarios.CurrentRow.Index].Run);
                 popUpEditar.Show();
                 this.Enabled = false;
             }
         }
 
-        private void btn_eliminar_Click(object sender, EventArgs e)
+        private void mtEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dgv_funcionarios.CurrentRow == null)
-                MessageBox.Show("Primero debes seleccionar una fila!");
+            if (this.mgFuncionarios.CurrentRow == null)
+                MessageBox.Show("Primero debe seleccionar una fila!");
             else
             {
-                int id_usuario_actual = int.Parse(this.dgv_funcionarios.CurrentRow.Cells[0].Value.ToString());
-                using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionario = new ServiceWSFuncionarios.WSFuncionariosClient())
+                switch (gestionador.EliminarFuncionario(funcionariosGridView[this.mgFuncionarios.CurrentRow.Index].Run)) // Se entrega el run del funcionario seleccionado al gestionador para que este proceda a eliminar tal funcionario.
                 {
-                    int salida = serviceFuncionario.deleteFuncionario(id_usuario_actual);
-                    if (salida == 0)
-                    {
-                        this.loadFuncionarios();
-                        MessageBox.Show("Datos eliminados con exito!");
-                    }
-                    else
-                        MessageBox.Show("ERROR NRO: " + salida);
+                    case GestionadorFuncionario.ResultadoGestionFuncionario.Valido:
+                        MessageBox.Show("Funcionario eliminado con exito!");
+                        loadFuncionarios();
+                        break;
+                    case GestionadorFuncionario.ResultadoGestionFuncionario.Invalido:
+                        MessageBox.Show("Ocurrio un error no controlado durante la eliminacion.");
+                        break;
                 }
             }
+        }
+
+        private void mchkVerSoloHabilitados_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarFuncionariosGridView(funcionarios);
+        }
+
+        private void mcmbUnidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarFuncionariosGridView(funcionarios);
         }
     }
 }

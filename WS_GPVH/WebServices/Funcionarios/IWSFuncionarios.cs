@@ -46,7 +46,7 @@ namespace WS_GPVH.WebServices.Funcionarios
         DateTime fec_nacimiento = DateTime.Now;
         string correo = "";
         string direc_funcionario = "";
-        string tipo_funcionario = "";
+        string cargo = "";
         int habilitado = 1;
         int unidad_id_unidad = 999;
 
@@ -155,16 +155,16 @@ namespace WS_GPVH.WebServices.Funcionarios
             }
         }
         [DataMember]
-        public string Tipo_funcionario
+        public string Cargo
         {
             get
             {
-                return tipo_funcionario;
+                return cargo;
             }
 
             set
             {
-                tipo_funcionario = value;
+                cargo = value;
             }
         }
         [DataMember]

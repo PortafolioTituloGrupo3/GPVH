@@ -46,6 +46,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
       <Private>True</Private>
@@ -150,6 +159,18 @@
     <Compile Include="Formularios\Mantenedores\Usuario\Form_M_Usuario_Modificar.Designer.cs">
       <DependentUpon>Form_M_Usuario_Modificar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Permisos\Form_BuscarPermiso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Permisos\Form_BuscarPermiso.Designer.cs">
+      <DependentUpon>Form_BuscarPermiso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Permisos\Form_SeleccionFuncionarioPermisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Permisos\Form_SeleccionFuncionarioPermisos.Designer.cs">
+      <DependentUpon>Form_SeleccionFuncionarioPermisos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Reportes\CR_Permisos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -222,6 +243,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Mantenedores\Usuario\Form_M_Usuario_Modificar.resx">
       <DependentUpon>Form_M_Usuario_Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Permisos\Form_BuscarPermiso.resx">
+      <DependentUpon>Form_BuscarPermiso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Permisos\Form_SeleccionFuncionarioPermisos.resx">
+      <DependentUpon>Form_SeleccionFuncionarioPermisos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\CR_Permisos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

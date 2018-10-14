@@ -22,19 +22,24 @@ namespace LB_GPVH.Auxiliares
         }
 
         //Verifica el codigo ASCII de cada letra de la cadena y verifica que sus caracter sean valido en un contexto general
-        public static bool ContieneCaracteresInvalidos(String cadena)
+        public static bool ContieneCaracteresInvalidos(String cadena, bool permiteEspacios, bool permiteComas,bool permiteArroba)
         {
 
             for (int i = 0; i < cadena.Length; i++)
             {
                 int charACCII = (int)cadena[i];
 
-                if (charACCII >= 48 && charACCII <= 57) //caracter del '1' al '9', incluyendo al '@'
+                if (charACCII >= 48 && charACCII <= 57) //caracter del '1' al '9'
                 {
                     continue;
                 }
 
-                if (charACCII >= 64 && charACCII <= 90) //caracter del 'A' al 'Z', incluyendo al '@'
+                if (charACCII == 64 && permiteArroba) //caracter '@'
+                {
+                    continue;
+                }
+
+                if (charACCII >= 65 && charACCII <= 90) //caracter del 'A' al 'Z'
                 {
                     continue;
                 }
@@ -49,12 +54,17 @@ namespace LB_GPVH.Auxiliares
                     continue;
                 }
 
-                if (charACCII == 32) //caracter [BARRA ESPACIADORA]
+                if (charACCII == 32 && permiteEspacios) //caracter [BARRA ESPACIADORA]
                 {
                     continue;
                 }
 
                 if (charACCII == 46) //caracter '.'
+                {
+                    continue;
+                }
+
+                if (charACCII == 44 && permiteComas) //caracter ','
                 {
                     continue;
                 }
@@ -76,10 +86,8 @@ namespace LB_GPVH.Auxiliares
 
         }
 
-
-
         //Verifica que los caracteres de la cadena pertenescan al alfabeto
-        public static bool ContieneCaracteresAlfabeto(String cadena, bool espacios)
+        public static bool ContieneCaracteresAlfabeto(String cadena, bool permiteEspacios)
         {
 
             for (int i = 0; i < cadena.Length; i++)
@@ -105,7 +113,7 @@ namespace LB_GPVH.Auxiliares
                     continue;
                 }
 
-                if (charACCII == 32 && espacios) //caracter [BARRA ESPACIADORA]
+                if (charACCII == 32 && permiteEspacios) //caracter [BARRA ESPACIADORA]
                 {
                     continue;
                 }
@@ -117,14 +125,14 @@ namespace LB_GPVH.Auxiliares
 
         }
 
-        //Verifica que los caracteres de la cadena pertenescan al alfabeto
+        //Verifica que los caracteres de la cadena pertenescan a numeros naturales (incluyendo al 0)
         public static bool EsNumerico(String cadena, bool espacios)
         {
 
             for (int i = 0; i < cadena.Length; i++)
             {
                 int charACCII = (int)cadena[i];
-                if (charACCII >= 48 && charACCII <= 57) //caracter del '1' al '9', incluyendo al '@'
+                if (charACCII >= 48 && charACCII <= 57) //caracter del '0' al '9'
                 {
                     continue;
                 }
@@ -134,6 +142,15 @@ namespace LB_GPVH.Auxiliares
 
             return true;
 
+        }
+
+        //Verifica si un caracter es numerico
+        public static bool EsNumerico(char caracter)
+        {
+            if (caracter >= 48 && caracter <= 57) //caracter del '0' al '9'
+                return true;
+            else
+                return false;
         }
 
 

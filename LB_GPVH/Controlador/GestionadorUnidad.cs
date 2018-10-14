@@ -46,7 +46,7 @@ namespace LB_GPVH.Controlador
                     unidad.Habilitado = (wsUnidad.Habilitado == 0) ? false : true;
                     if (wsUnidad.Funcionario_run_sin_dv != null)
                     {
-                        unidad.Jefe = new GestionadorFuncionario().BuscarFuncionario((int)wsUnidad.Funcionario_run_sin_dv);
+                        unidad.Jefe = new GestionadorFuncionario().BuscarFuncionarioParcial((int)wsUnidad.Funcionario_run_sin_dv);
                     }
                     if (wsUnidad.Unidad_id_unidad != null)
                     {
@@ -59,7 +59,7 @@ namespace LB_GPVH.Controlador
             }
         }
 
-        public void setPadre(Unidad unidad, int id, string nombre)
+        public void SetPadre(Unidad unidad, int id, string nombre)
         {
             if(unidad.UnidadPadre == null)
             {
@@ -69,7 +69,12 @@ namespace LB_GPVH.Controlador
             unidad.UnidadPadre.Id = id;
         }
 
-        public void setJefe(Unidad unidad, int run, string nombreCompleto)
+        public void EliminarPadre(Unidad unidad)
+        {
+            unidad.UnidadPadre = null;
+        }
+
+        public void SetJefe(Unidad unidad, int run, string nombreCompleto)
         {
             if (unidad.Jefe == null)
             {
@@ -88,11 +93,16 @@ namespace LB_GPVH.Controlador
             }
         }
 
+        public void EliminarJefe(Unidad unidad)
+        {
+            unidad.Jefe = null;
+        }
+
         public ResultadoGestionUnidad AgregarUnidad(Unidad unidad)
         {
             using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
             {
-                ResultadoGestionUnidad validacion = this.validarUnidad(unidad);
+                ResultadoGestionUnidad validacion = this.ValidarUnidad(unidad);
                 if(validacion != ResultadoGestionUnidad.Valido)
                 {
                     return validacion;
@@ -118,8 +128,53 @@ namespace LB_GPVH.Controlador
             }
         }
 
+        public ResultadoGestionUnidad ModificarUnidad(Unidad unidad)
+        {
+            using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
+            {
+                ResultadoGestionUnidad validacion = this.ValidarUnidad(unidad);
+                if (validacion != ResultadoGestionUnidad.Valido)
+                {
+                    return validacion;
+                }
+                int? padre;
+                if (unidad.UnidadPadre == null)
+                    padre = null;
+                else
+                    padre = unidad.UnidadPadre.Id;
+                int? jefe;
+                if (unidad.Jefe == null)
+                    jefe = null;
+                else
+                    jefe = unidad.Jefe.Run;
+                int codigoRetorno = serviceUnidades.modifyUnidad(unidad.Id, unidad.Nombre, unidad.Descripcion, unidad.Direccion, unidad.Habilitado,padre, jefe);
+                switch (codigoRetorno)
+                {
+                    case 0:
+                        return ResultadoGestionUnidad.Valido;
+                    default:
+                        return ResultadoGestionUnidad.Invalido;
+                }
+            }
+        }
 
-        public ResultadoGestionUnidad validarUnidad(Unidad unidad)
+        public ResultadoGestionUnidad EliminarUnidad(int id)
+        {
+            using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
+            {
+                int salida = serviceUnidades.deleteUnidad(id);
+
+                if (salida == 0)
+                {
+                    return ResultadoGestionUnidad.Valido;
+                }
+                else
+                    return ResultadoGestionUnidad.Invalido;
+            }
+
+        }
+
+        public ResultadoGestionUnidad ValidarUnidad(Unidad unidad)
         {
             if (unidad.Nombre.Length == 0)
             {
@@ -137,15 +192,77 @@ namespace LB_GPVH.Controlador
         }
 
 
-        public Dictionary<int, string> DiccionarioUnidadClaveValor()
+        public Dictionary<int, string> DiccionarioUnidadClaveValor(bool primeraFilaVacia)
         {
             using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
             {
-                Dictionary<int, string> lista = new Dictionary<int, string>();
-                lista = serviceUnidades.getListadoUnidadesClaveValor();
-                return lista;
+                Dictionary<int, string> lista = serviceUnidades.getListadoUnidadesClaveValor();
+                if(primeraFilaVacia)
+                {
+                    Dictionary<int, string> listaFinal = new Dictionary<int, string>();
+                    listaFinal.Add(-1, "");
+                    foreach (var unidad in lista)
+                    {
+                        listaFinal.Add(unidad.Key, unidad.Value);
+                    }
+                    return listaFinal;
+                }
+                else
+                {
+                    return lista;
+                }
+                
             }
         }
+
+        ///<summary>
+        ///Busca las unidades que no tengan parentesco con la unidad cuyo id es el parametro.
+        ///</summary>
+        ///<return>
+        ///Devuelve un diccionario conteniendo los id y nombres de las unidades no descendientes y desiguales al id de la unidad(ver parametro).
+        ///</return>
+        ///<param nombre="id">
+        ///El id de la unidad del cual se quiere excluir los descendientes y si misma.
+        ///</param>
+        ///<remarks>
+        ///Realiza una busqueda recursiva para encontrar todas los id de unidades hijas descendientes. En el peor caso, la complejidad es N^2, y en el mejor caso es N.
+        ///
+        ///</remarks>
+        public Dictionary<int, string> DiccionarioUnidadNoHijaClaveValor(int id)
+        {
+            List<Unidad> unidadesTotales = this.ListarUnidades();
+            List<int> idHijas = new List<int>();
+            Dictionary<int, string> lista = new Dictionary<int, string>();
+            idHijas.Add(id);
+            ObtenerIdHijas(unidadesTotales, idHijas, id);
+            lista.Add(-1, "");
+            foreach (Unidad unidad in unidadesTotales)
+            {
+                if (idHijas.Where(s => s == unidad.Id).Count() == 0)
+                {
+                    lista.Add(unidad.Id, unidad.Nombre);
+                }
+            }
+
+            return lista;
+        }
+
+        public void ObtenerIdHijas(List<Unidad> unidadesTotales, List<int> idHijas, int idUnidad)
+        {
+            foreach (Unidad unidad in unidadesTotales)
+            {
+                if(unidad.UnidadPadre != null)
+                {
+                    if(unidad.UnidadPadre.Id == idUnidad)
+                    {
+                        idHijas.Add(unidad.Id);
+                        ObtenerIdHijas(unidadesTotales, idHijas, unidad.Id);
+                    }
+                }
+            }
+        }
+
+
 
 
         public List<String> ListarNombresParametros()
@@ -176,7 +293,7 @@ namespace LB_GPVH.Controlador
             }
         }
 
-        public bool nombreUnidadExiste(string nombre)
+        public bool NombreUnidadExiste(string nombre)
         {
             using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
             {
@@ -197,7 +314,7 @@ namespace LB_GPVH.Controlador
         public ResultadoGestionUnidad ValidarNombreUnidad(Unidad unidad, string nombre)
         {
 
-            if(nombreUnidadExiste(nombre))
+            if(NombreUnidadExiste(nombre))
             {
                 return ResultadoGestionUnidad.UnidadExiste;
             }
@@ -226,7 +343,7 @@ namespace LB_GPVH.Controlador
             return ResultadoGestionUnidad.Valido;
         }
 
-
+        
 
     }
 }

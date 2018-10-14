@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -61,13 +62,17 @@
     </Compile>
     <Compile Include="Controlador\GestionadorFuncionario.cs" />
     <Compile Include="Controlador\GestionadorUnidad.cs" />
-    <Compile Include="Controlador\IVistaMUnidad.cs" />
+    <Compile Include="Controlador\GestionadorUsuario.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
     <Compile Include="Controlador\Sesion.cs" />
+    <Compile Include="Modelo\Permiso.cs" />
     <Compile Include="Modelo\Unidad.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQL\ConexionSQL.cs" />
+    <Compile Include="SQL\PermisoSQL.cs" />
+    <Compile Include="SQL\UsuarioSQL.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
