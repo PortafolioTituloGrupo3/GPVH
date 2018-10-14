@@ -65,6 +65,7 @@
     <Compile Include="Controlador\GestionadorUsuario.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
     <Compile Include="Controlador\Sesion.cs" />
+    <Compile Include="Modelo\Permiso.cs" />
     <Compile Include="Modelo\Unidad.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Enums\Enums.cs" />

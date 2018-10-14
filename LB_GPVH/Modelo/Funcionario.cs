@@ -20,6 +20,7 @@ namespace LB_GPVH.Modelo
         private string cargo;
         private bool habilitado;
         private Unidad unidad;
+        private List<Permiso> permisos;
 
 
 
@@ -35,6 +36,7 @@ namespace LB_GPVH.Modelo
             cargo = "";
             habilitado = true;
             unidad = null;
+            permisos = null;
         }
 
 
