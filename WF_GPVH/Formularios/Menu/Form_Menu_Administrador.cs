@@ -11,7 +11,7 @@ using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Menu
 {
-    public partial class Form_Menu_Administrador : Form
+    public partial class Form_Menu_Administrador : MetroFramework.Forms.MetroForm
     {
         Login.Form_Login mainForm;
         Sesion sesion;
@@ -22,32 +22,33 @@ namespace WF_GPVH.Formularios.Menu
             sesion = pSesion;
             InitializeComponent();
             lblUsuario.Text = "Usuario: "+sesion.Usuario.Nombre;
+            lblFuncionario.Text = "Funcionario: " + sesion.Usuario.Funcionario.NombreCompleto;
+        }
+        
+        private void Form_Menu_Administrador_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.Dispose();
         }
 
-        private void btnGestionarFuncionario_Click(object sender, EventArgs e)
+        private void mtGestionarFuncionarios_Click(object sender, EventArgs e)
         {
             new Mantenedores.Funcionario.Form_M_Funcionario().Show();
         }
 
-        private void btnGestionarUsuario_Click(object sender, EventArgs e)
+        private void mtGestionarUsuarios_Click(object sender, EventArgs e)
         {
             new Mantenedores.Usuario.Form_M_Usuario().Show();
         }
 
-        private void btnGestionarUnidad_Click(object sender, EventArgs e)
+        private void mtGestionarUnidades_Click(object sender, EventArgs e)
         {
             new Mantenedores.Unidad.Form_M_Unidad().Show();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void mtSalir_Click(object sender, EventArgs e)
         {
             mainForm.Show();
             this.Dispose();
-        }
-
-        private void Form_Menu_Administrador_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            mainForm.Dispose();
         }
     }
 }

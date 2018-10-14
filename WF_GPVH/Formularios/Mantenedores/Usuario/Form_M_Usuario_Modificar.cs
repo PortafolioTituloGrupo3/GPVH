@@ -17,13 +17,14 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
         Form_M_Usuario padreTemp = null;
         LB_GPVH.Modelo.Usuario usuario;
         GestionadorUsuario gestionador;
-        bool nombreValido, claveValida, claveConfirmacionValida;
+        bool nombreValido, claveValida, claveConfirmacionValida, habilitarEventos;
 
 
         public Form_M_Usuario_Modificar(Form_M_Usuario formPadre, int id_usuario)
         {
             InitializeComponent();
             padreTemp = formPadre;
+            habilitarEventos = false;
             gestionador = new GestionadorUsuario();
             usuario = gestionador.BuscarUsarioPorId(id_usuario);
             this.loadDdlTipos();
@@ -32,6 +33,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
             claveValida = true;
             claveConfirmacionValida = true;
             this.CargarCamposUsuario();
+            habilitarEventos = true;
 
             /*
             using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
@@ -115,12 +117,14 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
 
         private void ddl_tipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gestionador.setTipoUsuario(usuario, ddl_tipo.Text);
+            if(habilitarEventos)
+                gestionador.setTipoUsuario(usuario, ddl_tipo.Text);
         }
 
         private void ddl_funcionarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gestionador.setFuncionarioUsuario(usuario, int.Parse(this.ddl_funcionarios.SelectedValue.ToString()), ddl_funcionarios.Text);
+            if (habilitarEventos)
+                gestionador.setFuncionarioUsuario(usuario, int.Parse(this.ddl_funcionarios.SelectedValue.ToString()), ddl_funcionarios.Text);
         }
 
         private void txt_nombre_TextChanged(object sender, EventArgs e)

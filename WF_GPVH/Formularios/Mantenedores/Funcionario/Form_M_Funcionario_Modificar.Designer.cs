@@ -345,6 +345,7 @@
             this.txt_correo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_correo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txt_correo.TextChanged += new System.EventHandler(this.txt_correo_TextChanged);
+            this.txt_correo.Leave += new System.EventHandler(this.txt_correo_Leave);
             // 
             // label9
             // 

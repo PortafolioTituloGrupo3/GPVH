@@ -241,6 +241,22 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             }
         }
 
+        private void txt_correo_Leave(object sender, EventArgs e)
+        {
+            switch (gestionador.ValidarFormatoCorreo(funcionario, txt_correo.Text))
+            {
+                case GestionadorFuncionario.ResultadoGestionFuncionario.CorreoInvalido:
+                    lblErrorCorreo.Text = "El formato del correo no es válidos";
+                    lblErrorCorreo.Visible = true;
+                    correoValido = false;
+                    break;
+                default:
+                    lblErrorCorreo.Visible = false;
+                    correoValido = true;
+                    break;
+            }
+        }
+
         private void txt_cargo_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre el cargo y ve si es valido

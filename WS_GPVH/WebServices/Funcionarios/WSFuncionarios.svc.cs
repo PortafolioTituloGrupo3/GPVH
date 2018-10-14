@@ -71,6 +71,7 @@ namespace WS_GPVH.WebServices.Funcionarios
                 funcionario.Habilitado = reader.GetInt32(9);
                 funcionario.Unidad_id_unidad = reader.GetInt32(10);
             }
+            con.Close();
             return funcionario;
         }
         public Dictionary<int, string> getListadoFuncionariosClaveValor()

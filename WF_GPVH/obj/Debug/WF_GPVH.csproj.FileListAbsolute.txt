@@ -147,3 +147,4 @@ C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csproj.CopyComplete
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\MetroFramework.Design.dll
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\MetroFramework.dll
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\ApplicationInsights.config

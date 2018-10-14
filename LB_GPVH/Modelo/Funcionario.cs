@@ -215,16 +215,66 @@ namespace LB_GPVH.Modelo
             return true;
         }
 
-        public bool ValidarCorreo(string pCorreo)
+        public bool ValidarCaracteresCorreo(string pCorreo)
         {
             if (AuxiliarString.ContieneCaracteresInvalidos(pCorreo,false,false, true))
             {
                 return false;
             }
-
-            this.correo = pCorreo;
             return true;
         }
+
+        public bool ValidarFormatoCorreo(string pCorreo)
+        {
+            if (!this.ValidarCaracteresCorreo(pCorreo))
+                return false;
+            if(pCorreo.Count(f => f == '@') != 1)
+            {
+                return false;
+            }
+            else
+            {
+                int arobaPos = 0, pointPos = 0;
+                bool caracterEspecialAnterior = false;
+                for (int i = 0; i < pCorreo.Length; i++)
+                {
+                    if (i == 0 || i == pCorreo.Length-1)
+                    {
+                        if (pCorreo[i] == '@' || pCorreo[i] == '.' || pCorreo[i] == '_')
+                        {
+                            return false;
+                        }
+                    }
+
+                    if (pCorreo[i] == '@' || pCorreo[i] == '.' || pCorreo[i] == '_')
+                    {
+                        if (caracterEspecialAnterior)
+                            return false;
+                        caracterEspecialAnterior = true;
+                    }
+                    else
+                    {
+                        caracterEspecialAnterior = false;
+                    }
+                    
+                    if (pCorreo[i] == '@')
+                    {
+                        arobaPos = i;
+                    }
+                    if (pCorreo[i] == '.')
+                    {
+                        pointPos = i;
+                    }
+                }
+                if(arobaPos >= pointPos-1) // Se asegura que un punto tenga que proceder despues de por lo menos un espacio al caracter a '@' 
+                {
+                    return false;
+                }
+                Correo = pCorreo;
+                return true;
+            }
+        }
+
 
         public bool ValidaFechaNacimiento(DateTime pFechaNacimiento)
         {

@@ -20,6 +20,7 @@ namespace LB_GPVH.Controlador
             CaracteresCargoInvalido,
             RunExiste,
             DvInvalido,
+            CorreoInvalido,
             FechaInvalida,
             NombreVacio,
             ApellidoPaternoVacio,
@@ -309,6 +310,19 @@ namespace LB_GPVH.Controlador
             }
         }
 
+        public ResultadoGestionFuncionario ValidarFormatoCorreo(Funcionario funcionario, string correo)
+        {
+            if (funcionario.ValidarFormatoCorreo(correo))
+            {
+                return ResultadoGestionFuncionario.Valido;
+            }
+            else
+            {
+                return ResultadoGestionFuncionario.CorreoInvalido;
+            }
+        }
+
+
         public bool ControlarCaracterRun(char caracter)
         {
             if (!AuxiliarString.EsNumerico(caracter) && caracter != 8)
@@ -354,7 +368,7 @@ namespace LB_GPVH.Controlador
 
         public ResultadoGestionFuncionario ValidarCaracterCorreo(Funcionario funcionario, string correo)
         {
-            if (!funcionario.ValidarCorreo(correo))
+            if (!funcionario.ValidarCaracteresCorreo(correo))
             {
                 return ResultadoGestionFuncionario.CaracteresCorreoInvalido;
             }

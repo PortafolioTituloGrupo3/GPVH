@@ -173,7 +173,7 @@ namespace LB_GPVH.Controlador
 
         public ResultadoGestionUsuario ValidarClaveConfirmacion(string clave, string claveConfirmacion)
         {
-            if(clave == claveConfirmacion)
+            if(clave != claveConfirmacion)
             {
                 return ResultadoGestionUsuario.ClaveConfirmacionInvalida;
             }
