@@ -16,10 +16,12 @@ namespace WF_GPVH.Formularios.Permisos
         private GestionadorFuncionario gestionador;
         private List<LB_GPVH.Modelo.Funcionario> funcionarios;
         private List<LB_GPVH.Modelo.Funcionario> funcionariosGridView;
+        Sesion sesion;
 
-        public Form_SeleccionFuncionarioPermisos()
+        public Form_SeleccionFuncionarioPermisos(Sesion pSesion)
         {
             InitializeComponent();
+            sesion = pSesion;
             gestionador = new GestionadorFuncionario();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             this.loadFuncionarios();
@@ -29,7 +31,10 @@ namespace WF_GPVH.Formularios.Permisos
 
         public void loadFuncionarios()
         {
-            funcionarios = gestionador.ListarFuncionarios();
+            if (sesion.Usuario.Tipo == LB_GPVH.Enums.TipoUsuario.JefeUnidadSuperior)
+                funcionarios = gestionador.ListarFuncionariosDeUnidad(sesion.Usuario.Funcionario.Unidad.Id);
+            else
+                funcionarios = gestionador.ListarFuncionarios();
             CargarFuncionariosGridView(this.funcionarios);
         }
 
@@ -37,7 +42,11 @@ namespace WF_GPVH.Formularios.Permisos
         {
             this.mcmbUnidad.DisplayMember = "Value";
             this.mcmbUnidad.ValueMember = "Key";
-            this.mcmbUnidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadClaveValor(true), null);
+            if (sesion.Usuario.Tipo == LB_GPVH.Enums.TipoUsuario.JefeUnidadSuperior)
+                this.mcmbUnidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadConHijas(sesion.Usuario.Funcionario.Unidad.Id, true), null);
+            else
+                this.mcmbUnidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadClaveValor(true), null);
+
             this.mcmbUnidad.SelectedIndex = 0;
         }
 
@@ -65,6 +74,7 @@ namespace WF_GPVH.Formularios.Permisos
             column.Name = titulo;
             column.Visible = visible;
             column.DefaultCellStyle.NullValue = valorPorDefecto;
+            column.ReadOnly = true;
             dgv.Columns.Add(column);
             dgv.Refresh();
 
@@ -94,6 +104,7 @@ namespace WF_GPVH.Formularios.Permisos
             }
             funcionariosGridView = funcionariosFiltrados.ToList();
             mgFuncionarios.DataSource = funcionariosGridView;
+            mgFuncionarios.Refresh();
         }
 
         public void CargarHeadersGridView(List<String> nombrePropiedades)

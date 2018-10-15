@@ -72,7 +72,9 @@
     <Compile Include="Enums\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL\ConexionSQL.cs" />
+    <Compile Include="SQL\FuncionarioSQL.cs" />
     <Compile Include="SQL\PermisoSQL.cs" />
+    <Compile Include="SQL\UnidadSQL.cs" />
     <Compile Include="SQL\UsuarioSQL.cs" />
   </ItemGroup>
   <ItemGroup>

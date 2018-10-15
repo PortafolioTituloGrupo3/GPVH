@@ -11,7 +11,7 @@ using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Menu
 {
-    public partial class Form_Menu_Jefe_Unidad_Superior : Form
+    public partial class Form_Menu_Jefe_Unidad_Superior : MetroFramework.Forms.MetroForm
     {
         Login.Form_Login mainForm;
         Sesion sesion;
