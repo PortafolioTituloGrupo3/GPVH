@@ -20,6 +20,7 @@ namespace LB_GPVH.Modelo
         private Funcionario solicitante;
         private Funcionario autorizante;
 
+
         public Permiso()
         {
             id = -1;
@@ -28,6 +29,43 @@ namespace LB_GPVH.Modelo
             autorizante = null;
         }
 
+
+
+        public string TipoPermisoString
+        {
+            get
+            {
+                return MetodosTipoPermiso.GetString(Tipo);
+            }
+        }
+
+        public string EstadoPermisoString
+        {
+            get
+            {
+                return MetodosTipoPermiso.GetString(Tipo);
+            }
+        }
+
+        public string NombreAutorizante
+        {
+            get {
+                if (autorizante != null)
+                    return autorizante.NombreCompleto;
+                else
+                    return null;
+            }
+        }
+
+        public string NombreSolicitante
+        {
+            get {
+                if (solicitante != null)
+                    return solicitante.NombreCompleto;
+                else
+                    return null;
+            }
+        }
 
         public Funcionario Autorizante
         {
@@ -52,14 +90,14 @@ namespace LB_GPVH.Modelo
 
         public DateTime FechaSolicitud
         {
-            get { return fechaInicio; }
-            set { fechaInicio = value; }
+            get { return fechaSolicitud; }
+            set { fechaSolicitud = value; }
         }
 
         public DateTime FechaTermino
         {
-            get { return fechaInicio; }
-            set { fechaInicio = value; }
+            get { return fechaTermino; }
+            set { fechaTermino = value; }
         }
 
         public DateTime FechaInicio
@@ -69,7 +107,7 @@ namespace LB_GPVH.Modelo
         }
 
 
-        public int ID
+        public int Id
         {
             get { return id; }
             set { id = value; }

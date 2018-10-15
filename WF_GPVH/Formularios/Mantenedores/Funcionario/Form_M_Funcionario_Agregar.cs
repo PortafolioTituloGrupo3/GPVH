@@ -162,7 +162,10 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 
         private void validarRun()
         {
-            switch (gestionador.ValidarRun(funcionario, int.Parse(txt_run.Text), int.Parse(txt_dv.Text)))
+            int numeroDV = (AuxiliarString.EsNumerico(txt_dv.Text)) ? int.Parse(txt_dv.Text) : 10;
+
+
+            switch (gestionador.ValidarRun(funcionario, int.Parse(txt_run.Text), numeroDV))
             {
                 case GestionadorFuncionario.ResultadoGestionFuncionario.DvInvalido:
                     lblErrorRun.Text = "El digito verificador no es valido";
@@ -260,7 +263,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
         private void txt_cargo_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre el cargo y ve si es valido
-            switch (gestionador.ValidarCaracterNombreFuncionario(funcionario, txt_nombre.Text))
+            switch (gestionador.ValidarCaracterCargo(funcionario, txt_cargo.Text))
             {
                 case GestionadorFuncionario.ResultadoGestionFuncionario.CaracteresCargoInvalido:
                     lblErrorCargo.Text = "El cargo tiene caracteres inválidos";

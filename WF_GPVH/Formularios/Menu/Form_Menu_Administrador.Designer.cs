@@ -34,6 +34,7 @@
             this.mtGestionarUsuarios = new MetroFramework.Controls.MetroTile();
             this.mtGestionarUnidades = new MetroFramework.Controls.MetroTile();
             this.mtSalir = new MetroFramework.Controls.MetroTile();
+            this.mtBuscarPermisos = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -68,7 +69,7 @@
             // mtGestionarUsuarios
             // 
             this.mtGestionarUsuarios.ActiveControl = null;
-            this.mtGestionarUsuarios.Location = new System.Drawing.Point(23, 176);
+            this.mtGestionarUsuarios.Location = new System.Drawing.Point(23, 160);
             this.mtGestionarUsuarios.Name = "mtGestionarUsuarios";
             this.mtGestionarUsuarios.Size = new System.Drawing.Size(161, 60);
             this.mtGestionarUsuarios.TabIndex = 7;
@@ -79,7 +80,7 @@
             // mtGestionarUnidades
             // 
             this.mtGestionarUnidades.ActiveControl = null;
-            this.mtGestionarUnidades.Location = new System.Drawing.Point(23, 255);
+            this.mtGestionarUnidades.Location = new System.Drawing.Point(23, 226);
             this.mtGestionarUnidades.Name = "mtGestionarUnidades";
             this.mtGestionarUnidades.Size = new System.Drawing.Size(161, 60);
             this.mtGestionarUnidades.TabIndex = 8;
@@ -98,11 +99,23 @@
             this.mtSalir.UseSelectable = true;
             this.mtSalir.Click += new System.EventHandler(this.mtSalir_Click);
             // 
+            // mtBuscarPermisos
+            // 
+            this.mtBuscarPermisos.ActiveControl = null;
+            this.mtBuscarPermisos.Location = new System.Drawing.Point(190, 94);
+            this.mtBuscarPermisos.Name = "mtBuscarPermisos";
+            this.mtBuscarPermisos.Size = new System.Drawing.Size(161, 60);
+            this.mtBuscarPermisos.TabIndex = 10;
+            this.mtBuscarPermisos.Text = "Buscar Permisos";
+            this.mtBuscarPermisos.UseSelectable = true;
+            this.mtBuscarPermisos.Click += new System.EventHandler(this.mtBuscarPermisos_Click);
+            // 
             // Form_Menu_Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mtBuscarPermisos);
             this.Controls.Add(this.mtSalir);
             this.Controls.Add(this.mtGestionarUnidades);
             this.Controls.Add(this.mtGestionarUsuarios);
@@ -124,5 +137,6 @@
         private MetroFramework.Controls.MetroTile mtGestionarUsuarios;
         private MetroFramework.Controls.MetroTile mtGestionarUnidades;
         private MetroFramework.Controls.MetroTile mtSalir;
+        private MetroFramework.Controls.MetroTile mtBuscarPermisos;
     }
 }

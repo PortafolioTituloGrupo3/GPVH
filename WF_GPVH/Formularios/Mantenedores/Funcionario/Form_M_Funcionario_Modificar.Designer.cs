@@ -120,7 +120,7 @@
             this.ddl_unidad.Location = new System.Drawing.Point(135, 303);
             this.ddl_unidad.Name = "ddl_unidad";
             this.ddl_unidad.Size = new System.Drawing.Size(121, 29);
-            this.ddl_unidad.TabIndex = 18;
+            this.ddl_unidad.TabIndex = 9;
             this.ddl_unidad.UseSelectable = true;
             this.ddl_unidad.SelectedIndexChanged += new System.EventHandler(this.ddl_unidad_SelectedIndexChanged);
             // 
@@ -158,7 +158,7 @@
             this.txt_direccion.SelectionStart = 0;
             this.txt_direccion.ShortcutsEnabled = true;
             this.txt_direccion.Size = new System.Drawing.Size(121, 20);
-            this.txt_direccion.TabIndex = 16;
+            this.txt_direccion.TabIndex = 7;
             this.txt_direccion.UseSelectable = true;
             this.txt_direccion.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_direccion.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -189,7 +189,7 @@
             this.txt_nombre.SelectionStart = 0;
             this.txt_nombre.ShortcutsEnabled = true;
             this.txt_nombre.Size = new System.Drawing.Size(121, 20);
-            this.txt_nombre.TabIndex = 14;
+            this.txt_nombre.TabIndex = 2;
             this.txt_nombre.UseSelectable = true;
             this.txt_nombre.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_nombre.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -221,7 +221,7 @@
             this.txt_run.SelectionStart = 0;
             this.txt_run.ShortcutsEnabled = true;
             this.txt_run.Size = new System.Drawing.Size(121, 20);
-            this.txt_run.TabIndex = 28;
+            this.txt_run.TabIndex = 1;
             this.txt_run.UseSelectable = true;
             this.txt_run.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_run.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -260,7 +260,7 @@
             this.txt_ap_pat.SelectionStart = 0;
             this.txt_ap_pat.ShortcutsEnabled = true;
             this.txt_ap_pat.Size = new System.Drawing.Size(121, 20);
-            this.txt_ap_pat.TabIndex = 30;
+            this.txt_ap_pat.TabIndex = 3;
             this.txt_ap_pat.UseSelectable = true;
             this.txt_ap_pat.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_ap_pat.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -291,7 +291,7 @@
             this.txt_ap_mat.SelectionStart = 0;
             this.txt_ap_mat.ShortcutsEnabled = true;
             this.txt_ap_mat.Size = new System.Drawing.Size(121, 20);
-            this.txt_ap_mat.TabIndex = 31;
+            this.txt_ap_mat.TabIndex = 4;
             this.txt_ap_mat.UseSelectable = true;
             this.txt_ap_mat.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_ap_mat.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -340,7 +340,7 @@
             this.txt_correo.SelectionStart = 0;
             this.txt_correo.ShortcutsEnabled = true;
             this.txt_correo.Size = new System.Drawing.Size(121, 20);
-            this.txt_correo.TabIndex = 34;
+            this.txt_correo.TabIndex = 6;
             this.txt_correo.UseSelectable = true;
             this.txt_correo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_correo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -362,7 +362,7 @@
             this.cld_nacimiento.MinimumSize = new System.Drawing.Size(0, 29);
             this.cld_nacimiento.Name = "cld_nacimiento";
             this.cld_nacimiento.Size = new System.Drawing.Size(200, 29);
-            this.cld_nacimiento.TabIndex = 37;
+            this.cld_nacimiento.TabIndex = 5;
             this.cld_nacimiento.ValueChanged += new System.EventHandler(this.cld_nacimiento_ValueChanged);
             // 
             // lblErrorFechaNacimiento
@@ -467,7 +467,7 @@
             this.txt_cargo.SelectionStart = 0;
             this.txt_cargo.ShortcutsEnabled = true;
             this.txt_cargo.Size = new System.Drawing.Size(121, 20);
-            this.txt_cargo.TabIndex = 75;
+            this.txt_cargo.TabIndex = 8;
             this.txt_cargo.UseSelectable = true;
             this.txt_cargo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_cargo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
