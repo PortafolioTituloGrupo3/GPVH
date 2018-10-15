@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LB_GPVH.Clases;
+using LB_GPVH.Modelo;
 using LB_GPVH.Enums;
+using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Login
 {

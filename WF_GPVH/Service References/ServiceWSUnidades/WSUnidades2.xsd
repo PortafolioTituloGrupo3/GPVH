@@ -14,6 +14,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="unidadExiste">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="unidadExisteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="unidadExisteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="getListadoUnidadesNoHijas">
     <xs:complexType>
       <xs:sequence>

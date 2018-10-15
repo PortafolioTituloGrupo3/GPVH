@@ -40,6 +40,9 @@
             this.txt_direccion = new System.Windows.Forms.TextBox();
             this.txt_descripcion = new System.Windows.Forms.TextBox();
             this.txt_nombre = new System.Windows.Forms.TextBox();
+            this.lblErrorNombre = new System.Windows.Forms.Label();
+            this.lblErrorDescripcion = new System.Windows.Forms.Label();
+            this.lblErrorDireccion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_cancelar
@@ -111,17 +114,18 @@
             // 
             // ddl_jefe
             // 
-            this.ddl_jefe.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ddl_jefe.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.ddl_jefe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddl_jefe.FormattingEnabled = true;
             this.ddl_jefe.Location = new System.Drawing.Point(99, 161);
             this.ddl_jefe.Name = "ddl_jefe";
             this.ddl_jefe.Size = new System.Drawing.Size(121, 21);
             this.ddl_jefe.TabIndex = 19;
-            this.ddl_jefe.SelectedIndexChanged += new System.EventHandler(this.ddl_jefe_SelectedIndexChanged);
+            this.ddl_jefe.SelectedIndexChanged += new System.EventHandler(this.ddl_padre_SelectedIndexChanged);
             // 
             // ddl_padre
             // 
+            this.ddl_padre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddl_padre.FormattingEnabled = true;
             this.ddl_padre.Location = new System.Drawing.Point(99, 133);
             this.ddl_padre.Name = "ddl_padre";
@@ -132,30 +136,73 @@
             // txt_direccion
             // 
             this.txt_direccion.Location = new System.Drawing.Point(99, 107);
+            this.txt_direccion.MaxLength = 80;
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.Size = new System.Drawing.Size(121, 20);
             this.txt_direccion.TabIndex = 16;
+            this.txt_direccion.TextChanged += new System.EventHandler(this.txt_direccion_TextChanged);
             // 
             // txt_descripcion
             // 
             this.txt_descripcion.Location = new System.Drawing.Point(99, 61);
+            this.txt_descripcion.MaxLength = 254;
             this.txt_descripcion.Multiline = true;
             this.txt_descripcion.Name = "txt_descripcion";
             this.txt_descripcion.Size = new System.Drawing.Size(121, 40);
             this.txt_descripcion.TabIndex = 15;
+            this.txt_descripcion.TextChanged += new System.EventHandler(this.txt_descripcion_TextChanged);
             // 
             // txt_nombre
             // 
             this.txt_nombre.Location = new System.Drawing.Point(99, 32);
+            this.txt_nombre.MaxLength = 30;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(121, 20);
             this.txt_nombre.TabIndex = 14;
+            this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
+            this.txt_nombre.Leave += new System.EventHandler(this.txt_nombre_Leave);
+            // 
+            // lblErrorNombre
+            // 
+            this.lblErrorNombre.AutoSize = true;
+            this.lblErrorNombre.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorNombre.Location = new System.Drawing.Point(227, 35);
+            this.lblErrorNombre.Name = "lblErrorNombre";
+            this.lblErrorNombre.Size = new System.Drawing.Size(86, 13);
+            this.lblErrorNombre.TabIndex = 28;
+            this.lblErrorNombre.Text = "Caracter invalido";
+            this.lblErrorNombre.Visible = false;
+            // 
+            // lblErrorDescripcion
+            // 
+            this.lblErrorDescripcion.AutoSize = true;
+            this.lblErrorDescripcion.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorDescripcion.Location = new System.Drawing.Point(227, 61);
+            this.lblErrorDescripcion.Name = "lblErrorDescripcion";
+            this.lblErrorDescripcion.Size = new System.Drawing.Size(87, 13);
+            this.lblErrorDescripcion.TabIndex = 29;
+            this.lblErrorDescripcion.Text = "Caracter Invalido";
+            this.lblErrorDescripcion.Visible = false;
+            // 
+            // lblErrorDireccion
+            // 
+            this.lblErrorDireccion.AutoSize = true;
+            this.lblErrorDireccion.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorDireccion.Location = new System.Drawing.Point(226, 107);
+            this.lblErrorDireccion.Name = "lblErrorDireccion";
+            this.lblErrorDireccion.Size = new System.Drawing.Size(87, 13);
+            this.lblErrorDireccion.TabIndex = 30;
+            this.lblErrorDireccion.Text = "Caracter Invalido";
+            this.lblErrorDireccion.Visible = false;
             // 
             // Form_M_Unidad_Agregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(415, 301);
+            this.Controls.Add(this.lblErrorDireccion);
+            this.Controls.Add(this.lblErrorDescripcion);
+            this.Controls.Add(this.lblErrorNombre);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_agregar);
             this.Controls.Add(this.label6);
@@ -170,6 +217,7 @@
             this.Controls.Add(this.txt_nombre);
             this.Name = "Form_M_Unidad_Agregar";
             this.Text = "Form_M_Unidad_Agregar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_M_Unidad_Agregar_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,5 +237,8 @@
         private System.Windows.Forms.TextBox txt_direccion;
         private System.Windows.Forms.TextBox txt_descripcion;
         private System.Windows.Forms.TextBox txt_nombre;
+        private System.Windows.Forms.Label lblErrorNombre;
+        private System.Windows.Forms.Label lblErrorDescripcion;
+        private System.Windows.Forms.Label lblErrorDireccion;
     }
 }
