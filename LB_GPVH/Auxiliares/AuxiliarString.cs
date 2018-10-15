@@ -126,7 +126,7 @@ namespace LB_GPVH.Auxiliares
         }
 
         //Verifica que los caracteres de la cadena pertenescan a numeros naturales (incluyendo al 0)
-        public static bool EsNumerico(String cadena, bool espacios)
+        public static bool EsNumerico(String cadena)
         {
 
             for (int i = 0; i < cadena.Length; i++)

@@ -37,6 +37,7 @@ namespace LB_GPVH.SQL
                 usuario.Tipo = MetodosTipoUsuario.setTipo(reader.GetString(3));
                 usuario.Funcionario = new GestionadorFuncionario().BuscarFuncionarioParcial((int)reader.GetInt32(4));
             }
+            con.Close();
             return usuario;
         }
     }

@@ -40,6 +40,12 @@ namespace LB_GPVH.Modelo
         }
 
 
+        public List<Permiso> Permisos
+        {
+            get { return permisos; }
+            set { permisos = value; } 
+        }
+
         public string NombreUnidad
         {
             get { return unidad.Nombre; }
@@ -124,6 +130,8 @@ namespace LB_GPVH.Modelo
         public bool Modulo11(int run, int dv)
         {
             int resto = run, suma = 0, multiplicador = 2;
+            if (dv == 0)
+                dv = 11;
             while(true)
             {
                 suma += multiplicador * (resto % 10);

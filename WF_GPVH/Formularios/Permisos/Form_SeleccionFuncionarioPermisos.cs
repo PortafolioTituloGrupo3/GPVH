@@ -126,8 +126,14 @@ namespace WF_GPVH.Formularios.Permisos
         {
             if(e.ColumnIndex == 0)
             {
-                MessageBox.Show("You did it!");
+                new Form_BuscarPermiso(this, funcionariosGridView[e.RowIndex]).Show();
+                this.Visible = false;
             }
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

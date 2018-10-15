@@ -61,6 +61,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controlador\GestionadorFuncionario.cs" />
+    <Compile Include="Controlador\GestionadorPermiso.cs" />
     <Compile Include="Controlador\GestionadorUnidad.cs" />
     <Compile Include="Controlador\GestionadorUsuario.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
