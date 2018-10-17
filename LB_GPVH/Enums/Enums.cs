@@ -12,6 +12,28 @@ namespace LB_GPVH.Enums
         Funcionario
     }
 
+    public enum TipoPermiso
+    {
+        FeriadoLegal,
+        Administrativo,
+        DecesoDeFamiliar,
+        NacimientoDeHijo
+    }
+
+    public enum EstadoPermiso
+    {
+        Pendiente = 2,
+        Autorizado = 1,
+        Rechazado = 0,
+    }
+
+    public enum EstadoResolucion
+    {
+        Pendiente = 2,
+        Validado = 1,
+        Invalidado = 0,
+    }
+    
     public static class MetodosTipoUsuario
     {
         public static string GetString(TipoUsuario tipo)
@@ -48,7 +70,7 @@ namespace LB_GPVH.Enums
                 case "Funcionario":
                     return TipoUsuario.Funcionario;
                 default:
-                    throw new Exception("Tipo no corresponde");
+                    throw new Exception("Tipo de usuario no corresponde");
             }
         }
 
@@ -64,4 +86,92 @@ namespace LB_GPVH.Enums
         }
     }
 
+    public static class MetodosTipoPermiso
+    {
+        public static string GetString(TipoPermiso tipo)
+        {
+            switch (tipo)
+            {
+                case TipoPermiso.Administrativo:
+                    return "Administrativo";
+                case TipoPermiso.DecesoDeFamiliar:
+                    return "Deceso de Familiar";
+                case TipoPermiso.FeriadoLegal:
+                    return "Feriado Legal";
+                case TipoPermiso.NacimientoDeHijo:
+                    return "Nacimiento de Hijo";
+                default:
+                    return "";
+            }
+        }
+
+        public static TipoPermiso setTipo(string tipo)
+        {
+            switch (tipo)
+            {
+                case "Administrativo":
+                    return TipoPermiso.Administrativo;
+                case "Deceso de Familiar":
+                    return TipoPermiso.DecesoDeFamiliar;
+                case "Feriado Legal":
+                    return TipoPermiso.FeriadoLegal;
+                case "Nacimiento de Hijo":
+                    return TipoPermiso.NacimientoDeHijo;
+                default:
+                    throw new Exception("Tipo de permiso no corresponde");
+            }
+        }
+
+        public static List<string> Listar()
+        {
+            List<string> lista = new List<string>();
+            lista.Add(GetString(TipoPermiso.Administrativo));
+            lista.Add(GetString(TipoPermiso.DecesoDeFamiliar));
+            lista.Add(GetString(TipoPermiso.FeriadoLegal));
+            lista.Add(GetString(TipoPermiso.NacimientoDeHijo));
+            return lista;
+        }
+    }
+
+    public static class MetodosEstadoPermiso
+    {
+        public static string GetString(EstadoPermiso estado)
+        {
+            switch (estado)
+            {
+                case EstadoPermiso.Autorizado:
+                    return "Autorizado";
+                case EstadoPermiso.Pendiente:
+                    return "Pendiente";
+                case EstadoPermiso.Rechazado:
+                    return "Rechazado";
+                default:
+                    return "";
+            }
+        }
+
+        public static EstadoPermiso setEstado(string estado)
+        {
+            switch (estado)
+            {
+                case "Autorizado":
+                    return EstadoPermiso.Autorizado;
+                case "Pendiente":
+                    return EstadoPermiso.Pendiente;
+                case "Rechazado":
+                    return EstadoPermiso.Rechazado;
+                default:
+                    throw new Exception("Estado de permiso no corresponde");
+            }
+        }
+
+        public static List<string> Listar()
+        {
+            List<string> lista = new List<string>();
+            lista.Add(GetString(EstadoPermiso.Pendiente));
+            lista.Add(GetString(EstadoPermiso.Autorizado));
+            lista.Add(GetString(EstadoPermiso.Rechazado));
+            return lista;
+        }
+    }
 }

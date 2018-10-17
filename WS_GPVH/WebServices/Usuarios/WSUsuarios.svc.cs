@@ -120,5 +120,26 @@ namespace WS_GPVH
             return salida;
         }
 
+        public Usuario autenticarUsuario(string nombre, string clave)
+        {
+            Usuario usuario = null;
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = conString;
+            con.Open();
+            OracleCommand cmd = con.CreateCommand();
+            cmd.CommandText = "Select * from usuario where nombre_usuario = '" + nombre +"' and clave = '"+clave+"'";
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                usuario = new Usuario();
+                //Se agregan los datos al objeto unidad
+                usuario.Id_usuario = reader.GetInt32(0);
+                usuario.Nombre_usuario = reader.GetString(1);
+                usuario.Clave = reader.GetString(2);
+                usuario.Tipo_usuario = reader.GetString(3);
+                usuario.Funcionario_run_sin_dv = reader.GetInt32(4);
+            }
+            return usuario;
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LB_GPVH.Enums;
+using LB_GPVH.Auxiliares;
 
 
 namespace LB_GPVH.Modelo
@@ -14,18 +15,21 @@ namespace LB_GPVH.Modelo
         private string nombre;
         private string clave;
         public TipoUsuario Tipo { get; set; }
-        private int runFuncionario;
+        private Funcionario funcionario;
 
         public Usuario()
         {
-
+            id = -1;
+            nombre = "";
+            clave = "";
+            funcionario = null;
         }
 
 
-        public int RunFuncionario
+        public Funcionario Funcionario
         {
-            get { return runFuncionario; }
-            set { runFuncionario = value; }
+            get { return funcionario; }
+            set { funcionario = value; }
         }
 
         public string Clave
@@ -48,5 +52,64 @@ namespace LB_GPVH.Modelo
             set { id = value; }
         }
 
+        public bool setTipoUsuario(string tipo)
+        {
+            try
+            {
+                this.Tipo = Enums.MetodosTipoUsuario.setTipo(tipo);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
+        }
+
+        public string TipoToString
+        {
+            get
+            {
+                return Enums.MetodosTipoUsuario.GetString(this.Tipo);
+            }
+        }
+
+        public string PropietarioCuenta
+        {
+            get
+            {
+                if(funcionario == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return funcionario.NombreCompleto;
+                }
+            }
+        }
+
+
+        public bool ValidarNombre(string pNombre)
+        {
+            if (AuxiliarString.ContieneCaracteresInvalidos(pNombre, false, false, false))
+            {
+                return false;
+            }
+
+            this.nombre = pNombre;
+            return true;
+        }
+
+        public bool ValidarClave(string pClave)
+        {
+            if (AuxiliarString.ContieneCaracteresInvalidos(pClave, false, false, true))
+            {
+                return false;
+            }
+
+            this.clave = pClave;
+            return true;
+        }
     }
 }

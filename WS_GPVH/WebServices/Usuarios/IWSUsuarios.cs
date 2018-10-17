@@ -24,6 +24,8 @@ namespace WS_GPVH
                                 string tipo, int run);
         [OperationContract]
         int deleteUsuario(int id);
+        [OperationContract]
+        Usuario autenticarUsuario(string nombre, string clave);
         // TODO: agregue aquí sus operaciones de servicio
     }
 

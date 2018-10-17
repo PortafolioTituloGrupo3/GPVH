@@ -37,7 +37,7 @@ namespace WS_GPVH.WebServices.Funcionarios
                 funcionarioTemp.Fec_nacimiento = reader.GetDateTime(5);
                 funcionarioTemp.Correo = reader.GetString(6);
                 funcionarioTemp.Direc_funcionario = reader.GetString(7);
-                funcionarioTemp.Tipo_funcionario = reader.GetString(8);
+                funcionarioTemp.Cargo = reader.GetString(8);
                 funcionarioTemp.Habilitado = reader.GetInt32(9);
                 funcionarioTemp.Unidad_id_unidad = reader.GetInt32(10);
                 //Se agrega la unidad
@@ -67,10 +67,11 @@ namespace WS_GPVH.WebServices.Funcionarios
                 funcionario.Fec_nacimiento = reader.GetDateTime(5);
                 funcionario.Correo = reader.GetString(6);
                 funcionario.Direc_funcionario= reader.GetString(7);
-                funcionario.Tipo_funcionario = reader.GetString(8);
+                funcionario.Cargo = reader.GetString(8);
                 funcionario.Habilitado = reader.GetInt32(9);
                 funcionario.Unidad_id_unidad = reader.GetInt32(10);
             }
+            con.Close();
             return funcionario;
         }
         public Dictionary<int, string> getListadoFuncionariosClaveValor()
@@ -158,7 +159,7 @@ namespace WS_GPVH.WebServices.Funcionarios
             cmd.Parameters.Add("P_FEC_NACIMIENTO", OracleDbType.Date, nacimiento, ParameterDirection.Input);
             cmd.Parameters.Add("P_CORREO", OracleDbType.Varchar2, correo, ParameterDirection.Input);
             cmd.Parameters.Add("P_DIREC_FUNCIONARIO", OracleDbType.Varchar2, direccion, ParameterDirection.Input);
-            cmd.Parameters.Add("P_TIPO_FUNCIONARIO", OracleDbType.Varchar2, tipo_funcionario, ParameterDirection.Input);
+            cmd.Parameters.Add("P_CARGO", OracleDbType.Varchar2, tipo_funcionario, ParameterDirection.Input);
             cmd.Parameters.Add("P_UNIDAD_ID_UNIDAD", OracleDbType.Int32, id_unidad, ParameterDirection.Input);
             //SALIDA
             cmd.Parameters.Add("P_RETURN_VALUE", OracleDbType.Int32).Direction = System.Data.ParameterDirection.Output;
@@ -186,7 +187,7 @@ namespace WS_GPVH.WebServices.Funcionarios
             cmd.Parameters.Add("P_FEC_NACIMIENTO", OracleDbType.Date, nacimiento, ParameterDirection.Input);
             cmd.Parameters.Add("P_CORREO", OracleDbType.Varchar2, correo, ParameterDirection.Input);
             cmd.Parameters.Add("P_DIREC_FUNCIONARIO", OracleDbType.Varchar2, direccion, ParameterDirection.Input);
-            cmd.Parameters.Add("P_TIPO_FUNCIONARIO", OracleDbType.Varchar2, tipo_funcionario, ParameterDirection.Input);
+            cmd.Parameters.Add("P_CARGO", OracleDbType.Varchar2, tipo_funcionario, ParameterDirection.Input);
             cmd.Parameters.Add("P_UNIDAD_ID_UNIDAD", OracleDbType.Int32, id_unidad, ParameterDirection.Input);
             int habilitado;
             habilitado = habilitado_bool ? 1: 0;

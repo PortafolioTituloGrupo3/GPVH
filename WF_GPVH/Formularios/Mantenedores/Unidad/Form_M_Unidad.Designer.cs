@@ -28,60 +28,101 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_agregar = new System.Windows.Forms.Button();
-            this.dgv_Unidades = new System.Windows.Forms.DataGridView();
-            this.btn_editar = new System.Windows.Forms.Button();
-            this.btn_eliminar = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dgv_Unidades = new MetroFramework.Controls.MetroGrid();
+            this.mtAgregar = new MetroFramework.Controls.MetroTile();
+            this.mtEditar = new MetroFramework.Controls.MetroTile();
+            this.mtEliminar = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Unidades)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_agregar
-            // 
-            this.btn_agregar.Location = new System.Drawing.Point(12, 168);
-            this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(75, 23);
-            this.btn_agregar.TabIndex = 0;
-            this.btn_agregar.Text = "Agregar";
-            this.btn_agregar.UseVisualStyleBackColor = true;
-            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
-            // 
             // dgv_Unidades
             // 
+            this.dgv_Unidades.AllowUserToResizeRows = false;
+            this.dgv_Unidades.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgv_Unidades.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgv_Unidades.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgv_Unidades.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Unidades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgv_Unidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Unidades.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dgv_Unidades.EnableHeadersVisualStyles = false;
+            this.dgv_Unidades.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgv_Unidades.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgv_Unidades.Location = new System.Drawing.Point(12, 12);
             this.dgv_Unidades.Name = "dgv_Unidades";
+            this.dgv_Unidades.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Unidades.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dgv_Unidades.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgv_Unidades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Unidades.Size = new System.Drawing.Size(649, 150);
             this.dgv_Unidades.TabIndex = 1;
             // 
-            // btn_editar
+            // mtAgregar
             // 
-            this.btn_editar.Location = new System.Drawing.Point(93, 168);
-            this.btn_editar.Name = "btn_editar";
-            this.btn_editar.Size = new System.Drawing.Size(128, 23);
-            this.btn_editar.TabIndex = 19;
-            this.btn_editar.Text = "Editar seleccionado";
-            this.btn_editar.UseVisualStyleBackColor = true;
-            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
+            this.mtAgregar.ActiveControl = null;
+            this.mtAgregar.Location = new System.Drawing.Point(12, 198);
+            this.mtAgregar.Name = "mtAgregar";
+            this.mtAgregar.Size = new System.Drawing.Size(95, 51);
+            this.mtAgregar.TabIndex = 21;
+            this.mtAgregar.Text = "Agregar";
+            this.mtAgregar.UseSelectable = true;
+            this.mtAgregar.Click += new System.EventHandler(this.mtAgregar_Click);
             // 
-            // btn_eliminar
+            // mtEditar
             // 
-            this.btn_eliminar.Location = new System.Drawing.Point(227, 168);
-            this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(128, 23);
-            this.btn_eliminar.TabIndex = 20;
-            this.btn_eliminar.Text = "Eliminar seleccionado";
-            this.btn_eliminar.UseVisualStyleBackColor = true;
-            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            this.mtEditar.ActiveControl = null;
+            this.mtEditar.Location = new System.Drawing.Point(113, 198);
+            this.mtEditar.Name = "mtEditar";
+            this.mtEditar.Size = new System.Drawing.Size(95, 51);
+            this.mtEditar.TabIndex = 22;
+            this.mtEditar.Text = "Editar";
+            this.mtEditar.UseSelectable = true;
+            this.mtEditar.Click += new System.EventHandler(this.mtEditar_Click);
+            // 
+            // mtEliminar
+            // 
+            this.mtEliminar.ActiveControl = null;
+            this.mtEliminar.Location = new System.Drawing.Point(214, 197);
+            this.mtEliminar.Name = "mtEliminar";
+            this.mtEliminar.Size = new System.Drawing.Size(95, 51);
+            this.mtEliminar.TabIndex = 23;
+            this.mtEliminar.Text = "Eliminar";
+            this.mtEliminar.UseSelectable = true;
+            this.mtEliminar.Click += new System.EventHandler(this.mtEliminar_Click);
             // 
             // Form_M_Unidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 297);
-            this.Controls.Add(this.btn_eliminar);
-            this.Controls.Add(this.btn_editar);
+            this.Controls.Add(this.mtEliminar);
+            this.Controls.Add(this.mtEditar);
+            this.Controls.Add(this.mtAgregar);
             this.Controls.Add(this.dgv_Unidades);
-            this.Controls.Add(this.btn_agregar);
             this.Name = "Form_M_Unidad";
             this.Text = "Form_M_Unidad";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Unidades)).EndInit();
@@ -90,10 +131,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_agregar;
-        private System.Windows.Forms.DataGridView dgv_Unidades;
-        private System.Windows.Forms.Button btn_editar;
-        private System.Windows.Forms.Button btn_eliminar;
+        private MetroFramework.Controls.MetroGrid dgv_Unidades;
+        private MetroFramework.Controls.MetroTile mtAgregar;
+        private MetroFramework.Controls.MetroTile mtEditar;
+        private MetroFramework.Controls.MetroTile mtEliminar;
     }
 }
