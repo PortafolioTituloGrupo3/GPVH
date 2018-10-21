@@ -44,6 +44,93 @@ namespace LB_GPVH.SQL
             return permisos;
         }
 
+
+        public Permiso BuscarPermisoFull(int id)
+        {
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = ConexionSQL.conexionString;
+            con.Open();
+            OracleCommand cmd = con.CreateCommand();
+            cmd.CommandText = "SELECT id_permiso, tipo_permiso, estado, fecha_inicio, fecha_termino, fecha_solicitud, desc_permiso, solicitante_run_sin_dv, autorizante_run_sin_dv FROM sol_permiso WHERE id_permiso = " + id;
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Permiso permiso = new Permiso();
+                permiso.Id = reader.GetInt32(0);
+                permiso.Tipo = MetodosTipoPermiso.setTipo(reader.GetString(1));
+                permiso.Estado = (parseNullableInt(reader.GetValue(2).ToString()) == null) ? (EstadoPermiso)2 : (EstadoPermiso)reader.GetInt32(2);
+                permiso.FechaInicio = reader.GetDateTime(3);
+                permiso.FechaTermino = reader.GetDateTime(4);
+                permiso.FechaSolicitud = reader.GetDateTime(5);
+                permiso.Descripcion = reader.GetString(6);
+                if (parseNullableInt(reader.GetValue(7).ToString()) != null)
+                    permiso.Solicitante = new GestionadorFuncionario().BuscarFuncionario(reader.GetInt32(7));
+                if (parseNullableInt(reader.GetValue(8).ToString()) != null)
+                    permiso.Autorizante = new GestionadorFuncionario().BuscarFuncionario(reader.GetInt32(8));
+                con.Close();
+                return permiso;
+            }
+            con.Close();
+            return null;
+        }
+
+        public Permiso BuscarPermiso(int id)
+        {
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = ConexionSQL.conexionString;
+            con.Open();
+            OracleCommand cmd = con.CreateCommand();
+            cmd.CommandText = "SELECT id_permiso, tipo_permiso, estado, fecha_inicio, fecha_termino, fecha_solicitud, desc_permiso, solicitante_run_sin_dv, autorizante_run_sin_dv FROM sol_permiso WHERE id_permiso = " + id;
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Permiso permiso = new Permiso();
+                permiso.Id = reader.GetInt32(0);
+                permiso.Tipo = MetodosTipoPermiso.setTipo(reader.GetString(1));
+                permiso.Estado = (parseNullableInt(reader.GetValue(2).ToString()) == null) ? (EstadoPermiso)2 : (EstadoPermiso)reader.GetInt32(2);
+                permiso.FechaInicio = reader.GetDateTime(3);
+                permiso.FechaTermino = reader.GetDateTime(4);
+                permiso.FechaSolicitud = reader.GetDateTime(5);
+                permiso.Descripcion = reader.GetString(6);
+                if (parseNullableInt(reader.GetValue(7).ToString()) != null)
+                    permiso.Solicitante = new GestionadorFuncionario().BuscarFuncionarioParcial(reader.GetInt32(7));
+                if (parseNullableInt(reader.GetValue(8).ToString()) != null)
+                    permiso.Autorizante = new GestionadorFuncionario().BuscarFuncionarioParcial(reader.GetInt32(8));
+                con.Close();
+                return permiso;
+            }
+            con.Close();
+            return null;
+        }
+
+        public Permiso BuscarPermisoParcial(int id)
+        {
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = ConexionSQL.conexionString;
+            con.Open();
+            OracleCommand cmd = con.CreateCommand();
+            cmd.CommandText = "SELECT id_permiso, tipo_permiso, estado, fecha_inicio, fecha_termino, fecha_solicitud, desc_permiso, solicitante_run_sin_dv, autorizante_run_sin_dv FROM sol_permiso WHERE id_permiso = " + id;
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Permiso permiso = new Permiso();
+                permiso.Id = reader.GetInt32(0);
+                permiso.Tipo = MetodosTipoPermiso.setTipo(reader.GetString(1));
+                permiso.Estado = (parseNullableInt(reader.GetValue(2).ToString()) == null) ? (EstadoPermiso)2 : (EstadoPermiso)reader.GetInt32(2);
+                permiso.FechaInicio = reader.GetDateTime(3);
+                permiso.FechaTermino = reader.GetDateTime(4);
+                permiso.FechaSolicitud = reader.GetDateTime(5);
+                permiso.Descripcion = reader.GetString(6);
+                con.Close();
+                return permiso;
+            }
+            con.Close();
+            return null;
+        }
+
+
+
+
         //Metodo para obtener entero o nulo
         private int? parseNullableInt(string valor)
         {

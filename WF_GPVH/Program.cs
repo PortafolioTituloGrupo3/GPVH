@@ -8,6 +8,7 @@ using WF_GPVH.Formularios.Mantenedores.Funcionario;
 using WF_GPVH.Formularios.Mantenedores.Usuario;
 using WF_GPVH.Formularios.Login;
 using WF_GPVH.Formularios.Permisos;
+using WF_GPVH.Formularios.Resoluciones;
 
 namespace WF_GPVH
 {
@@ -21,7 +22,7 @@ namespace WF_GPVH
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Login());
+            Application.Run(new Form_BuscarResolucion());
         }
     }
 }

@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="Controlador\GestionadorFuncionario.cs" />
     <Compile Include="Controlador\GestionadorPermiso.cs" />
+    <Compile Include="Controlador\GestionadorResolucion.cs" />
     <Compile Include="Controlador\GestionadorUnidad.cs" />
     <Compile Include="Controlador\GestionadorUsuario.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="SQL\ConexionSQL.cs" />
     <Compile Include="SQL\FuncionarioSQL.cs" />
     <Compile Include="SQL\PermisoSQL.cs" />
+    <Compile Include="SQL\ResolucionSQL.cs" />
     <Compile Include="SQL\UnidadSQL.cs" />
     <Compile Include="SQL\UsuarioSQL.cs" />
   </ItemGroup>
