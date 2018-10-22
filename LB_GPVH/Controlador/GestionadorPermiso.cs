@@ -27,6 +27,21 @@ namespace LB_GPVH.Controlador
             }
         }
 
+        public Permiso BuscarPermiso(int id)
+        {
+            return new SQL.PermisoSQL().BuscarPermiso(id);
+        }
+
+        public Permiso BuscarPermisoFull(int id)
+        {
+            return new SQL.PermisoSQL().BuscarPermisoFull(id);
+        }
+
+        public Permiso BuscarPermisoParcial(int id)
+        {
+            return new SQL.PermisoSQL().BuscarPermisoParcial(id);
+        }
+
 
         public List<String> ListarNombresParametros()
         {

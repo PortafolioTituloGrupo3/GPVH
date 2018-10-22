@@ -174,4 +174,46 @@ namespace LB_GPVH.Enums
             return lista;
         }
     }
+
+    public static class MetodosEstadoReolucion
+    {
+        public static string GetString(EstadoResolucion estado)
+        {
+            switch (estado)
+            {
+                case EstadoResolucion.Validado:
+                    return "Validado";
+                case EstadoResolucion.Pendiente:
+                    return "Pendiente";
+                case EstadoResolucion.Invalidado:
+                    return "Invalidado";
+                default:
+                    return "";
+            }
+        }
+
+        public static EstadoResolucion setEstado(string estado)
+        {
+            switch (estado)
+            {
+                case "Validado":
+                    return EstadoResolucion.Validado;
+                case "Pendiente":
+                    return EstadoResolucion.Pendiente;
+                case "Invalidado":
+                    return EstadoResolucion.Invalidado;
+                default:
+                    throw new Exception("Estado de resolucion no corresponde");
+            }
+        }
+
+        public static List<string> Listar()
+        {
+            List<string> lista = new List<string>();
+            lista.Add(GetString(EstadoResolucion.Pendiente));
+            lista.Add(GetString(EstadoResolucion.Validado));
+            lista.Add(GetString(EstadoResolucion.Invalidado));
+            return lista;
+        }
+    }
 }

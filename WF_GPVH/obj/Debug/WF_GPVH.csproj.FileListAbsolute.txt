@@ -149,4 +149,5 @@ C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\MetroFramework.dll
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Permisos.Form_BuscarPermiso.resources
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Permisos.Form_SeleccionFuncionarioPermisos.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Resoluciones.Form_BuscarResolucion.resources
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\ApplicationInsights.config

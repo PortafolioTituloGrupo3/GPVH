@@ -53,7 +53,7 @@ namespace WF_GPVH.Formularios.Menu
 
         private void mtBuscarPermisos_Click(object sender, EventArgs e)
         {
-            new Permisos.Form_SeleccionFuncionarioPermisos().Show();
+            new Permisos.Form_SeleccionFuncionarioPermisos(sesion).Show();
         }
     }
 }
