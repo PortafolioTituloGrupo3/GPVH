@@ -55,5 +55,15 @@ namespace WF_GPVH.Formularios.Menu
         {
             new Permisos.Form_SeleccionFuncionarioPermisos().Show();
         }
+
+        private void mtGenerarReporte_Click(object sender, EventArgs e)
+        {
+            new Reportes.Form_Reporte_Permisos().Show();
+        }
+
+        private void mtAntecedentes_Click(object sender, EventArgs e)
+        {
+            new Reportes.Antecedences.Form_Listado_Funcionarios().Show();
+        }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv_funcionarios = new System.Windows.Forms.DataGridView();
+            this.dgv_funcionarios = new MetroFramework.Controls.MetroGrid();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_funcionarios)).BeginInit();
             this.SuspendLayout();
@@ -36,7 +36,7 @@
             // dgv_funcionarios
             // 
             this.dgv_funcionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_funcionarios.Location = new System.Drawing.Point(12, 39);
+            this.dgv_funcionarios.Location = new System.Drawing.Point(16, 63);
             this.dgv_funcionarios.Name = "dgv_funcionarios";
             this.dgv_funcionarios.Size = new System.Drawing.Size(649, 210);
             this.dgv_funcionarios.TabIndex = 23;
@@ -55,7 +55,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 261);
+            this.ClientSize = new System.Drawing.Size(679, 291);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgv_funcionarios);
             this.Name = "Form_Listado_Funcionarios";
@@ -68,7 +68,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv_funcionarios;
+        private MetroFramework.Controls.MetroGrid dgv_funcionarios;
         private System.Windows.Forms.Label label1;
     }
 }

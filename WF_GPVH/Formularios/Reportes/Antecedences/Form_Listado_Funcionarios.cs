@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WF_GPVH.Formularios.Reportes.Antecedences
 {
-    public partial class Form_Listado_Funcionarios : Form
+    public partial class Form_Listado_Funcionarios : MetroFramework.Forms.MetroForm
     {
         public Form_Listado_Funcionarios()
         {

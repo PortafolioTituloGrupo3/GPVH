@@ -44,3 +44,9 @@ C:\Users\thor\source\repos\GPVH\WS_GPVH\bin\Microsoft.ApplicationInsights.xml
 C:\Users\thor\source\repos\GPVH\WS_GPVH\obj\Debug\WS_GPVH.csprojResolveAssemblyReference.cache
 C:\Users\thor\source\repos\GPVH\WS_GPVH\obj\Debug\WS_GPVH.dll
 C:\Users\thor\source\repos\GPVH\WS_GPVH\obj\Debug\WS_GPVH.pdb
+C:\Users\thor\source\repos\GPVH\WS_GPVH\bin\PdfSharp.Charting.dll
+C:\Users\thor\source\repos\GPVH\WS_GPVH\bin\PdfSharp.dll
+C:\Users\thor\source\repos\GPVH\WS_GPVH\bin\PdfSharp.xml
+C:\Users\thor\source\repos\GPVH\WS_GPVH\bin\PdfSharp.Charting.xml
+C:\Users\thor\source\repos\GPVH\WS_GPVH\bin\de\PdfSharp.resources.dll
+C:\Users\thor\source\repos\GPVH\WS_GPVH\bin\de\PdfSharp.Charting.resources.dll

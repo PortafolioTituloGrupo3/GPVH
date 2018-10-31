@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.crv_antecedentes = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.btn_PermNoResuelto = new System.Windows.Forms.Button();
-            this.btn_PermRechazados = new System.Windows.Forms.Button();
-            this.btn_PermAprobados = new System.Windows.Forms.Button();
+            this.btn_PermNoResuelto = new MetroFramework.Controls.MetroTile();
+            this.btn_PermRechazados = new MetroFramework.Controls.MetroTile();
+            this.btn_PermAprobados = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // crv_antecedentes
@@ -43,46 +43,49 @@
             this.crv_antecedentes.Cursor = System.Windows.Forms.Cursors.Default;
             this.crv_antecedentes.Location = new System.Drawing.Point(0, 65);
             this.crv_antecedentes.Name = "crv_antecedentes";
-            this.crv_antecedentes.Size = new System.Drawing.Size(673, 329);
+            this.crv_antecedentes.Size = new System.Drawing.Size(856, 329);
             this.crv_antecedentes.TabIndex = 0;
             this.crv_antecedentes.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             this.crv_antecedentes.Load += new System.EventHandler(this.crv_antecedentes_Load);
             // 
             // btn_PermNoResuelto
             // 
-            this.btn_PermNoResuelto.Location = new System.Drawing.Point(136, 12);
+            this.btn_PermNoResuelto.ActiveControl = null;
+            this.btn_PermNoResuelto.Location = new System.Drawing.Point(418, 12);
             this.btn_PermNoResuelto.Name = "btn_PermNoResuelto";
-            this.btn_PermNoResuelto.Size = new System.Drawing.Size(75, 38);
+            this.btn_PermNoResuelto.Size = new System.Drawing.Size(173, 38);
             this.btn_PermNoResuelto.TabIndex = 1;
             this.btn_PermNoResuelto.Text = "Ver permisos no resueltos";
-            this.btn_PermNoResuelto.UseVisualStyleBackColor = true;
+            this.btn_PermNoResuelto.UseSelectable = true;
             this.btn_PermNoResuelto.Click += new System.EventHandler(this.btn_PermNoResuelto_Click);
             // 
             // btn_PermRechazados
             // 
-            this.btn_PermRechazados.Location = new System.Drawing.Point(258, 12);
+            this.btn_PermRechazados.ActiveControl = null;
+            this.btn_PermRechazados.Location = new System.Drawing.Point(597, 12);
             this.btn_PermRechazados.Name = "btn_PermRechazados";
-            this.btn_PermRechazados.Size = new System.Drawing.Size(75, 39);
+            this.btn_PermRechazados.Size = new System.Drawing.Size(165, 39);
             this.btn_PermRechazados.TabIndex = 2;
             this.btn_PermRechazados.Text = "Ver permisos rechazados";
-            this.btn_PermRechazados.UseVisualStyleBackColor = true;
+            this.btn_PermRechazados.UseSelectable = true;
             this.btn_PermRechazados.Click += new System.EventHandler(this.btn_PermRechazados_Click);
             // 
             // btn_PermAprobados
             // 
-            this.btn_PermAprobados.Location = new System.Drawing.Point(12, 12);
+            this.btn_PermAprobados.ActiveControl = null;
+            this.btn_PermAprobados.Location = new System.Drawing.Point(248, 12);
             this.btn_PermAprobados.Name = "btn_PermAprobados";
-            this.btn_PermAprobados.Size = new System.Drawing.Size(75, 38);
+            this.btn_PermAprobados.Size = new System.Drawing.Size(164, 38);
             this.btn_PermAprobados.TabIndex = 3;
             this.btn_PermAprobados.Text = "Ver permisos aprobados";
-            this.btn_PermAprobados.UseVisualStyleBackColor = true;
+            this.btn_PermAprobados.UseSelectable = true;
             this.btn_PermAprobados.Click += new System.EventHandler(this.btn_PermAprobados_Click);
             // 
             // Form_Antecedentes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 394);
+            this.ClientSize = new System.Drawing.Size(856, 394);
             this.Controls.Add(this.btn_PermAprobados);
             this.Controls.Add(this.btn_PermRechazados);
             this.Controls.Add(this.btn_PermNoResuelto);
@@ -97,8 +100,8 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crv_antecedentes;
-        private System.Windows.Forms.Button btn_PermNoResuelto;
-        private System.Windows.Forms.Button btn_PermRechazados;
-        private System.Windows.Forms.Button btn_PermAprobados;
+        private MetroFramework.Controls.MetroTile btn_PermNoResuelto;
+        private MetroFramework.Controls.MetroTile btn_PermRechazados;
+        private MetroFramework.Controls.MetroTile btn_PermAprobados;
     }
 }

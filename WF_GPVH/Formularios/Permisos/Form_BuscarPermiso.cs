@@ -19,9 +19,8 @@ namespace WF_GPVH.Formularios.Permisos
         IEnumerable<Permiso> permisosGridView;
         GestionadorPermiso gestionador;
         Form formPadre;
-
-
-
+        private List<LB_GPVH.Modelo.Permiso> permisos;
+        
         public Form_BuscarPermiso(Form pFormPadre, Funcionario pFuncionario)
         {
             InitializeComponent();
@@ -30,13 +29,18 @@ namespace WF_GPVH.Formularios.Permisos
             gestionador = new GestionadorPermiso();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             loadPermisos();
-
+            CargarPermisos(permisos);
         }
 
         public void loadPermisos()
         {
             gestionador.AsignarPermisos(funcionario);
             CargarPermisosGridView(this.funcionario.Permisos);
+        }
+
+        public void CargarPermisos(List<Permiso> permisos)
+        {
+            this.permisos = this.gestionador.ListarPermisos(this.funcionario.Run);
         }
 
         public void CargarPermisosGridView(List<Permiso> permisos)
@@ -80,7 +84,6 @@ namespace WF_GPVH.Formularios.Permisos
             this.mgPermisos.AutoSize = true;
             this.mgPermisos.DataSource = permisos;
         }
-
 
         private void chkBuscarEntreFechas_CheckedChanged(object sender, EventArgs e)
         {
@@ -160,6 +163,16 @@ namespace WF_GPVH.Formularios.Permisos
         {
             if (rbVerSoloPendientes.Checked)
                 this.CargarPermisosGridView(funcionario.Permisos);
+        }
+        
+
+        private void mgPermisos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                new Form_ListarDocumentos(this, permisos[e.RowIndex].Id).Show();
+                this.Visible = false;
+            }
         }
     }
 }

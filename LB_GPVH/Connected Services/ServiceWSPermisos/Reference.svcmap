@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4943152f-c41f-4b18-9e2c-a0cefa83c305" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2474/WebServices/Permisos/WSPermisos.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WSPermisos.xsd" MetadataType="Schema" ID="db76669c-28f6-4315-a101-abe86fa8cc14" SourceId="1" SourceUrl="http://localhost:2474/WebServices/Permisos/WSPermisos.svc?xsd=xsd0" />
+    <MetadataFile FileName="WSPermisos1.xsd" MetadataType="Schema" ID="d8503578-0b07-4223-a9d6-a9d523a8eced" SourceId="1" SourceUrl="http://localhost:2474/WebServices/Permisos/WSPermisos.svc?xsd=xsd1" />
+    <MetadataFile FileName="WSPermisos.wsdl" MetadataType="Wsdl" ID="aef54c51-d8c8-4972-90cc-70aaea80535f" SourceId="1" SourceUrl="http://localhost:2474/WebServices/Permisos/WSPermisos.svc?wsdl" />
+    <MetadataFile FileName="WSPermisos.disco" MetadataType="Disco" ID="5b752c94-7d89-4976-aac3-b24b86a969ee" SourceId="1" SourceUrl="http://localhost:2474/WebServices/Permisos/WSPermisos.svc?disco" />
+    <MetadataFile FileName="WSPermisos2.xsd" MetadataType="Schema" ID="0f560d09-a004-4381-888c-6c6220f39a27" SourceId="1" SourceUrl="http://localhost:2474/WebServices/Permisos/WSPermisos.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

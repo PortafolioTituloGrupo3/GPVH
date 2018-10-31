@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WF_GPVH.Formularios.Reportes.Antecedences
 {
-    public partial class Form_Antecedentes : Form
+    public partial class Form_Antecedentes : MetroFramework.Forms.MetroForm
     {
         private int run_funcionario = -1;
         private Form padre_temp;

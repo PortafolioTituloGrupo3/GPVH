@@ -77,6 +77,7 @@ namespace WS_GPVH.WebServices.Permisos
                     permisoTemp.Autorizante_run_sin_dv = reader.GetInt32(8);
                 }catch(Exception ex)
                 {
+                    ex.ToString();
                     permisoTemp.Autorizante_run_sin_dv = -1;
                 }
                 
@@ -84,6 +85,37 @@ namespace WS_GPVH.WebServices.Permisos
                 permisos.Add(permisoTemp);
             }
             return permisos;
+        }
+
+        public List<Documento> getDocumentosByPermiso(int id_permiso)
+        {
+            List<Documento> documentos = new List<Documento>();
+            Documento documentoTemp = new Documento();
+            //Coneccion y consulta
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = conString;
+            con.Open();
+            OracleCommand cmd = con.CreateCommand();
+            string comando_txt = "select * " +
+                                "from documento " +
+                                "where PERMISO_ID_PERMISO = " + id_permiso;
+            cmd.CommandText = comando_txt;
+            OracleDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                //Crear fila
+                documentoTemp = new Documento();
+                documentoTemp.Id_documento = reader.GetInt32(0);
+                documentoTemp.Nombre_documento = reader.GetString(1);
+                documentoTemp.Formato_documento = reader.GetString(2);
+                documentoTemp.Fecha_creacion = reader.GetDateTime(3);
+                documentoTemp.Dir = reader.GetString(4);
+                documentoTemp.Id_permiso = reader.GetInt32(5);
+                
+                //Agregar permiso
+                documentos.Add(documentoTemp);
+            }
+            return documentos;
         }
     }
 }

@@ -186,6 +186,131 @@ namespace WF_GPVH.ServiceWSPermisos {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Documento", Namespace="http://schemas.datacontract.org/2004/07/WS_GPVH.WebServices.Permisos")]
+    [System.SerializableAttribute()]
+    public partial class Documento : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DirField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime Fecha_creacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Formato_documentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_documentoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Id_permisoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Nombre_documentoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Dir {
+            get {
+                return this.DirField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DirField, value) != true)) {
+                    this.DirField = value;
+                    this.RaisePropertyChanged("Dir");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Fecha_creacion {
+            get {
+                return this.Fecha_creacionField;
+            }
+            set {
+                if ((this.Fecha_creacionField.Equals(value) != true)) {
+                    this.Fecha_creacionField = value;
+                    this.RaisePropertyChanged("Fecha_creacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Formato_documento {
+            get {
+                return this.Formato_documentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Formato_documentoField, value) != true)) {
+                    this.Formato_documentoField = value;
+                    this.RaisePropertyChanged("Formato_documento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_documento {
+            get {
+                return this.Id_documentoField;
+            }
+            set {
+                if ((this.Id_documentoField.Equals(value) != true)) {
+                    this.Id_documentoField = value;
+                    this.RaisePropertyChanged("Id_documento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id_permiso {
+            get {
+                return this.Id_permisoField;
+            }
+            set {
+                if ((this.Id_permisoField.Equals(value) != true)) {
+                    this.Id_permisoField = value;
+                    this.RaisePropertyChanged("Id_permiso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre_documento {
+            get {
+                return this.Nombre_documentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Nombre_documentoField, value) != true)) {
+                    this.Nombre_documentoField = value;
+                    this.RaisePropertyChanged("Nombre_documento");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceWSPermisos.IWSPermisos")]
     public interface IWSPermisos {
@@ -195,6 +320,12 @@ namespace WF_GPVH.ServiceWSPermisos {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSPermisos/getPermisosByFuncionario", ReplyAction="http://tempuri.org/IWSPermisos/getPermisosByFuncionarioResponse")]
         System.Threading.Tasks.Task<WF_GPVH.ServiceWSPermisos.Permiso[]> getPermisosByFuncionarioAsync(int run, int condicion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSPermisos/getDocumentosByPermiso", ReplyAction="http://tempuri.org/IWSPermisos/getDocumentosByPermisoResponse")]
+        WF_GPVH.ServiceWSPermisos.Documento[] getDocumentosByPermiso(int id_permiso);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWSPermisos/getDocumentosByPermiso", ReplyAction="http://tempuri.org/IWSPermisos/getDocumentosByPermisoResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.ServiceWSPermisos.Documento[]> getDocumentosByPermisoAsync(int id_permiso);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -230,6 +361,14 @@ namespace WF_GPVH.ServiceWSPermisos {
         
         public System.Threading.Tasks.Task<WF_GPVH.ServiceWSPermisos.Permiso[]> getPermisosByFuncionarioAsync(int run, int condicion) {
             return base.Channel.getPermisosByFuncionarioAsync(run, condicion);
+        }
+        
+        public WF_GPVH.ServiceWSPermisos.Documento[] getDocumentosByPermiso(int id_permiso) {
+            return base.Channel.getDocumentosByPermiso(id_permiso);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.ServiceWSPermisos.Documento[]> getDocumentosByPermisoAsync(int id_permiso) {
+            return base.Channel.getDocumentosByPermisoAsync(id_permiso);
         }
     }
 }

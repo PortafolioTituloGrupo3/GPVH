@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="QSploPBDXhhEvPvq2g/FCb3LfoQ=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="ehDqxlaORjv1VihgoKLH4BZ/zEU=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IWSPermisos">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IWSPermisos1">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IWSPermisos</serializedValue>
+          <serializedValue>BasicHttpBinding_IWSPermisos1</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IWSPermisos" contract="ServiceWSPermisos.IWSPermisos" bindingType="basicHttpBinding" address="http://localhost:2474/WebServices/Permisos/WSPermisos.svc" bindingConfiguration="BasicHttpBinding_IWSPermisos">
+    <endpoint name="BasicHttpBinding_IWSPermisos" contract="ServiceWSPermisos.IWSPermisos" bindingType="basicHttpBinding" address="http://localhost:2474/WebServices/Permisos/WSPermisos.svc" bindingConfiguration="BasicHttpBinding_IWSPermisos1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:2474/WebServices/Permisos/WSPermisos.svc</serializedValue>
@@ -124,7 +124,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IWSPermisos</serializedValue>
+          <serializedValue>BasicHttpBinding_IWSPermisos1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>ServiceWSPermisos.IWSPermisos</serializedValue>

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WF_GPVH.Formularios.Reportes.Antecedences
 {
-    public partial class Form_Listado_Permisos_Filtrado : Form
+    public partial class Form_Listado_Permisos_Filtrado : MetroFramework.Forms.MetroForm
     {
         Form form_temp = null;
         public Form_Listado_Permisos_Filtrado(int run, int filtro, Form form)
@@ -74,6 +74,11 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
         private void Form_Listado_Permisos_Filtrado_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form_Listado_Permisos_Filtrado_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.form_temp.Enabled = true;
         }
     }
 }
