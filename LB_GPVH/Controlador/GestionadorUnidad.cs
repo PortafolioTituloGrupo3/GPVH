@@ -1,4 +1,5 @@
 ﻿using LB_GPVH.Modelo;
+using LB_GPVH.SQL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -220,24 +221,20 @@ namespace LB_GPVH.Controlador
         /// <returns></returns>
         public Dictionary<int, string> DiccionarioUnidadConHijas(int idUnidad,bool primeraFilaVacia)
         {
-            using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
+            Dictionary<int, string> lista = new UnidadSQL().getListadoUnidadesHijasClaveValor(idUnidad);
+            if (primeraFilaVacia)
             {
-                Dictionary<int, string> lista = serviceUnidades.getListadoUnidadesClaveValor();
-                if (primeraFilaVacia)
+                Dictionary<int, string> listaFinal = new Dictionary<int, string>();
+                listaFinal.Add(-1, "");
+                foreach (var unidad in lista)
                 {
-                    Dictionary<int, string> listaFinal = new Dictionary<int, string>();
-                    listaFinal.Add(-1, "");
-                    foreach (var unidad in lista)
-                    {
-                        listaFinal.Add(unidad.Key, unidad.Value);
-                    }
-                    return listaFinal;
+                    listaFinal.Add(unidad.Key, unidad.Value);
                 }
-                else
-                {
-                    return lista;
-                }
-
+                return listaFinal;
+            }
+            else
+            {
+                return lista;
             }
         }
         
