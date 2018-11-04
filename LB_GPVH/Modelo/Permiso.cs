@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using LB_GPVH.Enums;
 
 
@@ -44,6 +45,32 @@ namespace LB_GPVH.Modelo
             get
             {
                 return MetodosTipoPermiso.GetString(Tipo);
+            }
+        }
+
+        public bool setTipoPermiso(string tipo)
+        {
+            try
+            {
+                this.Tipo = Enums.MetodosTipoPermiso.setTipo(tipo);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool setEstadoPermiso(string estado)
+        {
+            try
+            {
+                this.Estado = Enums.MetodosEstadoPermiso.setEstado(estado);
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 
@@ -111,6 +138,51 @@ namespace LB_GPVH.Modelo
         {
             get { return id; }
             set { id = value; }
+        }
+
+
+        public void LeerXML(XElement permisoXML)
+        {
+            if (permisoXML.Element("id") != null)
+            {
+                try
+                {
+                    this.id = int.Parse(permisoXML.Element("id").Value);
+                }
+                catch { };
+            }
+            if (permisoXML.Element("tipo") != null)
+            {
+                this.setTipoPermiso(permisoXML.Element("tipo").Value);
+            }
+            if (permisoXML.Element("estado") != null)
+            {
+                this.setEstadoPermiso(permisoXML.Element("estado").Value);
+            }
+            if (permisoXML.Element("fechaInicio") != null)
+            {
+                this.fechaInicio = DateTime.Parse(permisoXML.Element("fechaInicio").Value);
+            }
+            if (permisoXML.Element("fechaTermino") != null)
+            {
+                this.fechaTermino = DateTime.Parse(permisoXML.Element("fechaTermino").Value);
+            }
+            if (permisoXML.Element("fechaSolicitud") != null)
+            {
+                this.fechaSolicitud = DateTime.Parse(permisoXML.Element("fechaSolicitud").Value);
+            }
+            if (permisoXML.Element("Solicitante") != null)
+            {
+                Funcionario solicitante = new Funcionario();
+                solicitante.LeerXML(permisoXML.Element("Solicitante").Element("Funcionario"));
+                this.solicitante = solicitante;
+            }
+            if (permisoXML.Element("Autorizante") != null)
+            {
+                Funcionario autorizante = new Funcionario();
+                autorizante.LeerXML(permisoXML.Element("Autorizante").Element("Funcionario"));
+                this.autorizante = autorizante;
+            }
         }
 
     }

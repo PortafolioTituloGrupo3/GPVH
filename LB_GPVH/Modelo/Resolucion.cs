@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using LB_GPVH.Enums;
 
 namespace LB_GPVH.Modelo
@@ -30,6 +31,18 @@ namespace LB_GPVH.Modelo
             get { return MetodosEstadoReolucion.GetString(Estado); }
         }
 
+        public bool setEstadoResolucion(string estado)
+        {
+            try
+            {
+                this.Estado = Enums.MetodosEstadoReolucion.setEstado(estado);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         public string NombreSolicitantePermiso
         {
@@ -109,6 +122,38 @@ namespace LB_GPVH.Modelo
         {
             get { return id; }
             set { id = value; }
+        }
+
+        public void LeerXML(XElement resolucionXML)
+        {
+            if (resolucionXML.Element("id") != null)
+            {
+                try
+                {
+                    this.id = int.Parse(resolucionXML.Element("id").Value);
+                }
+                catch { };
+            }
+            if (resolucionXML.Element("estado") != null)
+            {
+                this.setEstadoResolucion(resolucionXML.Element("estado").Value);
+            }
+            if (resolucionXML.Element("fechaResolucion") != null)
+            {
+                this.fechaResolucion = DateTime.Parse(resolucionXML.Element("fechaResolucion").Value);
+            }
+            if (resolucionXML.Element("Permiso") != null)
+            {
+                Permiso permiso = new Permiso();
+                permiso.LeerXML(resolucionXML.Element("Permiso"));
+                this.permiso = permiso;
+            }
+            if (resolucionXML.Element("Funcionario") != null)
+            {
+                Funcionario resolvente = new Funcionario();
+                resolvente.LeerXML(resolucionXML.Element("Funcionario"));
+                this.resolvente = resolvente;
+            }
         }
     }
 }

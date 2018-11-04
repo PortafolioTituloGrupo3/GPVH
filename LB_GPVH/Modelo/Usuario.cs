@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LB_GPVH.Enums;
 using LB_GPVH.Auxiliares;
-
+using System.Xml.Linq;
 
 namespace LB_GPVH.Modelo
 {
@@ -111,5 +111,36 @@ namespace LB_GPVH.Modelo
             this.clave = pClave;
             return true;
         }
+
+        public void LeerXML(XElement usuarioXML)
+        {
+            if (usuarioXML.Element("id") != null)
+            {
+                try
+                {
+                    this.id = int.Parse(usuarioXML.Element("id").Value);
+                }
+                catch { };
+            }
+            if (usuarioXML.Element("nombre") != null)
+            {
+                this.nombre = usuarioXML.Element("nombre").Value;
+            }
+            if (usuarioXML.Element("clave") != null)
+            {
+                this.clave = usuarioXML.Element("clave").Value;
+            }
+            if (usuarioXML.Element("tipoUsuario") != null)
+            {
+                this.setTipoUsuario(usuarioXML.Element("tipoUsuario").Value);
+            }
+            if (usuarioXML.Element("Funcionario") != null)
+            {
+                Funcionario funcionario = new Funcionario();
+                funcionario.LeerXML(usuarioXML.Element("Funcionario"));
+                this.funcionario = funcionario;
+            }
+        }
+
     }
 }
