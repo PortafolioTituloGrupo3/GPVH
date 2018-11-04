@@ -136,7 +136,11 @@ namespace LB_GPVH.Modelo
             }
             if (resolucionXML.Element("estado") != null)
             {
-                this.setEstadoResolucion(resolucionXML.Element("estado").Value);
+                try
+                {
+                    this.Estado = (EstadoResolucion)int.Parse(resolucionXML.Element("estado").Value);
+                }
+                catch { };
             }
             if (resolucionXML.Element("fechaResolucion") != null)
             {

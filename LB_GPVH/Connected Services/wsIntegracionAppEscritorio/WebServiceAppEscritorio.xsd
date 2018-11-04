@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://webservice/" targetNamespace="http://webservice/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="autenticarUsuario" type="tns:autenticarUsuario" />
+  <xs:element name="autenticarUsuarioResponse" type="tns:autenticarUsuarioResponse" />
+  <xs:element name="buscarFuncionario" type="tns:buscarFuncionario" />
+  <xs:element name="buscarFuncionarioParcial" type="tns:buscarFuncionarioParcial" />
+  <xs:element name="buscarFuncionarioParcialResponse" type="tns:buscarFuncionarioParcialResponse" />
+  <xs:element name="buscarFuncionarioResponse" type="tns:buscarFuncionarioResponse" />
+  <xs:element name="buscarPermisos" type="tns:buscarPermisos" />
+  <xs:element name="buscarPermisosResponse" type="tns:buscarPermisosResponse" />
+  <xs:element name="buscarResoluciones" type="tns:buscarResoluciones" />
+  <xs:element name="buscarResolucionesResponse" type="tns:buscarResolucionesResponse" />
+  <xs:element name="buscarResolucionesUnidadesSubHijas" type="tns:buscarResolucionesUnidadesSubHijas" />
+  <xs:element name="buscarResolucionesUnidadesSubHijasResponse" type="tns:buscarResolucionesUnidadesSubHijasResponse" />
+  <xs:element name="buscarUnidadPorIdParcial" type="tns:buscarUnidadPorIdParcial" />
+  <xs:element name="buscarUnidadPorIdParcialResponse" type="tns:buscarUnidadPorIdParcialResponse" />
+  <xs:element name="buscarUsuario" type="tns:buscarUsuario" />
+  <xs:element name="buscarUsuarioResponse" type="tns:buscarUsuarioResponse" />
+  <xs:element name="eliminarFuncionario" type="tns:eliminarFuncionario" />
+  <xs:element name="eliminarFuncionarioResponse" type="tns:eliminarFuncionarioResponse" />
+  <xs:element name="eliminarUnidad" type="tns:eliminarUnidad" />
+  <xs:element name="eliminarUnidadResponse" type="tns:eliminarUnidadResponse" />
+  <xs:element name="eliminarUsuario" type="tns:eliminarUsuario" />
+  <xs:element name="eliminarUsuarioResponse" type="tns:eliminarUsuarioResponse" />
+  <xs:element name="insertarFuncionario" type="tns:insertarFuncionario" />
+  <xs:element name="insertarFuncionarioResponse" type="tns:insertarFuncionarioResponse" />
+  <xs:element name="insertarUnidad" type="tns:insertarUnidad" />
+  <xs:element name="insertarUnidadResponse" type="tns:insertarUnidadResponse" />
+  <xs:element name="insertarUsuario" type="tns:insertarUsuario" />
+  <xs:element name="insertarUsuarioResponse" type="tns:insertarUsuarioResponse" />
+  <xs:element name="listadoUnidadClaveValor" type="tns:listadoUnidadClaveValor" />
+  <xs:element name="listadoUnidadClaveValorResponse" type="tns:listadoUnidadClaveValorResponse" />
+  <xs:element name="listadoUnidadesHijasClaveValor" type="tns:listadoUnidadesHijasClaveValor" />
+  <xs:element name="listadoUnidadesHijasClaveValorResponse" type="tns:listadoUnidadesHijasClaveValorResponse" />
+  <xs:element name="listarFuncionarios" type="tns:listarFuncionarios" />
+  <xs:element name="listarFuncionariosClaveValor" type="tns:listarFuncionariosClaveValor" />
+  <xs:element name="listarFuncionariosClaveValorResponse" type="tns:listarFuncionariosClaveValorResponse" />
+  <xs:element name="listarFuncionariosDeUnidad" type="tns:listarFuncionariosDeUnidad" />
+  <xs:element name="listarFuncionariosDeUnidadResponse" type="tns:listarFuncionariosDeUnidadResponse" />
+  <xs:element name="listarFuncionariosNoJefesClaveValor" type="tns:listarFuncionariosNoJefesClaveValor" />
+  <xs:element name="listarFuncionariosNoJefesClaveValorExeptoUnidad" type="tns:listarFuncionariosNoJefesClaveValorExeptoUnidad" />
+  <xs:element name="listarFuncionariosNoJefesClaveValorExeptoUnidadResponse" type="tns:listarFuncionariosNoJefesClaveValorExeptoUnidadResponse" />
+  <xs:element name="listarFuncionariosNoJefesClaveValorResponse" type="tns:listarFuncionariosNoJefesClaveValorResponse" />
+  <xs:element name="listarFuncionariosResponse" type="tns:listarFuncionariosResponse" />
+  <xs:element name="listarUnidades" type="tns:listarUnidades" />
+  <xs:element name="listarUnidadesResponse" type="tns:listarUnidadesResponse" />
+  <xs:element name="listarUsuarios" type="tns:listarUsuarios" />
+  <xs:element name="listarUsuariosResponse" type="tns:listarUsuariosResponse" />
+  <xs:element name="modificarFuncionario" type="tns:modificarFuncionario" />
+  <xs:element name="modificarFuncionarioResponse" type="tns:modificarFuncionarioResponse" />
+  <xs:element name="modificarUnidad" type="tns:modificarUnidad" />
+  <xs:element name="modificarUnidadResponse" type="tns:modificarUnidadResponse" />
+  <xs:element name="modificarUsuario" type="tns:modificarUsuario" />
+  <xs:element name="modificarUsuarioResponse" type="tns:modificarUsuarioResponse" />
+  <xs:element name="nombreUnidadExiste" type="tns:nombreUnidadExiste" />
+  <xs:element name="nombreUnidadExisteResponse" type="tns:nombreUnidadExisteResponse" />
+  <xs:element name="usuarioExiste" type="tns:usuarioExiste" />
+  <xs:element name="usuarioExisteResponse" type="tns:usuarioExisteResponse" />
+  <xs:complexType name="listarFuncionarios">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarFuncionariosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarFuncionario">
+    <xs:sequence>
+      <xs:element name="run" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarFuncionarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="clave" type="xs:string" />
+      <xs:element minOccurs="0" name="tipo" type="xs:string" />
+      <xs:element name="run" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarUsuario">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="clave" type="xs:string" />
+      <xs:element minOccurs="0" name="tipo" type="xs:string" />
+      <xs:element name="run" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarUnidad">
+    <xs:sequence>
+      <xs:element name="id_unidad" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarUnidadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarFuncionariosDeUnidad">
+    <xs:sequence>
+      <xs:element name="idUnidad" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarFuncionariosDeUnidadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarFuncionariosNoJefesClaveValorExeptoUnidad">
+    <xs:sequence>
+      <xs:element name="idUnidad" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarFuncionariosNoJefesClaveValorExeptoUnidadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPermisos">
+    <xs:sequence>
+      <xs:element name="run" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPermisosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listadoUnidadClaveValor">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listadoUnidadClaveValorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarUsuario">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eliminarUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="autenticarUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="clave" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="autenticarUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarFuncionario">
+    <xs:sequence>
+      <xs:element name="run" type="xs:int" />
+      <xs:element name="dv" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="ap_pat" type="xs:string" />
+      <xs:element minOccurs="0" name="ap_mat" type="xs:string" />
+      <xs:element minOccurs="0" name="nacimiento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="cargo" type="xs:string" />
+      <xs:element name="habilitado" type="xs:boolean" />
+      <xs:element name="id_unidad" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarFuncionarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarUnidades">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarUnidadesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nombreUnidadExiste">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nombreUnidadExisteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="usuarioExiste">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="usuarioExisteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarFuncionariosClaveValor">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarFuncionariosClaveValorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarFuncionario">
+    <xs:sequence>
+      <xs:element name="run" type="xs:int" />
+      <xs:element name="dv" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="ap_pat" type="xs:string" />
+      <xs:element minOccurs="0" name="ap_mat" type="xs:string" />
+      <xs:element minOccurs="0" name="nacimiento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="correo" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element minOccurs="0" name="cargo" type="xs:string" />
+      <xs:element name="id_unidad" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarFuncionarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarFuncionarioParcial">
+    <xs:sequence>
+      <xs:element name="run" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarFuncionarioParcialResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarUnidad">
+    <xs:sequence>
+      <xs:element name="id_unidad" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element name="habilitado" type="xs:boolean" />
+      <xs:element name="unidad_padre" type="xs:int" />
+      <xs:element name="jefe_unidad" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="modificarUnidadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarUsuarios">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarUsuariosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarFuncionariosNoJefesClaveValor">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarFuncionariosNoJefesClaveValorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarFuncionario">
+    <xs:sequence>
+      <xs:element name="run" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarFuncionarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarResoluciones">
+    <xs:sequence>
+      <xs:element name="mes" type="xs:int" />
+      <xs:element name="anno" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarResolucionesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarResolucionesUnidadesSubHijas">
+    <xs:sequence>
+      <xs:element name="mes" type="xs:int" />
+      <xs:element name="anno" type="xs:int" />
+      <xs:element name="idUnidad" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarResolucionesUnidadesSubHijasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarUnidadPorIdParcial">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarUnidadPorIdParcialResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarUsuario">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarUnidad">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+      <xs:element name="unidad_padre" type="xs:int" />
+      <xs:element name="jefe_unidad" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarUnidadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listadoUnidadesHijasClaveValor">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listadoUnidadesHijasClaveValorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

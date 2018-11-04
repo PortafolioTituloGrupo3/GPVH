@@ -157,7 +157,11 @@ namespace LB_GPVH.Modelo
             }
             if (permisoXML.Element("estado") != null)
             {
-                this.setEstadoPermiso(permisoXML.Element("estado").Value);
+                try
+                {
+                    this.Estado = (EstadoPermiso)int.Parse(permisoXML.Element("estado").Value);
+                }
+                catch { };
             }
             if (permisoXML.Element("fechaInicio") != null)
             {

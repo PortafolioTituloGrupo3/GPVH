@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LB_GPVH.Enums;
-
+using LB_GPVH.wsIntegracionAppEscritorio;
+using System.Xml.Linq;
 
 namespace LB_GPVH.Controlador
 {
@@ -16,13 +17,28 @@ namespace LB_GPVH.Controlador
 
         public Sesion()
         {
-
         }
 
         public bool AutenticarUsuario(string nombre, string clave)
         {
-            Usuario = new SQL.UsuarioSQL().autenticarUsuario(nombre, clave);
-            return Usuario != null;
+            if(ParametrosGlobales.usarIntegracion)
+            {
+                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
+                {
+                    string xml = cliente.autenticarUsuario(nombre,clave);
+                    XDocument doc = XDocument.Parse(xml);
+                    Usuario = new Usuario();
+                    Usuario.LeerXML(doc.Root);
+                    return Usuario != null && Usuario.Id != -1;
+                }
+                    
+            }
+            else
+            {
+                Usuario = new SQL.UsuarioSQL().autenticarUsuario(nombre, clave);
+                return Usuario != null;
+            }
+            
         }
         
 
