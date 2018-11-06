@@ -45,6 +45,9 @@ namespace WF_GPVH.Formularios.Login
                         new Menu.Form_Menu_Jefe_Unidad_Superior(this, sesion).Show();
                         this.Hide();
                         break;
+                    default:
+                        MessageBox.Show("Acceso denegado. Debes ser un Administrador o Jefe de unidad superior para ingresar.");
+                        break;
                 }
             }
             else

@@ -50,6 +50,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ServiceWSPermisos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceWSUnidades\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -60,11 +65,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controlador\GestionadorDocumento.cs" />
     <Compile Include="Controlador\GestionadorFuncionario.cs" />
     <Compile Include="Controlador\GestionadorPermiso.cs" />
     <Compile Include="Controlador\GestionadorResolucion.cs" />
     <Compile Include="Controlador\GestionadorUnidad.cs" />
     <Compile Include="Controlador\GestionadorUsuario.cs" />
+    <Compile Include="Modelo\Documento.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
     <Compile Include="Controlador\Sesion.cs" />
     <Compile Include="Modelo\Permiso.cs" />
@@ -98,6 +105,16 @@
     <None Include="Connected Services\ServiceWSFuncionarios\WSFuncionarios3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceWSPermisos\WSPermisos.wsdl" />
+    <None Include="Connected Services\ServiceWSPermisos\WSPermisos.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceWSPermisos\WSPermisos1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceWSPermisos\WSPermisos2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceWSUnidades\WSUnidades.wsdl" />
     <None Include="Connected Services\ServiceWSUnidades\WSUnidades.xsd">
       <SubType>Designer</SubType>
@@ -123,10 +140,13 @@
     </None>
     <None Include="Properties\DataSources\WS_GPVH.Usuario.datasource" />
     <None Include="Properties\DataSources\WS_GPVH.WebServices.Funcionarios.Funcionario.datasource" />
+    <None Include="Properties\DataSources\WS_GPVH.WebServices.Permisos.Documento.datasource" />
+    <None Include="Properties\DataSources\WS_GPVH.WebServices.Permisos.Permiso.datasource" />
     <None Include="Properties\DataSources\WS_GPVH.WebServices.Unidades.Unidad.datasource" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceWSFuncionarios\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceWSPermisos\" />
     <WCFMetadataStorage Include="Connected Services\ServiceWSUnidades\" />
     <WCFMetadataStorage Include="Connected Services\ServiceWSUsuarios\" />
   </ItemGroup>
@@ -180,6 +200,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceWSUsuarios\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSPermisos\WSPermisos.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSPermisos\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSPermisos\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ServiceWSPermisos\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
