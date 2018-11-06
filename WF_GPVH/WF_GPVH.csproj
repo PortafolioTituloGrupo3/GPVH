@@ -331,8 +331,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="bin\Debug\WF_GPVH.exe.config" />
-    <None Include="bin\Debug\WF_GPVH.vshost.exe.config" />
     <None Include="Comprobantes\CARTA GANTT PORTALPROFESORES.pdf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -498,9 +496,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\LB_GPVH.dll" />
-    <Content Include="bin\Debug\LB_GPVH.pdb" />
-    <Content Include="bin\Debug\WF_GPVH.vshost.exe" />
     <None Include="Service References\ServiceWSPermisos\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -509,10 +504,7 @@
     <None Include="Service References\ServiceWSPermisos\configuration91.svcinfo" />
     <None Include="Service References\ServiceWSPermisos\WSPermisos.disco" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\Reportes\Crystal Report\" />
-    <Folder Include="bin\Release\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\LB_GPVH\LB_GPVH.csproj">
       <Project>{60dea010-c448-4035-b2ca-0f2aea824bba}</Project>
