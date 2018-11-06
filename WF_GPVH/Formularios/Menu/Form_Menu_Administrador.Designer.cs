@@ -35,6 +35,8 @@
             this.mtGestionarUnidades = new MetroFramework.Controls.MetroTile();
             this.mtSalir = new MetroFramework.Controls.MetroTile();
             this.mtBuscarPermisos = new MetroFramework.Controls.MetroTile();
+            this.mtGenerarReporte = new MetroFramework.Controls.MetroTile();
+            this.mtAntecedentes = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -110,11 +112,35 @@
             this.mtBuscarPermisos.UseSelectable = true;
             this.mtBuscarPermisos.Click += new System.EventHandler(this.mtBuscarPermisos_Click);
             // 
+            // mtGenerarReporte
+            // 
+            this.mtGenerarReporte.ActiveControl = null;
+            this.mtGenerarReporte.Location = new System.Drawing.Point(190, 160);
+            this.mtGenerarReporte.Name = "mtGenerarReporte";
+            this.mtGenerarReporte.Size = new System.Drawing.Size(161, 60);
+            this.mtGenerarReporte.TabIndex = 11;
+            this.mtGenerarReporte.Text = "Generar reporte de permisos";
+            this.mtGenerarReporte.UseSelectable = true;
+            this.mtGenerarReporte.Click += new System.EventHandler(this.mtGenerarReporte_Click);
+            // 
+            // mtAntecedentes
+            // 
+            this.mtAntecedentes.ActiveControl = null;
+            this.mtAntecedentes.Location = new System.Drawing.Point(190, 226);
+            this.mtAntecedentes.Name = "mtAntecedentes";
+            this.mtAntecedentes.Size = new System.Drawing.Size(161, 60);
+            this.mtAntecedentes.TabIndex = 12;
+            this.mtAntecedentes.Text = "Ver Antecedentes";
+            this.mtAntecedentes.UseSelectable = true;
+            this.mtAntecedentes.Click += new System.EventHandler(this.mtAntecedentes_Click);
+            // 
             // Form_Menu_Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mtAntecedentes);
+            this.Controls.Add(this.mtGenerarReporte);
             this.Controls.Add(this.mtBuscarPermisos);
             this.Controls.Add(this.mtSalir);
             this.Controls.Add(this.mtGestionarUnidades);
@@ -138,5 +164,7 @@
         private MetroFramework.Controls.MetroTile mtGestionarUnidades;
         private MetroFramework.Controls.MetroTile mtSalir;
         private MetroFramework.Controls.MetroTile mtBuscarPermisos;
+        private MetroFramework.Controls.MetroTile mtGenerarReporte;
+        private MetroFramework.Controls.MetroTile mtAntecedentes;
     }
 }

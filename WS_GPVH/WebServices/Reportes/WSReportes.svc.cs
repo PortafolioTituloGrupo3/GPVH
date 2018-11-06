@@ -51,5 +51,66 @@ namespace WS_GPVH.WebServices.Reportes
             }
             return filas;
         }
+
+        public Antecedentes ReporteAntecedentes(int run)
+        {
+            Antecedentes antecedentes = new Antecedentes();
+            List<FilaReporteAntecedentes> filas = new List<FilaReporteAntecedentes>();
+
+            //Coneccion y consulta
+            OracleConnection con = new OracleConnection();
+            con.ConnectionString = conString;
+            con.Open();
+            OracleCommand cmd = con.CreateCommand();
+            cmd.CommandText = "select  sol.estado, "+
+                                        "tipo_permiso AS \"Tipo de Permiso\", "+
+                                        "count(*) AS \"Cantidad de permisos\" "+
+                                "from sol_permiso sol join funcionario fun "+
+                                "on sol.solicitante_run_sin_dv = fun.run_sin_dv "+
+                                "where fun.run_sin_dv = "+ run +" "+
+                                "group by tipo_permiso, sol.estado "+
+                                "order by tipo_permiso ";
+            OracleDataReader reader = cmd.ExecuteReader();
+            FilaReporteAntecedentes filaTemp;
+            while (reader.Read())
+            {
+                //Crear fila
+                filaTemp = new FilaReporteAntecedentes();
+                int estado_num = reader.GetInt32(0);
+                switch (estado_num)
+                {
+                    case 0:
+                        filaTemp.Estado = "No resuelto";
+                        break;
+                    case 1:
+                        filaTemp.Estado = "Autorizado";
+                        break;
+                    case 2:
+                        filaTemp.Estado = "Rechazado";
+                        break;
+                }
+                filaTemp.Tipo_permiso = reader.GetString(1);
+                filaTemp.Cantidad = reader.GetInt32(2);
+                //Agregar fila
+                filas.Add(filaTemp);
+            }
+            //Consulata del empleado en si
+            /*
+            cmd = null;
+            reader = null;
+            cmd = con.CreateCommand();
+            cmd.CommandText = "select  sol.estado, " +
+                                        "tipo_permiso AS \"Tipo de Permiso\", " +
+                                        "count(*) AS \"Cantidad de permisos\" " +
+                                "from sol_permiso sol join funcionario fun " +
+                                "on sol.solicitante_run_sin_dv = fun.run_sin_dv " +
+                                "where fun.run_sin_dv = " + run + " " +
+                                "group by tipo_permiso, sol.estado " +
+                                "order by tipo_permiso; ";
+            reader = cmd.ExecuteReader();
+            */
+            antecedentes.Filas = filas;
+            return antecedentes;
+        }
     }
 }

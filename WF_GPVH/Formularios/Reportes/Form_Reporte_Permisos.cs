@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WF_GPVH.Formularios.Reportes
 {
-    public partial class Form_Reporte_Permisos : Form
+    public partial class Form_Reporte_Permisos : MetroFramework.Forms.MetroForm
     {
         public Form_Reporte_Permisos()
         {
@@ -21,6 +21,7 @@ namespace WF_GPVH.Formularios.Reportes
         {
             //Inicialmente se mostraran las solicitudes del mes
             this.CargarReporte(DateTime.Today.AddMonths(-1), DateTime.Today);
+            MessageBox.Show("Permisos de los ultimos 30 dias.");
         }
 
         private void btn_generar_Click(object sender, EventArgs e)
@@ -56,6 +57,11 @@ namespace WF_GPVH.Formularios.Reportes
 
             crv_ReportePermisos.ReportSource = null;
             crv_ReportePermisos.ReportSource = reporte;
+        }
+
+        private void Form_Reporte_Permisos_Load(object sender, EventArgs e)
+        {
+            this.cld_fechaInicio.Value = DateTime.Today.AddMonths(-1);
         }
     }
 }

@@ -14,4 +14,26 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="FilaReportePermisos" nillable="true" type="tns:FilaReportePermisos" />
+  <xs:complexType name="Antecedentes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Feriados_anuales_restantes" type="xs:int" />
+      <xs:element minOccurs="0" name="Filas" nillable="true" type="tns:ArrayOfFilaReporteAntecedentes" />
+      <xs:element minOccurs="0" name="Permisos_administrativos_restantes" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Antecedentes" nillable="true" type="tns:Antecedentes" />
+  <xs:complexType name="ArrayOfFilaReporteAntecedentes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FilaReporteAntecedentes" nillable="true" type="tns:FilaReporteAntecedentes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFilaReporteAntecedentes" nillable="true" type="tns:ArrayOfFilaReporteAntecedentes" />
+  <xs:complexType name="FilaReporteAntecedentes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tipo_permiso" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FilaReporteAntecedentes" nillable="true" type="tns:FilaReporteAntecedentes" />
 </xs:schema>
