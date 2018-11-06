@@ -221,6 +221,12 @@
       <DependentUpon>CR_Permisos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Formularios\Resoluciones\Form_BuscarResolucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Resoluciones\Form_BuscarResolucion.Designer.cs">
+      <DependentUpon>Form_BuscarResolucion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Reportes\Form_Reporte_Permisos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,6 +324,9 @@
     <EmbeddedResource Include="Formularios\Reportes\CR_Permisos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CR_Permisos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Resoluciones\Form_BuscarResolucion.resx">
+      <DependentUpon>Form_BuscarResolucion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\Form_Reporte_Permisos.resx">
       <DependentUpon>Form_Reporte_Permisos.cs</DependentUpon>

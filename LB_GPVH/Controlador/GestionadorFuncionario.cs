@@ -48,9 +48,7 @@ namespace LB_GPVH.Controlador
                 funcionario.FechaNacimiento = wsFuncionario.Fec_nacimiento;
                 funcionario.Habilitado = (wsFuncionario.Habilitado == 0) ? false : true;
                 return funcionario;
-
             }
-
         }
 
         public Funcionario BuscarFuncionario(int run)
@@ -71,9 +69,7 @@ namespace LB_GPVH.Controlador
                 funcionario.Habilitado = (wsFuncionario.Habilitado == 0) ? false : true;
                 funcionario.Unidad = new GestionadorUnidad().BuscarPorIdParcial(wsFuncionario.Unidad_id_unidad);
                 return funcionario;
-
             }
-
         }
 
 
@@ -105,6 +101,13 @@ namespace LB_GPVH.Controlador
             }
         }
 
+        public List<Funcionario> ListarFuncionariosDeUnidad(int idUnidad)
+        {
+            return new SQL.FuncionarioSQL().getListadoFuncionariosHijosUnidad(idUnidad);
+        }
+
+
+
         public ResultadoGestionFuncionario AgregarFuncionario(Funcionario funcionario)
         {
             using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
@@ -129,31 +132,6 @@ namespace LB_GPVH.Controlador
                         return ResultadoGestionFuncionario.Invalido;
                 }
             }
-            /*
-            int run = int.Parse(this.txt_run.Text);
-            int dv = int.Parse(this.txt_dv.Text);
-            string nombre = this.txt_nombre.Text;
-            string ap_pat = this.txt_ap_pat.Text;
-            string ap_mat = this.txt_ap_mat.Text;
-            DateTime nacimiento = DateTime.Parse(this.cld_nacimiento.Text);
-            string correo = this.txt_correo.Text;
-            string direccion = this.txt_direccion.Text;
-            bool habilitado = this.chk_habilitado.Checked;
-            string tipo = this.ddl_tipo.GetItemText(this.ddl_tipo.SelectedItem);
-            int unidad = int.Parse(this.ddl_unidad.SelectedValue.ToString());
-            using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
-            {
-                int salida = serviceFuncionarios.addFuncionario(run, dv, nombre, ap_pat, ap_mat, nacimiento,
-                                                                    correo, direccion, tipo, unidad);
-                if (salida == 0)
-                {
-                    padreTemp.loadFuncionarios();
-                    MessageBox.Show("Datos agregados con exito!");
-                }
-                else
-                    MessageBox.Show("ERROR NRO: " + salida);
-            }
-            */
         }
 
         public ResultadoGestionFuncionario ModificarFuncionario(Funcionario funcionario)
@@ -231,7 +209,6 @@ namespace LB_GPVH.Controlador
             {
 
                 Dictionary<int, string> listaFinal = new Dictionary<int, string>();
-                //Cargar datos de funcionarios en ComboBox
                 Dictionary<int, string> lista = serviceFuncionarios.getListadoFuncionariosNoJefesClaveValor();
                 listaFinal.Add(-1, "");
                 foreach (var unidad in lista)
@@ -251,7 +228,6 @@ namespace LB_GPVH.Controlador
                 if(primeraFilaVacia)
                 {
                     Dictionary<int, string> listaFinal = new Dictionary<int, string>();
-                    //Cargar datos de funcionarios en ComboBox
                     listaFinal.Add(-1, "");
                     foreach (var unidad in lista)
                     {

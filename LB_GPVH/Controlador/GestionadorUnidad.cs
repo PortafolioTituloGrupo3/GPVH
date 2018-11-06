@@ -21,9 +21,7 @@ namespace LB_GPVH.Controlador
             Valido,
             Invalido
         }
-
-
-
+        
         public GestionadorUnidad()
         {
             
@@ -214,7 +212,35 @@ namespace LB_GPVH.Controlador
                 
             }
         }
+        
+        /// <summary>
+        /// Busca la unidad cuyo id es entregado, incluyendo sus unidades hijas.
+        /// </summary>
+        /// <param name="primeraFilaVacia">Agregar un espacio en blanco para la primera fila del diccionario</param>
+        /// <returns></returns>
+        public Dictionary<int, string> DiccionarioUnidadConHijas(int idUnidad,bool primeraFilaVacia)
+        {
+            using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
+            {
+                Dictionary<int, string> lista = serviceUnidades.getListadoUnidadesClaveValor();
+                if (primeraFilaVacia)
+                {
+                    Dictionary<int, string> listaFinal = new Dictionary<int, string>();
+                    listaFinal.Add(-1, "");
+                    foreach (var unidad in lista)
+                    {
+                        listaFinal.Add(unidad.Key, unidad.Value);
+                    }
+                    return listaFinal;
+                }
+                else
+                {
+                    return lista;
+                }
 
+            }
+        }
+        
         ///<summary>
         ///Busca las unidades que no tengan parentesco con la unidad cuyo id es el parametro.
         ///</summary>
@@ -261,10 +287,7 @@ namespace LB_GPVH.Controlador
                 }
             }
         }
-
-
-
-
+        
         public List<String> ListarNombresParametros()
         {
             List<String> parametros = new List<string>();
@@ -342,8 +365,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionUnidad.Valido;
         }
-
         
-
     }
 }
