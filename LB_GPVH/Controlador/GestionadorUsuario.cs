@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using LB_GPVH.wsIntegracionAppEscritorio;
 
 namespace LB_GPVH.Controlador
 {
@@ -20,42 +22,102 @@ namespace LB_GPVH.Controlador
             Invalido
         }
 
+        public List<Usuario> DesempaquetarListaXml(string xml)
+        {
+            XDocument doc = XDocument.Parse(xml);
+            IEnumerable<XElement> usuariosXML = doc.Root.Elements();
+            List<Usuario> usuarios = new List<Usuario>();
+            foreach (var usuarioXML in usuariosXML)
+            {
+                Usuario usuario = new Usuario();
+                usuario.LeerXML(usuarioXML);
+                usuarios.Add(usuario);
+            }
+            return usuarios;
+        }
+
+
+        public Usuario DesempaquetarUsuarioXml(string xml)
+        {
+            XDocument doc = XDocument.Parse(xml);
+            Usuario usuario = new Usuario();
+            usuario.LeerXML(doc.Root);
+            return usuario;
+        }
+
+        public int DesempaquetarRespuesta(string xml)
+        {
+            XDocument doc = XDocument.Parse(xml);
+            try
+            {
+                return int.Parse(doc.Root.Value);
+            }
+            catch
+            {
+                return -1;
+            };
+        }
+
+
+
         public List<Usuario> ListarUsuarios()
         {
-            using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
+            List<Usuario> usuarios = null;
+            if (ParametrosGlobales.usarIntegracion)
             {
-                List<Usuario> usuarios = new List<Usuario>();
-                //****Sujeto a cambios para intergracion
-                var listadoUsuarios = serviceUsuarios.getListadoUsuarios();
-                foreach (var wsUsuario in listadoUsuarios)
+                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
+                {
+                    usuarios = DesempaquetarListaXml(cliente.listarUsuarios());
+                }
+            }
+            else
+            {
+                using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
+                {
+                    usuarios = new List<Usuario>();
+                    //****Sujeto a cambios para intergracion
+                    var listadoUsuarios = serviceUsuarios.getListadoUsuarios();
+                    foreach (var wsUsuario in listadoUsuarios)
+                    {
+                        Usuario usuario = new Usuario();
+                        usuario.Id = wsUsuario.Id_usuario;
+                        usuario.Clave = wsUsuario.Clave;
+                        usuario.Nombre = wsUsuario.Nombre_usuario;
+                        usuario.Tipo = Enums.MetodosTipoUsuario.setTipo(wsUsuario.Tipo_usuario);
+                        usuario.Funcionario = new GestionadorFuncionario().BuscarFuncionarioParcial((int)wsUsuario.Funcionario_run_sin_dv);
+                        usuarios.Add(usuario);
+                    }
+                    //****
+                    
+                }
+            }
+            return usuarios;
+        }
+
+        public Usuario BuscarUsarioPorId(int id)
+        {
+            if (ParametrosGlobales.usarIntegracion)
+            {
+                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
+                {
+                    return DesempaquetarUsuarioXml(cliente.buscarUsuario(id));
+                }
+            }
+            else
+            {
+                using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
                 {
                     Usuario usuario = new Usuario();
+                    //****Sujeto a cambios para intergracion
+                    var wsUsuario = serviceUsuarios.getUsuarioById(id);
                     usuario.Id = wsUsuario.Id_usuario;
                     usuario.Clave = wsUsuario.Clave;
                     usuario.Nombre = wsUsuario.Nombre_usuario;
                     usuario.Tipo = Enums.MetodosTipoUsuario.setTipo(wsUsuario.Tipo_usuario);
                     usuario.Funcionario = new GestionadorFuncionario().BuscarFuncionarioParcial((int)wsUsuario.Funcionario_run_sin_dv);
-                    usuarios.Add(usuario);
+                    //****
+                    return usuario;
                 }
-                //****
-                return usuarios;
-            }
-        }
-
-        public Usuario BuscarUsarioPorId(int id)
-        {
-            using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
-            {
-                Usuario usuario = new Usuario();
-                //****Sujeto a cambios para intergracion
-                var wsUsuario = serviceUsuarios.getUsuarioById(id);
-                usuario.Id = wsUsuario.Id_usuario;
-                usuario.Clave = wsUsuario.Clave;
-                usuario.Nombre = wsUsuario.Nombre_usuario;
-                usuario.Tipo = Enums.MetodosTipoUsuario.setTipo(wsUsuario.Tipo_usuario);
-                usuario.Funcionario = new GestionadorFuncionario().BuscarFuncionarioParcial((int)wsUsuario.Funcionario_run_sin_dv);
-                //****
-                return usuario;
             }
         }
 
@@ -66,57 +128,90 @@ namespace LB_GPVH.Controlador
 
         public ResultadoGestionUsuario AgregarUsuario(Usuario usuario)
         {
-            using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
+            ResultadoGestionUsuario validacion = this.ValidarUsuario(usuario);
+            if (validacion != ResultadoGestionUsuario.Valido)
             {
-                ResultadoGestionUsuario validacion = this.ValidarUsuario(usuario);
-                if (validacion != ResultadoGestionUsuario.Valido)
+                return validacion;
+            }
+            int codigoRetorno;
+            if (ParametrosGlobales.usarIntegracion)
+            {
+                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
                 {
-                    return validacion;
+                    codigoRetorno = DesempaquetarRespuesta(cliente.insertarUsuario(usuario.Nombre, usuario.Clave, usuario.TipoToString, usuario.Funcionario.Run));
                 }
-                int codigoRetorno = serviceUsuarios.addUsuario(usuario.Nombre, usuario.Clave, usuario.TipoToString, usuario.Funcionario.Run);
-                switch (codigoRetorno)
+            }
+            else
+            {
+                using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
                 {
-                    case 0:
-                        return ResultadoGestionUsuario.Valido;
-                    default:
-                        return ResultadoGestionUsuario.Invalido;
+                    codigoRetorno = serviceUsuarios.addUsuario(usuario.Nombre, usuario.Clave, usuario.TipoToString, usuario.Funcionario.Run);
                 }
+            }
+            switch (codigoRetorno)
+            {
+                case 0:
+                    return ResultadoGestionUsuario.Valido;
+                default:
+                    return ResultadoGestionUsuario.Invalido;
             }
         }
 
         public ResultadoGestionUsuario ModificarUsuario(Usuario usuario)
         {
-            using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
+            ResultadoGestionUsuario validacion = this.ValidarUsuario(usuario);
+            if (validacion != ResultadoGestionUsuario.Valido)
             {
-                ResultadoGestionUsuario validacion = this.ValidarUsuario(usuario);
-                if (validacion != ResultadoGestionUsuario.Valido)
+                return validacion;
+            }
+            int codigoRetorno;
+            if (ParametrosGlobales.usarIntegracion)
+            {
+                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
                 {
-                    return validacion;
+                    codigoRetorno = DesempaquetarRespuesta(cliente.modificarUsuario(usuario.Id, usuario.Nombre, usuario.Clave, usuario.TipoToString, usuario.Funcionario.Run));
                 }
-                int codigoRetorno = serviceUsuarios.modifyUsuario(usuario.Id, usuario.Nombre, usuario.Clave, usuario.TipoToString, usuario.Funcionario.Run);
-                switch (codigoRetorno)
+            }
+            else
+            {
+                using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
                 {
-                    case 0:
-                        return ResultadoGestionUsuario.Valido;
-                    default:
-                        return ResultadoGestionUsuario.Invalido;
+                    codigoRetorno = serviceUsuarios.modifyUsuario(usuario.Id, usuario.Nombre, usuario.Clave, usuario.TipoToString, usuario.Funcionario.Run);
+
                 }
+            }
+            switch (codigoRetorno)
+            {
+                case 0:
+                    return ResultadoGestionUsuario.Valido;
+                default:
+                    return ResultadoGestionUsuario.Invalido;
             }
         }
 
         public ResultadoGestionUsuario EliminarUsuario(int id)
         {
-            using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
+            int salida;
+            if (ParametrosGlobales.usarIntegracion)
             {
-                int salida = serviceUsuarios.deleteUsuario(id);
-
-                if (salida == 0)
+                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
                 {
-                    return ResultadoGestionUsuario.Valido;
+                    salida = DesempaquetarRespuesta(cliente.eliminarUsuario(id));
                 }
-                else
-                    return ResultadoGestionUsuario.Invalido;
             }
+            else
+            {
+                using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
+                {
+                    salida = serviceUsuarios.deleteUsuario(id);
+                }
+            }
+            if (salida == 0)
+            {
+                return ResultadoGestionUsuario.Valido;
+            }
+            else
+                return ResultadoGestionUsuario.Invalido;
 
         }
 

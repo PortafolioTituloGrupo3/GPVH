@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using LB_GPVH.Modelo;
+using LB_GPVH.wsIntegracionAppEscritorio;
 
 namespace LB_GPVH.Controlador
 {
@@ -14,6 +16,20 @@ namespace LB_GPVH.Controlador
 
         }
 
+        public List<Permiso> DesempaquetarListaXml(string xml)
+        {
+            XDocument doc = XDocument.Parse(xml);
+            IEnumerable<XElement> permisosXML = doc.Root.Elements();
+            List<Permiso> permisos = new List<Permiso>();
+            foreach (var permisoXML in permisosXML)
+            {
+                Permiso permiso = new Permiso();
+                permiso.LeerXML(permisoXML);
+                permisos.Add(permiso);
+            }
+            return permisos;
+        }
+
         public bool AsignarPermisos(Funcionario funcionario)
         {
             if(funcionario == null)
@@ -22,7 +38,17 @@ namespace LB_GPVH.Controlador
             }
             else
             {
-                funcionario.Permisos = new SQL.PermisoSQL().BuscarPermisos(funcionario.Run);
+                if (ParametrosGlobales.usarIntegracion)
+                {
+                    using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
+                    {
+                        funcionario.Permisos = DesempaquetarListaXml(cliente.buscarPermisos(funcionario.Run));
+                    }
+                }
+                else
+                {
+                    funcionario.Permisos = new SQL.PermisoSQL().BuscarPermisos(funcionario.Run);
+                }
                 return true;
             }
         }

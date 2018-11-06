@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using LB_GPVH.Auxiliares;
 
 namespace LB_GPVH.Modelo
@@ -297,6 +298,66 @@ namespace LB_GPVH.Modelo
             return true;
         }
 
-
+        public void LeerXML(XElement funcionarioXML)
+        {
+            if (funcionarioXML.Element("run") != null)
+            {
+                try
+                {
+                    this.run = int.Parse(funcionarioXML.Element("run").Value);
+                }
+                catch { };
+            }
+            if (funcionarioXML.Element("dv") != null)
+            {
+                try
+                {
+                    this.dv = int.Parse(funcionarioXML.Element("dv").Value);
+                }
+                catch { };
+            }
+            if (funcionarioXML.Element("nombre") != null)
+            {
+                this.nombre = funcionarioXML.Element("nombre").Value;
+            }
+            if (funcionarioXML.Element("apellidoPaterno") != null)
+            {
+                this.apellidoPaterno = funcionarioXML.Element("apellidoPaterno").Value;
+            }
+            if (funcionarioXML.Element("apellidoMaterno") != null)
+            {
+                this.apellidoMaterno = funcionarioXML.Element("apellidoMaterno").Value;
+            }
+            if (funcionarioXML.Element("fechaNacimiento") != null)
+            {
+                this.fechaNacimiento = DateTime.Parse(funcionarioXML.Element("fechaNacimiento").Value);
+            }
+            if (funcionarioXML.Element("correo") != null)
+            {
+                this.correo = funcionarioXML.Element("correo").Value;
+            }
+            if (funcionarioXML.Element("direccion") != null)
+            {
+                this.direccion = funcionarioXML.Element("direccion").Value;
+            }
+            if (funcionarioXML.Element("cargo") != null)
+            {
+                this.cargo = funcionarioXML.Element("cargo").Value;
+            }
+            if (funcionarioXML.Element("habilitado") != null)
+            {
+                try
+                {
+                    this.habilitado = (int.Parse(funcionarioXML.Element("habilitado").Value) != 0);
+                }
+                catch { };
+            }
+            if (funcionarioXML.Element("Unidad") != null)
+            {
+                Unidad unidad = new Unidad();
+                unidad.LeerXML(funcionarioXML.Element("Unidad"));
+                this.unidad = unidad;
+            }
+        }
     }
 }

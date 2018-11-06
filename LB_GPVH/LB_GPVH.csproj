@@ -65,6 +65,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\wsIntegracionAppEscritorio\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controlador\GestionadorDocumento.cs" />
     <Compile Include="Controlador\GestionadorFuncionario.cs" />
     <Compile Include="Controlador\GestionadorPermiso.cs" />
@@ -72,6 +77,7 @@
     <Compile Include="Controlador\GestionadorUnidad.cs" />
     <Compile Include="Controlador\GestionadorUsuario.cs" />
     <Compile Include="Modelo\Documento.cs" />
+    <Compile Include="Controlador\ParametrosGlobales.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
     <Compile Include="Controlador\Sesion.cs" />
     <Compile Include="Modelo\Permiso.cs" />
@@ -91,7 +97,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceWSFuncionarios\WSFuncionarios.wsdl" />
     <None Include="Connected Services\ServiceWSFuncionarios\WSFuncionarios.xsd">
       <SubType>Designer</SubType>
@@ -138,6 +146,94 @@
     <None Include="Connected Services\ServiceWSUsuarios\WSUsuarios2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.buscarPermisosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.buscarResolucionesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.buscarResolucionesUnidadesSubHijasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.buscarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.eliminarFuncionarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.eliminarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.insertarFuncionarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.listarFuncionariosClaveValorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.modificarFuncionarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.modificarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\WebServiceAppEscritorio.wsdl" />
+    <None Include="Connected Services\wsIntegracionAppEscritorio\WebServiceAppEscritorio.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\WS_GPVH.Usuario.datasource" />
     <None Include="Properties\DataSources\WS_GPVH.WebServices.Funcionarios.Funcionario.datasource" />
     <None Include="Properties\DataSources\WS_GPVH.WebServices.Permisos.Documento.datasource" />
@@ -149,6 +245,7 @@
     <WCFMetadataStorage Include="Connected Services\ServiceWSPermisos\" />
     <WCFMetadataStorage Include="Connected Services\ServiceWSUnidades\" />
     <WCFMetadataStorage Include="Connected Services\ServiceWSUsuarios\" />
+    <WCFMetadataStorage Include="Connected Services\wsIntegracionAppEscritorio\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceWSUnidades\WSUnidades.disco" />
@@ -215,6 +312,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceWSPermisos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
