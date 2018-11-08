@@ -66,6 +66,7 @@
             this.dgv_Usuarios.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgv_Usuarios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgv_Usuarios.Location = new System.Drawing.Point(14, 63);
+            this.dgv_Usuarios.MaximumSize = new System.Drawing.Size(650, 164);
             this.dgv_Usuarios.Name = "dgv_Usuarios";
             this.dgv_Usuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
