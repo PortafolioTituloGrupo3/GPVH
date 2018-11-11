@@ -18,7 +18,6 @@ namespace WF_GPVH.Formularios.Login
         public Form_Login()
         {
             InitializeComponent();
-            txbNombre.Focus();
         }
         
         private void mtIniciarSesion_Click(object sender, EventArgs e)
@@ -75,6 +74,13 @@ namespace WF_GPVH.Formularios.Login
                 e.Handled = true;
                 IniciarSesion();
             }
+        }
+
+        private void Form_Login_Load(object sender, EventArgs e)
+        {
+            this.BringToFront();
+            this.ActiveControl = txbNombre;
+            txbNombre.Select();
         }
     }
 }
