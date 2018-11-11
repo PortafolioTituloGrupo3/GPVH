@@ -25,36 +25,116 @@ namespace LB_GPVH.Controlador
             return resoluciones;
         }
 
-        public List<Resolucion> BuscarResoluciones(int mes,int anno)
+        public void LeerXmlAsistencia(XElement permisoXML, List<Tuple<int, DateTime>> listaAsistencia)
         {
-            if(ParametrosGlobales.usarIntegracion)
+            int run = -1;
+            DateTime? fecha = null;
+            if (permisoXML.Element("run") != null)
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
+                try
                 {
-                    return DesempaquetarListaXml(cliente.buscarResoluciones(mes, anno));
+                    run = int.Parse(permisoXML.Element("run").Value);
                 }
+                catch { };
             }
-            else
+            if (permisoXML.Element("fechaInicio") != null)
             {
-                return new SQL.ResolucionSQL().BuscarResolucioness(mes, anno);
+                fecha = DateTime.Parse(permisoXML.Element("fechaInicio").Value);
             }
-            
+            if (run != -1 && fecha != null)
+            {
+                listaAsistencia.Add(new Tuple<int, DateTime>(run, (DateTime)fecha));
+            }
         }
 
-        public List<Resolucion> BuscarResoluciones(int mes, int anno, int idUnidad)
+        public List<Resolucion> BuscarResoluciones(int mes,int anno)
         {
+            List<Resolucion> resoluciones = null;
             if (ParametrosGlobales.usarIntegracion)
             {
                 using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
                 {
-                    return DesempaquetarListaXml(cliente.buscarResolucionesUnidadesSubHijas(mes, anno,idUnidad));
+                    resoluciones = DesempaquetarListaXml(cliente.buscarResoluciones(mes, anno));
                 }
             }
             else
             {
-                return new SQL.ResolucionSQL().BuscarResolucioness(mes, anno, idUnidad);
+                resoluciones = new SQL.ResolucionSQL().BuscarResolucioness(mes, anno);
             }
+            DeterminarAsistenciaPermiso(resoluciones);
+            return resoluciones;
         }
+
+        public List<Resolucion> BuscarResoluciones(int mes, int anno, int idUnidad)
+        {
+            List<Resolucion> resoluciones = null;
+            if (ParametrosGlobales.usarIntegracion)
+            {
+                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
+                {
+                    resoluciones = DesempaquetarListaXml(cliente.buscarResolucionesUnidadesSubHijas(mes, anno,idUnidad));
+                }
+            }
+            else
+            {
+                resoluciones = new SQL.ResolucionSQL().BuscarResolucioness(mes, anno, idUnidad);
+            }
+            DeterminarAsistenciaPermiso(resoluciones);
+            
+            return resoluciones;
+        }
+
+        private List<Resolucion> DeterminarAsistenciaPermiso(List<Resolucion> resoluciones)
+        {
+            if (resoluciones.Count > 0)
+            {
+                DateTime? fechaMinima = null, fechaMaxima = null;
+                foreach (var resolucion in resoluciones)
+                {
+                    if (fechaMinima == null || fechaMinima > resolucion.Permiso.FechaInicio)
+                    {
+                        fechaMinima = resolucion.Permiso.FechaInicio;
+                    }
+                    if (fechaMaxima == null || fechaMaxima < resolucion.Permiso.FechaTermino)
+                    {
+                        fechaMaxima = resolucion.Permiso.FechaTermino;
+                    }
+                }
+                //webservice goes here
+                List<Tuple<int,DateTime>> listaAsistencia = new List<Tuple<int, DateTime>>();
+                resoluciones = resoluciones.OrderBy(r => r.Permiso.Solicitante.Run).ToList(); // Se ordenan los permisos por run para poder realizar una comparacion paralela de los funcionarios en cuanto a permisos y asistencias.
+                int asistenciaIndex = -1, runActual = -1;
+                DateTime fechaAsistencia = DateTime.Now;
+                foreach (var resolucion in resoluciones)
+                {
+                    bool asisencia = false;
+                    while(runActual < resolucion.Permiso.Solicitante.Run)  //La lista de asistencia actua como cursor: Dado que se encuentra ordenada por run y fecha, se busca el proximo run. Si el proximo run es mayor al run del permiso, se pasa al proximo run de solicitante.
+                    {
+                        asistenciaIndex++;
+                        if(asistenciaIndex >= listaAsistencia.Count)
+                            break;
+                        runActual = listaAsistencia[asistenciaIndex].Item1;
+                        fechaAsistencia = listaAsistencia[asistenciaIndex].Item2;
+                    }
+                    while(runActual == resolucion.Permiso.Solicitante.Run)
+                    {
+                        //Se verifica si es que la asistencia pertenece al periodo del permiso en cuestion.
+                        if (fechaAsistencia.Date >= resolucion.Permiso.FechaInicio.Date && fechaAsistencia.Date <= resolucion.Permiso.FechaTermino.Date)
+                            asisencia = true;
+                        asistenciaIndex++;
+                        if (asistenciaIndex >= listaAsistencia.Count)
+                            break;
+                        runActual = listaAsistencia[asistenciaIndex].Item1;
+                        fechaAsistencia = listaAsistencia[asistenciaIndex].Item2;
+                    }
+                    resolucion.Asistencia = asisencia;
+                }
+            }
+            return resoluciones;
+        }
+
+        
+
 
 
         public List<String> ListarNombresParametros()
