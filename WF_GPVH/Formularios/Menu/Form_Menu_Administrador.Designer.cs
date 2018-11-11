@@ -37,6 +37,7 @@
             this.mtBuscarPermisos = new MetroFramework.Controls.MetroTile();
             this.mtGenerarReporte = new MetroFramework.Controls.MetroTile();
             this.mtAntecedentes = new MetroFramework.Controls.MetroTile();
+            this.mtBuscarResoluciones = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -134,11 +135,23 @@
             this.mtAntecedentes.UseSelectable = true;
             this.mtAntecedentes.Click += new System.EventHandler(this.mtAntecedentes_Click);
             // 
+            // mtBuscarResoluciones
+            // 
+            this.mtBuscarResoluciones.ActiveControl = null;
+            this.mtBuscarResoluciones.Location = new System.Drawing.Point(357, 94);
+            this.mtBuscarResoluciones.Name = "mtBuscarResoluciones";
+            this.mtBuscarResoluciones.Size = new System.Drawing.Size(161, 60);
+            this.mtBuscarResoluciones.TabIndex = 13;
+            this.mtBuscarResoluciones.Text = "Buscar Resoluciones";
+            this.mtBuscarResoluciones.UseSelectable = true;
+            this.mtBuscarResoluciones.Click += new System.EventHandler(this.mtBuscarResoluciones_Click);
+            // 
             // Form_Menu_Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mtBuscarResoluciones);
             this.Controls.Add(this.mtAntecedentes);
             this.Controls.Add(this.mtGenerarReporte);
             this.Controls.Add(this.mtBuscarPermisos);
@@ -166,5 +179,6 @@
         private MetroFramework.Controls.MetroTile mtBuscarPermisos;
         private MetroFramework.Controls.MetroTile mtGenerarReporte;
         private MetroFramework.Controls.MetroTile mtAntecedentes;
+        private MetroFramework.Controls.MetroTile mtBuscarResoluciones;
     }
 }

@@ -48,6 +48,8 @@
             this.cmbUnidad = new MetroFramework.Controls.MetroComboBox();
             this.lblUnidad = new MetroFramework.Controls.MetroLabel();
             this.mtBuscar = new MetroFramework.Controls.MetroTile();
+            this.btnValidar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnInvalidar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mgResoluciones)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +70,9 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.mgResoluciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.mgResoluciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mgResoluciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.btnValidar,
+            this.btnInvalidar});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -306,6 +311,22 @@
             this.mtBuscar.UseSelectable = true;
             this.mtBuscar.Click += new System.EventHandler(this.mtBuscar_Click);
             // 
+            // btnValidar
+            // 
+            this.btnValidar.Frozen = true;
+            this.btnValidar.HeaderText = "";
+            this.btnValidar.Name = "btnValidar";
+            this.btnValidar.Text = "Validar";
+            this.btnValidar.UseColumnTextForButtonValue = true;
+            // 
+            // btnInvalidar
+            // 
+            this.btnInvalidar.Frozen = true;
+            this.btnInvalidar.HeaderText = "";
+            this.btnInvalidar.Name = "btnInvalidar";
+            this.btnInvalidar.Text = "Invalidar";
+            this.btnInvalidar.UseColumnTextForButtonValue = true;
+            // 
             // Form_BuscarResolucion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,6 +347,7 @@
             this.Controls.Add(this.mgResoluciones);
             this.Name = "Form_BuscarResolucion";
             this.Text = "Form_BuscarResolucion";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_BuscarResolucion_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.mgResoluciones)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
@@ -353,5 +375,7 @@
         private MetroFramework.Controls.MetroComboBox cmbUnidad;
         private MetroFramework.Controls.MetroLabel lblUnidad;
         private MetroFramework.Controls.MetroTile mtBuscar;
+        private System.Windows.Forms.DataGridViewButtonColumn btnValidar;
+        private System.Windows.Forms.DataGridViewButtonColumn btnInvalidar;
     }
 }

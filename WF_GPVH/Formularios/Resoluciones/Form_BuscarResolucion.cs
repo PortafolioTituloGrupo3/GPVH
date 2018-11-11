@@ -18,11 +18,17 @@ namespace WF_GPVH.Formularios.Resoluciones
         List<Resolucion> resoluciones;
         List<Resolucion> resolucionesGridView;
         GestionadorResolucion gestionador;
+        Form mainForm;
+        Form formAnterior;
         Sesion sesion;
 
-        public Form_BuscarResolucion()
+
+        public Form_BuscarResolucion(Login.Form_Login pMainForm, Form pFormAnterior, Sesion pSesion)
         {
             InitializeComponent();
+            mainForm = pMainForm;
+            this.formAnterior = pFormAnterior;
+            sesion = pSesion;
             txbMes.Text = DateTime.Now.Month.ToString();
             txbAnno.Text = DateTime.Now.Year.ToString();
             gestionador = new GestionadorResolucion();
@@ -33,10 +39,12 @@ namespace WF_GPVH.Formularios.Resoluciones
 
         public void loadResoluciones()
         {
-            //if (sesion.Usuario.Tipo == LB_GPVH.Enums.TipoUsuario.JefeUnidadSuperior)
-            //    resoluciones = gestionador.BuscarResoluciones(int.Parse(txbMes.Text), int.Parse(txbAnno.Text), sesion.Usuario.Funcionario.Unidad.Id);
-            //else
+            if (sesion.Usuario.Tipo == LB_GPVH.Enums.TipoUsuario.JefeUnidadSuperior)
+                resoluciones = gestionador.BuscarResoluciones(int.Parse(txbMes.Text), int.Parse(txbAnno.Text), sesion.Usuario.Funcionario.Unidad.Id);
+            else
+            {
                 resoluciones = gestionador.BuscarResoluciones(int.Parse(txbMes.Text), int.Parse(txbAnno.Text));
+            }
             CargarPermisosGridView(this.resoluciones);
         }
 
@@ -44,11 +52,10 @@ namespace WF_GPVH.Formularios.Resoluciones
         {
             this.cmbUnidad.DisplayMember = "Value";
             this.cmbUnidad.ValueMember = "Key";
-            //if (sesion.Usuario.Tipo == LB_GPVH.Enums.TipoUsuario.JefeUnidadSuperior)
-            //    this.cmbUnidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadConHijas(sesion.Usuario.Funcionario.Unidad.Id, true), null);
-            //else
+            if (sesion.Usuario.Tipo == LB_GPVH.Enums.TipoUsuario.JefeUnidadSuperior)
+                this.cmbUnidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadConHijas(sesion.Usuario.Funcionario.Unidad.Id, true), null);
+            else
                 this.cmbUnidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadClaveValor(true), null);
-
             this.cmbUnidad.SelectedIndex = 0;
         }
 
@@ -225,6 +232,11 @@ namespace WF_GPVH.Formularios.Resoluciones
         private void rbVerSoloPendientes_CheckedChanged(object sender, EventArgs e)
         {
             CargarPermisosGridView(this.resoluciones);
+        }
+
+        private void Form_BuscarResolucion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.Dispose();
         }
     }
 }

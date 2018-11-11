@@ -65,5 +65,11 @@ namespace WF_GPVH.Formularios.Menu
         {
             new Reportes.Antecedences.Form_Listado_Funcionarios().Show();
         }
+
+        private void mtBuscarResoluciones_Click(object sender, EventArgs e)
+        {
+            new Resoluciones.Form_BuscarResolucion(mainForm, this, sesion).Show();
+            this.Hide();
+        }
     }
 }

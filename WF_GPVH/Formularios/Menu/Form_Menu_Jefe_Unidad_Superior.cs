@@ -34,5 +34,17 @@ namespace WF_GPVH.Formularios.Menu
         {
             mainForm.Dispose();
         }
+
+        private void mtBuscarPermisos_Click(object sender, EventArgs e)
+        {
+            new Permisos.Form_SeleccionFuncionarioPermisos(sesion).Show();
+            this.Hide();
+        }
+
+        private void mtBuscarResoluciones_Click(object sender, EventArgs e)
+        {
+            new Resoluciones.Form_BuscarResolucion(mainForm, this, sesion).Show();
+            this.Hide();
+        }
     }
 }

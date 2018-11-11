@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using LB_GPVH.wsIntegracionAppEscritorio;
+using LB_GPVH.wsSistemaAsistencia;
+
 
 namespace LB_GPVH.Controlador
 {
@@ -25,26 +27,33 @@ namespace LB_GPVH.Controlador
             return resoluciones;
         }
 
-        public void LeerXmlAsistencia(XElement permisoXML, List<Tuple<int, DateTime>> listaAsistencia)
+        public List<Tuple<int, DateTime>> LeerXmlAsistencia(string xml)
         {
-            int run = -1;
-            DateTime? fecha = null;
-            if (permisoXML.Element("run") != null)
+            XDocument doc = XDocument.Parse(xml);
+            IEnumerable<XElement> asistenciasXML = doc.Root.Elements();
+            List<Tuple<int, DateTime>> asistencias = new List<Tuple<int, DateTime>>();
+            foreach (var asistenciaXML in asistenciasXML)
             {
-                try
+                int run = -1;
+                DateTime? fecha = null;
+                if (asistenciaXML.Element("runFuncionario") != null)
                 {
-                    run = int.Parse(permisoXML.Element("run").Value);
+                    try
+                    {
+                        run = int.Parse(asistenciaXML.Element("runFuncionario").Value);
+                    }
+                    catch { };
                 }
-                catch { };
+                if (asistenciaXML.Element("fechAsistencia") != null)
+                {
+                    fecha = DateTime.Parse(asistenciaXML.Element("fechAsistencia").Value);
+                }
+                if (run != -1 && fecha != null)
+                {
+                    asistencias.Add(new Tuple<int, DateTime>(run, (DateTime)fecha));
+                }
             }
-            if (permisoXML.Element("fechaInicio") != null)
-            {
-                fecha = DateTime.Parse(permisoXML.Element("fechaInicio").Value);
-            }
-            if (run != -1 && fecha != null)
-            {
-                listaAsistencia.Add(new Tuple<int, DateTime>(run, (DateTime)fecha));
-            }
+            return asistencias;
         }
 
         public List<Resolucion> BuscarResoluciones(int mes,int anno)
@@ -100,8 +109,12 @@ namespace LB_GPVH.Controlador
                         fechaMaxima = resolucion.Permiso.FechaTermino;
                     }
                 }
+                List<Tuple<int, DateTime>> listaAsistencia;
                 //webservice goes here
-                List<Tuple<int,DateTime>> listaAsistencia = new List<Tuple<int, DateTime>>();
+                using (WebServiceSistemaAsistenciaClient cliente = new WebServiceSistemaAsistenciaClient())
+                {
+                    listaAsistencia = LeerXmlAsistencia(cliente.listarAsistencias((DateTime)fechaMinima, (DateTime)fechaMaxima));
+                }
                 resoluciones = resoluciones.OrderBy(r => r.Permiso.Solicitante.Run).ToList(); // Se ordenan los permisos por run para poder realizar una comparacion paralela de los funcionarios en cuanto a permisos y asistencias.
                 int asistenciaIndex = -1, runActual = -1;
                 DateTime fechaAsistencia = DateTime.Now;
