@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static LB_GPVH.Controlador.GestionadorResolucion;
 
 namespace WF_GPVH.Formularios.Resoluciones
 {
@@ -44,6 +45,8 @@ namespace WF_GPVH.Formularios.Resoluciones
             else
             {
                 resoluciones = gestionador.BuscarResoluciones(int.Parse(txbMes.Text), int.Parse(txbAnno.Text));
+                mgResoluciones.Columns[0].Visible = false;
+                mgResoluciones.Columns[1].Visible = false;
             }
             CargarPermisosGridView(this.resoluciones);
         }
@@ -237,6 +240,48 @@ namespace WF_GPVH.Formularios.Resoluciones
         private void Form_BuscarResolucion_FormClosing(object sender, FormClosingEventArgs e)
         {
             mainForm.Dispose();
+        }
+
+        private void mgResoluciones_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                ResultadoGestionResolucion resultado = gestionador.ValidarResolucion(resoluciones[e.RowIndex].Id, sesion.Usuario.Funcionario.Run);
+                switch(resultado)
+                {
+                    case ResultadoGestionResolucion.Error:
+                        MessageBox.Show("Ocurrio un error inesperado al momento de validar.");
+                        break;
+                    case ResultadoGestionResolucion.idResolucionNoExiste:
+                        MessageBox.Show("No se pudo encontrar la resolucion dentro del sistema.");
+                        break;
+                    case ResultadoGestionResolucion.ResolventeNoValido:
+                        MessageBox.Show("No tiene permiso para validar o invalidar dicha resolucion.");
+                        break;
+                    case ResultadoGestionResolucion.valido:
+                        loadResoluciones();
+                        break;
+                }
+            }
+            if (e.ColumnIndex == 1)
+            {
+                ResultadoGestionResolucion resultado = gestionador.InvalidarResolucion(resoluciones[e.RowIndex].Id, sesion.Usuario.Funcionario.Run);
+                switch (resultado)
+                {
+                    case ResultadoGestionResolucion.Error:
+                        MessageBox.Show("Ocurrio un error inesperado al momento de validar.");
+                        break;
+                    case ResultadoGestionResolucion.idResolucionNoExiste:
+                        MessageBox.Show("No se pudo encontrar la resolucion dentro del sistema.");
+                        break;
+                    case ResultadoGestionResolucion.ResolventeNoValido:
+                        MessageBox.Show("No tiene permiso para validar o invalidar dicha resolucion.");
+                        break;
+                    case ResultadoGestionResolucion.valido:
+                        loadResoluciones();
+                        break;
+                }
+            }
         }
     }
 }

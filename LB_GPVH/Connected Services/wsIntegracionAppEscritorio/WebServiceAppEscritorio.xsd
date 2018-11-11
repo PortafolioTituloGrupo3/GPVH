@@ -28,6 +28,8 @@
   <xs:element name="insertarUnidadResponse" type="tns:insertarUnidadResponse" />
   <xs:element name="insertarUsuario" type="tns:insertarUsuario" />
   <xs:element name="insertarUsuarioResponse" type="tns:insertarUsuarioResponse" />
+  <xs:element name="invalidarResolucion" type="tns:invalidarResolucion" />
+  <xs:element name="invalidarResolucionResponse" type="tns:invalidarResolucionResponse" />
   <xs:element name="listadoUnidadClaveValor" type="tns:listadoUnidadClaveValor" />
   <xs:element name="listadoUnidadClaveValorResponse" type="tns:listadoUnidadClaveValorResponse" />
   <xs:element name="listadoUnidadesHijasClaveValor" type="tns:listadoUnidadesHijasClaveValor" />
@@ -56,6 +58,8 @@
   <xs:element name="nombreUnidadExisteResponse" type="tns:nombreUnidadExisteResponse" />
   <xs:element name="usuarioExiste" type="tns:usuarioExiste" />
   <xs:element name="usuarioExisteResponse" type="tns:usuarioExisteResponse" />
+  <xs:element name="validarResolucion" type="tns:validarResolucion" />
+  <xs:element name="validarResolucionResponse" type="tns:validarResolucionResponse" />
   <xs:complexType name="listarFuncionarios">
     <xs:sequence />
   </xs:complexType>
@@ -127,6 +131,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarFuncionariosNoJefesClaveValorExeptoUnidadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validarResolucion">
+    <xs:sequence>
+      <xs:element name="idResolucion" type="xs:int" />
+      <xs:element name="runResolvente" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validarResolucionResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
@@ -279,20 +294,20 @@
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listarFuncionariosNoJefesClaveValor">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarFuncionariosNoJefesClaveValorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="buscarFuncionario">
     <xs:sequence>
       <xs:element name="run" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="buscarFuncionarioResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarFuncionariosNoJefesClaveValor">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:complexType name="listarFuncionariosNoJefesClaveValorResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
@@ -326,6 +341,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="buscarUnidadPorIdParcialResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="invalidarResolucion">
+    <xs:sequence>
+      <xs:element name="idResolucion" type="xs:int" />
+      <xs:element name="runResolvente" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="invalidarResolucionResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>

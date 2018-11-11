@@ -100,6 +100,7 @@
             this.mgResoluciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.mgResoluciones.Size = new System.Drawing.Size(650, 152);
             this.mgResoluciones.TabIndex = 0;
+            this.mgResoluciones.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.mgResoluciones_CellMouseClick);
             // 
             // metroPanel1
             // 

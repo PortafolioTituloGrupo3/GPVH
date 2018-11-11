@@ -193,6 +193,9 @@
     <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.invalidarResolucionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -233,6 +236,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.validarResolucionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\wsIntegracionAppEscritorio\WebServiceAppEscritorio.wsdl" />

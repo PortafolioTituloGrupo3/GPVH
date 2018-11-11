@@ -77,7 +77,6 @@ namespace LB_GPVH.Controlador
             {
                 return -1;
             };
-            
         }
 
         public Funcionario BuscarFuncionarioParcial(int run)

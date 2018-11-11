@@ -13,6 +13,27 @@ namespace LB_GPVH.Controlador
 {
     public class GestionadorResolucion
     {
+        public enum ResultadoGestionResolucion
+        {
+            idResolucionNoExiste,
+            ResolventeNoValido,
+            Error,
+            valido
+        }
+
+        public int DesempaquetarRespuesta(string xml)
+        {
+            XDocument doc = XDocument.Parse(xml);
+            try
+            {
+                return int.Parse(doc.Root.Value);
+            }
+            catch
+            {
+                return -1;
+            };
+        }
+
         public List<Resolucion> DesempaquetarListaXml(string xml)
         {
             XDocument doc = XDocument.Parse(xml);
@@ -92,6 +113,7 @@ namespace LB_GPVH.Controlador
             
             return resoluciones;
         }
+        
 
         private List<Resolucion> DeterminarAsistenciaPermiso(List<Resolucion> resoluciones)
         {
@@ -146,9 +168,45 @@ namespace LB_GPVH.Controlador
             return resoluciones;
         }
 
-        
+        public ResultadoGestionResolucion ValidarResolucion(int idResolucion, int runResolvente)
+        {
+            int resultado;
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
+            {
+                resultado = DesempaquetarRespuesta(cliente.validarResolucion(idResolucion, runResolvente));
+            }
+            switch(resultado)
+            {
+                case 0:
+                    return ResultadoGestionResolucion.valido;
+                case 140101:
+                    return ResultadoGestionResolucion.idResolucionNoExiste;
+                case 140102:
+                    return ResultadoGestionResolucion.ResolventeNoValido;
+                default:
+                    return ResultadoGestionResolucion.Error;
+            }
+        }
 
-
+        public ResultadoGestionResolucion InvalidarResolucion(int idResolucion, int runResolvente)
+        {
+            int resultado;
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
+            {
+                resultado = DesempaquetarRespuesta(cliente.invalidarResolucion(idResolucion, runResolvente));
+            }
+            switch (resultado)
+            {
+                case 0:
+                    return ResultadoGestionResolucion.valido;
+                case 140201:
+                    return ResultadoGestionResolucion.idResolucionNoExiste;
+                case 140202:
+                    return ResultadoGestionResolucion.ResolventeNoValido;
+                default:
+                    return ResultadoGestionResolucion.Error;
+            }
+        }
 
         public List<String> ListarNombresParametros()
         {
