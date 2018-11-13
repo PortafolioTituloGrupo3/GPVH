@@ -16,11 +16,15 @@ namespace WF_GPVH.Formularios.Permisos
         private GestionadorFuncionario gestionador;
         private List<LB_GPVH.Modelo.Funcionario> funcionarios;
         private List<LB_GPVH.Modelo.Funcionario> funcionariosGridView;
+        Form mainForm;
+        Form formAnterior;
         Sesion sesion;
 
-        public Form_SeleccionFuncionarioPermisos(Sesion pSesion)
+        public Form_SeleccionFuncionarioPermisos(Form pMainForm, Form pFormAnterior, Sesion pSesion)
         {
             InitializeComponent();
+            formAnterior = pFormAnterior;
+            mainForm = pMainForm;
             sesion = pSesion;
             gestionador = new GestionadorFuncionario();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
@@ -144,7 +148,13 @@ namespace WF_GPVH.Formularios.Permisos
 
         private void mtVolver_Click(object sender, EventArgs e)
         {
+            formAnterior.Visible = true;
+            this.Dispose();
+        }
 
+        private void Form_SeleccionFuncionarioPermisos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.Dispose();
         }
     }
 }

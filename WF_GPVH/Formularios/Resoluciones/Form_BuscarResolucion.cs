@@ -283,5 +283,11 @@ namespace WF_GPVH.Formularios.Resoluciones
                 }
             }
         }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            formAnterior.Visible = true;
+            this.Dispose();
+        }
     }
 }

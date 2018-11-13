@@ -54,7 +54,7 @@ namespace WF_GPVH.Formularios.Menu
 
         private void mtBuscarPermisos_Click(object sender, EventArgs e)
         {
-            new Permisos.Form_SeleccionFuncionarioPermisos(sesion).Show();
+            new Permisos.Form_SeleccionFuncionarioPermisos(mainForm,this,sesion).Show();
         }
 
         private void mtGenerarReporte_Click(object sender, EventArgs e)
@@ -92,6 +92,11 @@ namespace WF_GPVH.Formularios.Menu
                 return;
             }
             
+        }
+
+        private void mtIdentificarDocumento_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -39,7 +39,7 @@
             this.mtAntecedentes = new MetroFramework.Controls.MetroTile();
             this.mtBuscarResoluciones = new MetroFramework.Controls.MetroTile();
             this.mtGenerarArchivoPermiso = new MetroFramework.Controls.MetroTile();
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.mtIdentificarDocumento = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -175,24 +175,25 @@
             this.mtGenerarArchivoPermiso.UseStyleColors = true;
             this.mtGenerarArchivoPermiso.Click += new System.EventHandler(this.mtGenerarArchivoPermiso_Click);
             // 
-            // metroTile1
+            // mtIdentificarDocumento
             // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(23, 226);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(161, 60);
-            this.metroTile1.Style = MetroFramework.MetroColorStyle.Orange;
-            this.metroTile1.TabIndex = 15;
-            this.metroTile1.Text = "Identificar Documento";
-            this.metroTile1.UseSelectable = true;
-            this.metroTile1.UseStyleColors = true;
+            this.mtIdentificarDocumento.ActiveControl = null;
+            this.mtIdentificarDocumento.Location = new System.Drawing.Point(23, 226);
+            this.mtIdentificarDocumento.Name = "mtIdentificarDocumento";
+            this.mtIdentificarDocumento.Size = new System.Drawing.Size(161, 60);
+            this.mtIdentificarDocumento.Style = MetroFramework.MetroColorStyle.Orange;
+            this.mtIdentificarDocumento.TabIndex = 15;
+            this.mtIdentificarDocumento.Text = "Identificar Documento";
+            this.mtIdentificarDocumento.UseSelectable = true;
+            this.mtIdentificarDocumento.UseStyleColors = true;
+            this.mtIdentificarDocumento.Click += new System.EventHandler(this.mtIdentificarDocumento_Click);
             // 
             // Form_Menu_Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.metroTile1);
+            this.Controls.Add(this.mtIdentificarDocumento);
             this.Controls.Add(this.mtGenerarArchivoPermiso);
             this.Controls.Add(this.mtBuscarResoluciones);
             this.Controls.Add(this.mtAntecedentes);
@@ -224,6 +225,6 @@
         private MetroFramework.Controls.MetroTile mtAntecedentes;
         private MetroFramework.Controls.MetroTile mtBuscarResoluciones;
         private MetroFramework.Controls.MetroTile mtGenerarArchivoPermiso;
-        private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile mtIdentificarDocumento;
     }
 }

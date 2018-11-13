@@ -18,16 +18,11 @@ namespace WF_GPVH.Formularios.Menu
 
         public Form_Menu_Jefe_Unidad_Superior(Login.Form_Login pMainForm, Sesion pSesion)
         {
-            InitializeComponent();
             mainForm = pMainForm;
             sesion = pSesion;
             InitializeComponent();
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            mainForm.Show();
-            this.Dispose();
+            lblUsuario.Text = "Usuario: " + sesion.Usuario.Nombre;
+            lblFuncionario.Text = "Funcionario: " + sesion.Usuario.Funcionario.NombreCompleto;
         }
 
         private void Form_Menu_Jefe_Unidad_Superior_FormClosing(object sender, FormClosingEventArgs e)
@@ -37,14 +32,30 @@ namespace WF_GPVH.Formularios.Menu
 
         private void mtBuscarPermisos_Click(object sender, EventArgs e)
         {
-            new Permisos.Form_SeleccionFuncionarioPermisos(sesion).Show();
-            this.Hide();
+            new Permisos.Form_SeleccionFuncionarioPermisos(mainForm, this, sesion).Show();
+            this.Visible = false;
         }
 
         private void mtBuscarResoluciones_Click(object sender, EventArgs e)
         {
             new Resoluciones.Form_BuscarResolucion(mainForm, this, sesion).Show();
-            this.Hide();
+            this.Visible = false;
+        }
+
+        private void mtGenerarReporte_Click(object sender, EventArgs e)
+        {
+            new Reportes.Form_Reporte_Permisos().Show();
+        }
+
+        private void mtAntecedentes_Click(object sender, EventArgs e)
+        {
+            new Reportes.Antecedences.Form_Listado_Funcionarios().Show();
+        }
+
+        private void mtSalir_Click(object sender, EventArgs e)
+        {
+            mainForm.Show();
+            this.Dispose();
         }
     }
 }
