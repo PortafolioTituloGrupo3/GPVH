@@ -189,3 +189,4 @@ C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csproj.CoreCompileInp
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csproj.CopyComplete
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.exe
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.pdb
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\ApplicationInsights.config

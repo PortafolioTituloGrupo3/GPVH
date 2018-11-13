@@ -38,6 +38,7 @@
             this.mtGenerarReporte = new MetroFramework.Controls.MetroTile();
             this.mtAntecedentes = new MetroFramework.Controls.MetroTile();
             this.mtBuscarResoluciones = new MetroFramework.Controls.MetroTile();
+            this.mtGenerarArchivoPermiso = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -64,31 +65,37 @@
             this.mtGestionarFuncionarios.Location = new System.Drawing.Point(23, 94);
             this.mtGestionarFuncionarios.Name = "mtGestionarFuncionarios";
             this.mtGestionarFuncionarios.Size = new System.Drawing.Size(161, 60);
+            this.mtGestionarFuncionarios.Style = MetroFramework.MetroColorStyle.Lime;
             this.mtGestionarFuncionarios.TabIndex = 6;
             this.mtGestionarFuncionarios.Text = "Gestionar Funcionarios";
             this.mtGestionarFuncionarios.UseSelectable = true;
+            this.mtGestionarFuncionarios.UseStyleColors = true;
             this.mtGestionarFuncionarios.Click += new System.EventHandler(this.mtGestionarFuncionarios_Click);
             // 
             // mtGestionarUsuarios
             // 
             this.mtGestionarUsuarios.ActiveControl = null;
-            this.mtGestionarUsuarios.Location = new System.Drawing.Point(23, 160);
+            this.mtGestionarUsuarios.Location = new System.Drawing.Point(190, 94);
             this.mtGestionarUsuarios.Name = "mtGestionarUsuarios";
             this.mtGestionarUsuarios.Size = new System.Drawing.Size(161, 60);
+            this.mtGestionarUsuarios.Style = MetroFramework.MetroColorStyle.Teal;
             this.mtGestionarUsuarios.TabIndex = 7;
             this.mtGestionarUsuarios.Text = "Gestionar Usuarios";
             this.mtGestionarUsuarios.UseSelectable = true;
+            this.mtGestionarUsuarios.UseStyleColors = true;
             this.mtGestionarUsuarios.Click += new System.EventHandler(this.mtGestionarUsuarios_Click);
             // 
             // mtGestionarUnidades
             // 
             this.mtGestionarUnidades.ActiveControl = null;
-            this.mtGestionarUnidades.Location = new System.Drawing.Point(23, 226);
+            this.mtGestionarUnidades.Location = new System.Drawing.Point(357, 94);
             this.mtGestionarUnidades.Name = "mtGestionarUnidades";
             this.mtGestionarUnidades.Size = new System.Drawing.Size(161, 60);
+            this.mtGestionarUnidades.Style = MetroFramework.MetroColorStyle.Blue;
             this.mtGestionarUnidades.TabIndex = 8;
             this.mtGestionarUnidades.Text = "Gestionar Unidades";
             this.mtGestionarUnidades.UseSelectable = true;
+            this.mtGestionarUnidades.UseStyleColors = true;
             this.mtGestionarUnidades.Click += new System.EventHandler(this.mtGestionarUnidades_Click);
             // 
             // mtSalir
@@ -105,52 +112,74 @@
             // mtBuscarPermisos
             // 
             this.mtBuscarPermisos.ActiveControl = null;
-            this.mtBuscarPermisos.Location = new System.Drawing.Point(190, 94);
+            this.mtBuscarPermisos.Location = new System.Drawing.Point(23, 160);
             this.mtBuscarPermisos.Name = "mtBuscarPermisos";
-            this.mtBuscarPermisos.Size = new System.Drawing.Size(161, 60);
+            this.mtBuscarPermisos.Size = new System.Drawing.Size(135, 60);
+            this.mtBuscarPermisos.Style = MetroFramework.MetroColorStyle.Pink;
             this.mtBuscarPermisos.TabIndex = 10;
             this.mtBuscarPermisos.Text = "Buscar Permisos";
             this.mtBuscarPermisos.UseSelectable = true;
+            this.mtBuscarPermisos.UseStyleColors = true;
             this.mtBuscarPermisos.Click += new System.EventHandler(this.mtBuscarPermisos_Click);
             // 
             // mtGenerarReporte
             // 
             this.mtGenerarReporte.ActiveControl = null;
-            this.mtGenerarReporte.Location = new System.Drawing.Point(190, 160);
+            this.mtGenerarReporte.Location = new System.Drawing.Point(164, 160);
             this.mtGenerarReporte.Name = "mtGenerarReporte";
-            this.mtGenerarReporte.Size = new System.Drawing.Size(161, 60);
+            this.mtGenerarReporte.Size = new System.Drawing.Size(215, 60);
+            this.mtGenerarReporte.Style = MetroFramework.MetroColorStyle.Purple;
             this.mtGenerarReporte.TabIndex = 11;
             this.mtGenerarReporte.Text = "Generar reporte de permisos";
             this.mtGenerarReporte.UseSelectable = true;
+            this.mtGenerarReporte.UseStyleColors = true;
             this.mtGenerarReporte.Click += new System.EventHandler(this.mtGenerarReporte_Click);
             // 
             // mtAntecedentes
             // 
             this.mtAntecedentes.ActiveControl = null;
-            this.mtAntecedentes.Location = new System.Drawing.Point(190, 226);
+            this.mtAntecedentes.Location = new System.Drawing.Point(23, 226);
             this.mtAntecedentes.Name = "mtAntecedentes";
             this.mtAntecedentes.Size = new System.Drawing.Size(161, 60);
+            this.mtAntecedentes.Style = MetroFramework.MetroColorStyle.Orange;
             this.mtAntecedentes.TabIndex = 12;
             this.mtAntecedentes.Text = "Ver Antecedentes";
             this.mtAntecedentes.UseSelectable = true;
+            this.mtAntecedentes.UseStyleColors = true;
             this.mtAntecedentes.Click += new System.EventHandler(this.mtAntecedentes_Click);
             // 
             // mtBuscarResoluciones
             // 
             this.mtBuscarResoluciones.ActiveControl = null;
-            this.mtBuscarResoluciones.Location = new System.Drawing.Point(357, 94);
+            this.mtBuscarResoluciones.Location = new System.Drawing.Point(385, 160);
             this.mtBuscarResoluciones.Name = "mtBuscarResoluciones";
-            this.mtBuscarResoluciones.Size = new System.Drawing.Size(161, 60);
+            this.mtBuscarResoluciones.Size = new System.Drawing.Size(133, 60);
+            this.mtBuscarResoluciones.Style = MetroFramework.MetroColorStyle.Green;
             this.mtBuscarResoluciones.TabIndex = 13;
             this.mtBuscarResoluciones.Text = "Buscar Resoluciones";
             this.mtBuscarResoluciones.UseSelectable = true;
+            this.mtBuscarResoluciones.UseStyleColors = true;
             this.mtBuscarResoluciones.Click += new System.EventHandler(this.mtBuscarResoluciones_Click);
+            // 
+            // mtGenerarArchivoPermiso
+            // 
+            this.mtGenerarArchivoPermiso.ActiveControl = null;
+            this.mtGenerarArchivoPermiso.Location = new System.Drawing.Point(190, 226);
+            this.mtGenerarArchivoPermiso.Name = "mtGenerarArchivoPermiso";
+            this.mtGenerarArchivoPermiso.Size = new System.Drawing.Size(215, 60);
+            this.mtGenerarArchivoPermiso.Style = MetroFramework.MetroColorStyle.Red;
+            this.mtGenerarArchivoPermiso.TabIndex = 14;
+            this.mtGenerarArchivoPermiso.Text = "Generar Archivo de Permiso";
+            this.mtGenerarArchivoPermiso.UseSelectable = true;
+            this.mtGenerarArchivoPermiso.UseStyleColors = true;
+            this.mtGenerarArchivoPermiso.Click += new System.EventHandler(this.mtGenerarArchivoPermiso_Click);
             // 
             // Form_Menu_Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mtGenerarArchivoPermiso);
             this.Controls.Add(this.mtBuscarResoluciones);
             this.Controls.Add(this.mtAntecedentes);
             this.Controls.Add(this.mtGenerarReporte);
@@ -180,5 +209,6 @@
         private MetroFramework.Controls.MetroTile mtGenerarReporte;
         private MetroFramework.Controls.MetroTile mtAntecedentes;
         private MetroFramework.Controls.MetroTile mtBuscarResoluciones;
+        private MetroFramework.Controls.MetroTile mtGenerarArchivoPermiso;
     }
 }

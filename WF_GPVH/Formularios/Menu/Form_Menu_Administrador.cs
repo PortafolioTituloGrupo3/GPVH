@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Menu
@@ -70,6 +71,27 @@ namespace WF_GPVH.Formularios.Menu
         {
             new Resoluciones.Form_BuscarResolucion(mainForm, this, sesion).Show();
             this.Hide();
+        }
+
+        private void mtGenerarArchivoPermiso_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                XDocument doc = new GestionadorPermiso().ObtenerArchivoPermisosAnuales();
+                SaveFileDialog save = new SaveFileDialog();
+                save.FileName = "Archivo_Permisos_Anual.xml";
+                save.Filter = "XML-File | *.xml";
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    doc.Save(save.FileName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            
         }
     }
 }

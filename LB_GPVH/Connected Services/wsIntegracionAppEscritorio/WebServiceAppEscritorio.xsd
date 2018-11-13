@@ -7,6 +7,8 @@
   <xs:element name="buscarFuncionarioParcialResponse" type="tns:buscarFuncionarioParcialResponse" />
   <xs:element name="buscarFuncionarioResponse" type="tns:buscarFuncionarioResponse" />
   <xs:element name="buscarPermisos" type="tns:buscarPermisos" />
+  <xs:element name="buscarPermisosAnuales" type="tns:buscarPermisosAnuales" />
+  <xs:element name="buscarPermisosAnualesResponse" type="tns:buscarPermisosAnualesResponse" />
   <xs:element name="buscarPermisosResponse" type="tns:buscarPermisosResponse" />
   <xs:element name="buscarResoluciones" type="tns:buscarResoluciones" />
   <xs:element name="buscarResolucionesResponse" type="tns:buscarResolucionesResponse" />
@@ -125,16 +127,6 @@
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarFuncionariosNoJefesClaveValorExeptoUnidad">
-    <xs:sequence>
-      <xs:element name="idUnidad" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="listarFuncionariosNoJefesClaveValorExeptoUnidadResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="validarResolucion">
     <xs:sequence>
       <xs:element name="idResolucion" type="xs:int" />
@@ -142,6 +134,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="validarResolucionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarFuncionariosNoJefesClaveValorExeptoUnidad">
+    <xs:sequence>
+      <xs:element name="idUnidad" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarFuncionariosNoJefesClaveValorExeptoUnidadResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
@@ -160,6 +162,14 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="buscarPermisosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPermisosAnuales">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="buscarPermisosAnualesResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
@@ -205,6 +215,14 @@
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listarUnidades">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarUnidadesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="nombreUnidadExiste">
     <xs:sequence>
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
@@ -215,10 +233,12 @@
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarUnidades">
-    <xs:sequence />
+  <xs:complexType name="usuarioExiste">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarUnidadesResponse">
+  <xs:complexType name="usuarioExisteResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
@@ -227,16 +247,6 @@
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarFuncionariosClaveValorResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="usuarioExiste">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="nombre" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="usuarioExisteResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
@@ -270,6 +280,14 @@
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="listarUsuarios">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarUsuariosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="modificarUnidad">
     <xs:sequence>
       <xs:element name="id_unidad" type="xs:int" />
@@ -286,10 +304,12 @@
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarUsuarios">
-    <xs:sequence />
+  <xs:complexType name="buscarFuncionario">
+    <xs:sequence>
+      <xs:element name="run" type="xs:int" />
+    </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarUsuariosResponse">
+  <xs:complexType name="buscarFuncionarioResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
@@ -298,16 +318,6 @@
     <xs:sequence />
   </xs:complexType>
   <xs:complexType name="listarFuncionariosNoJefesClaveValorResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="buscarFuncionario">
-    <xs:sequence>
-      <xs:element name="run" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="buscarFuncionarioResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
@@ -356,16 +366,6 @@
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="buscarUsuario">
-    <xs:sequence>
-      <xs:element name="id" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="buscarUsuarioResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="insertarUnidad">
     <xs:sequence>
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
@@ -376,6 +376,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="insertarUnidadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarUsuario">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarUsuarioResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>

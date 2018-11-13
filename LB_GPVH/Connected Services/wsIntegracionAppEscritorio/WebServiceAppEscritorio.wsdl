@@ -5,143 +5,23 @@
       <xsd:import schemaLocation="http://localhost:8080/IntegracionVistaHermosa/WebServiceAppEscritorio?xsd=1" namespace="http://webservice/" />
     </xsd:schema>
   </types>
-  <message name="buscarResolucionesUnidadesSubHijas">
-    <part name="parameters" element="tns:buscarResolucionesUnidadesSubHijas" />
+  <message name="listarUnidades">
+    <part name="parameters" element="tns:listarUnidades" />
   </message>
-  <message name="buscarResolucionesUnidadesSubHijasResponse">
-    <part name="parameters" element="tns:buscarResolucionesUnidadesSubHijasResponse" />
+  <message name="listarUnidadesResponse">
+    <part name="parameters" element="tns:listarUnidadesResponse" />
   </message>
-  <message name="listarFuncionariosNoJefesClaveValor">
-    <part name="parameters" element="tns:listarFuncionariosNoJefesClaveValor" />
+  <message name="insertarUnidad">
+    <part name="parameters" element="tns:insertarUnidad" />
   </message>
-  <message name="listarFuncionariosNoJefesClaveValorResponse">
-    <part name="parameters" element="tns:listarFuncionariosNoJefesClaveValorResponse" />
-  </message>
-  <message name="listarFuncionariosNoJefesClaveValorExeptoUnidad">
-    <part name="parameters" element="tns:listarFuncionariosNoJefesClaveValorExeptoUnidad" />
-  </message>
-  <message name="listarFuncionariosNoJefesClaveValorExeptoUnidadResponse">
-    <part name="parameters" element="tns:listarFuncionariosNoJefesClaveValorExeptoUnidadResponse" />
-  </message>
-  <message name="listadoUnidadClaveValor">
-    <part name="parameters" element="tns:listadoUnidadClaveValor" />
-  </message>
-  <message name="listadoUnidadClaveValorResponse">
-    <part name="parameters" element="tns:listadoUnidadClaveValorResponse" />
-  </message>
-  <message name="modificarFuncionario">
-    <part name="parameters" element="tns:modificarFuncionario" />
-  </message>
-  <message name="modificarFuncionarioResponse">
-    <part name="parameters" element="tns:modificarFuncionarioResponse" />
-  </message>
-  <message name="eliminarFuncionario">
-    <part name="parameters" element="tns:eliminarFuncionario" />
-  </message>
-  <message name="eliminarFuncionarioResponse">
-    <part name="parameters" element="tns:eliminarFuncionarioResponse" />
-  </message>
-  <message name="buscarFuncionarioParcial">
-    <part name="parameters" element="tns:buscarFuncionarioParcial" />
-  </message>
-  <message name="buscarFuncionarioParcialResponse">
-    <part name="parameters" element="tns:buscarFuncionarioParcialResponse" />
-  </message>
-  <message name="buscarResoluciones">
-    <part name="parameters" element="tns:buscarResoluciones" />
-  </message>
-  <message name="buscarResolucionesResponse">
-    <part name="parameters" element="tns:buscarResolucionesResponse" />
-  </message>
-  <message name="listarFuncionariosDeUnidad">
-    <part name="parameters" element="tns:listarFuncionariosDeUnidad" />
-  </message>
-  <message name="listarFuncionariosDeUnidadResponse">
-    <part name="parameters" element="tns:listarFuncionariosDeUnidadResponse" />
-  </message>
-  <message name="nombreUnidadExiste">
-    <part name="parameters" element="tns:nombreUnidadExiste" />
-  </message>
-  <message name="nombreUnidadExisteResponse">
-    <part name="parameters" element="tns:nombreUnidadExisteResponse" />
-  </message>
-  <message name="buscarFuncionario">
-    <part name="parameters" element="tns:buscarFuncionario" />
-  </message>
-  <message name="buscarFuncionarioResponse">
-    <part name="parameters" element="tns:buscarFuncionarioResponse" />
-  </message>
-  <message name="listadoUnidadesHijasClaveValor">
-    <part name="parameters" element="tns:listadoUnidadesHijasClaveValor" />
-  </message>
-  <message name="listadoUnidadesHijasClaveValorResponse">
-    <part name="parameters" element="tns:listadoUnidadesHijasClaveValorResponse" />
-  </message>
-  <message name="listarFuncionariosClaveValor">
-    <part name="parameters" element="tns:listarFuncionariosClaveValor" />
-  </message>
-  <message name="listarFuncionariosClaveValorResponse">
-    <part name="parameters" element="tns:listarFuncionariosClaveValorResponse" />
-  </message>
-  <message name="buscarUnidadPorIdParcial">
-    <part name="parameters" element="tns:buscarUnidadPorIdParcial" />
-  </message>
-  <message name="buscarUnidadPorIdParcialResponse">
-    <part name="parameters" element="tns:buscarUnidadPorIdParcialResponse" />
-  </message>
-  <message name="insertarFuncionario">
-    <part name="parameters" element="tns:insertarFuncionario" />
-  </message>
-  <message name="insertarFuncionarioResponse">
-    <part name="parameters" element="tns:insertarFuncionarioResponse" />
-  </message>
-  <message name="autenticarUsuario">
-    <part name="parameters" element="tns:autenticarUsuario" />
-  </message>
-  <message name="autenticarUsuarioResponse">
-    <part name="parameters" element="tns:autenticarUsuarioResponse" />
-  </message>
-  <message name="listarFuncionarios">
-    <part name="parameters" element="tns:listarFuncionarios" />
-  </message>
-  <message name="listarFuncionariosResponse">
-    <part name="parameters" element="tns:listarFuncionariosResponse" />
-  </message>
-  <message name="modificarUnidad">
-    <part name="parameters" element="tns:modificarUnidad" />
-  </message>
-  <message name="modificarUnidadResponse">
-    <part name="parameters" element="tns:modificarUnidadResponse" />
-  </message>
-  <message name="eliminarUnidad">
-    <part name="parameters" element="tns:eliminarUnidad" />
-  </message>
-  <message name="eliminarUnidadResponse">
-    <part name="parameters" element="tns:eliminarUnidadResponse" />
-  </message>
-  <message name="eliminarUsuario">
-    <part name="parameters" element="tns:eliminarUsuario" />
-  </message>
-  <message name="eliminarUsuarioResponse">
-    <part name="parameters" element="tns:eliminarUsuarioResponse" />
+  <message name="insertarUnidadResponse">
+    <part name="parameters" element="tns:insertarUnidadResponse" />
   </message>
   <message name="listarUsuarios">
     <part name="parameters" element="tns:listarUsuarios" />
   </message>
   <message name="listarUsuariosResponse">
     <part name="parameters" element="tns:listarUsuariosResponse" />
-  </message>
-  <message name="buscarUsuario">
-    <part name="parameters" element="tns:buscarUsuario" />
-  </message>
-  <message name="buscarUsuarioResponse">
-    <part name="parameters" element="tns:buscarUsuarioResponse" />
-  </message>
-  <message name="buscarPermisos">
-    <part name="parameters" element="tns:buscarPermisos" />
-  </message>
-  <message name="buscarPermisosResponse">
-    <part name="parameters" element="tns:buscarPermisosResponse" />
   </message>
   <message name="usuarioExiste">
     <part name="parameters" element="tns:usuarioExiste" />
@@ -155,23 +35,107 @@
   <message name="insertarUsuarioResponse">
     <part name="parameters" element="tns:insertarUsuarioResponse" />
   </message>
-  <message name="modificarUsuario">
-    <part name="parameters" element="tns:modificarUsuario" />
+  <message name="eliminarUnidad">
+    <part name="parameters" element="tns:eliminarUnidad" />
   </message>
-  <message name="modificarUsuarioResponse">
-    <part name="parameters" element="tns:modificarUsuarioResponse" />
+  <message name="eliminarUnidadResponse">
+    <part name="parameters" element="tns:eliminarUnidadResponse" />
   </message>
-  <message name="listarUnidades">
-    <part name="parameters" element="tns:listarUnidades" />
+  <message name="modificarUnidad">
+    <part name="parameters" element="tns:modificarUnidad" />
   </message>
-  <message name="listarUnidadesResponse">
-    <part name="parameters" element="tns:listarUnidadesResponse" />
+  <message name="modificarUnidadResponse">
+    <part name="parameters" element="tns:modificarUnidadResponse" />
   </message>
-  <message name="insertarUnidad">
-    <part name="parameters" element="tns:insertarUnidad" />
+  <message name="listadoUnidadClaveValor">
+    <part name="parameters" element="tns:listadoUnidadClaveValor" />
   </message>
-  <message name="insertarUnidadResponse">
-    <part name="parameters" element="tns:insertarUnidadResponse" />
+  <message name="listadoUnidadClaveValorResponse">
+    <part name="parameters" element="tns:listadoUnidadClaveValorResponse" />
+  </message>
+  <message name="buscarUnidadPorIdParcial">
+    <part name="parameters" element="tns:buscarUnidadPorIdParcial" />
+  </message>
+  <message name="buscarUnidadPorIdParcialResponse">
+    <part name="parameters" element="tns:buscarUnidadPorIdParcialResponse" />
+  </message>
+  <message name="listadoUnidadesHijasClaveValor">
+    <part name="parameters" element="tns:listadoUnidadesHijasClaveValor" />
+  </message>
+  <message name="listadoUnidadesHijasClaveValorResponse">
+    <part name="parameters" element="tns:listadoUnidadesHijasClaveValorResponse" />
+  </message>
+  <message name="nombreUnidadExiste">
+    <part name="parameters" element="tns:nombreUnidadExiste" />
+  </message>
+  <message name="nombreUnidadExisteResponse">
+    <part name="parameters" element="tns:nombreUnidadExisteResponse" />
+  </message>
+  <message name="buscarFuncionarioParcial">
+    <part name="parameters" element="tns:buscarFuncionarioParcial" />
+  </message>
+  <message name="buscarFuncionarioParcialResponse">
+    <part name="parameters" element="tns:buscarFuncionarioParcialResponse" />
+  </message>
+  <message name="buscarFuncionario">
+    <part name="parameters" element="tns:buscarFuncionario" />
+  </message>
+  <message name="buscarFuncionarioResponse">
+    <part name="parameters" element="tns:buscarFuncionarioResponse" />
+  </message>
+  <message name="listarFuncionarios">
+    <part name="parameters" element="tns:listarFuncionarios" />
+  </message>
+  <message name="listarFuncionariosResponse">
+    <part name="parameters" element="tns:listarFuncionariosResponse" />
+  </message>
+  <message name="listarFuncionariosDeUnidad">
+    <part name="parameters" element="tns:listarFuncionariosDeUnidad" />
+  </message>
+  <message name="listarFuncionariosDeUnidadResponse">
+    <part name="parameters" element="tns:listarFuncionariosDeUnidadResponse" />
+  </message>
+  <message name="listarFuncionariosClaveValor">
+    <part name="parameters" element="tns:listarFuncionariosClaveValor" />
+  </message>
+  <message name="listarFuncionariosClaveValorResponse">
+    <part name="parameters" element="tns:listarFuncionariosClaveValorResponse" />
+  </message>
+  <message name="insertarFuncionario">
+    <part name="parameters" element="tns:insertarFuncionario" />
+  </message>
+  <message name="insertarFuncionarioResponse">
+    <part name="parameters" element="tns:insertarFuncionarioResponse" />
+  </message>
+  <message name="modificarFuncionario">
+    <part name="parameters" element="tns:modificarFuncionario" />
+  </message>
+  <message name="modificarFuncionarioResponse">
+    <part name="parameters" element="tns:modificarFuncionarioResponse" />
+  </message>
+  <message name="eliminarFuncionario">
+    <part name="parameters" element="tns:eliminarFuncionario" />
+  </message>
+  <message name="eliminarFuncionarioResponse">
+    <part name="parameters" element="tns:eliminarFuncionarioResponse" />
+  </message>
+  <message name="autenticarUsuario">
+    <part name="parameters" element="tns:autenticarUsuario" />
+  </message>
+  <message name="autenticarUsuarioResponse">
+    <part name="parameters" element="tns:autenticarUsuarioResponse" />
+  </message>
+  <message name="buscarResoluciones">
+    <part name="parameters" element="tns:buscarResoluciones" />
+  </message>
+  <message name="buscarResolucionesResponse">
+    <part name="parameters" element="tns:buscarResolucionesResponse" />
+  </message>
+  <message name="buscarPermisosAnuales">
+    <part name="parameters" element="tns:buscarPermisosAnuales" />
+  </message>
+  <message name="buscarPermisosAnualesResponse">
+    <part name="parameters" element="tns:buscarPermisosAnualesResponse" />
   </message>
   <message name="validarResolucion">
     <part name="parameters" element="tns:validarResolucion" />
@@ -185,98 +149,60 @@
   <message name="invalidarResolucionResponse">
     <part name="parameters" element="tns:invalidarResolucionResponse" />
   </message>
+  <message name="listarFuncionariosNoJefesClaveValor">
+    <part name="parameters" element="tns:listarFuncionariosNoJefesClaveValor" />
+  </message>
+  <message name="listarFuncionariosNoJefesClaveValorResponse">
+    <part name="parameters" element="tns:listarFuncionariosNoJefesClaveValorResponse" />
+  </message>
+  <message name="buscarResolucionesUnidadesSubHijas">
+    <part name="parameters" element="tns:buscarResolucionesUnidadesSubHijas" />
+  </message>
+  <message name="buscarResolucionesUnidadesSubHijasResponse">
+    <part name="parameters" element="tns:buscarResolucionesUnidadesSubHijasResponse" />
+  </message>
+  <message name="listarFuncionariosNoJefesClaveValorExeptoUnidad">
+    <part name="parameters" element="tns:listarFuncionariosNoJefesClaveValorExeptoUnidad" />
+  </message>
+  <message name="listarFuncionariosNoJefesClaveValorExeptoUnidadResponse">
+    <part name="parameters" element="tns:listarFuncionariosNoJefesClaveValorExeptoUnidadResponse" />
+  </message>
+  <message name="modificarUsuario">
+    <part name="parameters" element="tns:modificarUsuario" />
+  </message>
+  <message name="modificarUsuarioResponse">
+    <part name="parameters" element="tns:modificarUsuarioResponse" />
+  </message>
+  <message name="eliminarUsuario">
+    <part name="parameters" element="tns:eliminarUsuario" />
+  </message>
+  <message name="eliminarUsuarioResponse">
+    <part name="parameters" element="tns:eliminarUsuarioResponse" />
+  </message>
+  <message name="buscarUsuario">
+    <part name="parameters" element="tns:buscarUsuario" />
+  </message>
+  <message name="buscarUsuarioResponse">
+    <part name="parameters" element="tns:buscarUsuarioResponse" />
+  </message>
+  <message name="buscarPermisos">
+    <part name="parameters" element="tns:buscarPermisos" />
+  </message>
+  <message name="buscarPermisosResponse">
+    <part name="parameters" element="tns:buscarPermisosResponse" />
+  </message>
   <portType name="WebServiceAppEscritorio">
-    <operation name="buscarResolucionesUnidadesSubHijas">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarResolucionesUnidadesSubHijasRequest" message="tns:buscarResolucionesUnidadesSubHijas" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarResolucionesUnidadesSubHijasResponse" message="tns:buscarResolucionesUnidadesSubHijasResponse" />
+    <operation name="listarUnidades">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listarUnidadesRequest" message="tns:listarUnidades" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listarUnidadesResponse" message="tns:listarUnidadesResponse" />
     </operation>
-    <operation name="listarFuncionariosNoJefesClaveValor">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorRequest" message="tns:listarFuncionariosNoJefesClaveValor" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorResponse" message="tns:listarFuncionariosNoJefesClaveValorResponse" />
-    </operation>
-    <operation name="listarFuncionariosNoJefesClaveValorExeptoUnidad">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorExeptoUnidadRequest" message="tns:listarFuncionariosNoJefesClaveValorExeptoUnidad" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorExeptoUnidadResponse" message="tns:listarFuncionariosNoJefesClaveValorExeptoUnidadResponse" />
-    </operation>
-    <operation name="listadoUnidadClaveValor">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listadoUnidadClaveValorRequest" message="tns:listadoUnidadClaveValor" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listadoUnidadClaveValorResponse" message="tns:listadoUnidadClaveValorResponse" />
-    </operation>
-    <operation name="modificarFuncionario">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/modificarFuncionarioRequest" message="tns:modificarFuncionario" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/modificarFuncionarioResponse" message="tns:modificarFuncionarioResponse" />
-    </operation>
-    <operation name="eliminarFuncionario">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/eliminarFuncionarioRequest" message="tns:eliminarFuncionario" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/eliminarFuncionarioResponse" message="tns:eliminarFuncionarioResponse" />
-    </operation>
-    <operation name="buscarFuncionarioParcial">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioParcialRequest" message="tns:buscarFuncionarioParcial" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioParcialResponse" message="tns:buscarFuncionarioParcialResponse" />
-    </operation>
-    <operation name="buscarResoluciones">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarResolucionesRequest" message="tns:buscarResoluciones" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarResolucionesResponse" message="tns:buscarResolucionesResponse" />
-    </operation>
-    <operation name="listarFuncionariosDeUnidad">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosDeUnidadRequest" message="tns:listarFuncionariosDeUnidad" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosDeUnidadResponse" message="tns:listarFuncionariosDeUnidadResponse" />
-    </operation>
-    <operation name="nombreUnidadExiste">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/nombreUnidadExisteRequest" message="tns:nombreUnidadExiste" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/nombreUnidadExisteResponse" message="tns:nombreUnidadExisteResponse" />
-    </operation>
-    <operation name="buscarFuncionario">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioRequest" message="tns:buscarFuncionario" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioResponse" message="tns:buscarFuncionarioResponse" />
-    </operation>
-    <operation name="listadoUnidadesHijasClaveValor">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listadoUnidadesHijasClaveValorRequest" message="tns:listadoUnidadesHijasClaveValor" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listadoUnidadesHijasClaveValorResponse" message="tns:listadoUnidadesHijasClaveValorResponse" />
-    </operation>
-    <operation name="listarFuncionariosClaveValor">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosClaveValorRequest" message="tns:listarFuncionariosClaveValor" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosClaveValorResponse" message="tns:listarFuncionariosClaveValorResponse" />
-    </operation>
-    <operation name="buscarUnidadPorIdParcial">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarUnidadPorIdParcialRequest" message="tns:buscarUnidadPorIdParcial" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarUnidadPorIdParcialResponse" message="tns:buscarUnidadPorIdParcialResponse" />
-    </operation>
-    <operation name="insertarFuncionario">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/insertarFuncionarioRequest" message="tns:insertarFuncionario" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/insertarFuncionarioResponse" message="tns:insertarFuncionarioResponse" />
-    </operation>
-    <operation name="autenticarUsuario">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/autenticarUsuarioRequest" message="tns:autenticarUsuario" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/autenticarUsuarioResponse" message="tns:autenticarUsuarioResponse" />
-    </operation>
-    <operation name="listarFuncionarios">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosRequest" message="tns:listarFuncionarios" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosResponse" message="tns:listarFuncionariosResponse" />
-    </operation>
-    <operation name="modificarUnidad">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/modificarUnidadRequest" message="tns:modificarUnidad" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/modificarUnidadResponse" message="tns:modificarUnidadResponse" />
-    </operation>
-    <operation name="eliminarUnidad">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/eliminarUnidadRequest" message="tns:eliminarUnidad" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/eliminarUnidadResponse" message="tns:eliminarUnidadResponse" />
-    </operation>
-    <operation name="eliminarUsuario">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
+    <operation name="insertarUnidad">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/insertarUnidadRequest" message="tns:insertarUnidad" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/insertarUnidadResponse" message="tns:insertarUnidadResponse" />
     </operation>
     <operation name="listarUsuarios">
       <input wsam:Action="http://webservice/WebServiceAppEscritorio/listarUsuariosRequest" message="tns:listarUsuarios" />
       <output wsam:Action="http://webservice/WebServiceAppEscritorio/listarUsuariosResponse" message="tns:listarUsuariosResponse" />
-    </operation>
-    <operation name="buscarUsuario">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarUsuarioRequest" message="tns:buscarUsuario" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarUsuarioResponse" message="tns:buscarUsuarioResponse" />
-    </operation>
-    <operation name="buscarPermisos">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarPermisosRequest" message="tns:buscarPermisos" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarPermisosResponse" message="tns:buscarPermisosResponse" />
     </operation>
     <operation name="usuarioExiste">
       <input wsam:Action="http://webservice/WebServiceAppEscritorio/usuarioExisteRequest" message="tns:usuarioExiste" />
@@ -286,17 +212,73 @@
       <input wsam:Action="http://webservice/WebServiceAppEscritorio/insertarUsuarioRequest" message="tns:insertarUsuario" />
       <output wsam:Action="http://webservice/WebServiceAppEscritorio/insertarUsuarioResponse" message="tns:insertarUsuarioResponse" />
     </operation>
-    <operation name="modificarUsuario">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/modificarUsuarioRequest" message="tns:modificarUsuario" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/modificarUsuarioResponse" message="tns:modificarUsuarioResponse" />
+    <operation name="eliminarUnidad">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/eliminarUnidadRequest" message="tns:eliminarUnidad" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/eliminarUnidadResponse" message="tns:eliminarUnidadResponse" />
     </operation>
-    <operation name="listarUnidades">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listarUnidadesRequest" message="tns:listarUnidades" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listarUnidadesResponse" message="tns:listarUnidadesResponse" />
+    <operation name="modificarUnidad">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/modificarUnidadRequest" message="tns:modificarUnidad" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/modificarUnidadResponse" message="tns:modificarUnidadResponse" />
     </operation>
-    <operation name="insertarUnidad">
-      <input wsam:Action="http://webservice/WebServiceAppEscritorio/insertarUnidadRequest" message="tns:insertarUnidad" />
-      <output wsam:Action="http://webservice/WebServiceAppEscritorio/insertarUnidadResponse" message="tns:insertarUnidadResponse" />
+    <operation name="listadoUnidadClaveValor">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listadoUnidadClaveValorRequest" message="tns:listadoUnidadClaveValor" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listadoUnidadClaveValorResponse" message="tns:listadoUnidadClaveValorResponse" />
+    </operation>
+    <operation name="buscarUnidadPorIdParcial">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarUnidadPorIdParcialRequest" message="tns:buscarUnidadPorIdParcial" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarUnidadPorIdParcialResponse" message="tns:buscarUnidadPorIdParcialResponse" />
+    </operation>
+    <operation name="listadoUnidadesHijasClaveValor">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listadoUnidadesHijasClaveValorRequest" message="tns:listadoUnidadesHijasClaveValor" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listadoUnidadesHijasClaveValorResponse" message="tns:listadoUnidadesHijasClaveValorResponse" />
+    </operation>
+    <operation name="nombreUnidadExiste">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/nombreUnidadExisteRequest" message="tns:nombreUnidadExiste" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/nombreUnidadExisteResponse" message="tns:nombreUnidadExisteResponse" />
+    </operation>
+    <operation name="buscarFuncionarioParcial">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioParcialRequest" message="tns:buscarFuncionarioParcial" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioParcialResponse" message="tns:buscarFuncionarioParcialResponse" />
+    </operation>
+    <operation name="buscarFuncionario">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioRequest" message="tns:buscarFuncionario" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioResponse" message="tns:buscarFuncionarioResponse" />
+    </operation>
+    <operation name="listarFuncionarios">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosRequest" message="tns:listarFuncionarios" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosResponse" message="tns:listarFuncionariosResponse" />
+    </operation>
+    <operation name="listarFuncionariosDeUnidad">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosDeUnidadRequest" message="tns:listarFuncionariosDeUnidad" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosDeUnidadResponse" message="tns:listarFuncionariosDeUnidadResponse" />
+    </operation>
+    <operation name="listarFuncionariosClaveValor">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosClaveValorRequest" message="tns:listarFuncionariosClaveValor" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosClaveValorResponse" message="tns:listarFuncionariosClaveValorResponse" />
+    </operation>
+    <operation name="insertarFuncionario">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/insertarFuncionarioRequest" message="tns:insertarFuncionario" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/insertarFuncionarioResponse" message="tns:insertarFuncionarioResponse" />
+    </operation>
+    <operation name="modificarFuncionario">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/modificarFuncionarioRequest" message="tns:modificarFuncionario" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/modificarFuncionarioResponse" message="tns:modificarFuncionarioResponse" />
+    </operation>
+    <operation name="eliminarFuncionario">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/eliminarFuncionarioRequest" message="tns:eliminarFuncionario" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/eliminarFuncionarioResponse" message="tns:eliminarFuncionarioResponse" />
+    </operation>
+    <operation name="autenticarUsuario">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/autenticarUsuarioRequest" message="tns:autenticarUsuario" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/autenticarUsuarioResponse" message="tns:autenticarUsuarioResponse" />
+    </operation>
+    <operation name="buscarResoluciones">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarResolucionesRequest" message="tns:buscarResoluciones" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarResolucionesResponse" message="tns:buscarResolucionesResponse" />
+    </operation>
+    <operation name="buscarPermisosAnuales">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarPermisosAnualesRequest" message="tns:buscarPermisosAnuales" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarPermisosAnualesResponse" message="tns:buscarPermisosAnualesResponse" />
     </operation>
     <operation name="validarResolucion">
       <input wsam:Action="http://webservice/WebServiceAppEscritorio/validarResolucionRequest" message="tns:validarResolucion" />
@@ -306,10 +288,38 @@
       <input wsam:Action="http://webservice/WebServiceAppEscritorio/invalidarResolucionRequest" message="tns:invalidarResolucion" />
       <output wsam:Action="http://webservice/WebServiceAppEscritorio/invalidarResolucionResponse" message="tns:invalidarResolucionResponse" />
     </operation>
+    <operation name="listarFuncionariosNoJefesClaveValor">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorRequest" message="tns:listarFuncionariosNoJefesClaveValor" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorResponse" message="tns:listarFuncionariosNoJefesClaveValorResponse" />
+    </operation>
+    <operation name="buscarResolucionesUnidadesSubHijas">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarResolucionesUnidadesSubHijasRequest" message="tns:buscarResolucionesUnidadesSubHijas" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarResolucionesUnidadesSubHijasResponse" message="tns:buscarResolucionesUnidadesSubHijasResponse" />
+    </operation>
+    <operation name="listarFuncionariosNoJefesClaveValorExeptoUnidad">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorExeptoUnidadRequest" message="tns:listarFuncionariosNoJefesClaveValorExeptoUnidad" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorExeptoUnidadResponse" message="tns:listarFuncionariosNoJefesClaveValorExeptoUnidadResponse" />
+    </operation>
+    <operation name="modificarUsuario">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/modificarUsuarioRequest" message="tns:modificarUsuario" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/modificarUsuarioResponse" message="tns:modificarUsuarioResponse" />
+    </operation>
+    <operation name="eliminarUsuario">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/eliminarUsuarioRequest" message="tns:eliminarUsuario" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/eliminarUsuarioResponse" message="tns:eliminarUsuarioResponse" />
+    </operation>
+    <operation name="buscarUsuario">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarUsuarioRequest" message="tns:buscarUsuario" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarUsuarioResponse" message="tns:buscarUsuarioResponse" />
+    </operation>
+    <operation name="buscarPermisos">
+      <input wsam:Action="http://webservice/WebServiceAppEscritorio/buscarPermisosRequest" message="tns:buscarPermisos" />
+      <output wsam:Action="http://webservice/WebServiceAppEscritorio/buscarPermisosResponse" message="tns:buscarPermisosResponse" />
+    </operation>
   </portType>
   <binding name="WebServiceAppEscritorioPortBinding" type="tns:WebServiceAppEscritorio">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="buscarResolucionesUnidadesSubHijas">
+    <operation name="listarUnidades">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -318,169 +328,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarFuncionariosNoJefesClaveValor">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarFuncionariosNoJefesClaveValorExeptoUnidad">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listadoUnidadClaveValor">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="modificarFuncionario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="eliminarFuncionario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="buscarFuncionarioParcial">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="buscarResoluciones">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarFuncionariosDeUnidad">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="nombreUnidadExiste">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="buscarFuncionario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listadoUnidadesHijasClaveValor">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarFuncionariosClaveValor">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="buscarUnidadPorIdParcial">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="insertarFuncionario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="autenticarUsuario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="listarFuncionarios">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="modificarUnidad">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="eliminarUnidad">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="eliminarUsuario">
+    <operation name="insertarUnidad">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -490,24 +338,6 @@
       </output>
     </operation>
     <operation name="listarUsuarios">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="buscarUsuario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="buscarPermisos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -534,7 +364,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="modificarUsuario">
+    <operation name="eliminarUnidad">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -543,7 +373,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="listarUnidades">
+    <operation name="modificarUnidad">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -552,7 +382,133 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="insertarUnidad">
+    <operation name="listadoUnidadClaveValor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarUnidadPorIdParcial">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listadoUnidadesHijasClaveValor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="nombreUnidadExiste">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarFuncionarioParcial">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarFuncionario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarFuncionarios">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarFuncionariosDeUnidad">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarFuncionariosClaveValor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarFuncionario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificarFuncionario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarFuncionario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="autenticarUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarResoluciones">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarPermisosAnuales">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -571,6 +527,69 @@
       </output>
     </operation>
     <operation name="invalidarResolucion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarFuncionariosNoJefesClaveValor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarResolucionesUnidadesSubHijas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarFuncionariosNoJefesClaveValorExeptoUnidad">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="modificarUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="eliminarUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="buscarPermisos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

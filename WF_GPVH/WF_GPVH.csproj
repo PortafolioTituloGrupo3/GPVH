@@ -448,6 +448,9 @@
     <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
