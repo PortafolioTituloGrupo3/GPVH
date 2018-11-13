@@ -39,6 +39,7 @@
             this.mtAntecedentes = new MetroFramework.Controls.MetroTile();
             this.mtBuscarResoluciones = new MetroFramework.Controls.MetroTile();
             this.mtGenerarArchivoPermiso = new MetroFramework.Controls.MetroTile();
+            this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // lblUsuario
@@ -90,7 +91,7 @@
             this.mtGestionarUnidades.ActiveControl = null;
             this.mtGestionarUnidades.Location = new System.Drawing.Point(357, 94);
             this.mtGestionarUnidades.Name = "mtGestionarUnidades";
-            this.mtGestionarUnidades.Size = new System.Drawing.Size(161, 60);
+            this.mtGestionarUnidades.Size = new System.Drawing.Size(179, 60);
             this.mtGestionarUnidades.Style = MetroFramework.MetroColorStyle.Blue;
             this.mtGestionarUnidades.TabIndex = 8;
             this.mtGestionarUnidades.Text = "Gestionar Unidades";
@@ -138,10 +139,10 @@
             // mtAntecedentes
             // 
             this.mtAntecedentes.ActiveControl = null;
-            this.mtAntecedentes.Location = new System.Drawing.Point(23, 226);
+            this.mtAntecedentes.Location = new System.Drawing.Point(411, 226);
             this.mtAntecedentes.Name = "mtAntecedentes";
-            this.mtAntecedentes.Size = new System.Drawing.Size(161, 60);
-            this.mtAntecedentes.Style = MetroFramework.MetroColorStyle.Orange;
+            this.mtAntecedentes.Size = new System.Drawing.Size(125, 60);
+            this.mtAntecedentes.Style = MetroFramework.MetroColorStyle.Lime;
             this.mtAntecedentes.TabIndex = 12;
             this.mtAntecedentes.Text = "Ver Antecedentes";
             this.mtAntecedentes.UseSelectable = true;
@@ -153,7 +154,7 @@
             this.mtBuscarResoluciones.ActiveControl = null;
             this.mtBuscarResoluciones.Location = new System.Drawing.Point(385, 160);
             this.mtBuscarResoluciones.Name = "mtBuscarResoluciones";
-            this.mtBuscarResoluciones.Size = new System.Drawing.Size(133, 60);
+            this.mtBuscarResoluciones.Size = new System.Drawing.Size(151, 60);
             this.mtBuscarResoluciones.Style = MetroFramework.MetroColorStyle.Green;
             this.mtBuscarResoluciones.TabIndex = 13;
             this.mtBuscarResoluciones.Text = "Buscar Resoluciones";
@@ -174,11 +175,24 @@
             this.mtGenerarArchivoPermiso.UseStyleColors = true;
             this.mtGenerarArchivoPermiso.Click += new System.EventHandler(this.mtGenerarArchivoPermiso_Click);
             // 
+            // metroTile1
+            // 
+            this.metroTile1.ActiveControl = null;
+            this.metroTile1.Location = new System.Drawing.Point(23, 226);
+            this.metroTile1.Name = "metroTile1";
+            this.metroTile1.Size = new System.Drawing.Size(161, 60);
+            this.metroTile1.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroTile1.TabIndex = 15;
+            this.metroTile1.Text = "Identificar Documento";
+            this.metroTile1.UseSelectable = true;
+            this.metroTile1.UseStyleColors = true;
+            // 
             // Form_Menu_Administrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.metroTile1);
             this.Controls.Add(this.mtGenerarArchivoPermiso);
             this.Controls.Add(this.mtBuscarResoluciones);
             this.Controls.Add(this.mtAntecedentes);
@@ -210,5 +224,6 @@
         private MetroFramework.Controls.MetroTile mtAntecedentes;
         private MetroFramework.Controls.MetroTile mtBuscarResoluciones;
         private MetroFramework.Controls.MetroTile mtGenerarArchivoPermiso;
+        private MetroFramework.Controls.MetroTile metroTile1;
     }
 }
