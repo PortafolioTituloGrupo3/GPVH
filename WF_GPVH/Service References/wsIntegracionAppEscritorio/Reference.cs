@@ -16,18 +16,116 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     public interface WebServiceAppEscritorio {
         
         // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarUnidadesRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarUnidadesResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponse listarUnidades(WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarUnidadesRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarUnidadesResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponse> listarUnidadesAsync(WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest request);
+        
+        // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/insertarUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/insertarUnidadResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponse insertarUnidad(WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/insertarUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/insertarUnidadResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponse> insertarUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest request);
+        
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarUsuariosRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarUsuariosResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponse listarUsuarios(WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarUsuariosRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarUsuariosResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponse> listarUsuariosAsync(WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest request);
+        
+        // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/usuarioExisteRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/usuarioExisteResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse usuarioExiste(WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/usuarioExisteRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/usuarioExisteResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse> usuarioExisteAsync(WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest request);
+        
+        // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/insertarUsuarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/insertarUsuarioResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse insertarUsuario(WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/insertarUsuarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/insertarUsuarioResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse> insertarUsuarioAsync(WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest request);
+        
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/eliminarUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/eliminarUnidadResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponse eliminarUnidad(WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/eliminarUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/eliminarUnidadResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponse> eliminarUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest request);
+        
+        // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/modificarUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/modificarUnidadResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponse modificarUnidad(WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/modificarUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/modificarUnidadResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponse> modificarUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest request);
+        
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listadoUnidadClaveValorRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listadoUnidadClaveValorResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse listadoUnidadClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listadoUnidadClaveValorRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listadoUnidadClaveValorResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse> listadoUnidadClaveValorAsync(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest request);
+        
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarUnidadPorIdParcialRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarUnidadPorIdParcialResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponse buscarUnidadPorIdParcial(WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarUnidadPorIdParcialRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarUnidadPorIdParcialResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponse> buscarUnidadPorIdParcialAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest request);
+        
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listadoUnidadesHijasClaveValorRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listadoUnidadesHijasClaveValorResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponse listadoUnidadesHijasClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listadoUnidadesHijasClaveValorRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listadoUnidadesHijasClaveValorResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponse> listadoUnidadesHijasClaveValorAsync(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest request);
+        
+        // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/nombreUnidadExisteRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/nombreUnidadExisteResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponse nombreUnidadExiste(WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/nombreUnidadExisteRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/nombreUnidadExisteResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponse> nombreUnidadExisteAsync(WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest request);
+        
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioParcialRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarFuncionarioParcialResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponse buscarFuncionarioParcial(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioParcialRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarFuncionarioParcialResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponse> buscarFuncionarioParcialAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest request);
+        
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarFuncionarioResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse buscarFuncionario(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarFuncionarioResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse> buscarFuncionarioAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest request);
+        
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponse listarFuncionarios(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponse> listarFuncionariosAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest request);
+        
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosDeUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosDeUnidadResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponse listarFuncionariosDeUnidad(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosDeUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosDeUnidadResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponse> listarFuncionariosDeUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest request);
+        
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosClaveValorRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosClaveValorResponse")]
         WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosClaveValorResponse listarFuncionariosClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosClaveValorRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosClaveValorRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosClaveValorResponse")]
         System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosClaveValorResponse> listarFuncionariosClaveValorAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosClaveValorRequest request);
-        
-        // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/autenticarUsuarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/autenticarUsuarioResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse autenticarUsuario(WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/autenticarUsuarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/autenticarUsuarioResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse> autenticarUsuarioAsync(WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest request);
         
         // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/insertarFuncionarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/insertarFuncionarioResponse")]
@@ -50,40 +148,12 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
         [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/eliminarFuncionarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/eliminarFuncionarioResponse")]
         System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.eliminarFuncionarioResponse> eliminarFuncionarioAsync(WF_GPVH.wsIntegracionAppEscritorio.eliminarFuncionarioRequest request);
         
-        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosDeUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosDeUnidadResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponse listarFuncionariosDeUnidad(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest request);
+        // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/autenticarUsuarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/autenticarUsuarioResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse autenticarUsuario(WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosDeUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosDeUnidadResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponse> listarFuncionariosDeUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest request);
-        
-        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarUnidadPorIdParcialRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarUnidadPorIdParcialResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponse buscarUnidadPorIdParcial(WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarUnidadPorIdParcialRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarUnidadPorIdParcialResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponse> buscarUnidadPorIdParcialAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest request);
-        
-        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioParcialRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarFuncionarioParcialResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponse buscarFuncionarioParcial(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioParcialRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarFuncionarioParcialResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponse> buscarFuncionarioParcialAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest request);
-        
-        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listadoUnidadesHijasClaveValorRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listadoUnidadesHijasClaveValorResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponse listadoUnidadesHijasClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listadoUnidadesHijasClaveValorRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listadoUnidadesHijasClaveValorResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponse> listadoUnidadesHijasClaveValorAsync(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest request);
-        
-        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarFuncionarioResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse buscarFuncionario(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarFuncionarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarFuncionarioResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse> buscarFuncionarioAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/autenticarUsuarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/autenticarUsuarioResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse> autenticarUsuarioAsync(WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest request);
         
         // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarResolucionesRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarResolucionesResponse")]
@@ -92,37 +162,37 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
         [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarResolucionesRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarResolucionesResponse")]
         System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarResolucionesResponse> buscarResolucionesAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarResolucionesRequest request);
         
-        // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/nombreUnidadExisteRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/nombreUnidadExisteResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponse nombreUnidadExiste(WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest request);
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarPermisosAnualesRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarPermisosAnualesResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesResponse buscarPermisosAnuales(WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/nombreUnidadExisteRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/nombreUnidadExisteResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponse> nombreUnidadExisteAsync(WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarPermisosAnualesRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarPermisosAnualesResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesResponse> buscarPermisosAnualesAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesRequest request);
         
         // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listadoUnidadClaveValorRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listadoUnidadClaveValorResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse listadoUnidadClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/validarResolucionRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/validarResolucionResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.validarResolucionResponse validarResolucion(WF_GPVH.wsIntegracionAppEscritorio.validarResolucionRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listadoUnidadClaveValorRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listadoUnidadClaveValorResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse> listadoUnidadClaveValorAsync(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest request);
-        
-        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponse listarFuncionarios(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponse> listarFuncionariosAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/validarResolucionRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/validarResolucionResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.validarResolucionResponse> validarResolucionAsync(WF_GPVH.wsIntegracionAppEscritorio.validarResolucionRequest request);
         
         // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorExep" +
-            "toUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorExep" +
-            "toUnidadResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponse listarFuncionariosNoJefesClaveValorExeptoUnidad(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/invalidarResolucionRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/invalidarResolucionResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionResponse invalidarResolucion(WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorExep" +
-            "toUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorExep" +
-            "toUnidadResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponse> listarFuncionariosNoJefesClaveValorExeptoUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/invalidarResolucionRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/invalidarResolucionResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionResponse> invalidarResolucionAsync(WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionRequest request);
+        
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorRequ" +
+            "est", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorResp" +
+            "onse")]
+        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponse listarFuncionariosNoJefesClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorRequ" +
+            "est", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorResp" +
+            "onse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponse> listarFuncionariosNoJefesClaveValorAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest request);
         
         // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarResolucionesUnidadesSubHijasReque" +
@@ -136,22 +206,15 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
         System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarResolucionesUnidadesSubHijasResponse> buscarResolucionesUnidadesSubHijasAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarResolucionesUnidadesSubHijasRequest request);
         
         // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorRequ" +
-            "est", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorResp" +
-            "onse")]
-        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponse listarFuncionariosNoJefesClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorExep" +
+            "toUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorExep" +
+            "toUnidadResponse")]
+        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponse listarFuncionariosNoJefesClaveValorExeptoUnidad(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorRequ" +
-            "est", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorResp" +
-            "onse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponse> listarFuncionariosNoJefesClaveValorAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest request);
-        
-        // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/insertarUsuarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/insertarUsuarioResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse insertarUsuario(WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/insertarUsuarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/insertarUsuarioResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse> insertarUsuarioAsync(WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorExep" +
+            "toUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarFuncionariosNoJefesClaveValorExep" +
+            "toUnidadResponse")]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponse> listarFuncionariosNoJefesClaveValorExeptoUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest request);
         
         // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/modificarUsuarioRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/modificarUsuarioResponse")]
@@ -175,53 +238,1055 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
         System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarUsuarioResponse> buscarUsuarioAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarUsuarioRequest request);
         
         // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarUnidadesRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarUnidadesResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponse listarUnidades(WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarUnidadesRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarUnidadesResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponse> listarUnidadesAsync(WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest request);
-        
-        // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/modificarUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/modificarUnidadResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponse modificarUnidad(WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/modificarUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/modificarUnidadResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponse> modificarUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest request);
-        
-        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/eliminarUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/eliminarUnidadResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponse eliminarUnidad(WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/eliminarUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/eliminarUnidadResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponse> eliminarUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest request);
-        
-        // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/insertarUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/insertarUnidadResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponse insertarUnidad(WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/insertarUnidadRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/insertarUnidadResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponse> insertarUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest request);
-        
-        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarUsuariosRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarUsuariosResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponse listarUsuarios(WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/listarUsuariosRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/listarUsuariosResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponse> listarUsuariosAsync(WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest request);
-        
-        // CODEGEN: Generating message contract since element name nombre from namespace  is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/usuarioExisteRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/usuarioExisteResponse")]
-        WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse usuarioExiste(WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/usuarioExisteRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/usuarioExisteResponse")]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse> usuarioExisteAsync(WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest request);
-        
-        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarPermisosRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarPermisosResponse")]
         WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosResponse buscarPermisos(WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://webservice/WebServiceAppEscritorio/buscarPermisosRequest", ReplyAction="http://webservice/WebServiceAppEscritorio/buscarPermisosResponse")]
         System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosResponse> buscarPermisosAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listarUnidadesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarUnidades", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequestBody Body;
+        
+        public listarUnidadesRequest() {
+        }
+        
+        public listarUnidadesRequest(WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class listarUnidadesRequestBody {
+        
+        public listarUnidadesRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listarUnidadesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarUnidadesResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponseBody Body;
+        
+        public listarUnidadesResponse() {
+        }
+        
+        public listarUnidadesResponse(WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class listarUnidadesResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public listarUnidadesResponseBody() {
+        }
+        
+        public listarUnidadesResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class insertarUnidadRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="insertarUnidad", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequestBody Body;
+        
+        public insertarUnidadRequest() {
+        }
+        
+        public insertarUnidadRequest(WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class insertarUnidadRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string nombre;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string descripcion;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string direccion;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int unidad_padre;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public int jefe_unidad;
+        
+        public insertarUnidadRequestBody() {
+        }
+        
+        public insertarUnidadRequestBody(string nombre, string descripcion, string direccion, int unidad_padre, int jefe_unidad) {
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.direccion = direccion;
+            this.unidad_padre = unidad_padre;
+            this.jefe_unidad = jefe_unidad;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class insertarUnidadResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="insertarUnidadResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponseBody Body;
+        
+        public insertarUnidadResponse() {
+        }
+        
+        public insertarUnidadResponse(WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class insertarUnidadResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public insertarUnidadResponseBody() {
+        }
+        
+        public insertarUnidadResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listarUsuariosRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarUsuarios", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequestBody Body;
+        
+        public listarUsuariosRequest() {
+        }
+        
+        public listarUsuariosRequest(WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class listarUsuariosRequestBody {
+        
+        public listarUsuariosRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listarUsuariosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarUsuariosResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponseBody Body;
+        
+        public listarUsuariosResponse() {
+        }
+        
+        public listarUsuariosResponse(WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class listarUsuariosResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public listarUsuariosResponseBody() {
+        }
+        
+        public listarUsuariosResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class usuarioExisteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="usuarioExiste", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequestBody Body;
+        
+        public usuarioExisteRequest() {
+        }
+        
+        public usuarioExisteRequest(WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class usuarioExisteRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string nombre;
+        
+        public usuarioExisteRequestBody() {
+        }
+        
+        public usuarioExisteRequestBody(string nombre) {
+            this.nombre = nombre;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class usuarioExisteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="usuarioExisteResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponseBody Body;
+        
+        public usuarioExisteResponse() {
+        }
+        
+        public usuarioExisteResponse(WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class usuarioExisteResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public usuarioExisteResponseBody() {
+        }
+        
+        public usuarioExisteResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class insertarUsuarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="insertarUsuario", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequestBody Body;
+        
+        public insertarUsuarioRequest() {
+        }
+        
+        public insertarUsuarioRequest(WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class insertarUsuarioRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string nombre;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string clave;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string tipo;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int run;
+        
+        public insertarUsuarioRequestBody() {
+        }
+        
+        public insertarUsuarioRequestBody(string nombre, string clave, string tipo, int run) {
+            this.nombre = nombre;
+            this.clave = clave;
+            this.tipo = tipo;
+            this.run = run;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class insertarUsuarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="insertarUsuarioResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponseBody Body;
+        
+        public insertarUsuarioResponse() {
+        }
+        
+        public insertarUsuarioResponse(WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class insertarUsuarioResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public insertarUsuarioResponseBody() {
+        }
+        
+        public insertarUsuarioResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class eliminarUnidadRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="eliminarUnidad", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequestBody Body;
+        
+        public eliminarUnidadRequest() {
+        }
+        
+        public eliminarUnidadRequest(WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class eliminarUnidadRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id_unidad;
+        
+        public eliminarUnidadRequestBody() {
+        }
+        
+        public eliminarUnidadRequestBody(int id_unidad) {
+            this.id_unidad = id_unidad;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class eliminarUnidadResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="eliminarUnidadResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponseBody Body;
+        
+        public eliminarUnidadResponse() {
+        }
+        
+        public eliminarUnidadResponse(WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class eliminarUnidadResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public eliminarUnidadResponseBody() {
+        }
+        
+        public eliminarUnidadResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class modificarUnidadRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="modificarUnidad", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequestBody Body;
+        
+        public modificarUnidadRequest() {
+        }
+        
+        public modificarUnidadRequest(WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class modificarUnidadRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id_unidad;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string nombre;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string descripcion;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string direccion;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public bool habilitado;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public int unidad_padre;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public int jefe_unidad;
+        
+        public modificarUnidadRequestBody() {
+        }
+        
+        public modificarUnidadRequestBody(int id_unidad, string nombre, string descripcion, string direccion, bool habilitado, int unidad_padre, int jefe_unidad) {
+            this.id_unidad = id_unidad;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.direccion = direccion;
+            this.habilitado = habilitado;
+            this.unidad_padre = unidad_padre;
+            this.jefe_unidad = jefe_unidad;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class modificarUnidadResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="modificarUnidadResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponseBody Body;
+        
+        public modificarUnidadResponse() {
+        }
+        
+        public modificarUnidadResponse(WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class modificarUnidadResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public modificarUnidadResponseBody() {
+        }
+        
+        public modificarUnidadResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listadoUnidadClaveValorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listadoUnidadClaveValor", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequestBody Body;
+        
+        public listadoUnidadClaveValorRequest() {
+        }
+        
+        public listadoUnidadClaveValorRequest(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class listadoUnidadClaveValorRequestBody {
+        
+        public listadoUnidadClaveValorRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listadoUnidadClaveValorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listadoUnidadClaveValorResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponseBody Body;
+        
+        public listadoUnidadClaveValorResponse() {
+        }
+        
+        public listadoUnidadClaveValorResponse(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class listadoUnidadClaveValorResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public listadoUnidadClaveValorResponseBody() {
+        }
+        
+        public listadoUnidadClaveValorResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class buscarUnidadPorIdParcialRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarUnidadPorIdParcial", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequestBody Body;
+        
+        public buscarUnidadPorIdParcialRequest() {
+        }
+        
+        public buscarUnidadPorIdParcialRequest(WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class buscarUnidadPorIdParcialRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        public buscarUnidadPorIdParcialRequestBody() {
+        }
+        
+        public buscarUnidadPorIdParcialRequestBody(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class buscarUnidadPorIdParcialResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarUnidadPorIdParcialResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponseBody Body;
+        
+        public buscarUnidadPorIdParcialResponse() {
+        }
+        
+        public buscarUnidadPorIdParcialResponse(WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class buscarUnidadPorIdParcialResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public buscarUnidadPorIdParcialResponseBody() {
+        }
+        
+        public buscarUnidadPorIdParcialResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listadoUnidadesHijasClaveValorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listadoUnidadesHijasClaveValor", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequestBody Body;
+        
+        public listadoUnidadesHijasClaveValorRequest() {
+        }
+        
+        public listadoUnidadesHijasClaveValorRequest(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class listadoUnidadesHijasClaveValorRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        public listadoUnidadesHijasClaveValorRequestBody() {
+        }
+        
+        public listadoUnidadesHijasClaveValorRequestBody(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listadoUnidadesHijasClaveValorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listadoUnidadesHijasClaveValorResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponseBody Body;
+        
+        public listadoUnidadesHijasClaveValorResponse() {
+        }
+        
+        public listadoUnidadesHijasClaveValorResponse(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class listadoUnidadesHijasClaveValorResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public listadoUnidadesHijasClaveValorResponseBody() {
+        }
+        
+        public listadoUnidadesHijasClaveValorResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class nombreUnidadExisteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="nombreUnidadExiste", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequestBody Body;
+        
+        public nombreUnidadExisteRequest() {
+        }
+        
+        public nombreUnidadExisteRequest(WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class nombreUnidadExisteRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string nombre;
+        
+        public nombreUnidadExisteRequestBody() {
+        }
+        
+        public nombreUnidadExisteRequestBody(string nombre) {
+            this.nombre = nombre;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class nombreUnidadExisteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="nombreUnidadExisteResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponseBody Body;
+        
+        public nombreUnidadExisteResponse() {
+        }
+        
+        public nombreUnidadExisteResponse(WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class nombreUnidadExisteResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public nombreUnidadExisteResponseBody() {
+        }
+        
+        public nombreUnidadExisteResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class buscarFuncionarioParcialRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarFuncionarioParcial", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequestBody Body;
+        
+        public buscarFuncionarioParcialRequest() {
+        }
+        
+        public buscarFuncionarioParcialRequest(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class buscarFuncionarioParcialRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int run;
+        
+        public buscarFuncionarioParcialRequestBody() {
+        }
+        
+        public buscarFuncionarioParcialRequestBody(int run) {
+            this.run = run;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class buscarFuncionarioParcialResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarFuncionarioParcialResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponseBody Body;
+        
+        public buscarFuncionarioParcialResponse() {
+        }
+        
+        public buscarFuncionarioParcialResponse(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class buscarFuncionarioParcialResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public buscarFuncionarioParcialResponseBody() {
+        }
+        
+        public buscarFuncionarioParcialResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class buscarFuncionarioRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarFuncionario", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequestBody Body;
+        
+        public buscarFuncionarioRequest() {
+        }
+        
+        public buscarFuncionarioRequest(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class buscarFuncionarioRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int run;
+        
+        public buscarFuncionarioRequestBody() {
+        }
+        
+        public buscarFuncionarioRequestBody(int run) {
+            this.run = run;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class buscarFuncionarioResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarFuncionarioResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponseBody Body;
+        
+        public buscarFuncionarioResponse() {
+        }
+        
+        public buscarFuncionarioResponse(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class buscarFuncionarioResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public buscarFuncionarioResponseBody() {
+        }
+        
+        public buscarFuncionarioResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listarFuncionariosRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionarios", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequestBody Body;
+        
+        public listarFuncionariosRequest() {
+        }
+        
+        public listarFuncionariosRequest(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class listarFuncionariosRequestBody {
+        
+        public listarFuncionariosRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listarFuncionariosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponseBody Body;
+        
+        public listarFuncionariosResponse() {
+        }
+        
+        public listarFuncionariosResponse(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class listarFuncionariosResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public listarFuncionariosResponseBody() {
+        }
+        
+        public listarFuncionariosResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listarFuncionariosDeUnidadRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosDeUnidad", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequestBody Body;
+        
+        public listarFuncionariosDeUnidadRequest() {
+        }
+        
+        public listarFuncionariosDeUnidadRequest(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class listarFuncionariosDeUnidadRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int idUnidad;
+        
+        public listarFuncionariosDeUnidadRequestBody() {
+        }
+        
+        public listarFuncionariosDeUnidadRequestBody(int idUnidad) {
+            this.idUnidad = idUnidad;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listarFuncionariosDeUnidadResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosDeUnidadResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponseBody Body;
+        
+        public listarFuncionariosDeUnidadResponse() {
+        }
+        
+        public listarFuncionariosDeUnidadResponse(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class listarFuncionariosDeUnidadResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public listarFuncionariosDeUnidadResponseBody() {
+        }
+        
+        public listarFuncionariosDeUnidadResponseBody(string @return) {
+            this.@return = @return;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -281,78 +1346,6 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
         }
         
         public listarFuncionariosClaveValorResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class autenticarUsuarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="autenticarUsuario", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequestBody Body;
-        
-        public autenticarUsuarioRequest() {
-        }
-        
-        public autenticarUsuarioRequest(WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class autenticarUsuarioRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string nombre;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string clave;
-        
-        public autenticarUsuarioRequestBody() {
-        }
-        
-        public autenticarUsuarioRequestBody(string nombre, string clave) {
-            this.nombre = nombre;
-            this.clave = clave;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class autenticarUsuarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="autenticarUsuarioResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponseBody Body;
-        
-        public autenticarUsuarioResponse() {
-        }
-        
-        public autenticarUsuarioResponse(WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class autenticarUsuarioResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public autenticarUsuarioResponseBody() {
-        }
-        
-        public autenticarUsuarioResponseBody(string @return) {
             this.@return = @return;
         }
     }
@@ -641,15 +1634,15 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarFuncionariosDeUnidadRequest {
+    public partial class autenticarUsuarioRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosDeUnidad", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="autenticarUsuario", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequestBody Body;
         
-        public listarFuncionariosDeUnidadRequest() {
+        public autenticarUsuarioRequest() {
         }
         
-        public listarFuncionariosDeUnidadRequest(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequestBody Body) {
+        public autenticarUsuarioRequest(WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -658,16 +1651,20 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class listarFuncionariosDeUnidadRequestBody {
+    public partial class autenticarUsuarioRequestBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int idUnidad;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string nombre;
         
-        public listarFuncionariosDeUnidadRequestBody() {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string clave;
+        
+        public autenticarUsuarioRequestBody() {
         }
         
-        public listarFuncionariosDeUnidadRequestBody(int idUnidad) {
-            this.idUnidad = idUnidad;
+        public autenticarUsuarioRequestBody(string nombre, string clave) {
+            this.nombre = nombre;
+            this.clave = clave;
         }
     }
     
@@ -675,15 +1672,15 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarFuncionariosDeUnidadResponse {
+    public partial class autenticarUsuarioResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosDeUnidadResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="autenticarUsuarioResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponseBody Body;
         
-        public listarFuncionariosDeUnidadResponse() {
+        public autenticarUsuarioResponse() {
         }
         
-        public listarFuncionariosDeUnidadResponse(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponseBody Body) {
+        public autenticarUsuarioResponse(WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -692,287 +1689,15 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class listarFuncionariosDeUnidadResponseBody {
+    public partial class autenticarUsuarioResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string @return;
         
-        public listarFuncionariosDeUnidadResponseBody() {
+        public autenticarUsuarioResponseBody() {
         }
         
-        public listarFuncionariosDeUnidadResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buscarUnidadPorIdParcialRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarUnidadPorIdParcial", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequestBody Body;
-        
-        public buscarUnidadPorIdParcialRequest() {
-        }
-        
-        public buscarUnidadPorIdParcialRequest(WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class buscarUnidadPorIdParcialRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int id;
-        
-        public buscarUnidadPorIdParcialRequestBody() {
-        }
-        
-        public buscarUnidadPorIdParcialRequestBody(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buscarUnidadPorIdParcialResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarUnidadPorIdParcialResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponseBody Body;
-        
-        public buscarUnidadPorIdParcialResponse() {
-        }
-        
-        public buscarUnidadPorIdParcialResponse(WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class buscarUnidadPorIdParcialResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public buscarUnidadPorIdParcialResponseBody() {
-        }
-        
-        public buscarUnidadPorIdParcialResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buscarFuncionarioParcialRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarFuncionarioParcial", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequestBody Body;
-        
-        public buscarFuncionarioParcialRequest() {
-        }
-        
-        public buscarFuncionarioParcialRequest(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class buscarFuncionarioParcialRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int run;
-        
-        public buscarFuncionarioParcialRequestBody() {
-        }
-        
-        public buscarFuncionarioParcialRequestBody(int run) {
-            this.run = run;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buscarFuncionarioParcialResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarFuncionarioParcialResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponseBody Body;
-        
-        public buscarFuncionarioParcialResponse() {
-        }
-        
-        public buscarFuncionarioParcialResponse(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class buscarFuncionarioParcialResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public buscarFuncionarioParcialResponseBody() {
-        }
-        
-        public buscarFuncionarioParcialResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listadoUnidadesHijasClaveValorRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listadoUnidadesHijasClaveValor", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequestBody Body;
-        
-        public listadoUnidadesHijasClaveValorRequest() {
-        }
-        
-        public listadoUnidadesHijasClaveValorRequest(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class listadoUnidadesHijasClaveValorRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int id;
-        
-        public listadoUnidadesHijasClaveValorRequestBody() {
-        }
-        
-        public listadoUnidadesHijasClaveValorRequestBody(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listadoUnidadesHijasClaveValorResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listadoUnidadesHijasClaveValorResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponseBody Body;
-        
-        public listadoUnidadesHijasClaveValorResponse() {
-        }
-        
-        public listadoUnidadesHijasClaveValorResponse(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class listadoUnidadesHijasClaveValorResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public listadoUnidadesHijasClaveValorResponseBody() {
-        }
-        
-        public listadoUnidadesHijasClaveValorResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buscarFuncionarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarFuncionario", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequestBody Body;
-        
-        public buscarFuncionarioRequest() {
-        }
-        
-        public buscarFuncionarioRequest(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class buscarFuncionarioRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int run;
-        
-        public buscarFuncionarioRequestBody() {
-        }
-        
-        public buscarFuncionarioRequestBody(int run) {
-            this.run = run;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class buscarFuncionarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarFuncionarioResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponseBody Body;
-        
-        public buscarFuncionarioResponse() {
-        }
-        
-        public buscarFuncionarioResponse(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class buscarFuncionarioResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public buscarFuncionarioResponseBody() {
-        }
-        
-        public buscarFuncionarioResponseBody(string @return) {
+        public autenticarUsuarioResponseBody(string @return) {
             this.@return = @return;
         }
     }
@@ -1053,83 +1778,15 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class nombreUnidadExisteRequest {
+    public partial class buscarPermisosAnualesRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="nombreUnidadExiste", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarPermisosAnuales", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesRequestBody Body;
         
-        public nombreUnidadExisteRequest() {
+        public buscarPermisosAnualesRequest() {
         }
         
-        public nombreUnidadExisteRequest(WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class nombreUnidadExisteRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string nombre;
-        
-        public nombreUnidadExisteRequestBody() {
-        }
-        
-        public nombreUnidadExisteRequestBody(string nombre) {
-            this.nombre = nombre;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class nombreUnidadExisteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="nombreUnidadExisteResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponseBody Body;
-        
-        public nombreUnidadExisteResponse() {
-        }
-        
-        public nombreUnidadExisteResponse(WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class nombreUnidadExisteResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public nombreUnidadExisteResponseBody() {
-        }
-        
-        public nombreUnidadExisteResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listadoUnidadClaveValorRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listadoUnidadClaveValor", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequestBody Body;
-        
-        public listadoUnidadClaveValorRequest() {
-        }
-        
-        public listadoUnidadClaveValorRequest(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequestBody Body) {
+        public buscarPermisosAnualesRequest(WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1138,9 +1795,9 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class listadoUnidadClaveValorRequestBody {
+    public partial class buscarPermisosAnualesRequestBody {
         
-        public listadoUnidadClaveValorRequestBody() {
+        public buscarPermisosAnualesRequestBody() {
         }
     }
     
@@ -1148,15 +1805,15 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listadoUnidadClaveValorResponse {
+    public partial class buscarPermisosAnualesResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listadoUnidadClaveValorResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarPermisosAnualesResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesResponseBody Body;
         
-        public listadoUnidadClaveValorResponse() {
+        public buscarPermisosAnualesResponse() {
         }
         
-        public listadoUnidadClaveValorResponse(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponseBody Body) {
+        public buscarPermisosAnualesResponse(WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1165,15 +1822,15 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class listadoUnidadClaveValorResponseBody {
+    public partial class buscarPermisosAnualesResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string @return;
         
-        public listadoUnidadClaveValorResponseBody() {
+        public buscarPermisosAnualesResponseBody() {
         }
         
-        public listadoUnidadClaveValorResponseBody(string @return) {
+        public buscarPermisosAnualesResponseBody(string @return) {
             this.@return = @return;
         }
     }
@@ -1182,42 +1839,15 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarFuncionariosRequest {
+    public partial class validarResolucionRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionarios", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="validarResolucion", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.validarResolucionRequestBody Body;
         
-        public listarFuncionariosRequest() {
+        public validarResolucionRequest() {
         }
         
-        public listarFuncionariosRequest(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class listarFuncionariosRequestBody {
-        
-        public listarFuncionariosRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarFuncionariosResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponseBody Body;
-        
-        public listarFuncionariosResponse() {
-        }
-        
-        public listarFuncionariosResponse(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponseBody Body) {
+        public validarResolucionRequest(WF_GPVH.wsIntegracionAppEscritorio.validarResolucionRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1226,50 +1856,20 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class listarFuncionariosResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public listarFuncionariosResponseBody() {
-        }
-        
-        public listarFuncionariosResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarFuncionariosNoJefesClaveValorExeptoUnidadRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosNoJefesClaveValorExeptoUnidad", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody Body;
-        
-        public listarFuncionariosNoJefesClaveValorExeptoUnidadRequest() {
-        }
-        
-        public listarFuncionariosNoJefesClaveValorExeptoUnidadRequest(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody {
+    public partial class validarResolucionRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int idUnidad;
+        public int idResolucion;
         
-        public listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody() {
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int runResolvente;
+        
+        public validarResolucionRequestBody() {
         }
         
-        public listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody(int idUnidad) {
-            this.idUnidad = idUnidad;
+        public validarResolucionRequestBody(int idResolucion, int runResolvente) {
+            this.idResolucion = idResolucion;
+            this.runResolvente = runResolvente;
         }
     }
     
@@ -1277,15 +1877,15 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarFuncionariosNoJefesClaveValorExeptoUnidadResponse {
+    public partial class validarResolucionResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosNoJefesClaveValorExeptoUnidadResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="validarResolucionResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.validarResolucionResponseBody Body;
         
-        public listarFuncionariosNoJefesClaveValorExeptoUnidadResponse() {
+        public validarResolucionResponse() {
         }
         
-        public listarFuncionariosNoJefesClaveValorExeptoUnidadResponse(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponseBody Body) {
+        public validarResolucionResponse(WF_GPVH.wsIntegracionAppEscritorio.validarResolucionResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -1294,15 +1894,148 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class listarFuncionariosNoJefesClaveValorExeptoUnidadResponseBody {
+    public partial class validarResolucionResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string @return;
         
-        public listarFuncionariosNoJefesClaveValorExeptoUnidadResponseBody() {
+        public validarResolucionResponseBody() {
         }
         
-        public listarFuncionariosNoJefesClaveValorExeptoUnidadResponseBody(string @return) {
+        public validarResolucionResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class invalidarResolucionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="invalidarResolucion", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionRequestBody Body;
+        
+        public invalidarResolucionRequest() {
+        }
+        
+        public invalidarResolucionRequest(WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class invalidarResolucionRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int idResolucion;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int runResolvente;
+        
+        public invalidarResolucionRequestBody() {
+        }
+        
+        public invalidarResolucionRequestBody(int idResolucion, int runResolvente) {
+            this.idResolucion = idResolucion;
+            this.runResolvente = runResolvente;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class invalidarResolucionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="invalidarResolucionResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionResponseBody Body;
+        
+        public invalidarResolucionResponse() {
+        }
+        
+        public invalidarResolucionResponse(WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class invalidarResolucionResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public invalidarResolucionResponseBody() {
+        }
+        
+        public invalidarResolucionResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listarFuncionariosNoJefesClaveValorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosNoJefesClaveValor", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequestBody Body;
+        
+        public listarFuncionariosNoJefesClaveValorRequest() {
+        }
+        
+        public listarFuncionariosNoJefesClaveValorRequest(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class listarFuncionariosNoJefesClaveValorRequestBody {
+        
+        public listarFuncionariosNoJefesClaveValorRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listarFuncionariosNoJefesClaveValorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosNoJefesClaveValorResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponseBody Body;
+        
+        public listarFuncionariosNoJefesClaveValorResponse() {
+        }
+        
+        public listarFuncionariosNoJefesClaveValorResponse(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class listarFuncionariosNoJefesClaveValorResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public listarFuncionariosNoJefesClaveValorResponseBody() {
+        }
+        
+        public listarFuncionariosNoJefesClaveValorResponseBody(string @return) {
             this.@return = @return;
         }
     }
@@ -1387,42 +2120,15 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarFuncionariosNoJefesClaveValorRequest {
+    public partial class listarFuncionariosNoJefesClaveValorExeptoUnidadRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosNoJefesClaveValor", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosNoJefesClaveValorExeptoUnidad", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody Body;
         
-        public listarFuncionariosNoJefesClaveValorRequest() {
+        public listarFuncionariosNoJefesClaveValorExeptoUnidadRequest() {
         }
         
-        public listarFuncionariosNoJefesClaveValorRequest(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class listarFuncionariosNoJefesClaveValorRequestBody {
-        
-        public listarFuncionariosNoJefesClaveValorRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarFuncionariosNoJefesClaveValorResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosNoJefesClaveValorResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponseBody Body;
-        
-        public listarFuncionariosNoJefesClaveValorResponse() {
-        }
-        
-        public listarFuncionariosNoJefesClaveValorResponse(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponseBody Body) {
+        public listarFuncionariosNoJefesClaveValorExeptoUnidadRequest(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1431,95 +2137,49 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class listarFuncionariosNoJefesClaveValorResponseBody {
+    public partial class listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int idUnidad;
+        
+        public listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody() {
+        }
+        
+        public listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody(int idUnidad) {
+            this.idUnidad = idUnidad;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class listarFuncionariosNoJefesClaveValorExeptoUnidadResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarFuncionariosNoJefesClaveValorExeptoUnidadResponse", Namespace="http://webservice/", Order=0)]
+        public WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponseBody Body;
+        
+        public listarFuncionariosNoJefesClaveValorExeptoUnidadResponse() {
+        }
+        
+        public listarFuncionariosNoJefesClaveValorExeptoUnidadResponse(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class listarFuncionariosNoJefesClaveValorExeptoUnidadResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string @return;
         
-        public listarFuncionariosNoJefesClaveValorResponseBody() {
+        public listarFuncionariosNoJefesClaveValorExeptoUnidadResponseBody() {
         }
         
-        public listarFuncionariosNoJefesClaveValorResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class insertarUsuarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="insertarUsuario", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequestBody Body;
-        
-        public insertarUsuarioRequest() {
-        }
-        
-        public insertarUsuarioRequest(WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class insertarUsuarioRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string nombre;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string clave;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string tipo;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public int run;
-        
-        public insertarUsuarioRequestBody() {
-        }
-        
-        public insertarUsuarioRequestBody(string nombre, string clave, string tipo, int run) {
-            this.nombre = nombre;
-            this.clave = clave;
-            this.tipo = tipo;
-            this.run = run;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class insertarUsuarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="insertarUsuarioResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponseBody Body;
-        
-        public insertarUsuarioResponse() {
-        }
-        
-        public insertarUsuarioResponse(WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class insertarUsuarioResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public insertarUsuarioResponseBody() {
-        }
-        
-        public insertarUsuarioResponseBody(string @return) {
+        public listarFuncionariosNoJefesClaveValorExeptoUnidadResponseBody(string @return) {
             this.@return = @return;
         }
     }
@@ -1748,440 +2408,6 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarUnidadesRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarUnidades", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequestBody Body;
-        
-        public listarUnidadesRequest() {
-        }
-        
-        public listarUnidadesRequest(WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class listarUnidadesRequestBody {
-        
-        public listarUnidadesRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarUnidadesResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarUnidadesResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponseBody Body;
-        
-        public listarUnidadesResponse() {
-        }
-        
-        public listarUnidadesResponse(WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class listarUnidadesResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public listarUnidadesResponseBody() {
-        }
-        
-        public listarUnidadesResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class modificarUnidadRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="modificarUnidad", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequestBody Body;
-        
-        public modificarUnidadRequest() {
-        }
-        
-        public modificarUnidadRequest(WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class modificarUnidadRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int id_unidad;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string nombre;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string descripcion;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string direccion;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-        public bool habilitado;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-        public int unidad_padre;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-        public int jefe_unidad;
-        
-        public modificarUnidadRequestBody() {
-        }
-        
-        public modificarUnidadRequestBody(int id_unidad, string nombre, string descripcion, string direccion, bool habilitado, int unidad_padre, int jefe_unidad) {
-            this.id_unidad = id_unidad;
-            this.nombre = nombre;
-            this.descripcion = descripcion;
-            this.direccion = direccion;
-            this.habilitado = habilitado;
-            this.unidad_padre = unidad_padre;
-            this.jefe_unidad = jefe_unidad;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class modificarUnidadResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="modificarUnidadResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponseBody Body;
-        
-        public modificarUnidadResponse() {
-        }
-        
-        public modificarUnidadResponse(WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class modificarUnidadResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public modificarUnidadResponseBody() {
-        }
-        
-        public modificarUnidadResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class eliminarUnidadRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="eliminarUnidad", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequestBody Body;
-        
-        public eliminarUnidadRequest() {
-        }
-        
-        public eliminarUnidadRequest(WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class eliminarUnidadRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int id_unidad;
-        
-        public eliminarUnidadRequestBody() {
-        }
-        
-        public eliminarUnidadRequestBody(int id_unidad) {
-            this.id_unidad = id_unidad;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class eliminarUnidadResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="eliminarUnidadResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponseBody Body;
-        
-        public eliminarUnidadResponse() {
-        }
-        
-        public eliminarUnidadResponse(WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class eliminarUnidadResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public eliminarUnidadResponseBody() {
-        }
-        
-        public eliminarUnidadResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class insertarUnidadRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="insertarUnidad", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequestBody Body;
-        
-        public insertarUnidadRequest() {
-        }
-        
-        public insertarUnidadRequest(WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class insertarUnidadRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string nombre;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string descripcion;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string direccion;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public int unidad_padre;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-        public int jefe_unidad;
-        
-        public insertarUnidadRequestBody() {
-        }
-        
-        public insertarUnidadRequestBody(string nombre, string descripcion, string direccion, int unidad_padre, int jefe_unidad) {
-            this.nombre = nombre;
-            this.descripcion = descripcion;
-            this.direccion = direccion;
-            this.unidad_padre = unidad_padre;
-            this.jefe_unidad = jefe_unidad;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class insertarUnidadResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="insertarUnidadResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponseBody Body;
-        
-        public insertarUnidadResponse() {
-        }
-        
-        public insertarUnidadResponse(WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class insertarUnidadResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public insertarUnidadResponseBody() {
-        }
-        
-        public insertarUnidadResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarUsuariosRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarUsuarios", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequestBody Body;
-        
-        public listarUsuariosRequest() {
-        }
-        
-        public listarUsuariosRequest(WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class listarUsuariosRequestBody {
-        
-        public listarUsuariosRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class listarUsuariosResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="listarUsuariosResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponseBody Body;
-        
-        public listarUsuariosResponse() {
-        }
-        
-        public listarUsuariosResponse(WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class listarUsuariosResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public listarUsuariosResponseBody() {
-        }
-        
-        public listarUsuariosResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class usuarioExisteRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="usuarioExiste", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequestBody Body;
-        
-        public usuarioExisteRequest() {
-        }
-        
-        public usuarioExisteRequest(WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class usuarioExisteRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string nombre;
-        
-        public usuarioExisteRequestBody() {
-        }
-        
-        public usuarioExisteRequestBody(string nombre) {
-            this.nombre = nombre;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class usuarioExisteResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="usuarioExisteResponse", Namespace="http://webservice/", Order=0)]
-        public WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponseBody Body;
-        
-        public usuarioExisteResponse() {
-        }
-        
-        public usuarioExisteResponse(WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class usuarioExisteResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public usuarioExisteResponseBody() {
-        }
-        
-        public usuarioExisteResponseBody(string @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class buscarPermisosRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="buscarPermisos", Namespace="http://webservice/", Order=0)]
@@ -2274,6 +2500,399 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarUnidades(WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest request) {
+            return base.Channel.listarUnidades(request);
+        }
+        
+        public string listarUnidades() {
+            WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequestBody();
+            WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarUnidades(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarUnidadesAsync(WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest request) {
+            return base.Channel.listarUnidadesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponse> listarUnidadesAsync() {
+            WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequestBody();
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarUnidadesAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.insertarUnidad(WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest request) {
+            return base.Channel.insertarUnidad(request);
+        }
+        
+        public string insertarUnidad(string nombre, string descripcion, string direccion, int unidad_padre, int jefe_unidad) {
+            WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequestBody();
+            inValue.Body.nombre = nombre;
+            inValue.Body.descripcion = descripcion;
+            inValue.Body.direccion = direccion;
+            inValue.Body.unidad_padre = unidad_padre;
+            inValue.Body.jefe_unidad = jefe_unidad;
+            WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).insertarUnidad(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.insertarUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest request) {
+            return base.Channel.insertarUnidadAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponse> insertarUnidadAsync(string nombre, string descripcion, string direccion, int unidad_padre, int jefe_unidad) {
+            WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequestBody();
+            inValue.Body.nombre = nombre;
+            inValue.Body.descripcion = descripcion;
+            inValue.Body.direccion = direccion;
+            inValue.Body.unidad_padre = unidad_padre;
+            inValue.Body.jefe_unidad = jefe_unidad;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).insertarUnidadAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarUsuarios(WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest request) {
+            return base.Channel.listarUsuarios(request);
+        }
+        
+        public string listarUsuarios() {
+            WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequestBody();
+            WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarUsuarios(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarUsuariosAsync(WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest request) {
+            return base.Channel.listarUsuariosAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponse> listarUsuariosAsync() {
+            WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequestBody();
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarUsuariosAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.usuarioExiste(WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest request) {
+            return base.Channel.usuarioExiste(request);
+        }
+        
+        public string usuarioExiste(string nombre) {
+            WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequestBody();
+            inValue.Body.nombre = nombre;
+            WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).usuarioExiste(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.usuarioExisteAsync(WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest request) {
+            return base.Channel.usuarioExisteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse> usuarioExisteAsync(string nombre) {
+            WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequestBody();
+            inValue.Body.nombre = nombre;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).usuarioExisteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.insertarUsuario(WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest request) {
+            return base.Channel.insertarUsuario(request);
+        }
+        
+        public string insertarUsuario(string nombre, string clave, string tipo, int run) {
+            WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequestBody();
+            inValue.Body.nombre = nombre;
+            inValue.Body.clave = clave;
+            inValue.Body.tipo = tipo;
+            inValue.Body.run = run;
+            WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).insertarUsuario(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.insertarUsuarioAsync(WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest request) {
+            return base.Channel.insertarUsuarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse> insertarUsuarioAsync(string nombre, string clave, string tipo, int run) {
+            WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequestBody();
+            inValue.Body.nombre = nombre;
+            inValue.Body.clave = clave;
+            inValue.Body.tipo = tipo;
+            inValue.Body.run = run;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).insertarUsuarioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.eliminarUnidad(WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest request) {
+            return base.Channel.eliminarUnidad(request);
+        }
+        
+        public string eliminarUnidad(int id_unidad) {
+            WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequestBody();
+            inValue.Body.id_unidad = id_unidad;
+            WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).eliminarUnidad(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.eliminarUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest request) {
+            return base.Channel.eliminarUnidadAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponse> eliminarUnidadAsync(int id_unidad) {
+            WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequestBody();
+            inValue.Body.id_unidad = id_unidad;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).eliminarUnidadAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.modificarUnidad(WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest request) {
+            return base.Channel.modificarUnidad(request);
+        }
+        
+        public string modificarUnidad(int id_unidad, string nombre, string descripcion, string direccion, bool habilitado, int unidad_padre, int jefe_unidad) {
+            WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequestBody();
+            inValue.Body.id_unidad = id_unidad;
+            inValue.Body.nombre = nombre;
+            inValue.Body.descripcion = descripcion;
+            inValue.Body.direccion = direccion;
+            inValue.Body.habilitado = habilitado;
+            inValue.Body.unidad_padre = unidad_padre;
+            inValue.Body.jefe_unidad = jefe_unidad;
+            WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).modificarUnidad(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.modificarUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest request) {
+            return base.Channel.modificarUnidadAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponse> modificarUnidadAsync(int id_unidad, string nombre, string descripcion, string direccion, bool habilitado, int unidad_padre, int jefe_unidad) {
+            WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequestBody();
+            inValue.Body.id_unidad = id_unidad;
+            inValue.Body.nombre = nombre;
+            inValue.Body.descripcion = descripcion;
+            inValue.Body.direccion = direccion;
+            inValue.Body.habilitado = habilitado;
+            inValue.Body.unidad_padre = unidad_padre;
+            inValue.Body.jefe_unidad = jefe_unidad;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).modificarUnidadAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listadoUnidadClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest request) {
+            return base.Channel.listadoUnidadClaveValor(request);
+        }
+        
+        public string listadoUnidadClaveValor() {
+            WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequestBody();
+            WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listadoUnidadClaveValor(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listadoUnidadClaveValorAsync(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest request) {
+            return base.Channel.listadoUnidadClaveValorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse> listadoUnidadClaveValorAsync() {
+            WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequestBody();
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listadoUnidadClaveValorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarUnidadPorIdParcial(WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest request) {
+            return base.Channel.buscarUnidadPorIdParcial(request);
+        }
+        
+        public string buscarUnidadPorIdParcial(int id) {
+            WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequestBody();
+            inValue.Body.id = id;
+            WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarUnidadPorIdParcial(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarUnidadPorIdParcialAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest request) {
+            return base.Channel.buscarUnidadPorIdParcialAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponse> buscarUnidadPorIdParcialAsync(int id) {
+            WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequestBody();
+            inValue.Body.id = id;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarUnidadPorIdParcialAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listadoUnidadesHijasClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest request) {
+            return base.Channel.listadoUnidadesHijasClaveValor(request);
+        }
+        
+        public string listadoUnidadesHijasClaveValor(int id) {
+            WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequestBody();
+            inValue.Body.id = id;
+            WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listadoUnidadesHijasClaveValor(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listadoUnidadesHijasClaveValorAsync(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest request) {
+            return base.Channel.listadoUnidadesHijasClaveValorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponse> listadoUnidadesHijasClaveValorAsync(int id) {
+            WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequestBody();
+            inValue.Body.id = id;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listadoUnidadesHijasClaveValorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.nombreUnidadExiste(WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest request) {
+            return base.Channel.nombreUnidadExiste(request);
+        }
+        
+        public string nombreUnidadExiste(string nombre) {
+            WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequestBody();
+            inValue.Body.nombre = nombre;
+            WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).nombreUnidadExiste(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.nombreUnidadExisteAsync(WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest request) {
+            return base.Channel.nombreUnidadExisteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponse> nombreUnidadExisteAsync(string nombre) {
+            WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequestBody();
+            inValue.Body.nombre = nombre;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).nombreUnidadExisteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarFuncionarioParcial(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest request) {
+            return base.Channel.buscarFuncionarioParcial(request);
+        }
+        
+        public string buscarFuncionarioParcial(int run) {
+            WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequestBody();
+            inValue.Body.run = run;
+            WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarFuncionarioParcial(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarFuncionarioParcialAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest request) {
+            return base.Channel.buscarFuncionarioParcialAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponse> buscarFuncionarioParcialAsync(int run) {
+            WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequestBody();
+            inValue.Body.run = run;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarFuncionarioParcialAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarFuncionario(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest request) {
+            return base.Channel.buscarFuncionario(request);
+        }
+        
+        public string buscarFuncionario(int run) {
+            WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequestBody();
+            inValue.Body.run = run;
+            WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarFuncionario(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarFuncionarioAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest request) {
+            return base.Channel.buscarFuncionarioAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse> buscarFuncionarioAsync(int run) {
+            WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequestBody();
+            inValue.Body.run = run;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarFuncionarioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionarios(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest request) {
+            return base.Channel.listarFuncionarios(request);
+        }
+        
+        public string listarFuncionarios() {
+            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequestBody();
+            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionarios(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest request) {
+            return base.Channel.listarFuncionariosAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponse> listarFuncionariosAsync() {
+            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequestBody();
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosDeUnidad(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest request) {
+            return base.Channel.listarFuncionariosDeUnidad(request);
+        }
+        
+        public string listarFuncionariosDeUnidad(int idUnidad) {
+            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequestBody();
+            inValue.Body.idUnidad = idUnidad;
+            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosDeUnidad(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosDeUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest request) {
+            return base.Channel.listarFuncionariosDeUnidadAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponse> listarFuncionariosDeUnidadAsync(int idUnidad) {
+            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequestBody();
+            inValue.Body.idUnidad = idUnidad;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosDeUnidadAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosClaveValorResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosClaveValorRequest request) {
             return base.Channel.listarFuncionariosClaveValor(request);
         }
@@ -2294,33 +2913,6 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
             WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosClaveValorRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosClaveValorRequest();
             inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosClaveValorRequestBody();
             return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosClaveValorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.autenticarUsuario(WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest request) {
-            return base.Channel.autenticarUsuario(request);
-        }
-        
-        public string autenticarUsuario(string nombre, string clave) {
-            WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequestBody();
-            inValue.Body.nombre = nombre;
-            inValue.Body.clave = clave;
-            WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).autenticarUsuario(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.autenticarUsuarioAsync(WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest request) {
-            return base.Channel.autenticarUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse> autenticarUsuarioAsync(string nombre, string clave) {
-            WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequestBody();
-            inValue.Body.nombre = nombre;
-            inValue.Body.clave = clave;
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).autenticarUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2437,128 +3029,30 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosDeUnidad(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest request) {
-            return base.Channel.listarFuncionariosDeUnidad(request);
+        WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.autenticarUsuario(WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest request) {
+            return base.Channel.autenticarUsuario(request);
         }
         
-        public string listarFuncionariosDeUnidad(int idUnidad) {
-            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequestBody();
-            inValue.Body.idUnidad = idUnidad;
-            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosDeUnidad(inValue);
+        public string autenticarUsuario(string nombre, string clave) {
+            WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequestBody();
+            inValue.Body.nombre = nombre;
+            inValue.Body.clave = clave;
+            WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).autenticarUsuario(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosDeUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest request) {
-            return base.Channel.listarFuncionariosDeUnidadAsync(request);
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.autenticarUsuarioAsync(WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest request) {
+            return base.Channel.autenticarUsuarioAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadResponse> listarFuncionariosDeUnidadAsync(int idUnidad) {
-            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosDeUnidadRequestBody();
-            inValue.Body.idUnidad = idUnidad;
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosDeUnidadAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarUnidadPorIdParcial(WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest request) {
-            return base.Channel.buscarUnidadPorIdParcial(request);
-        }
-        
-        public string buscarUnidadPorIdParcial(int id) {
-            WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequestBody();
-            inValue.Body.id = id;
-            WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarUnidadPorIdParcial(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarUnidadPorIdParcialAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest request) {
-            return base.Channel.buscarUnidadPorIdParcialAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialResponse> buscarUnidadPorIdParcialAsync(int id) {
-            WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarUnidadPorIdParcialRequestBody();
-            inValue.Body.id = id;
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarUnidadPorIdParcialAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarFuncionarioParcial(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest request) {
-            return base.Channel.buscarFuncionarioParcial(request);
-        }
-        
-        public string buscarFuncionarioParcial(int run) {
-            WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequestBody();
-            inValue.Body.run = run;
-            WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarFuncionarioParcial(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarFuncionarioParcialAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest request) {
-            return base.Channel.buscarFuncionarioParcialAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialResponse> buscarFuncionarioParcialAsync(int run) {
-            WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioParcialRequestBody();
-            inValue.Body.run = run;
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarFuncionarioParcialAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listadoUnidadesHijasClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest request) {
-            return base.Channel.listadoUnidadesHijasClaveValor(request);
-        }
-        
-        public string listadoUnidadesHijasClaveValor(int id) {
-            WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequestBody();
-            inValue.Body.id = id;
-            WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listadoUnidadesHijasClaveValor(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listadoUnidadesHijasClaveValorAsync(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest request) {
-            return base.Channel.listadoUnidadesHijasClaveValorAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorResponse> listadoUnidadesHijasClaveValorAsync(int id) {
-            WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadesHijasClaveValorRequestBody();
-            inValue.Body.id = id;
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listadoUnidadesHijasClaveValorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarFuncionario(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest request) {
-            return base.Channel.buscarFuncionario(request);
-        }
-        
-        public string buscarFuncionario(int run) {
-            WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequestBody();
-            inValue.Body.run = run;
-            WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarFuncionario(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarFuncionarioAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest request) {
-            return base.Channel.buscarFuncionarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse> buscarFuncionarioAsync(int run) {
-            WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioRequestBody();
-            inValue.Body.run = run;
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarFuncionarioAsync(inValue);
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse> autenticarUsuarioAsync(string nombre, string clave) {
+            WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioRequestBody();
+            inValue.Body.nombre = nombre;
+            inValue.Body.clave = clave;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).autenticarUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2589,99 +3083,103 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.nombreUnidadExiste(WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest request) {
-            return base.Channel.nombreUnidadExiste(request);
+        WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarPermisosAnuales(WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesRequest request) {
+            return base.Channel.buscarPermisosAnuales(request);
         }
         
-        public string nombreUnidadExiste(string nombre) {
-            WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequestBody();
-            inValue.Body.nombre = nombre;
-            WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).nombreUnidadExiste(inValue);
+        public string buscarPermisosAnuales() {
+            WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesRequestBody();
+            WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarPermisosAnuales(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.nombreUnidadExisteAsync(WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest request) {
-            return base.Channel.nombreUnidadExisteAsync(request);
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.buscarPermisosAnualesAsync(WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesRequest request) {
+            return base.Channel.buscarPermisosAnualesAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteResponse> nombreUnidadExisteAsync(string nombre) {
-            WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.nombreUnidadExisteRequestBody();
-            inValue.Body.nombre = nombre;
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).nombreUnidadExisteAsync(inValue);
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesResponse> buscarPermisosAnualesAsync() {
+            WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesRequestBody();
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarPermisosAnualesAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listadoUnidadClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest request) {
-            return base.Channel.listadoUnidadClaveValor(request);
+        WF_GPVH.wsIntegracionAppEscritorio.validarResolucionResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.validarResolucion(WF_GPVH.wsIntegracionAppEscritorio.validarResolucionRequest request) {
+            return base.Channel.validarResolucion(request);
         }
         
-        public string listadoUnidadClaveValor() {
-            WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequestBody();
-            WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listadoUnidadClaveValor(inValue);
+        public string validarResolucion(int idResolucion, int runResolvente) {
+            WF_GPVH.wsIntegracionAppEscritorio.validarResolucionRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.validarResolucionRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.validarResolucionRequestBody();
+            inValue.Body.idResolucion = idResolucion;
+            inValue.Body.runResolvente = runResolvente;
+            WF_GPVH.wsIntegracionAppEscritorio.validarResolucionResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).validarResolucion(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listadoUnidadClaveValorAsync(WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest request) {
-            return base.Channel.listadoUnidadClaveValorAsync(request);
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.validarResolucionResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.validarResolucionAsync(WF_GPVH.wsIntegracionAppEscritorio.validarResolucionRequest request) {
+            return base.Channel.validarResolucionAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse> listadoUnidadClaveValorAsync() {
-            WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorRequestBody();
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listadoUnidadClaveValorAsync(inValue);
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.validarResolucionResponse> validarResolucionAsync(int idResolucion, int runResolvente) {
+            WF_GPVH.wsIntegracionAppEscritorio.validarResolucionRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.validarResolucionRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.validarResolucionRequestBody();
+            inValue.Body.idResolucion = idResolucion;
+            inValue.Body.runResolvente = runResolvente;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).validarResolucionAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionarios(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest request) {
-            return base.Channel.listarFuncionarios(request);
+        WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.invalidarResolucion(WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionRequest request) {
+            return base.Channel.invalidarResolucion(request);
         }
         
-        public string listarFuncionarios() {
-            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequestBody();
-            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionarios(inValue);
+        public string invalidarResolucion(int idResolucion, int runResolvente) {
+            WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionRequestBody();
+            inValue.Body.idResolucion = idResolucion;
+            inValue.Body.runResolvente = runResolvente;
+            WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).invalidarResolucion(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest request) {
-            return base.Channel.listarFuncionariosAsync(request);
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.invalidarResolucionAsync(WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionRequest request) {
+            return base.Channel.invalidarResolucionAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosResponse> listarFuncionariosAsync() {
-            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosRequestBody();
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosAsync(inValue);
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionResponse> invalidarResolucionAsync(int idResolucion, int runResolvente) {
+            WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionRequestBody();
+            inValue.Body.idResolucion = idResolucion;
+            inValue.Body.runResolvente = runResolvente;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).invalidarResolucionAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidad(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest request) {
-            return base.Channel.listarFuncionariosNoJefesClaveValorExeptoUnidad(request);
+        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosNoJefesClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest request) {
+            return base.Channel.listarFuncionariosNoJefesClaveValor(request);
         }
         
-        public string listarFuncionariosNoJefesClaveValorExeptoUnidad(int idUnidad) {
-            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody();
-            inValue.Body.idUnidad = idUnidad;
-            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosNoJefesClaveValorExeptoUnidad(inValue);
+        public string listarFuncionariosNoJefesClaveValor() {
+            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequestBody();
+            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosNoJefesClaveValor(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest request) {
-            return base.Channel.listarFuncionariosNoJefesClaveValorExeptoUnidadAsync(request);
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosNoJefesClaveValorAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest request) {
+            return base.Channel.listarFuncionariosNoJefesClaveValorAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponse> listarFuncionariosNoJefesClaveValorExeptoUnidadAsync(int idUnidad) {
-            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody();
-            inValue.Body.idUnidad = idUnidad;
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosNoJefesClaveValorExeptoUnidadAsync(inValue);
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponse> listarFuncionariosNoJefesClaveValorAsync() {
+            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequestBody();
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosNoJefesClaveValorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2714,57 +3212,28 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosNoJefesClaveValor(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest request) {
-            return base.Channel.listarFuncionariosNoJefesClaveValor(request);
+        WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidad(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest request) {
+            return base.Channel.listarFuncionariosNoJefesClaveValorExeptoUnidad(request);
         }
         
-        public string listarFuncionariosNoJefesClaveValor() {
-            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequestBody();
-            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosNoJefesClaveValor(inValue);
+        public string listarFuncionariosNoJefesClaveValorExeptoUnidad(int idUnidad) {
+            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody();
+            inValue.Body.idUnidad = idUnidad;
+            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosNoJefesClaveValorExeptoUnidad(inValue);
             return retVal.Body.@return;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosNoJefesClaveValorAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest request) {
-            return base.Channel.listarFuncionariosNoJefesClaveValorAsync(request);
+        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest request) {
+            return base.Channel.listarFuncionariosNoJefesClaveValorExeptoUnidadAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorResponse> listarFuncionariosNoJefesClaveValorAsync() {
-            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorRequestBody();
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosNoJefesClaveValorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.insertarUsuario(WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest request) {
-            return base.Channel.insertarUsuario(request);
-        }
-        
-        public string insertarUsuario(string nombre, string clave, string tipo, int run) {
-            WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequestBody();
-            inValue.Body.nombre = nombre;
-            inValue.Body.clave = clave;
-            inValue.Body.tipo = tipo;
-            inValue.Body.run = run;
-            WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).insertarUsuario(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.insertarUsuarioAsync(WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest request) {
-            return base.Channel.insertarUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse> insertarUsuarioAsync(string nombre, string clave, string tipo, int run) {
-            WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioRequestBody();
-            inValue.Body.nombre = nombre;
-            inValue.Body.clave = clave;
-            inValue.Body.tipo = tipo;
-            inValue.Body.run = run;
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).insertarUsuarioAsync(inValue);
+        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadResponse> listarFuncionariosNoJefesClaveValorExeptoUnidadAsync(int idUnidad) {
+            WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequest();
+            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarFuncionariosNoJefesClaveValorExeptoUnidadRequestBody();
+            inValue.Body.idUnidad = idUnidad;
+            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarFuncionariosNoJefesClaveValorExeptoUnidadAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2848,172 +3317,6 @@ namespace WF_GPVH.wsIntegracionAppEscritorio {
             inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.buscarUsuarioRequestBody();
             inValue.Body.id = id;
             return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).buscarUsuarioAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarUnidades(WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest request) {
-            return base.Channel.listarUnidades(request);
-        }
-        
-        public string listarUnidades() {
-            WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequestBody();
-            WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarUnidades(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarUnidadesAsync(WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest request) {
-            return base.Channel.listarUnidadesAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesResponse> listarUnidadesAsync() {
-            WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarUnidadesRequestBody();
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarUnidadesAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.modificarUnidad(WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest request) {
-            return base.Channel.modificarUnidad(request);
-        }
-        
-        public string modificarUnidad(int id_unidad, string nombre, string descripcion, string direccion, bool habilitado, int unidad_padre, int jefe_unidad) {
-            WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequestBody();
-            inValue.Body.id_unidad = id_unidad;
-            inValue.Body.nombre = nombre;
-            inValue.Body.descripcion = descripcion;
-            inValue.Body.direccion = direccion;
-            inValue.Body.habilitado = habilitado;
-            inValue.Body.unidad_padre = unidad_padre;
-            inValue.Body.jefe_unidad = jefe_unidad;
-            WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).modificarUnidad(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.modificarUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest request) {
-            return base.Channel.modificarUnidadAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadResponse> modificarUnidadAsync(int id_unidad, string nombre, string descripcion, string direccion, bool habilitado, int unidad_padre, int jefe_unidad) {
-            WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.modificarUnidadRequestBody();
-            inValue.Body.id_unidad = id_unidad;
-            inValue.Body.nombre = nombre;
-            inValue.Body.descripcion = descripcion;
-            inValue.Body.direccion = direccion;
-            inValue.Body.habilitado = habilitado;
-            inValue.Body.unidad_padre = unidad_padre;
-            inValue.Body.jefe_unidad = jefe_unidad;
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).modificarUnidadAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.eliminarUnidad(WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest request) {
-            return base.Channel.eliminarUnidad(request);
-        }
-        
-        public string eliminarUnidad(int id_unidad) {
-            WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequestBody();
-            inValue.Body.id_unidad = id_unidad;
-            WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).eliminarUnidad(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.eliminarUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest request) {
-            return base.Channel.eliminarUnidadAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadResponse> eliminarUnidadAsync(int id_unidad) {
-            WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.eliminarUnidadRequestBody();
-            inValue.Body.id_unidad = id_unidad;
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).eliminarUnidadAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.insertarUnidad(WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest request) {
-            return base.Channel.insertarUnidad(request);
-        }
-        
-        public string insertarUnidad(string nombre, string descripcion, string direccion, int unidad_padre, int jefe_unidad) {
-            WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequestBody();
-            inValue.Body.nombre = nombre;
-            inValue.Body.descripcion = descripcion;
-            inValue.Body.direccion = direccion;
-            inValue.Body.unidad_padre = unidad_padre;
-            inValue.Body.jefe_unidad = jefe_unidad;
-            WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).insertarUnidad(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.insertarUnidadAsync(WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest request) {
-            return base.Channel.insertarUnidadAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadResponse> insertarUnidadAsync(string nombre, string descripcion, string direccion, int unidad_padre, int jefe_unidad) {
-            WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.insertarUnidadRequestBody();
-            inValue.Body.nombre = nombre;
-            inValue.Body.descripcion = descripcion;
-            inValue.Body.direccion = direccion;
-            inValue.Body.unidad_padre = unidad_padre;
-            inValue.Body.jefe_unidad = jefe_unidad;
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).insertarUnidadAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarUsuarios(WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest request) {
-            return base.Channel.listarUsuarios(request);
-        }
-        
-        public string listarUsuarios() {
-            WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequestBody();
-            WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarUsuarios(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.listarUsuariosAsync(WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest request) {
-            return base.Channel.listarUsuariosAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosResponse> listarUsuariosAsync() {
-            WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.listarUsuariosRequestBody();
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).listarUsuariosAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.usuarioExiste(WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest request) {
-            return base.Channel.usuarioExiste(request);
-        }
-        
-        public string usuarioExiste(string nombre) {
-            WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequestBody();
-            inValue.Body.nombre = nombre;
-            WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse retVal = ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).usuarioExiste(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse> WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio.usuarioExisteAsync(WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest request) {
-            return base.Channel.usuarioExisteAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse> usuarioExisteAsync(string nombre) {
-            WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest inValue = new WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequest();
-            inValue.Body = new WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteRequestBody();
-            inValue.Body.nombre = nombre;
-            return ((WF_GPVH.wsIntegracionAppEscritorio.WebServiceAppEscritorio)(this)).usuarioExisteAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

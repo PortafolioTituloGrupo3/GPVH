@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mgPermisos = new MetroFramework.Controls.MetroGrid();
+            this.btnVerDocumentos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.rbVerTodos = new MetroFramework.Controls.MetroRadioButton();
             this.mpGupoRB = new MetroFramework.Controls.MetroPanel();
             this.rbVerSoloPendientes = new MetroFramework.Controls.MetroRadioButton();
@@ -43,7 +44,6 @@
             this.mdtFechaTermino = new MetroFramework.Controls.MetroDateTime();
             this.mdtFechaInicio = new MetroFramework.Controls.MetroDateTime();
             this.chkBuscarEntreFechas = new MetroFramework.Controls.MetroCheckBox();
-            this.btnVerDocumentos = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mgPermisos)).BeginInit();
             this.mpGupoRB.SuspendLayout();
             this.mpBusquedaEntreFechas.SuspendLayout();
@@ -79,6 +79,7 @@
             this.mgPermisos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mgPermisos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.mgPermisos.Location = new System.Drawing.Point(24, 79);
+            this.mgPermisos.MaximumSize = new System.Drawing.Size(650, 164);
             this.mgPermisos.Name = "mgPermisos";
             this.mgPermisos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -91,9 +92,18 @@
             this.mgPermisos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.mgPermisos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.mgPermisos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mgPermisos.Size = new System.Drawing.Size(753, 159);
+            this.mgPermisos.Size = new System.Drawing.Size(650, 159);
             this.mgPermisos.TabIndex = 0;
             this.mgPermisos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.mgPermisos_CellMouseClick);
+            // 
+            // btnVerDocumentos
+            // 
+            this.btnVerDocumentos.Frozen = true;
+            this.btnVerDocumentos.HeaderText = "Ver documentos";
+            this.btnVerDocumentos.Name = "btnVerDocumentos";
+            this.btnVerDocumentos.Text = "Ver";
+            this.btnVerDocumentos.ToolTipText = "Ver";
+            this.btnVerDocumentos.UseColumnTextForButtonValue = true;
             // 
             // rbVerTodos
             // 
@@ -222,15 +232,6 @@
             this.chkBuscarEntreFechas.Text = "Buscar Entre Fechas";
             this.chkBuscarEntreFechas.UseSelectable = true;
             this.chkBuscarEntreFechas.CheckedChanged += new System.EventHandler(this.chkBuscarEntreFechas_CheckedChanged);
-            // 
-            // btnVerDocumentos
-            // 
-            this.btnVerDocumentos.Frozen = true;
-            this.btnVerDocumentos.HeaderText = "Ver documentos";
-            this.btnVerDocumentos.Name = "btnVerDocumentos";
-            this.btnVerDocumentos.Text = "Ver";
-            this.btnVerDocumentos.ToolTipText = "Ver";
-            this.btnVerDocumentos.UseColumnTextForButtonValue = true;
             // 
             // Form_BuscarPermiso
             // 

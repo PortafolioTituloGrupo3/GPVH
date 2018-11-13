@@ -125,6 +125,12 @@
     <Compile Include="Formularios\Menu\Form_Menu_Administrador.Designer.cs">
       <DependentUpon>Form_Menu_Administrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Menu\Form_Menu_Alcalde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Menu\Form_Menu_Alcalde.Designer.cs">
+      <DependentUpon>Form_Menu_Alcalde.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Menu\Form_Menu_Jefe_Unidad_Superior.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,6 +271,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\wsSistemaAsistencia\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Formularios\Login\Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Menu\Form_Menu_Administrador.resx">
       <DependentUpon>Form_Menu_Administrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Menu\Form_Menu_Alcalde.resx">
+      <DependentUpon>Form_Menu_Alcalde.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Menu\Form_Menu_Jefe_Unidad_Superior.resx">
       <DependentUpon>Form_Menu_Jefe_Unidad_Superior.cs</DependentUpon>
@@ -443,6 +457,9 @@
     <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -474,6 +491,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.invalidarResolucionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse.datasource">
@@ -518,6 +538,16 @@
     <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.validarResolucionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsSistemaAsistencia\WebServiceSistemaAsistencia.wsdl" />
+    <None Include="Service References\wsSistemaAsistencia\WebServiceSistemaAsistencia.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsSistemaAsistencia\WF_GPVH.wsSistemaAsistencia.listarAsistenciasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -534,6 +564,7 @@
     <WCFMetadataStorage Include="Service References\ServiceWSUnidades\" />
     <WCFMetadataStorage Include="Service References\ServiceWSUsuarios\" />
     <WCFMetadataStorage Include="Service References\wsIntegracionAppEscritorio\" />
+    <WCFMetadataStorage Include="Service References\wsSistemaAsistencia\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceWSUsuarios\WSUsuarios.disco" />
@@ -614,6 +645,12 @@
     <Content Include="obj\Debug\TempPE\Service References.ServiceWSUnidades.Reference.cs.dll" />
     <Content Include="obj\Debug\TempPE\Service References.ServiceWSUsuarios.Reference.cs.dll" />
     <Content Include="obj\Debug\WF_GPVH.csproj.FileListAbsolute.txt" />
+    <None Include="Service References\wsSistemaAsistencia\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\wsSistemaAsistencia\configuration.svcinfo" />
+    <None Include="Service References\wsSistemaAsistencia\configuration91.svcinfo" />
     <None Include="Service References\wsIntegracionAppEscritorio\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -622,8 +659,6 @@
     <None Include="Service References\wsIntegracionAppEscritorio\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Debug\Reportes\Crystal Report\" />
-    <Folder Include="bin\Release\" />
     <None Include="Service References\ServiceWSPermisos\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -632,7 +667,10 @@
     <None Include="Service References\ServiceWSPermisos\configuration91.svcinfo" />
     <None Include="Service References\ServiceWSPermisos\WSPermisos.disco" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="bin\Debug\Reportes\Crystal Report\" />
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LB_GPVH\LB_GPVH.csproj">
       <Project>{60dea010-c448-4035-b2ca-0f2aea824bba}</Project>

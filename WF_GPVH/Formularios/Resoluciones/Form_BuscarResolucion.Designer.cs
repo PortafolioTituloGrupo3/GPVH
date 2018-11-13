@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mgResoluciones = new MetroFramework.Controls.MetroGrid();
+            this.btnValidar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnInvalidar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.rbVerSoloPendientes = new MetroFramework.Controls.MetroRadioButton();
             this.rbVerSoloInvalidados = new MetroFramework.Controls.MetroRadioButton();
@@ -48,6 +50,7 @@
             this.cmbUnidad = new MetroFramework.Controls.MetroComboBox();
             this.lblUnidad = new MetroFramework.Controls.MetroLabel();
             this.mtBuscar = new MetroFramework.Controls.MetroTile();
+            this.mtVolver = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.mgResoluciones)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,41 +62,62 @@
             this.mgResoluciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mgResoluciones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.mgResoluciones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mgResoluciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mgResoluciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.mgResoluciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.mgResoluciones.DefaultCellStyle = dataGridViewCellStyle23;
+            this.mgResoluciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.btnValidar,
+            this.btnInvalidar});
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mgResoluciones.DefaultCellStyle = dataGridViewCellStyle11;
             this.mgResoluciones.EnableHeadersVisualStyles = false;
             this.mgResoluciones.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mgResoluciones.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.mgResoluciones.Location = new System.Drawing.Point(24, 64);
+            this.mgResoluciones.MaximumSize = new System.Drawing.Size(650, 164);
             this.mgResoluciones.Name = "mgResoluciones";
             this.mgResoluciones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mgResoluciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mgResoluciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.mgResoluciones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.mgResoluciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.mgResoluciones.Size = new System.Drawing.Size(753, 152);
+            this.mgResoluciones.Size = new System.Drawing.Size(650, 152);
             this.mgResoluciones.TabIndex = 0;
+            this.mgResoluciones.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.mgResoluciones_CellMouseClick);
+            // 
+            // btnValidar
+            // 
+            this.btnValidar.Frozen = true;
+            this.btnValidar.HeaderText = "";
+            this.btnValidar.Name = "btnValidar";
+            this.btnValidar.Text = "Validar";
+            this.btnValidar.UseColumnTextForButtonValue = true;
+            // 
+            // btnInvalidar
+            // 
+            this.btnInvalidar.Frozen = true;
+            this.btnInvalidar.HeaderText = "";
+            this.btnInvalidar.Name = "btnInvalidar";
+            this.btnInvalidar.Text = "Invalidar";
+            this.btnInvalidar.UseColumnTextForButtonValue = true;
             // 
             // metroPanel1
             // 
@@ -305,11 +329,23 @@
             this.mtBuscar.UseSelectable = true;
             this.mtBuscar.Click += new System.EventHandler(this.mtBuscar_Click);
             // 
+            // mtVolver
+            // 
+            this.mtVolver.ActiveControl = null;
+            this.mtVolver.Location = new System.Drawing.Point(23, 413);
+            this.mtVolver.Name = "mtVolver";
+            this.mtVolver.Size = new System.Drawing.Size(112, 51);
+            this.mtVolver.TabIndex = 40;
+            this.mtVolver.Text = "Volver";
+            this.mtVolver.UseSelectable = true;
+            this.mtVolver.Click += new System.EventHandler(this.mtVolver_Click);
+            // 
             // Form_BuscarResolucion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 487);
+            this.Controls.Add(this.mtVolver);
             this.Controls.Add(this.mtBuscar);
             this.Controls.Add(this.lblUnidad);
             this.Controls.Add(this.cmbUnidad);
@@ -325,6 +361,7 @@
             this.Controls.Add(this.mgResoluciones);
             this.Name = "Form_BuscarResolucion";
             this.Text = "Form_BuscarResolucion";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_BuscarResolucion_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.mgResoluciones)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
@@ -352,5 +389,8 @@
         private MetroFramework.Controls.MetroComboBox cmbUnidad;
         private MetroFramework.Controls.MetroLabel lblUnidad;
         private MetroFramework.Controls.MetroTile mtBuscar;
+        private System.Windows.Forms.DataGridViewButtonColumn btnValidar;
+        private System.Windows.Forms.DataGridViewButtonColumn btnInvalidar;
+        private MetroFramework.Controls.MetroTile mtVolver;
     }
 }

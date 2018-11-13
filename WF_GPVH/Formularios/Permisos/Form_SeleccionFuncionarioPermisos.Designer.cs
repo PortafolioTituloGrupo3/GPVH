@@ -139,7 +139,7 @@
             // mtVolver
             // 
             this.mtVolver.ActiveControl = null;
-            this.mtVolver.Location = new System.Drawing.Point(24, 376);
+            this.mtVolver.Location = new System.Drawing.Point(23, 376);
             this.mtVolver.Name = "mtVolver";
             this.mtVolver.Size = new System.Drawing.Size(112, 51);
             this.mtVolver.TabIndex = 39;
@@ -159,6 +159,7 @@
             this.Controls.Add(this.mgFuncionarios);
             this.Name = "Form_SeleccionFuncionarioPermisos";
             this.Text = "Form_SeleccionFuncionarioPermiso";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_SeleccionFuncionarioPermisos_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.mgFuncionarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
