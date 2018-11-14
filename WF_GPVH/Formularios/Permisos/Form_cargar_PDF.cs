@@ -10,12 +10,14 @@ using System.Windows.Forms;
 using AcroPDFLib;
 using System.IO;
 using LB_GPVH.Modelo;
+using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Permisos
 {
     public partial class Form_cargar_PDF : MetroFramework.Forms.MetroForm
     {
         Documento documentoActual;
+        GestionadorDocumento gestionador = new GestionadorDocumento();
         Form formPadre;
         public Form_cargar_PDF(Form form, Documento documento)
         {
@@ -27,10 +29,10 @@ namespace WF_GPVH.Formularios.Permisos
         
         private void cargarPDF(Documento documento)
         {
-            string direccionArchivo = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"..\..\", documento.Dir, documento.Nombre_documento+documento.Formato_documento));
-            pdfViewer.LoadFile(direccionArchivo);
+            documento.Base64aPdf();
+            pdfViewer.LoadFile(documento.DirTemp);
+
         }
-
-
     }
 }
+

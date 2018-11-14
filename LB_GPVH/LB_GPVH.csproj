@@ -76,11 +76,13 @@
     <Compile Include="Controlador\GestionadorResolucion.cs" />
     <Compile Include="Controlador\GestionadorUnidad.cs" />
     <Compile Include="Controlador\GestionadorUsuario.cs" />
+    <Compile Include="Modelo\Antecedentes.cs" />
     <Compile Include="Modelo\Documento.cs" />
     <Compile Include="Controlador\ParametrosGlobales.cs" />
     <Compile Include="Modelo\Funcionario.cs" />
     <Compile Include="Controlador\Sesion.cs" />
     <Compile Include="Modelo\Permiso.cs" />
+    <Compile Include="Modelo\ReportePermisoFila.cs" />
     <Compile Include="Modelo\Resolucion.cs" />
     <Compile Include="Modelo\Unidad.cs" />
     <Compile Include="Modelo\Usuario.cs" />
@@ -177,6 +179,18 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.eliminarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.getAntecedentesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.getDocumentoByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.getDocumentosByPermisoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.getReportePermisosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.insertarFuncionarioResponse.datasource">

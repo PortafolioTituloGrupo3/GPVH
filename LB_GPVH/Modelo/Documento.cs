@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace LB_GPVH.Modelo
 {
@@ -12,7 +14,8 @@ namespace LB_GPVH.Modelo
         string nombre_documento = "documento";
         string formato_documento = "";
         DateTime fecha_creacion = DateTime.MinValue;
-        string dir = "\\";
+        string pdfBinario = "";
+        string dirTemp = "";
         int id_permiso = -1;
         
         public int Id_documento
@@ -63,16 +66,16 @@ namespace LB_GPVH.Modelo
                 fecha_creacion = value;
             }
         }
-        public string Dir
+        public string PdfBinario
         {
             get
             {
-                return dir;
+                return pdfBinario;
             }
 
             set
             {
-                dir = value;
+                pdfBinario = value;
             }
         }
         public int Id_permiso
@@ -86,6 +89,68 @@ namespace LB_GPVH.Modelo
             {
                 id_permiso = value;
             }
+        }
+        public string DirTemp
+        {
+            get
+            {
+                return dirTemp;
+            }
+
+            set
+            {
+                dirTemp = value;
+            }
+        }
+
+        public void LeerXML(XElement documentoXML)
+        {
+            if (documentoXML.Element("id_documento") != null)
+            {
+                try
+                {
+                    this.id_documento = int.Parse(documentoXML.Element("id_documento").Value);
+                }
+                catch { };
+            }
+            if (documentoXML.Element("nombre_documento") != null)
+            {
+                try
+                {
+                    this.nombre_documento = documentoXML.Element("nombre_documento").Value;
+                }
+                catch { };
+            }
+            if (documentoXML.Element("formato_documento") != null)
+            {
+                try
+                {
+                    this.formato_documento = documentoXML.Element("formato_documento").Value;
+                }
+                catch { };
+            }
+            if (documentoXML.Element("fecha_creacion") != null)
+            {
+                try
+                {
+                    this.fecha_creacion = DateTime.Parse(documentoXML.Element("fecha_creacion").Value);
+                }
+                catch { };
+            }
+            if (documentoXML.Element("pdfBinario") != null)
+            {
+                try
+                {
+                    this.pdfBinario = documentoXML.Element("pdfBinario").Value;
+                }
+                catch { };
+            }
+        }
+
+        public void Base64aPdf()
+        {
+            this.dirTemp = Path.GetTempFileName() + Guid.NewGuid().ToString() + ".pdf";
+            File.WriteAllBytes(dirTemp, Convert.FromBase64String(this.pdfBinario));
         }
     }
 }
