@@ -125,6 +125,12 @@
     <Compile Include="Formularios\Menu\Form_Menu_Administrador.Designer.cs">
       <DependentUpon>Form_Menu_Administrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Menu\Form_Menu_Alcalde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Menu\Form_Menu_Alcalde.Designer.cs">
+      <DependentUpon>Form_Menu_Alcalde.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Menu\Form_Menu_Jefe_Unidad_Superior.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Menu\Form_Menu_Administrador.resx">
       <DependentUpon>Form_Menu_Administrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Menu\Form_Menu_Alcalde.resx">
+      <DependentUpon>Form_Menu_Alcalde.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Menu\Form_Menu_Jefe_Unidad_Superior.resx">
       <DependentUpon>Form_Menu_Jefe_Unidad_Superior.cs</DependentUpon>
