@@ -52,6 +52,27 @@ namespace LB_GPVH.Controlador
             }
         }
 
+        public XDocument ObtenerArchivoPermisosAnuales()
+        {
+            try
+            {
+                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
+                {
+                    XDocument doc = XDocument.Parse(cliente.buscarPermisosAnuales());
+                    return doc;
+                }
+            }
+            catch (System.Xml.XmlException xmlE)
+            {
+                throw new Exception("Ocurrio un problema al transoformar los permisos al formato xml: " + xmlE.Message);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrio un problema al generar el archivo xml: "+ex.Message);
+            }
+        }
+
+
         public Permiso BuscarPermiso(int id)
         {
             return new SQL.PermisoSQL().BuscarPermiso(id);

@@ -91,7 +91,7 @@
             this.txbNombre.SelectionStart = 0;
             this.txbNombre.ShortcutsEnabled = true;
             this.txbNombre.Size = new System.Drawing.Size(121, 20);
-            this.txbNombre.TabIndex = 4;
+            this.txbNombre.TabIndex = 0;
             this.txbNombre.UseSelectable = true;
             this.txbNombre.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txbNombre.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -153,6 +153,7 @@
             this.Controls.Add(this.lblNombre);
             this.Name = "Form_Login";
             this.Text = "Form_Login";
+            this.Load += new System.EventHandler(this.Form_Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

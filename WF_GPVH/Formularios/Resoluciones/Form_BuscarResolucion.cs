@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static LB_GPVH.Controlador.GestionadorResolucion;
 
 namespace WF_GPVH.Formularios.Resoluciones
 {
@@ -18,11 +19,17 @@ namespace WF_GPVH.Formularios.Resoluciones
         List<Resolucion> resoluciones;
         List<Resolucion> resolucionesGridView;
         GestionadorResolucion gestionador;
+        Form mainForm;
+        Form formAnterior;
         Sesion sesion;
 
-        public Form_BuscarResolucion()
+
+        public Form_BuscarResolucion(Login.Form_Login pMainForm, Form pFormAnterior, Sesion pSesion)
         {
             InitializeComponent();
+            mainForm = pMainForm;
+            this.formAnterior = pFormAnterior;
+            sesion = pSesion;
             txbMes.Text = DateTime.Now.Month.ToString();
             txbAnno.Text = DateTime.Now.Year.ToString();
             gestionador = new GestionadorResolucion();
@@ -33,10 +40,14 @@ namespace WF_GPVH.Formularios.Resoluciones
 
         public void loadResoluciones()
         {
-            //if (sesion.Usuario.Tipo == LB_GPVH.Enums.TipoUsuario.JefeUnidadSuperior)
-            //    resoluciones = gestionador.BuscarResoluciones(int.Parse(txbMes.Text), int.Parse(txbAnno.Text), sesion.Usuario.Funcionario.Unidad.Id);
-            //else
+            if (sesion.Usuario.Tipo == LB_GPVH.Enums.TipoUsuario.JefeUnidadSuperior)
+                resoluciones = gestionador.BuscarResoluciones(int.Parse(txbMes.Text), int.Parse(txbAnno.Text), sesion.Usuario.Funcionario.Unidad.Id);
+            else
+            {
                 resoluciones = gestionador.BuscarResoluciones(int.Parse(txbMes.Text), int.Parse(txbAnno.Text));
+                mgResoluciones.Columns[0].Visible = false;
+                mgResoluciones.Columns[1].Visible = false;
+            }
             CargarPermisosGridView(this.resoluciones);
         }
 
@@ -44,11 +55,10 @@ namespace WF_GPVH.Formularios.Resoluciones
         {
             this.cmbUnidad.DisplayMember = "Value";
             this.cmbUnidad.ValueMember = "Key";
-            //if (sesion.Usuario.Tipo == LB_GPVH.Enums.TipoUsuario.JefeUnidadSuperior)
-            //    this.cmbUnidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadConHijas(sesion.Usuario.Funcionario.Unidad.Id, true), null);
-            //else
+            if (sesion.Usuario.Tipo == LB_GPVH.Enums.TipoUsuario.JefeUnidadSuperior)
+                this.cmbUnidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadConHijas(sesion.Usuario.Funcionario.Unidad.Id, true), null);
+            else
                 this.cmbUnidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadClaveValor(true), null);
-
             this.cmbUnidad.SelectedIndex = 0;
         }
 
@@ -225,6 +235,59 @@ namespace WF_GPVH.Formularios.Resoluciones
         private void rbVerSoloPendientes_CheckedChanged(object sender, EventArgs e)
         {
             CargarPermisosGridView(this.resoluciones);
+        }
+
+        private void Form_BuscarResolucion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.Dispose();
+        }
+
+        private void mgResoluciones_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                ResultadoGestionResolucion resultado = gestionador.ValidarResolucion(resoluciones[e.RowIndex].Id, sesion.Usuario.Funcionario.Run);
+                switch(resultado)
+                {
+                    case ResultadoGestionResolucion.Error:
+                        MessageBox.Show("Ocurrio un error inesperado al momento de validar.");
+                        break;
+                    case ResultadoGestionResolucion.idResolucionNoExiste:
+                        MessageBox.Show("No se pudo encontrar la resolucion dentro del sistema.");
+                        break;
+                    case ResultadoGestionResolucion.ResolventeNoValido:
+                        MessageBox.Show("No tiene permiso para validar o invalidar dicha resolucion.");
+                        break;
+                    case ResultadoGestionResolucion.valido:
+                        loadResoluciones();
+                        break;
+                }
+            }
+            if (e.ColumnIndex == 1)
+            {
+                ResultadoGestionResolucion resultado = gestionador.InvalidarResolucion(resoluciones[e.RowIndex].Id, sesion.Usuario.Funcionario.Run);
+                switch (resultado)
+                {
+                    case ResultadoGestionResolucion.Error:
+                        MessageBox.Show("Ocurrio un error inesperado al momento de validar.");
+                        break;
+                    case ResultadoGestionResolucion.idResolucionNoExiste:
+                        MessageBox.Show("No se pudo encontrar la resolucion dentro del sistema.");
+                        break;
+                    case ResultadoGestionResolucion.ResolventeNoValido:
+                        MessageBox.Show("No tiene permiso para validar o invalidar dicha resolucion.");
+                        break;
+                    case ResultadoGestionResolucion.valido:
+                        loadResoluciones();
+                        break;
+                }
+            }
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            formAnterior.Visible = true;
+            this.Dispose();
         }
     }
 }

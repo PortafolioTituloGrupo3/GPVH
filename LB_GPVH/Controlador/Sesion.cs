@@ -13,7 +13,6 @@ namespace LB_GPVH.Controlador
     public class Sesion
     {
         public Usuario Usuario { get; set; }
-        public Funcionario Funcionario { get; set; }
 
         public Sesion()
         {

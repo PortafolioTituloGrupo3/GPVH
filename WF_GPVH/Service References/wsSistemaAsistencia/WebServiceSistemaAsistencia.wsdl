@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://webservice/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="WebServiceSistemaAsistencia" targetNamespace="http://webservice/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/SimuladorSistemaAsistencia/WebServiceSistemaAsistencia?xsd=1" namespace="http://webservice/" />
+    </xsd:schema>
+  </types>
+  <message name="listarAsistencias">
+    <part name="parameters" element="tns:listarAsistencias" />
+  </message>
+  <message name="listarAsistenciasResponse">
+    <part name="parameters" element="tns:listarAsistenciasResponse" />
+  </message>
+  <portType name="WebServiceSistemaAsistencia">
+    <operation name="listarAsistencias">
+      <input wsam:Action="http://webservice/WebServiceSistemaAsistencia/listarAsistenciasRequest" message="tns:listarAsistencias" />
+      <output wsam:Action="http://webservice/WebServiceSistemaAsistencia/listarAsistenciasResponse" message="tns:listarAsistenciasResponse" />
+    </operation>
+  </portType>
+  <binding name="WebServiceSistemaAsistenciaPortBinding" type="tns:WebServiceSistemaAsistencia">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarAsistencias">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WebServiceSistemaAsistencia">
+    <port name="WebServiceSistemaAsistenciaPort" binding="tns:WebServiceSistemaAsistenciaPortBinding">
+      <soap:address location="http://localhost:8080/SimuladorSistemaAsistencia/WebServiceSistemaAsistencia" />
+    </port>
+  </service>
+</definitions>

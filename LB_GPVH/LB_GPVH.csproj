@@ -70,6 +70,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\wsSistemaAsistencia\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controlador\GestionadorDocumento.cs" />
     <Compile Include="Controlador\GestionadorFuncionario.cs" />
     <Compile Include="Controlador\GestionadorPermiso.cs" />
@@ -157,6 +162,9 @@
     <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.buscarPermisosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -202,6 +210,9 @@
     <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.insertarUsuarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.invalidarResolucionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.listadoUnidadClaveValorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -244,8 +255,18 @@
     <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.usuarioExisteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.validarResolucionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\wsIntegracionAppEscritorio\WebServiceAppEscritorio.wsdl" />
     <None Include="Connected Services\wsIntegracionAppEscritorio\WebServiceAppEscritorio.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wsSistemaAsistencia\LB_GPVH.wsSistemaAsistencia.listarAsistenciasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\wsSistemaAsistencia\WebServiceSistemaAsistencia.wsdl" />
+    <None Include="Connected Services\wsSistemaAsistencia\WebServiceSistemaAsistencia.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\WS_GPVH.Usuario.datasource" />
@@ -260,6 +281,7 @@
     <WCFMetadataStorage Include="Connected Services\ServiceWSUnidades\" />
     <WCFMetadataStorage Include="Connected Services\ServiceWSUsuarios\" />
     <WCFMetadataStorage Include="Connected Services\wsIntegracionAppEscritorio\" />
+    <WCFMetadataStorage Include="Connected Services\wsSistemaAsistencia\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceWSUnidades\WSUnidades.disco" />
@@ -338,6 +360,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\wsIntegracionAppEscritorio\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wsSistemaAsistencia\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wsSistemaAsistencia\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\wsSistemaAsistencia\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

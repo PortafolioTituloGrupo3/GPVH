@@ -18,7 +18,6 @@ namespace WF_GPVH.Formularios.Login
         public Form_Login()
         {
             InitializeComponent();
-            txbNombre.Focus();
         }
         
         private void mtIniciarSesion_Click(object sender, EventArgs e)
@@ -45,8 +44,12 @@ namespace WF_GPVH.Formularios.Login
                         new Menu.Form_Menu_Jefe_Unidad_Superior(this, sesion).Show();
                         this.Hide();
                         break;
+                    case TipoUsuario.Alcalde:
+                        new Menu.Form_Menu_Alcalde(this, sesion).Show();
+                        this.Hide();
+                        break;
                     default:
-                        MessageBox.Show("Acceso denegado. Debes ser un Administrador o Jefe de unidad superior para ingresar.");
+                        MessageBox.Show("Acceso denegado. Debes ser un Administrador, Jefe de unidad superior o Alcalde para ingresar.");
                         break;
                 }
             }
@@ -75,6 +78,13 @@ namespace WF_GPVH.Formularios.Login
                 e.Handled = true;
                 IniciarSesion();
             }
+        }
+
+        private void Form_Login_Load(object sender, EventArgs e)
+        {
+            this.BringToFront();
+            this.ActiveControl = txbNombre;
+            txbNombre.Select();
         }
     }
 }
