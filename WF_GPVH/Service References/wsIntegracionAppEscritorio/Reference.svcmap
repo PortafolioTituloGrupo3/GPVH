@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/IntegracionVistaHermosa/WebServiceAppEscritorio?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/IntegracionVistaHermosa-master/WebServiceAppEscritorio?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WebServiceAppEscritorio.wsdl" MetadataType="Wsdl" ID="845044f6-68d3-42e2-929f-2aadd8f4d6ba" SourceId="1" SourceUrl="http://localhost:8080/IntegracionVistaHermosa/WebServiceAppEscritorio?wsdl" />
-    <MetadataFile FileName="WebServiceAppEscritorio.xsd" MetadataType="Schema" ID="34c2537c-f6bd-4e18-acc1-c771a95f0a3b" SourceId="1" SourceUrl="http://localhost:8080/IntegracionVistaHermosa/WebServiceAppEscritorio?xsd=1" />
+    <MetadataFile FileName="WebServiceAppEscritorio11.wsdl" MetadataType="Wsdl" ID="ca1cea9e-9192-47bb-a763-4e17b78cb4f8" SourceId="1" SourceUrl="http://localhost:8080/IntegracionVistaHermosa-master/WebServiceAppEscritorio?wsdl" />
+    <MetadataFile FileName="WebServiceAppEscritorio11.xsd" MetadataType="Schema" ID="9c768699-ee35-4d31-a132-abbcbfd22be9" SourceId="1" SourceUrl="http://localhost:8080/IntegracionVistaHermosa-master/WebServiceAppEscritorio?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

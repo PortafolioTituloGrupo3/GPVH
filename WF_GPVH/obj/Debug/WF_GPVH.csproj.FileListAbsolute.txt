@@ -188,8 +188,9 @@ C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csproj.CoreCompileInp
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csproj.CopyComplete
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.exe
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.pdb
-C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\ApplicationInsights.config
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Resoluciones.Form_BuscarResolucion.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csprojResolveAssemblyReference.cache
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.form_debug_ws.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\bin\Debug\ApplicationInsights.config
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Menu.Form_Menu_Alcalde.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\ApplicationInsights.config
