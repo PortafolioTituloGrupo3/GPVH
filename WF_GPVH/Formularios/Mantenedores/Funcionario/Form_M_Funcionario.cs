@@ -71,9 +71,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             dgv.Refresh();
             
         }
-
-
-
+        
         public void CargarFuncionariosGridView(List<LB_GPVH.Modelo.Funcionario> funcionarios)
         {
             this.mgFuncionarios.AutoGenerateColumns = false;

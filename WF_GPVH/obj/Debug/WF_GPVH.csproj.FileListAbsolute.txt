@@ -42,7 +42,6 @@ C:\Users\thor\documents\visual studio 2015\Projects\GestionDePermisosVistaHermos
 C:\Users\thor\documents\visual studio 2015\Projects\GestionDePermisosVistaHermosa\WF_GPVH\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\thor\documents\visual studio 2015\Projects\GestionDePermisosVistaHermosa\WF_GPVH\obj\Debug\WF_GPVH.Reportes.Crystal_Report.Form_View_Unidad.resources
 C:\Users\thor\documents\visual studio 2015\Projects\GestionDePermisosVistaHermosa\WF_GPVH\obj\Debug\WF_GPVH.Reportes.Crystal_Report.Form_test.resources
-C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csprojResolveAssemblyReference.cache
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Login.Form_Login.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Funcionario.Form_M_Funcionario.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Mantenedores.Funcionario.Form_M_Funcionario_Agregar.resources
@@ -189,4 +188,9 @@ C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csproj.CoreCompileInp
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csproj.CopyComplete
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.exe
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.pdb
+C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Resoluciones.Form_BuscarResolucion.resources
+C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csprojResolveAssemblyReference.cache
+C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.form_debug_ws.resources
+C:\Users\thor\source\repos\GPVH\WF_GPVH\bin\Debug\ApplicationInsights.config
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Menu.Form_Menu_Alcalde.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\ApplicationInsights.config

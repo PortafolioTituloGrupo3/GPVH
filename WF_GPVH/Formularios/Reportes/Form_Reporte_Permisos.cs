@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LB_GPVH.Controlador;
+using LB_GPVH.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,8 @@ namespace WF_GPVH.Formularios.Reportes
 {
     public partial class Form_Reporte_Permisos : MetroFramework.Forms.MetroForm
     {
+        private GestionadorPermiso gestionador = new GestionadorPermiso();
+
         public Form_Reporte_Permisos()
         {
             InitializeComponent();
@@ -42,6 +46,13 @@ namespace WF_GPVH.Formularios.Reportes
             dt_ReportePermisos.Columns.Add("tipo_permiso", typeof(string));
             dt_ReportePermisos.Columns.Add("cantidad", typeof(Int32));
 
+            List<ReportePermisoFila> Reporte = gestionador.ReportePermisos(inicio, termino);
+            foreach (ReportePermisoFila item in Reporte)
+            {
+                dt_ReportePermisos.Rows.Add(item.Unidad, item.Tipo_permiso, item.Cantidad);
+            }
+
+            /*
             //Agregar filas desde WS
             using (ServiceWSReportes.WSReportesClient service = new ServiceWSReportes.WSReportesClient())
             {
@@ -51,6 +62,7 @@ namespace WF_GPVH.Formularios.Reportes
                     dt_ReportePermisos.Rows.Add(item.Unidad, item.Tipo_permiso, item.Cantidad);
                 }
             }
+            */
 
             CR_Permisos reporte = new CR_Permisos();
             reporte.Database.Tables["WF_GPVH_ServiceWSReportes_FilaReportePermisos"].SetDataSource(dt_ReportePermisos);

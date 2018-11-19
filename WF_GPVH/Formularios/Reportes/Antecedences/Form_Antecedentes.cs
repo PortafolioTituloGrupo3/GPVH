@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LB_GPVH.Controlador;
+using LB_GPVH.Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
 {
     public partial class Form_Antecedentes : MetroFramework.Forms.MetroForm
     {
+        private GestionadorPermiso gestionadorPermiso = new GestionadorPermiso();
         private int run_funcionario = -1;
         private Form padre_temp;
         public Form_Antecedentes(int run, Form padre)
@@ -32,7 +35,20 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
             DataTable dt_ReporteAntecedentes = new DataTable();
             dt_ReporteAntecedentes.Columns.Add("Feriados_anuales_restantes", typeof(Int32));
             dt_ReporteAntecedentes.Columns.Add("Permisos_administrativos_restantes", typeof(Int32));
-        
+
+            Antecedentes antecedentes = gestionadorPermiso.ReporteAntecedentes(this.run_funcionario);
+            dt_ReporteAntecedentes.Rows.Add(antecedentes.Feriados_anuales_restantes,
+                                            antecedentes.Permisos_administrativos_restantes);
+
+            foreach (List<object> item in antecedentes.Filas)
+            {
+                
+                dt_ReportePermisos.Rows.Add(((LB_GPVH.Enums.EstadoPermiso)item.ElementAt(0)).ToString(),   //estado
+                                            item.ElementAt(1).ToString(),   //Tipo_permiso
+                                            item.ElementAt(2).ToString());  //Cantidad
+            }
+
+            /*
             //Agregar filas desde WS
             using (ServiceWSReportes.WSReportesClient service = new ServiceWSReportes.WSReportesClient())
             {
@@ -47,6 +63,7 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
                                                 item.Cantidad);
                 }
             }
+            */
 
             CR_antecedentes reporte = new CR_antecedentes();
             reporte.Database.Tables["WF_GPVH_ServiceWSReportes_FilaReporteAntecedentes"].SetDataSource(dt_ReportePermisos);

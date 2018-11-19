@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LB_GPVH.Modelo;
+using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Permisos
 {
     public partial class Form_ListarDocumentos : MetroFramework.Forms.MetroForm
     {
         private List<Documento> documentos = new List<Documento>();
+        private GestionadorDocumento gestionador = new GestionadorDocumento();
         int permisoActual=-1;
         public Form_ListarDocumentos(Form pFormPadre, int permiso)
         {
@@ -24,20 +26,7 @@ namespace WF_GPVH.Formularios.Permisos
 
         private void CargarDocumentosGridView()
         {
-            using(ServiceWSPermisos.WSPermisosClient cliente = new ServiceWSPermisos.WSPermisosClient())
-            {
-                foreach(ServiceWSPermisos.Documento wsPermiso in cliente.getDocumentosByPermiso(permisoActual)) {
-                    Documento DocumentoTemp = new Documento();
-                    DocumentoTemp.Id_documento = wsPermiso.Id_documento;
-                    DocumentoTemp.Nombre_documento = wsPermiso.Nombre_documento;
-                    DocumentoTemp.Formato_documento = wsPermiso.Formato_documento;
-                    DocumentoTemp.Fecha_creacion = wsPermiso.Fecha_creacion;
-                    DocumentoTemp.Dir = wsPermiso.Dir;
-                    DocumentoTemp.Id_permiso = wsPermiso.Id_permiso;
-
-                    this.documentos.Add(DocumentoTemp);
-                }
-            }
+            documentos = gestionador.getDocumentosByPermiso(permisoActual);
             this.mgDocumentos.AutoGenerateColumns = false;
             this.mgDocumentos.AutoSize = true;
             this.mgDocumentos.DataSource = this.documentos;

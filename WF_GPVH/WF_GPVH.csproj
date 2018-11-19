@@ -444,8 +444,8 @@
     <None Include="Service References\ServiceWSUsuarios\WSUsuarios2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\wsIntegracionAppEscritorio\WebServiceAppEscritorio.wsdl" />
-    <None Include="Service References\wsIntegracionAppEscritorio\WebServiceAppEscritorio.xsd">
+    <None Include="Service References\wsIntegracionAppEscritorio\WebServiceAppEscritorio11.wsdl" />
+    <None Include="Service References\wsIntegracionAppEscritorio\WebServiceAppEscritorio11.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.autenticarUsuarioResponse.datasource">
@@ -482,6 +482,18 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.eliminarUsuarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.getAntecedentesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.getDocumentoByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.getDocumentosByPermisoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.getReportePermisosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.insertarFuncionarioResponse.datasource">

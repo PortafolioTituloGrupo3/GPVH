@@ -29,7 +29,6 @@ namespace LB_GPVH.Controlador
             }
             return permisos;
         }
-
         public bool AsignarPermisos(Funcionario funcionario)
         {
             if(funcionario == null)
@@ -89,7 +88,6 @@ namespace LB_GPVH.Controlador
             return new SQL.PermisoSQL().BuscarPermisoParcial(id);
         }
 
-
         public List<Permiso> ListarPermisos(int run)
         {
             using (ServiceWSPermisos.WSPermisosClient servicePermisos = new ServiceWSPermisos.WSPermisosClient())
@@ -142,6 +140,39 @@ namespace LB_GPVH.Controlador
                 }
                 return permisos;
             }
+        }
+
+        public Antecedentes ReporteAntecedentes(int run)
+        {
+            Antecedentes antecedentes = new Antecedentes();
+            List<object> filas = new List<object>();
+            using(WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
+            {
+                string xml = cliente.getAntecedentes(run);
+
+                XDocument doc = XDocument.Parse(xml);
+                antecedentes.LeerXML(doc.Root);
+            }
+            
+            return antecedentes;
+        }
+
+        public List<ReportePermisoFila> ReportePermisos(DateTime inicio, DateTime termino)
+        {
+            List<ReportePermisoFila> filas = new List<ReportePermisoFila>();
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
+            {
+                string xml = cliente.getReportePermisos(inicio, termino);
+                XDocument doc = XDocument.Parse(xml);
+                IEnumerable<XElement> reporteXML = doc.Root.Elements();
+                foreach (var filaTemp in reporteXML)
+                {
+                    ReportePermisoFila fila = new ReportePermisoFila();
+                    fila.LeerXML(filaTemp);
+                    filas.Add(fila);
+                }
+            }
+            return filas;
         }
 
         public List<String> ListarNombresParametros()

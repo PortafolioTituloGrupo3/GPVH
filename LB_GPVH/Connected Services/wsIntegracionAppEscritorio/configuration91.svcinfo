@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Vdx41yK88VRw1OjPemqzhiSzCv4=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="vYkTd6E32NsOL/Zt+bQ9xzZfMsI=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="WebServiceAppEscritorioPortBinding">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WebServiceAppEscritorioPort" contract="wsIntegracionAppEscritorio.WebServiceAppEscritorio" bindingType="basicHttpBinding" address="http://localhost:8080/IntegracionVistaHermosa/WebServiceAppEscritorio" bindingConfiguration="WebServiceAppEscritorioPortBinding">
+    <endpoint name="WebServiceAppEscritorioPort" contract="wsIntegracionAppEscritorio.WebServiceAppEscritorio" bindingType="basicHttpBinding" address="http://localhost:8080/IntegracionVistaHermosa-master/WebServiceAppEscritorio" bindingConfiguration="WebServiceAppEscritorioPortBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8080/IntegracionVistaHermosa/WebServiceAppEscritorio</serializedValue>
+          <serializedValue>http://localhost:8080/IntegracionVistaHermosa-master/WebServiceAppEscritorio</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
