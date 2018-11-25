@@ -29,6 +29,15 @@ namespace LB_GPVH.Controlador
             }
             return permisos;
         }
+
+        public Permiso DesempaquetarPermisoXml(string xml)
+        {
+            XDocument doc = XDocument.Parse(xml);
+            Permiso permiso = new Permiso();
+            permiso.LeerXML(doc.Root);
+            return permiso;
+        }
+
         public bool AsignarPermisos(Funcionario funcionario)
         {
             if(funcionario == null)
@@ -142,6 +151,15 @@ namespace LB_GPVH.Controlador
             }
         }
 
+        public Permiso ValidarDocumento(int codigo)
+        {
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
+            {
+                return DesempaquetarPermisoXml(cliente.buscarPermisoPorId(codigo));
+            }
+        }
+
+
         public Antecedentes ReporteAntecedentes(int run)
         {
             Antecedentes antecedentes = new Antecedentes();
@@ -190,5 +208,10 @@ namespace LB_GPVH.Controlador
             return parametros;
         }
 
+        public bool ControlarCaracterCodigo(string codigo)
+        {
+            return Auxiliares.AuxiliarString.EsNumerico(codigo);
+        }
+        
     }
 }

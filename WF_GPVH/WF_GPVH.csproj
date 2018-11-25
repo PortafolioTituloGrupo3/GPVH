@@ -197,6 +197,12 @@
     <Compile Include="Formularios\Permisos\Form_SeleccionFuncionarioPermisos.Designer.cs">
       <DependentUpon>Form_SeleccionFuncionarioPermisos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Permisos\Form_ValidarDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Permisos\Form_ValidarDocumento.Designer.cs">
+      <DependentUpon>Form_ValidarDocumento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Reportes\Antecedences\CR_antecedentes1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -221,11 +227,31 @@
     <Compile Include="Formularios\Reportes\Antecedences\Form_Listado_Permisos_Filtrado.Designer.cs">
       <DependentUpon>Form_Listado_Permisos_Filtrado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Reportes\CR_Permiso.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CR_Permiso.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Formularios\Reportes\CR_Permisos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CR_Permisos.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Dataset\dsPermiso.cs">
+      <DependentUpon>dsPermiso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Dataset\dsPermiso.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPermiso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Form_Ver_Permiso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Form_Ver_Permiso.Designer.cs">
+      <DependentUpon>Form_Ver_Permiso.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Resoluciones\Form_BuscarResolucion.cs">
       <SubType>Form</SubType>
@@ -327,6 +353,9 @@
     <EmbeddedResource Include="Formularios\Permisos\Form_SeleccionFuncionarioPermisos.resx">
       <DependentUpon>Form_SeleccionFuncionarioPermisos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Permisos\Form_ValidarDocumento.resx">
+      <DependentUpon>Form_ValidarDocumento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\Antecedences\CR_antecedentes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CR_antecedentes1.cs</LastGenOutput>
@@ -340,9 +369,16 @@
     <EmbeddedResource Include="Formularios\Reportes\Antecedences\Form_Listado_Permisos_Filtrado.resx">
       <DependentUpon>Form_Listado_Permisos_Filtrado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\CR_Permiso.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CR_Permiso.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\CR_Permisos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CR_Permisos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\Form_Ver_Permiso.resx">
+      <DependentUpon>Form_Ver_Permiso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Resoluciones\Form_BuscarResolucion.resx">
       <DependentUpon>Form_BuscarResolucion.cs</DependentUpon>
@@ -360,6 +396,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Comprobantes\CARTA GANTT PORTALPROFESORES.pdf" />
+    <None Include="Formularios\Reportes\Dataset\dsPermiso.xsc">
+      <DependentUpon>dsPermiso.xsd</DependentUpon>
+    </None>
+    <None Include="Formularios\Reportes\Dataset\dsPermiso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPermiso.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Formularios\Reportes\Dataset\dsPermiso.xss">
+      <DependentUpon>dsPermiso.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -455,6 +502,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.buscarPermisoPorIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\wsIntegracionAppEscritorio\WF_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesResponse.datasource">

@@ -33,7 +33,8 @@ namespace WF_GPVH.Formularios.Menu
 
         private void mtGestionarFuncionarios_Click(object sender, EventArgs e)
         {
-            new Mantenedores.Funcionario.Form_M_Funcionario().Show();
+            new Mantenedores.Funcionario.Form_M_Funcionario(mainForm,this).Show();
+            this.Hide();
         }
 
         private void mtGestionarUsuarios_Click(object sender, EventArgs e)
@@ -43,7 +44,7 @@ namespace WF_GPVH.Formularios.Menu
 
         private void mtGestionarUnidades_Click(object sender, EventArgs e)
         {
-            new Mantenedores.Unidad.Form_M_Unidad().Show();
+            new Mantenedores.Unidad.Form_M_Unidad(mainForm,this).Show();
         }
 
         private void mtSalir_Click(object sender, EventArgs e)
@@ -96,7 +97,7 @@ namespace WF_GPVH.Formularios.Menu
 
         private void mtIdentificarDocumento_Click(object sender, EventArgs e)
         {
-
+            new Permisos.Form_ValidarDocumento(mainForm, this, sesion).Show();
         }
     }
 }

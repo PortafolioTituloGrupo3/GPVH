@@ -35,6 +35,7 @@
             this.mtAgregar = new MetroFramework.Controls.MetroTile();
             this.mtEditar = new MetroFramework.Controls.MetroTile();
             this.mtEliminar = new MetroFramework.Controls.MetroTile();
+            this.mtVolver = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Unidades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +66,7 @@
             this.dgv_Unidades.EnableHeadersVisualStyles = false;
             this.dgv_Unidades.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgv_Unidades.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgv_Unidades.Location = new System.Drawing.Point(12, 12);
+            this.dgv_Unidades.Location = new System.Drawing.Point(12, 63);
             this.dgv_Unidades.MaximumSize = new System.Drawing.Size(650, 164);
             this.dgv_Unidades.Name = "dgv_Unidades";
             this.dgv_Unidades.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -85,7 +86,7 @@
             // mtAgregar
             // 
             this.mtAgregar.ActiveControl = null;
-            this.mtAgregar.Location = new System.Drawing.Point(12, 198);
+            this.mtAgregar.Location = new System.Drawing.Point(23, 277);
             this.mtAgregar.Name = "mtAgregar";
             this.mtAgregar.Size = new System.Drawing.Size(95, 51);
             this.mtAgregar.TabIndex = 21;
@@ -96,7 +97,7 @@
             // mtEditar
             // 
             this.mtEditar.ActiveControl = null;
-            this.mtEditar.Location = new System.Drawing.Point(113, 198);
+            this.mtEditar.Location = new System.Drawing.Point(124, 277);
             this.mtEditar.Name = "mtEditar";
             this.mtEditar.Size = new System.Drawing.Size(95, 51);
             this.mtEditar.TabIndex = 22;
@@ -107,7 +108,7 @@
             // mtEliminar
             // 
             this.mtEliminar.ActiveControl = null;
-            this.mtEliminar.Location = new System.Drawing.Point(214, 197);
+            this.mtEliminar.Location = new System.Drawing.Point(225, 276);
             this.mtEliminar.Name = "mtEliminar";
             this.mtEliminar.Size = new System.Drawing.Size(95, 51);
             this.mtEliminar.TabIndex = 23;
@@ -115,11 +116,23 @@
             this.mtEliminar.UseSelectable = true;
             this.mtEliminar.Click += new System.EventHandler(this.mtEliminar_Click);
             // 
+            // mtVolver
+            // 
+            this.mtVolver.ActiveControl = null;
+            this.mtVolver.Location = new System.Drawing.Point(558, 277);
+            this.mtVolver.Name = "mtVolver";
+            this.mtVolver.Size = new System.Drawing.Size(103, 52);
+            this.mtVolver.TabIndex = 36;
+            this.mtVolver.Text = "Volver";
+            this.mtVolver.UseSelectable = true;
+            this.mtVolver.Click += new System.EventHandler(this.mtVolver_Click);
+            // 
             // Form_M_Unidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 297);
+            this.ClientSize = new System.Drawing.Size(684, 350);
+            this.Controls.Add(this.mtVolver);
             this.Controls.Add(this.mtEliminar);
             this.Controls.Add(this.mtEditar);
             this.Controls.Add(this.mtAgregar);
@@ -136,5 +149,6 @@
         private MetroFramework.Controls.MetroTile mtAgregar;
         private MetroFramework.Controls.MetroTile mtEditar;
         private MetroFramework.Controls.MetroTile mtEliminar;
+        private MetroFramework.Controls.MetroTile mtVolver;
     }
 }

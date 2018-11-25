@@ -18,11 +18,12 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
         GestionadorFuncionario gestionador;
         LB_GPVH.Modelo.Funcionario funcionario;
         bool nombreValido, apellidoPaternoValido, apellidoMaternoValido, direccionValida, correoValido, runValido, fechaNacimientoValida, cargoValido;
-        
+        private Form mainForm;
 
-        public Form_M_Funcionario_Agregar(Form_M_Funcionario formPadre)
+        public Form_M_Funcionario_Agregar(Form pMainForm,Form_M_Funcionario formPadre)
         {
             InitializeComponent();
+            this.mainForm = pMainForm;
             padreTemp = formPadre;
             gestionador = new GestionadorFuncionario();
             funcionario = new LB_GPVH.Modelo.Funcionario();
@@ -49,7 +50,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            padreTemp.Enabled = true;
+            padreTemp.Visible = true;
             this.Dispose();
         }
 
@@ -120,7 +121,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 
         private void Form_M_Funcionario_Agregar_FormClosing(object sender, FormClosingEventArgs e)
         {
-            padreTemp.Close();
+            mainForm.Close();
         }
 
         private void txt_run_KeyPress(object sender, KeyPressEventArgs e)
@@ -203,7 +204,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 
         private void mtVolver_Click(object sender, EventArgs e)
         {
-            padreTemp.Enabled = true;
+            padreTemp.Visible = true;
             this.Dispose();
         }
 

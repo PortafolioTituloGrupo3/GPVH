@@ -17,10 +17,15 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
         private GestionadorFuncionario gestionador;
         private List<LB_GPVH.Modelo.Funcionario> funcionarios;
         private List<LB_GPVH.Modelo.Funcionario> funcionariosGridView;
+        private Form mainForm;
+        private Form anterior;
 
-        public Form_M_Funcionario()
+
+        public Form_M_Funcionario(Form pMainForm, Form pAnterior)
         {
             InitializeComponent();
+            mainForm = pMainForm;
+            anterior = pAnterior;
             gestionador = new GestionadorFuncionario();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             this.loadFuncionarios();
@@ -114,9 +119,9 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 
         private void mtAgregar_Click(object sender, EventArgs e)
         {
-            Form_M_Funcionario_Agregar popUpAgregar = new Form_M_Funcionario_Agregar(this);
+            Form_M_Funcionario_Agregar popUpAgregar = new Form_M_Funcionario_Agregar(mainForm,this);
             popUpAgregar.Show();
-            this.Enabled = false;
+            this.Visible = false;
         }
 
         private void mtEditar_Click(object sender, EventArgs e)
@@ -125,9 +130,9 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                 MessageBox.Show("Primero debes seleccionar una fila!");
             else
             {
-                Form_M_Funcionario_Modificar popUpEditar = new Form_M_Funcionario_Modificar(this, funcionariosGridView[mgFuncionarios.CurrentRow.Index].Run);
+                Form_M_Funcionario_Modificar popUpEditar = new Form_M_Funcionario_Modificar(mainForm,this, funcionariosGridView[mgFuncionarios.CurrentRow.Index].Run);
                 popUpEditar.Show();
-                this.Enabled = false;
+                this.Visible = false;
             }
         }
 
@@ -158,6 +163,17 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
         private void mcmbUnidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarFuncionariosGridView(funcionarios);
+        }
+
+        private void Form_M_Funcionario_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.Close();
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            anterior.Visible = true;
+            this.Dispose();
         }
     }
 }
