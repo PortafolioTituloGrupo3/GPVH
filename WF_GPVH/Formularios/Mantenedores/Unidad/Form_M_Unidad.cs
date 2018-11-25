@@ -17,10 +17,15 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
     {
         private GestionadorUnidad gestionador;
         private List<LB_GPVH.Modelo.Unidad> unidades;
+        private Form mainForm;
+        private Form anterior;
 
-        public Form_M_Unidad()
+        public Form_M_Unidad(Form pMainForm, Form pAnterior)
         {
             InitializeComponent();
+            mainForm = pMainForm;
+            anterior = pAnterior;
+
             gestionador = new GestionadorUnidad();
             this.loadUnidades();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
@@ -111,7 +116,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
 
         private void mtAgregar_Click(object sender, EventArgs e)
         {
-            Form_M_Unidad_Agregar popUpAgregar = new Form_M_Unidad_Agregar(this);
+            Form_M_Unidad_Agregar popUpAgregar = new Form_M_Unidad_Agregar(mainForm,this);
             popUpAgregar.Show();
             this.Enabled = false;
         }
@@ -146,6 +151,12 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                         break;
                 }
             }
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            anterior.Visible = true;
+            this.Dispose();
         }
     }
 }

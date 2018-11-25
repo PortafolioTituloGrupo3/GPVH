@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using LB_GPVH.Modelo;
 using LB_GPVH.Controlador;
 using LB_GPVH.Enums;
+using WF_GPVH.Formularios.Reportes;
 
 namespace WF_GPVH.Formularios.Permisos
 {
@@ -19,7 +20,6 @@ namespace WF_GPVH.Formularios.Permisos
         IEnumerable<Permiso> permisosGridView;
         GestionadorPermiso gestionador;
         Form formPadre;
-        private List<LB_GPVH.Modelo.Permiso> permisos;
         
         public Form_BuscarPermiso(Form pFormPadre, Funcionario pFuncionario)
         {
@@ -29,18 +29,12 @@ namespace WF_GPVH.Formularios.Permisos
             gestionador = new GestionadorPermiso();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             loadPermisos();
-            CargarPermisos(permisos);
         }
 
         public void loadPermisos()
         {
             gestionador.AsignarPermisos(funcionario);
             CargarPermisosGridView(this.funcionario.Permisos);
-        }
-
-        public void CargarPermisos(List<Permiso> permisos)
-        {
-            this.permisos = this.gestionador.ListarPermisos(this.funcionario.Run);
         }
 
         public void CargarPermisosGridView(List<Permiso> permisos)
@@ -168,9 +162,14 @@ namespace WF_GPVH.Formularios.Permisos
 
         private void mgPermisos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex == 0)
+            if (e.ColumnIndex == 0 && e.RowIndex >= 0)
             {
-                new Form_ListarDocumentos(this, permisos[e.RowIndex].Id).Show();
+                new Form_ListarDocumentos(this, funcionario.Permisos[e.RowIndex].Id).Show();
+                this.Visible = false;
+            }
+            if (e.ColumnIndex == 1 && e.RowIndex >= 0)
+            {
+                new Form_Ver_Permiso(funcionario.Permisos[e.RowIndex], this).Show();
                 this.Visible = false;
             }
         }

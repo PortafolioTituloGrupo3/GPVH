@@ -193,4 +193,5 @@ C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csprojResolveAssemblyR
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.form_debug_ws.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\bin\Debug\ApplicationInsights.config
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Menu.Form_Menu_Alcalde.resources
-C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\bin\Debug\ApplicationInsights.config
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Permisos.Form_ValidarDocumento.resources
+C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Reportes.Form_Ver_Permiso.resources

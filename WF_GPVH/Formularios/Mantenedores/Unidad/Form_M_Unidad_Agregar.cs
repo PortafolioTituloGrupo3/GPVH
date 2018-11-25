@@ -17,11 +17,13 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
         GestionadorUnidad gestionador = null;
         LB_GPVH.Modelo.Unidad unidad;
         bool nombreValido, direccionValida, descripcionValida;
+        Form mainForm;
 
 
-        public Form_M_Unidad_Agregar(Form_M_Unidad formPadre)
+        public Form_M_Unidad_Agregar(Form pMainForm, Form_M_Unidad formPadre)
         {
             InitializeComponent();
+            mainForm = pMainForm;
             padreTemp = formPadre;
             gestionador = new GestionadorUnidad();
             unidad = new LB_GPVH.Modelo.Unidad();
@@ -176,7 +178,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
 
         private void mtVolver_Click(object sender, EventArgs e)
         {
-            padreTemp.Enabled = true;
+            padreTemp.Visible = true;
             this.Close();
         }
 
@@ -190,7 +192,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
 
         private void Form_M_Unidad_Agregar_FormClosing(object sender, FormClosingEventArgs e)
         {
-            padreTemp.Dispose();
+            mainForm.Dispose();
         }
     }
 }

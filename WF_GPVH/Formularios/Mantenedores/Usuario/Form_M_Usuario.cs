@@ -15,10 +15,12 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
     {
         private GestionadorUsuario gestionador;
         private List<LB_GPVH.Modelo.Usuario> usuarios;
+        private Form mainForm;
 
-        public Form_M_Usuario()
+        public Form_M_Usuario(Form pMainForm)
         {
             InitializeComponent();
+            mainForm = pMainForm;
             gestionador = new GestionadorUsuario();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             this.loadUsuarios();

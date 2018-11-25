@@ -67,6 +67,7 @@
             this.mtIdentificarDocumento.Text = "Identificar Documento";
             this.mtIdentificarDocumento.UseSelectable = true;
             this.mtIdentificarDocumento.UseStyleColors = true;
+            this.mtIdentificarDocumento.Click += new System.EventHandler(this.mtIdentificarDocumento_Click);
             // 
             // mtBuscarResoluciones
             // 

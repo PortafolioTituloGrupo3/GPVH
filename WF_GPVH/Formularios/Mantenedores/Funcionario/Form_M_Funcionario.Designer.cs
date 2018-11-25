@@ -38,6 +38,7 @@
             this.mlblUnidad = new MetroFramework.Controls.MetroLabel();
             this.mcmbUnidad = new MetroFramework.Controls.MetroComboBox();
             this.mchkVerSoloHabilitados = new MetroFramework.Controls.MetroCheckBox();
+            this.mtVolver = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.mgFuncionarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,11 +158,23 @@
             this.mchkVerSoloHabilitados.UseSelectable = true;
             this.mchkVerSoloHabilitados.CheckedChanged += new System.EventHandler(this.mchkVerSoloHabilitados_CheckedChanged);
             // 
+            // mtVolver
+            // 
+            this.mtVolver.ActiveControl = null;
+            this.mtVolver.Location = new System.Drawing.Point(350, 251);
+            this.mtVolver.Name = "mtVolver";
+            this.mtVolver.Size = new System.Drawing.Size(75, 60);
+            this.mtVolver.TabIndex = 35;
+            this.mtVolver.Text = "Volver";
+            this.mtVolver.UseSelectable = true;
+            this.mtVolver.Click += new System.EventHandler(this.mtVolver_Click);
+            // 
             // Form_M_Funcionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(683, 342);
+            this.Controls.Add(this.mtVolver);
             this.Controls.Add(this.mchkVerSoloHabilitados);
             this.Controls.Add(this.mcmbUnidad);
             this.Controls.Add(this.mlblUnidad);
@@ -171,6 +184,7 @@
             this.Controls.Add(this.mgFuncionarios);
             this.Name = "Form_M_Funcionario";
             this.Text = "Form_M_Funcionario";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_M_Funcionario_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.mgFuncionarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -185,5 +199,6 @@
         private MetroFramework.Controls.MetroLabel mlblUnidad;
         private MetroFramework.Controls.MetroComboBox mcmbUnidad;
         private MetroFramework.Controls.MetroCheckBox mchkVerSoloHabilitados;
+        private MetroFramework.Controls.MetroTile mtVolver;
     }
 }

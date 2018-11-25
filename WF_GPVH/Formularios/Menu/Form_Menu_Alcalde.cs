@@ -57,5 +57,10 @@ namespace WF_GPVH.Formularios.Menu
         {
             mainForm.Dispose();
         }
+
+        private void mtIdentificarDocumento_Click(object sender, EventArgs e)
+        {
+            new Permisos.Form_ValidarDocumento(mainForm, this, sesion).Show();
+        }
     }
 }

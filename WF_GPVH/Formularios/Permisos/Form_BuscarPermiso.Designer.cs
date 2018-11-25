@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mgPermisos = new MetroFramework.Controls.MetroGrid();
-            this.btnVerDocumentos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.rbVerTodos = new MetroFramework.Controls.MetroRadioButton();
             this.mpGupoRB = new MetroFramework.Controls.MetroPanel();
             this.rbVerSoloPendientes = new MetroFramework.Controls.MetroRadioButton();
@@ -44,6 +43,8 @@
             this.mdtFechaTermino = new MetroFramework.Controls.MetroDateTime();
             this.mdtFechaInicio = new MetroFramework.Controls.MetroDateTime();
             this.chkBuscarEntreFechas = new MetroFramework.Controls.MetroCheckBox();
+            this.btnVerDocumentos = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.VerPDF = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mgPermisos)).BeginInit();
             this.mpGupoRB.SuspendLayout();
             this.mpBusquedaEntreFechas.SuspendLayout();
@@ -66,7 +67,8 @@
             this.mgPermisos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.mgPermisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mgPermisos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.btnVerDocumentos});
+            this.btnVerDocumentos,
+            this.VerPDF});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -95,15 +97,6 @@
             this.mgPermisos.Size = new System.Drawing.Size(650, 159);
             this.mgPermisos.TabIndex = 0;
             this.mgPermisos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.mgPermisos_CellMouseClick);
-            // 
-            // btnVerDocumentos
-            // 
-            this.btnVerDocumentos.Frozen = true;
-            this.btnVerDocumentos.HeaderText = "Ver documentos";
-            this.btnVerDocumentos.Name = "btnVerDocumentos";
-            this.btnVerDocumentos.Text = "Ver";
-            this.btnVerDocumentos.ToolTipText = "Ver";
-            this.btnVerDocumentos.UseColumnTextForButtonValue = true;
             // 
             // rbVerTodos
             // 
@@ -233,6 +226,21 @@
             this.chkBuscarEntreFechas.UseSelectable = true;
             this.chkBuscarEntreFechas.CheckedChanged += new System.EventHandler(this.chkBuscarEntreFechas_CheckedChanged);
             // 
+            // btnVerDocumentos
+            // 
+            this.btnVerDocumentos.Frozen = true;
+            this.btnVerDocumentos.HeaderText = "Ver documentos";
+            this.btnVerDocumentos.Name = "btnVerDocumentos";
+            this.btnVerDocumentos.Text = "Ver";
+            this.btnVerDocumentos.ToolTipText = "Ver";
+            this.btnVerDocumentos.UseColumnTextForButtonValue = true;
+            // 
+            // VerPDF
+            // 
+            this.VerPDF.HeaderText = "Ver PDF";
+            this.VerPDF.Name = "VerPDF";
+            this.VerPDF.Width = 50;
+            // 
             // Form_BuscarPermiso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,5 +277,6 @@
         private MetroFramework.Controls.MetroCheckBox chkBuscarEntreFechas;
         private MetroFramework.Controls.MetroRadioButton rbVerSoloPendientes;
         private System.Windows.Forms.DataGridViewButtonColumn btnVerDocumentos;
+        private System.Windows.Forms.DataGridViewButtonColumn VerPDF;
     }
 }

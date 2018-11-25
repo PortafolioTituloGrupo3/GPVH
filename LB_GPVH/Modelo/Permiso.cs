@@ -44,7 +44,7 @@ namespace LB_GPVH.Modelo
         {
             get
             {
-                return MetodosTipoPermiso.GetString(Tipo);
+                return MetodosEstadoPermiso.GetString(Estado);
             }
         }
 

@@ -162,6 +162,9 @@
     <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.buscarFuncionarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.buscarPermisoPorIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\wsIntegracionAppEscritorio\LB_GPVH.wsIntegracionAppEscritorio.buscarPermisosAnualesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

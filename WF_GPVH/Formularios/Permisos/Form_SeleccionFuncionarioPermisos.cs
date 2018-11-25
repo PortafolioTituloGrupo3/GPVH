@@ -139,7 +139,7 @@ namespace WF_GPVH.Formularios.Permisos
 
         private void mgFuncionarios_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(e.ColumnIndex == 0)
+            if(e.ColumnIndex == 0 && e.RowIndex >= 0)
             {
                 new Form_BuscarPermiso(this, funcionariosGridView[e.RowIndex]).Show();
                 this.Visible = false;
