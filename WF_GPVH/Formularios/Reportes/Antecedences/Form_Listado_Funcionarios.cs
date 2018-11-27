@@ -16,13 +16,26 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
         private GestionadorFuncionario gestionador;
         private List<LB_GPVH.Modelo.Funcionario> funcionarios;
         private List<LB_GPVH.Modelo.Funcionario> funcionariosGridView;
+        Form mainForm;
+        Form formAnterior;
+        bool changingSize;
 
-        public Form_Listado_Funcionarios()
+        public Form_Listado_Funcionarios(Form pMainForm, Form pAnterior)
         {
+            changingSize = true;
             InitializeComponent();
+            GridViewLimits();
+            mainForm = pMainForm;
+            formAnterior = pAnterior;
             gestionador = new GestionadorFuncionario();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             this.loadFuncionarios();
+            changingSize = false;
+
+            if (formAnterior.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
         public void loadFuncionarios()
         {
@@ -142,6 +155,34 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
                 form_antecedentes.Show();
                 this.Enabled = false;
             }
+        }
+
+        private void Form_Listado_Funcionarios_SizeChanged(object sender, EventArgs e)
+        {
+            if (!changingSize)
+            {
+                changingSize = true;
+                GridViewLimits();
+                changingSize = false;
+            }
+        }
+
+        private void Form_Listado_Funcionarios_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.Close();
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            formAnterior.Visible = true;
+            this.Dispose();
+        }
+
+        private void GridViewLimits()
+        {
+            dgv_funcionarios.MaximumSize = new Size(this.Size.Width - 50, this.Size.Height - 150);
+            dgv_funcionarios.Size = dgv_funcionarios.MaximumSize;
+            dgv_funcionarios.Refresh();
         }
     }
 }

@@ -42,6 +42,7 @@
             // 
             // mchkVerSoloHabilitados
             // 
+            this.mchkVerSoloHabilitados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mchkVerSoloHabilitados.AutoSize = true;
             this.mchkVerSoloHabilitados.Checked = true;
             this.mchkVerSoloHabilitados.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -55,6 +56,7 @@
             // 
             // mcmbUnidad
             // 
+            this.mcmbUnidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mcmbUnidad.FormattingEnabled = true;
             this.mcmbUnidad.ItemHeight = 23;
             this.mcmbUnidad.Location = new System.Drawing.Point(555, 282);
@@ -66,6 +68,7 @@
             // 
             // mlblUnidad
             // 
+            this.mlblUnidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mlblUnidad.AutoSize = true;
             this.mlblUnidad.Location = new System.Drawing.Point(495, 282);
             this.mlblUnidad.Name = "mlblUnidad";
@@ -80,6 +83,8 @@
             this.mgFuncionarios.AllowUserToDeleteRows = false;
             this.mgFuncionarios.AllowUserToResizeColumns = false;
             this.mgFuncionarios.AllowUserToResizeRows = false;
+            this.mgFuncionarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.mgFuncionarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.mgFuncionarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mgFuncionarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -139,6 +144,7 @@
             // mtVolver
             // 
             this.mtVolver.ActiveControl = null;
+            this.mtVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mtVolver.Location = new System.Drawing.Point(23, 376);
             this.mtVolver.Name = "mtVolver";
             this.mtVolver.Size = new System.Drawing.Size(112, 51);
@@ -160,6 +166,7 @@
             this.Name = "Form_SeleccionFuncionarioPermisos";
             this.Text = "Form_SeleccionFuncionarioPermiso";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_SeleccionFuncionarioPermisos_FormClosing);
+            this.SizeChanged += new System.EventHandler(this.Form_SeleccionFuncionarioPermisos_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.mgFuncionarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

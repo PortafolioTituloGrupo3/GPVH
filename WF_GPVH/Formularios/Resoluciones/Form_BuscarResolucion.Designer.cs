@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mgResoluciones = new MetroFramework.Controls.MetroGrid();
             this.btnValidar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnInvalidar = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -62,26 +62,26 @@
             this.mgResoluciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mgResoluciones.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.mgResoluciones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mgResoluciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mgResoluciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.mgResoluciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mgResoluciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnValidar,
             this.btnInvalidar});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.mgResoluciones.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mgResoluciones.DefaultCellStyle = dataGridViewCellStyle5;
             this.mgResoluciones.EnableHeadersVisualStyles = false;
             this.mgResoluciones.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mgResoluciones.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -89,14 +89,14 @@
             this.mgResoluciones.MaximumSize = new System.Drawing.Size(650, 164);
             this.mgResoluciones.Name = "mgResoluciones";
             this.mgResoluciones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mgResoluciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mgResoluciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.mgResoluciones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.mgResoluciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.mgResoluciones.Size = new System.Drawing.Size(650, 152);
@@ -121,6 +121,7 @@
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.metroPanel1.Controls.Add(this.rbVerSoloPendientes);
             this.metroPanel1.Controls.Add(this.rbVerSoloInvalidados);
             this.metroPanel1.Controls.Add(this.rbVerSoloValidados);
@@ -138,6 +139,7 @@
             // 
             // rbVerSoloPendientes
             // 
+            this.rbVerSoloPendientes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rbVerSoloPendientes.AutoSize = true;
             this.rbVerSoloPendientes.Checked = true;
             this.rbVerSoloPendientes.Location = new System.Drawing.Point(17, 76);
@@ -151,6 +153,7 @@
             // 
             // rbVerSoloInvalidados
             // 
+            this.rbVerSoloInvalidados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rbVerSoloInvalidados.AutoSize = true;
             this.rbVerSoloInvalidados.Location = new System.Drawing.Point(17, 55);
             this.rbVerSoloInvalidados.Name = "rbVerSoloInvalidados";
@@ -162,6 +165,7 @@
             // 
             // rbVerSoloValidados
             // 
+            this.rbVerSoloValidados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rbVerSoloValidados.AutoSize = true;
             this.rbVerSoloValidados.Location = new System.Drawing.Point(17, 34);
             this.rbVerSoloValidados.Name = "rbVerSoloValidados";
@@ -173,6 +177,7 @@
             // 
             // rbVerTodos
             // 
+            this.rbVerTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rbVerTodos.AutoSize = true;
             this.rbVerTodos.Location = new System.Drawing.Point(17, 13);
             this.rbVerTodos.Name = "rbVerTodos";
@@ -184,6 +189,7 @@
             // 
             // txbMes
             // 
+            this.txbMes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -215,6 +221,7 @@
             // 
             // btnMesInc
             // 
+            this.btnMesInc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMesInc.Location = new System.Drawing.Point(746, 251);
             this.btnMesInc.Name = "btnMesInc";
             this.btnMesInc.Size = new System.Drawing.Size(18, 10);
@@ -224,6 +231,7 @@
             // 
             // btnMesDec
             // 
+            this.btnMesDec.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMesDec.Location = new System.Drawing.Point(746, 264);
             this.btnMesDec.Name = "btnMesDec";
             this.btnMesDec.Size = new System.Drawing.Size(18, 10);
@@ -233,6 +241,7 @@
             // 
             // btnAnnoDec
             // 
+            this.btnAnnoDec.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAnnoDec.Location = new System.Drawing.Point(746, 301);
             this.btnAnnoDec.Name = "btnAnnoDec";
             this.btnAnnoDec.Size = new System.Drawing.Size(18, 10);
@@ -242,6 +251,7 @@
             // 
             // btnAnnoInc
             // 
+            this.btnAnnoInc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAnnoInc.Location = new System.Drawing.Point(746, 288);
             this.btnAnnoInc.Name = "btnAnnoInc";
             this.btnAnnoInc.Size = new System.Drawing.Size(18, 10);
@@ -251,6 +261,7 @@
             // 
             // txbAnno
             // 
+            this.txbAnno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -282,6 +293,7 @@
             // 
             // lblMes
             // 
+            this.lblMes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMes.AutoSize = true;
             this.lblMes.Location = new System.Drawing.Point(674, 255);
             this.lblMes.Name = "lblMes";
@@ -291,6 +303,7 @@
             // 
             // metroLabel1
             // 
+            this.metroLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.Location = new System.Drawing.Point(643, 292);
             this.metroLabel1.Name = "metroLabel1";
@@ -300,6 +313,7 @@
             // 
             // cmbUnidad
             // 
+            this.cmbUnidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cmbUnidad.FormattingEnabled = true;
             this.cmbUnidad.ItemHeight = 23;
             this.cmbUnidad.Location = new System.Drawing.Point(85, 374);
@@ -311,6 +325,7 @@
             // 
             // lblUnidad
             // 
+            this.lblUnidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblUnidad.AutoSize = true;
             this.lblUnidad.Location = new System.Drawing.Point(25, 384);
             this.lblUnidad.Name = "lblUnidad";
@@ -321,6 +336,7 @@
             // mtBuscar
             // 
             this.mtBuscar.ActiveControl = null;
+            this.mtBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mtBuscar.Location = new System.Drawing.Point(643, 317);
             this.mtBuscar.Name = "mtBuscar";
             this.mtBuscar.Size = new System.Drawing.Size(134, 54);
@@ -332,6 +348,7 @@
             // mtVolver
             // 
             this.mtVolver.ActiveControl = null;
+            this.mtVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mtVolver.Location = new System.Drawing.Point(23, 413);
             this.mtVolver.Name = "mtVolver";
             this.mtVolver.Size = new System.Drawing.Size(112, 51);
@@ -362,6 +379,7 @@
             this.Name = "Form_BuscarResolucion";
             this.Text = "Form_BuscarResolucion";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_BuscarResolucion_FormClosing);
+            this.SizeChanged += new System.EventHandler(this.Form_BuscarResolucion_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.mgResoluciones)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();

@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mgPermisos = new MetroFramework.Controls.MetroGrid();
+            this.btnVerDocumentos = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.VerPDF = new System.Windows.Forms.DataGridViewButtonColumn();
             this.rbVerTodos = new MetroFramework.Controls.MetroRadioButton();
             this.mpGupoRB = new MetroFramework.Controls.MetroPanel();
             this.rbVerSoloPendientes = new MetroFramework.Controls.MetroRadioButton();
@@ -43,8 +45,7 @@
             this.mdtFechaTermino = new MetroFramework.Controls.MetroDateTime();
             this.mdtFechaInicio = new MetroFramework.Controls.MetroDateTime();
             this.chkBuscarEntreFechas = new MetroFramework.Controls.MetroCheckBox();
-            this.btnVerDocumentos = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.VerPDF = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.mtVolver = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.mgPermisos)).BeginInit();
             this.mpGupoRB.SuspendLayout();
             this.mpBusquedaEntreFechas.SuspendLayout();
@@ -53,30 +54,32 @@
             // mgPermisos
             // 
             this.mgPermisos.AllowUserToResizeRows = false;
+            this.mgPermisos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.mgPermisos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.mgPermisos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mgPermisos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.mgPermisos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mgPermisos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mgPermisos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.mgPermisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mgPermisos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnVerDocumentos,
             this.VerPDF});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.mgPermisos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mgPermisos.DefaultCellStyle = dataGridViewCellStyle17;
             this.mgPermisos.EnableHeadersVisualStyles = false;
             this.mgPermisos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.mgPermisos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -84,22 +87,38 @@
             this.mgPermisos.MaximumSize = new System.Drawing.Size(650, 164);
             this.mgPermisos.Name = "mgPermisos";
             this.mgPermisos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mgPermisos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mgPermisos.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.mgPermisos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.mgPermisos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.mgPermisos.Size = new System.Drawing.Size(650, 159);
             this.mgPermisos.TabIndex = 0;
             this.mgPermisos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.mgPermisos_CellMouseClick);
             // 
+            // btnVerDocumentos
+            // 
+            this.btnVerDocumentos.Frozen = true;
+            this.btnVerDocumentos.HeaderText = "Ver documentos";
+            this.btnVerDocumentos.Name = "btnVerDocumentos";
+            this.btnVerDocumentos.Text = "Ver";
+            this.btnVerDocumentos.ToolTipText = "Ver";
+            this.btnVerDocumentos.UseColumnTextForButtonValue = true;
+            // 
+            // VerPDF
+            // 
+            this.VerPDF.HeaderText = "Ver PDF";
+            this.VerPDF.Name = "VerPDF";
+            this.VerPDF.Width = 50;
+            // 
             // rbVerTodos
             // 
+            this.rbVerTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rbVerTodos.AutoSize = true;
             this.rbVerTodos.Checked = true;
             this.rbVerTodos.Location = new System.Drawing.Point(17, 3);
@@ -113,6 +132,7 @@
             // 
             // mpGupoRB
             // 
+            this.mpGupoRB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mpGupoRB.Controls.Add(this.rbVerSoloPendientes);
             this.mpGupoRB.Controls.Add(this.rbVerSoloRechazados);
             this.mpGupoRB.Controls.Add(this.rbVerSoloAutorizados);
@@ -130,6 +150,7 @@
             // 
             // rbVerSoloPendientes
             // 
+            this.rbVerSoloPendientes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rbVerSoloPendientes.AutoSize = true;
             this.rbVerSoloPendientes.Location = new System.Drawing.Point(17, 65);
             this.rbVerSoloPendientes.Name = "rbVerSoloPendientes";
@@ -141,6 +162,7 @@
             // 
             // rbVerSoloRechazados
             // 
+            this.rbVerSoloRechazados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rbVerSoloRechazados.AutoSize = true;
             this.rbVerSoloRechazados.Location = new System.Drawing.Point(17, 45);
             this.rbVerSoloRechazados.Name = "rbVerSoloRechazados";
@@ -152,6 +174,7 @@
             // 
             // rbVerSoloAutorizados
             // 
+            this.rbVerSoloAutorizados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rbVerSoloAutorizados.AutoSize = true;
             this.rbVerSoloAutorizados.Location = new System.Drawing.Point(17, 24);
             this.rbVerSoloAutorizados.Name = "rbVerSoloAutorizados";
@@ -163,6 +186,7 @@
             // 
             // mpBusquedaEntreFechas
             // 
+            this.mpBusquedaEntreFechas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mpBusquedaEntreFechas.Controls.Add(this.lblTermino);
             this.mpBusquedaEntreFechas.Controls.Add(this.metroLabel1);
             this.mpBusquedaEntreFechas.Controls.Add(this.mdtFechaTermino);
@@ -181,6 +205,7 @@
             // 
             // lblTermino
             // 
+            this.lblTermino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTermino.AutoSize = true;
             this.lblTermino.Location = new System.Drawing.Point(11, 55);
             this.lblTermino.Name = "lblTermino";
@@ -190,6 +215,7 @@
             // 
             // metroLabel1
             // 
+            this.metroLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.Location = new System.Drawing.Point(11, 20);
             this.metroLabel1.Name = "metroLabel1";
@@ -199,6 +225,7 @@
             // 
             // mdtFechaTermino
             // 
+            this.mdtFechaTermino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mdtFechaTermino.Location = new System.Drawing.Point(73, 51);
             this.mdtFechaTermino.MinimumSize = new System.Drawing.Size(0, 29);
             this.mdtFechaTermino.Name = "mdtFechaTermino";
@@ -208,6 +235,7 @@
             // 
             // mdtFechaInicio
             // 
+            this.mdtFechaInicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mdtFechaInicio.Location = new System.Drawing.Point(73, 10);
             this.mdtFechaInicio.MinimumSize = new System.Drawing.Size(0, 29);
             this.mdtFechaInicio.Name = "mdtFechaInicio";
@@ -217,6 +245,7 @@
             // 
             // chkBuscarEntreFechas
             // 
+            this.chkBuscarEntreFechas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.chkBuscarEntreFechas.AutoSize = true;
             this.chkBuscarEntreFechas.Location = new System.Drawing.Point(306, 287);
             this.chkBuscarEntreFechas.Name = "chkBuscarEntreFechas";
@@ -226,32 +255,31 @@
             this.chkBuscarEntreFechas.UseSelectable = true;
             this.chkBuscarEntreFechas.CheckedChanged += new System.EventHandler(this.chkBuscarEntreFechas_CheckedChanged);
             // 
-            // btnVerDocumentos
+            // mtVolver
             // 
-            this.btnVerDocumentos.Frozen = true;
-            this.btnVerDocumentos.HeaderText = "Ver documentos";
-            this.btnVerDocumentos.Name = "btnVerDocumentos";
-            this.btnVerDocumentos.Text = "Ver";
-            this.btnVerDocumentos.ToolTipText = "Ver";
-            this.btnVerDocumentos.UseColumnTextForButtonValue = true;
-            // 
-            // VerPDF
-            // 
-            this.VerPDF.HeaderText = "Ver PDF";
-            this.VerPDF.Name = "VerPDF";
-            this.VerPDF.Width = 50;
+            this.mtVolver.ActiveControl = null;
+            this.mtVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtVolver.Location = new System.Drawing.Point(630, 385);
+            this.mtVolver.Name = "mtVolver";
+            this.mtVolver.Size = new System.Drawing.Size(147, 42);
+            this.mtVolver.TabIndex = 19;
+            this.mtVolver.Text = "Volver";
+            this.mtVolver.UseSelectable = true;
+            this.mtVolver.Click += new System.EventHandler(this.mtVolver_Click);
             // 
             // Form_BuscarPermiso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.mtVolver);
             this.Controls.Add(this.chkBuscarEntreFechas);
             this.Controls.Add(this.mpBusquedaEntreFechas);
             this.Controls.Add(this.mpGupoRB);
             this.Controls.Add(this.mgPermisos);
             this.Name = "Form_BuscarPermiso";
             this.Text = "Form_BuscarPermiso";
+            this.SizeChanged += new System.EventHandler(this.Form_BuscarPermiso_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.mgPermisos)).EndInit();
             this.mpGupoRB.ResumeLayout(false);
             this.mpGupoRB.PerformLayout();
@@ -278,5 +306,6 @@
         private MetroFramework.Controls.MetroRadioButton rbVerSoloPendientes;
         private System.Windows.Forms.DataGridViewButtonColumn btnVerDocumentos;
         private System.Windows.Forms.DataGridViewButtonColumn VerPDF;
+        private MetroFramework.Controls.MetroTile mtVolver;
     }
 }

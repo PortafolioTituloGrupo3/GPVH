@@ -43,7 +43,7 @@
             this.lblErrorNombre = new MetroFramework.Controls.MetroLabel();
             this.lblErrorDescripcion = new MetroFramework.Controls.MetroLabel();
             this.lblErrorDireccion = new MetroFramework.Controls.MetroLabel();
-            this.mtAgregar = new MetroFramework.Controls.MetroTile();
+            this.mtModificar = new MetroFramework.Controls.MetroTile();
             this.mtVolver = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
@@ -261,21 +261,24 @@
             this.lblErrorDireccion.Text = "Caracter Invalido";
             this.lblErrorDireccion.Visible = false;
             // 
-            // mtAgregar
+            // mtModificar
             // 
-            this.mtAgregar.ActiveControl = null;
-            this.mtAgregar.Location = new System.Drawing.Point(28, 312);
-            this.mtAgregar.Name = "mtAgregar";
-            this.mtAgregar.Size = new System.Drawing.Size(90, 58);
-            this.mtAgregar.TabIndex = 17;
-            this.mtAgregar.Text = "Agregar";
-            this.mtAgregar.UseSelectable = true;
-            this.mtAgregar.Click += new System.EventHandler(this.mtAgregar_Click);
+            this.mtModificar.ActiveControl = null;
+            this.mtModificar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.mtModificar.Location = new System.Drawing.Point(28, 312);
+            this.mtModificar.Name = "mtModificar";
+            this.mtModificar.Size = new System.Drawing.Size(90, 58);
+            this.mtModificar.TabIndex = 17;
+            this.mtModificar.Text = "Modificar";
+            this.mtModificar.UseSelectable = true;
+            this.mtModificar.Click += new System.EventHandler(this.mtAgregar_Click);
             // 
             // mtVolver
             // 
             this.mtVolver.ActiveControl = null;
-            this.mtVolver.Location = new System.Drawing.Point(265, 312);
+            this.mtVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtVolver.Location = new System.Drawing.Point(487, 312);
             this.mtVolver.Name = "mtVolver";
             this.mtVolver.Size = new System.Drawing.Size(90, 58);
             this.mtVolver.TabIndex = 18;
@@ -289,7 +292,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 393);
             this.Controls.Add(this.mtVolver);
-            this.Controls.Add(this.mtAgregar);
+            this.Controls.Add(this.mtModificar);
             this.Controls.Add(this.lblErrorDireccion);
             this.Controls.Add(this.lblErrorDescripcion);
             this.Controls.Add(this.lblErrorNombre);
@@ -330,7 +333,7 @@
         private MetroFramework.Controls.MetroLabel lblErrorNombre;
         private MetroFramework.Controls.MetroLabel lblErrorDescripcion;
         private MetroFramework.Controls.MetroLabel lblErrorDireccion;
-        private MetroFramework.Controls.MetroTile mtAgregar;
+        private MetroFramework.Controls.MetroTile mtModificar;
         private MetroFramework.Controls.MetroTile mtVolver;
     }
 }

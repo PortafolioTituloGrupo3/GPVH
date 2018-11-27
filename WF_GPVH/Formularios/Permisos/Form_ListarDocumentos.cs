@@ -17,9 +17,14 @@ namespace WF_GPVH.Formularios.Permisos
         private List<Documento> documentos = new List<Documento>();
         private GestionadorDocumento gestionador = new GestionadorDocumento();
         int permisoActual=-1;
-        public Form_ListarDocumentos(Form pFormPadre, int permiso)
+        Form formPadre;
+        Form mainForm;
+
+        public Form_ListarDocumentos(Form pMainForm, Form pFormPadre, int permiso)
         {
             InitializeComponent();
+            formPadre = pFormPadre;
+            mainForm = pMainForm;
             permisoActual = permiso;
             this.CargarDocumentosGridView();
         }
@@ -76,6 +81,17 @@ namespace WF_GPVH.Formularios.Permisos
                 new Form_cargar_PDF(this, documentos[e.RowIndex]).Show();
                 this.Visible = false;
             }
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            formPadre.Visible = true;
+            this.Dispose();
+        }
+
+        private void Form_ListarDocumentos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.Close();
         }
     }
 }

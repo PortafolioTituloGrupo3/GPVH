@@ -19,10 +19,13 @@ namespace WF_GPVH.Formularios.Permisos
         Form mainForm;
         Form formAnterior;
         Sesion sesion;
+        bool changingSize;
 
         public Form_SeleccionFuncionarioPermisos(Form pMainForm, Form pFormAnterior, Sesion pSesion)
         {
+            changingSize = true;
             InitializeComponent();
+            GridViewLimits();
             formAnterior = pFormAnterior;
             mainForm = pMainForm;
             sesion = pSesion;
@@ -30,6 +33,12 @@ namespace WF_GPVH.Formularios.Permisos
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             this.loadFuncionarios();
             this.loadDdlUnidades();
+            changingSize = false;
+
+            if (formAnterior.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
 
 
@@ -141,7 +150,7 @@ namespace WF_GPVH.Formularios.Permisos
         {
             if(e.ColumnIndex == 0 && e.RowIndex >= 0)
             {
-                new Form_BuscarPermiso(this, funcionariosGridView[e.RowIndex]).Show();
+                new Form_BuscarPermiso(mainForm,this, funcionariosGridView[e.RowIndex]).Show();
                 this.Visible = false;
             }
         }
@@ -155,6 +164,23 @@ namespace WF_GPVH.Formularios.Permisos
         private void Form_SeleccionFuncionarioPermisos_FormClosing(object sender, FormClosingEventArgs e)
         {
             mainForm.Dispose();
+        }
+
+        private void Form_SeleccionFuncionarioPermisos_SizeChanged(object sender, EventArgs e)
+        {
+            if (!changingSize)
+            {
+                changingSize = true;
+                GridViewLimits();
+                changingSize = false;
+            }
+        }
+
+        private void GridViewLimits()
+        {
+            mgFuncionarios.MaximumSize = new Size(this.Size.Width - 50, this.Size.Height - 300);
+            mgFuncionarios.Size = mgFuncionarios.MaximumSize;
+            mgFuncionarios.Refresh();
         }
     }
 }

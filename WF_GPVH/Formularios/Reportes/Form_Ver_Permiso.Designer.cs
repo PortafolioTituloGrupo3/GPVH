@@ -34,7 +34,8 @@
             // crv_permiso
             // 
             this.crv_permiso.ActiveViewIndex = -1;
-            this.crv_permiso.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.crv_permiso.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.crv_permiso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crv_permiso.Cursor = System.Windows.Forms.Cursors.Default;
@@ -52,6 +53,7 @@
             this.Controls.Add(this.crv_permiso);
             this.Name = "Form_Ver_Permiso";
             this.Text = "Form_Ver_Permiso";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Ver_Permiso_FormClosing);
             this.ResumeLayout(false);
 
         }

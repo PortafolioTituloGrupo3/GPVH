@@ -86,6 +86,7 @@
             // mtAgregar
             // 
             this.mtAgregar.ActiveControl = null;
+            this.mtAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mtAgregar.Location = new System.Drawing.Point(23, 277);
             this.mtAgregar.Name = "mtAgregar";
             this.mtAgregar.Size = new System.Drawing.Size(95, 51);
@@ -97,6 +98,7 @@
             // mtEditar
             // 
             this.mtEditar.ActiveControl = null;
+            this.mtEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mtEditar.Location = new System.Drawing.Point(124, 277);
             this.mtEditar.Name = "mtEditar";
             this.mtEditar.Size = new System.Drawing.Size(95, 51);
@@ -108,6 +110,7 @@
             // mtEliminar
             // 
             this.mtEliminar.ActiveControl = null;
+            this.mtEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mtEliminar.Location = new System.Drawing.Point(225, 276);
             this.mtEliminar.Name = "mtEliminar";
             this.mtEliminar.Size = new System.Drawing.Size(95, 51);
@@ -119,6 +122,7 @@
             // mtVolver
             // 
             this.mtVolver.ActiveControl = null;
+            this.mtVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mtVolver.Location = new System.Drawing.Point(558, 277);
             this.mtVolver.Name = "mtVolver";
             this.mtVolver.Size = new System.Drawing.Size(103, 52);
@@ -139,6 +143,7 @@
             this.Controls.Add(this.dgv_Unidades);
             this.Name = "Form_M_Unidad";
             this.Text = "Form_M_Unidad";
+            this.SizeChanged += new System.EventHandler(this.Form_M_Unidad_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Unidades)).EndInit();
             this.ResumeLayout(false);
 

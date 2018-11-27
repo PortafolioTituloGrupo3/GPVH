@@ -44,12 +44,12 @@ namespace WF_GPVH.Formularios.Menu
 
         private void mtGenerarReporte_Click(object sender, EventArgs e)
         {
-            new Reportes.Form_Reporte_Permisos().Show();
+            new Reportes.Form_Reporte_Permisos(mainForm, this).Show();
         }
 
         private void mtAntecedentes_Click(object sender, EventArgs e)
         {
-            new Reportes.Antecedences.Form_Listado_Funcionarios().Show();
+            new Reportes.Antecedences.Form_Listado_Funcionarios(mainForm, this).Show();
         }
 
         private void mtSalir_Click(object sender, EventArgs e)

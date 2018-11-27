@@ -18,6 +18,8 @@ namespace LB_GPVH.Controlador
             ClaveConfirmacionInvalida,
             NombreVacio,
             ClaveVacia,
+            FuncionarioYaTieneCuenta,
+            AlcaldeExiste,
             Valido,
             Invalido
         }
@@ -152,6 +154,10 @@ namespace LB_GPVH.Controlador
             {
                 case 0:
                     return ResultadoGestionUsuario.Valido;
+                case 100103:
+                    return ResultadoGestionUsuario.FuncionarioYaTieneCuenta;
+                case 100104:
+                    return ResultadoGestionUsuario.AlcaldeExiste;
                 default:
                     return ResultadoGestionUsuario.Invalido;
             }
@@ -184,6 +190,10 @@ namespace LB_GPVH.Controlador
             {
                 case 0:
                     return ResultadoGestionUsuario.Valido;
+                case 100204:
+                    return ResultadoGestionUsuario.FuncionarioYaTieneCuenta;
+                case 100205:
+                    return ResultadoGestionUsuario.AlcaldeExiste;
                 default:
                     return ResultadoGestionUsuario.Invalido;
             }

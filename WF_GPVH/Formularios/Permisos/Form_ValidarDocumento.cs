@@ -49,7 +49,9 @@ namespace WF_GPVH.Formularios.Permisos
                 Permiso permiso = gestionador.ValidarDocumento(Int32.Parse(codigoActual));
                 if(permiso.Id != -1)
                 {
-                    new Reportes.Form_Ver_Permiso(permiso, main).Show();
+                    this.Enabled = false;
+                    new Reportes.Form_Ver_Permiso(permiso, main, anterior).Show();
+                    this.Dispose();
                 }
                 else
                 {
@@ -60,6 +62,11 @@ namespace WF_GPVH.Formularios.Permisos
             {
                 MessageBox.Show("Ingrese el codigo de verificación.");
             }
+        }
+
+        private void Form_ValidarDocumento_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            anterior.Enabled = true;
         }
     }
 }

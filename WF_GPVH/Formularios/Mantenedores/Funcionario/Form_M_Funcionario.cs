@@ -19,17 +19,26 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
         private List<LB_GPVH.Modelo.Funcionario> funcionariosGridView;
         private Form mainForm;
         private Form anterior;
+        private bool changingSize;
 
 
         public Form_M_Funcionario(Form pMainForm, Form pAnterior)
         {
+            changingSize = true;
             InitializeComponent();
+            GridViewLimits();
             mainForm = pMainForm;
             anterior = pAnterior;
             gestionador = new GestionadorFuncionario();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             this.loadFuncionarios();
             this.loadDdlUnidades();
+            changingSize = false;
+
+            if (anterior.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
 
         public void loadFuncionarios()
@@ -174,6 +183,23 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
         {
             anterior.Visible = true;
             this.Dispose();
+        }
+
+        private void GridViewLimits()
+        {
+            mgFuncionarios.MaximumSize = new Size(this.Size.Width - 50, this.Size.Height - 180);
+            mgFuncionarios.Size = mgFuncionarios.MaximumSize;
+            mgFuncionarios.Refresh();
+        }
+
+        private void Form_M_Funcionario_SizeChanged(object sender, EventArgs e)
+        {
+            if (!changingSize)
+            {
+                changingSize = true;
+                GridViewLimits();
+                changingSize = false;
+            }
         }
     }
 }

@@ -37,7 +37,8 @@
             // crv_antecedentes
             // 
             this.crv_antecedentes.ActiveViewIndex = -1;
-            this.crv_antecedentes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.crv_antecedentes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.crv_antecedentes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crv_antecedentes.Cursor = System.Windows.Forms.Cursors.Default;

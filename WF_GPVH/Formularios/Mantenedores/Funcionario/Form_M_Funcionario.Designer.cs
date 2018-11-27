@@ -95,6 +95,7 @@
             // mtAgregar
             // 
             this.mtAgregar.ActiveControl = null;
+            this.mtAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mtAgregar.Location = new System.Drawing.Point(11, 251);
             this.mtAgregar.Name = "mtAgregar";
             this.mtAgregar.Size = new System.Drawing.Size(75, 60);
@@ -106,6 +107,7 @@
             // mtEditar
             // 
             this.mtEditar.ActiveControl = null;
+            this.mtEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mtEditar.Location = new System.Drawing.Point(92, 251);
             this.mtEditar.Name = "mtEditar";
             this.mtEditar.Size = new System.Drawing.Size(75, 60);
@@ -117,6 +119,7 @@
             // mtEliminar
             // 
             this.mtEliminar.ActiveControl = null;
+            this.mtEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mtEliminar.Location = new System.Drawing.Point(173, 251);
             this.mtEliminar.Name = "mtEliminar";
             this.mtEliminar.Size = new System.Drawing.Size(75, 60);
@@ -127,6 +130,7 @@
             // 
             // mlblUnidad
             // 
+            this.mlblUnidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mlblUnidad.AutoSize = true;
             this.mlblUnidad.Location = new System.Drawing.Point(483, 282);
             this.mlblUnidad.Name = "mlblUnidad";
@@ -136,6 +140,7 @@
             // 
             // mcmbUnidad
             // 
+            this.mcmbUnidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mcmbUnidad.FormattingEnabled = true;
             this.mcmbUnidad.ItemHeight = 23;
             this.mcmbUnidad.Location = new System.Drawing.Point(543, 282);
@@ -147,6 +152,7 @@
             // 
             // mchkVerSoloHabilitados
             // 
+            this.mchkVerSoloHabilitados.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mchkVerSoloHabilitados.AutoSize = true;
             this.mchkVerSoloHabilitados.Checked = true;
             this.mchkVerSoloHabilitados.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -161,6 +167,7 @@
             // mtVolver
             // 
             this.mtVolver.ActiveControl = null;
+            this.mtVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.mtVolver.Location = new System.Drawing.Point(350, 251);
             this.mtVolver.Name = "mtVolver";
             this.mtVolver.Size = new System.Drawing.Size(75, 60);
@@ -185,6 +192,7 @@
             this.Name = "Form_M_Funcionario";
             this.Text = "Form_M_Funcionario";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_M_Funcionario_FormClosing);
+            this.SizeChanged += new System.EventHandler(this.Form_M_Funcionario_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.mgFuncionarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

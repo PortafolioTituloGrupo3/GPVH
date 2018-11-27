@@ -179,7 +179,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
         private void mtVolver_Click(object sender, EventArgs e)
         {
             padreTemp.Visible = true;
-            this.Close();
+            this.Dispose();
         }
 
         private void ddl_jefe_SelectedIndexChanged(object sender, EventArgs e)
@@ -192,7 +192,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
 
         private void Form_M_Unidad_Agregar_FormClosing(object sender, FormClosingEventArgs e)
         {
-            mainForm.Dispose();
+            mainForm.Close();
         }
     }
 }

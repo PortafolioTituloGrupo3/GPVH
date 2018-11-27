@@ -92,8 +92,11 @@
             this.Controls.Add(this.mtBuscar);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
+            this.MaximizeBox = false;
             this.Name = "Form_ValidarDocumento";
+            this.Resizable = false;
             this.Text = "Form_ValidarDocumento";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_ValidarDocumento_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

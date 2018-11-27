@@ -13,10 +13,15 @@ namespace WF_GPVH.Formularios.Reportes
 {
     public partial class Form_Ver_Permiso : MetroFramework.Forms.MetroForm
     {
-        public Form_Ver_Permiso(Permiso permiso, Form padre)
+        Form padre;
+        Form mainForm;
+
+
+        public Form_Ver_Permiso(Permiso permiso, Form pMainForm,Form pPadre)
         {
             InitializeComponent();
-
+            mainForm = pMainForm;
+            padre = pPadre;
             GenerarReporte(permiso);
         }
 
@@ -49,6 +54,12 @@ namespace WF_GPVH.Formularios.Reportes
             reporte.Database.Tables["Permiso"].SetDataSource(dt_ReportePermiso);
             crv_permiso.ReportSource = null;
             crv_permiso.ReportSource = reporte;
+        }
+
+        private void Form_Ver_Permiso_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            padre.Visible = true;
+            padre.Enabled = true;
         }
     }
 }

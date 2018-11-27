@@ -374,6 +374,7 @@
             this.lblErrorFechaNacimiento.Size = new System.Drawing.Size(162, 19);
             this.lblErrorFechaNacimiento.TabIndex = 74;
             this.lblErrorFechaNacimiento.Text = "Fecha Nacimiento Invalida";
+            this.lblErrorFechaNacimiento.UseCustomForeColor = true;
             this.lblErrorFechaNacimiento.Visible = false;
             // 
             // lblErrorDireccion
@@ -385,6 +386,7 @@
             this.lblErrorDireccion.Size = new System.Drawing.Size(111, 19);
             this.lblErrorDireccion.TabIndex = 73;
             this.lblErrorDireccion.Text = "Direccion Invalida";
+            this.lblErrorDireccion.UseCustomForeColor = true;
             this.lblErrorDireccion.Visible = false;
             // 
             // lblErrorCorreo
@@ -396,6 +398,7 @@
             this.lblErrorCorreo.Size = new System.Drawing.Size(100, 19);
             this.lblErrorCorreo.TabIndex = 72;
             this.lblErrorCorreo.Text = "Correo Invalido";
+            this.lblErrorCorreo.UseCustomForeColor = true;
             this.lblErrorCorreo.Visible = false;
             // 
             // lblErrorApellidoMaterno
@@ -407,6 +410,7 @@
             this.lblErrorApellidoMaterno.Size = new System.Drawing.Size(161, 19);
             this.lblErrorApellidoMaterno.TabIndex = 71;
             this.lblErrorApellidoMaterno.Text = "Apellido Materno Invalido";
+            this.lblErrorApellidoMaterno.UseCustomForeColor = true;
             this.lblErrorApellidoMaterno.Visible = false;
             // 
             // lblErrorApellidoPaterno
@@ -418,6 +422,7 @@
             this.lblErrorApellidoPaterno.Size = new System.Drawing.Size(156, 19);
             this.lblErrorApellidoPaterno.TabIndex = 70;
             this.lblErrorApellidoPaterno.Text = "Apellido Paterno Invalido";
+            this.lblErrorApellidoPaterno.UseCustomForeColor = true;
             this.lblErrorApellidoPaterno.Visible = false;
             // 
             // lblErrorNombre
@@ -429,6 +434,7 @@
             this.lblErrorNombre.Size = new System.Drawing.Size(108, 19);
             this.lblErrorNombre.TabIndex = 69;
             this.lblErrorNombre.Text = "Nombre Invalido";
+            this.lblErrorNombre.UseCustomForeColor = true;
             this.lblErrorNombre.Visible = false;
             // 
             // lblErrorCargo
@@ -440,6 +446,7 @@
             this.lblErrorCargo.Size = new System.Drawing.Size(95, 19);
             this.lblErrorCargo.TabIndex = 76;
             this.lblErrorCargo.Text = "Cargo Invalido";
+            this.lblErrorCargo.UseCustomForeColor = true;
             this.lblErrorCargo.Visible = false;
             // 
             // txt_cargo
@@ -476,6 +483,7 @@
             // mtModificar
             // 
             this.mtModificar.ActiveControl = null;
+            this.mtModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mtModificar.Location = new System.Drawing.Point(24, 380);
             this.mtModificar.Name = "mtModificar";
             this.mtModificar.Size = new System.Drawing.Size(106, 78);
@@ -487,7 +495,8 @@
             // mtVolver
             // 
             this.mtVolver.ActiveControl = null;
-            this.mtVolver.Location = new System.Drawing.Point(196, 380);
+            this.mtVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtVolver.Location = new System.Drawing.Point(417, 380);
             this.mtVolver.Name = "mtVolver";
             this.mtVolver.Size = new System.Drawing.Size(106, 78);
             this.mtVolver.TabIndex = 78;
@@ -499,7 +508,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 510);
+            this.ClientSize = new System.Drawing.Size(546, 486);
             this.Controls.Add(this.mtVolver);
             this.Controls.Add(this.mtModificar);
             this.Controls.Add(this.lblErrorCargo);

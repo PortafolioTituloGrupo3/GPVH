@@ -22,11 +22,14 @@ namespace WF_GPVH.Formularios.Resoluciones
         Form mainForm;
         Form formAnterior;
         Sesion sesion;
+        bool changingSize;
 
 
         public Form_BuscarResolucion(Login.Form_Login pMainForm, Form pFormAnterior, Sesion pSesion)
         {
+            changingSize = true;
             InitializeComponent();
+            GridViewLimits();
             mainForm = pMainForm;
             this.formAnterior = pFormAnterior;
             sesion = pSesion;
@@ -36,6 +39,12 @@ namespace WF_GPVH.Formularios.Resoluciones
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             loadResoluciones();
             loadDdlUnidades();
+            changingSize = false;
+
+            if (formAnterior.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
 
         public void loadResoluciones()
@@ -288,6 +297,23 @@ namespace WF_GPVH.Formularios.Resoluciones
         {
             formAnterior.Visible = true;
             this.Dispose();
+        }
+
+        private void GridViewLimits()
+        {
+            mgResoluciones.MaximumSize = new Size(this.Size.Width - 50, this.Size.Height - 310);
+            mgResoluciones.Size = mgResoluciones.MaximumSize;
+            mgResoluciones.Refresh();
+        }
+
+        private void Form_BuscarResolucion_SizeChanged(object sender, EventArgs e)
+        {
+            if (!changingSize)
+            {
+                changingSize = true;
+                GridViewLimits();
+                changingSize = false;
+            }
         }
     }
 }

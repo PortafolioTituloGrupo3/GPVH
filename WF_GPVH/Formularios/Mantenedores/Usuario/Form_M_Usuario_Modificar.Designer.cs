@@ -88,7 +88,7 @@
             this.ddl_funcionarios.Location = new System.Drawing.Point(144, 185);
             this.ddl_funcionarios.Name = "ddl_funcionarios";
             this.ddl_funcionarios.Size = new System.Drawing.Size(192, 29);
-            this.ddl_funcionarios.TabIndex = 19;
+            this.ddl_funcionarios.TabIndex = 5;
             this.ddl_funcionarios.UseSelectable = true;
             this.ddl_funcionarios.SelectedIndexChanged += new System.EventHandler(this.ddl_funcionarios_SelectedIndexChanged);
             // 
@@ -99,7 +99,7 @@
             this.ddl_tipo.Location = new System.Drawing.Point(144, 150);
             this.ddl_tipo.Name = "ddl_tipo";
             this.ddl_tipo.Size = new System.Drawing.Size(192, 29);
-            this.ddl_tipo.TabIndex = 18;
+            this.ddl_tipo.TabIndex = 4;
             this.ddl_tipo.UseSelectable = true;
             this.ddl_tipo.SelectedIndexChanged += new System.EventHandler(this.ddl_tipo_SelectedIndexChanged);
             // 
@@ -128,7 +128,7 @@
             this.txt_clave.SelectionStart = 0;
             this.txt_clave.ShortcutsEnabled = true;
             this.txt_clave.Size = new System.Drawing.Size(192, 20);
-            this.txt_clave.TabIndex = 16;
+            this.txt_clave.TabIndex = 2;
             this.txt_clave.UseSelectable = true;
             this.txt_clave.UseSystemPasswordChar = true;
             this.txt_clave.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -160,7 +160,7 @@
             this.txt_nombre.SelectionStart = 0;
             this.txt_nombre.ShortcutsEnabled = true;
             this.txt_nombre.Size = new System.Drawing.Size(192, 20);
-            this.txt_nombre.TabIndex = 14;
+            this.txt_nombre.TabIndex = 1;
             this.txt_nombre.UseSelectable = true;
             this.txt_nombre.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_nombre.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -212,7 +212,7 @@
             this.txt_clave_confirmacion.SelectionStart = 0;
             this.txt_clave_confirmacion.ShortcutsEnabled = true;
             this.txt_clave_confirmacion.Size = new System.Drawing.Size(192, 20);
-            this.txt_clave_confirmacion.TabIndex = 47;
+            this.txt_clave_confirmacion.TabIndex = 3;
             this.txt_clave_confirmacion.UseSelectable = true;
             this.txt_clave_confirmacion.UseSystemPasswordChar = true;
             this.txt_clave_confirmacion.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -246,10 +246,11 @@
             // mtModificar
             // 
             this.mtModificar.ActiveControl = null;
+            this.mtModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mtModificar.Location = new System.Drawing.Point(26, 253);
             this.mtModificar.Name = "mtModificar";
             this.mtModificar.Size = new System.Drawing.Size(120, 65);
-            this.mtModificar.TabIndex = 50;
+            this.mtModificar.TabIndex = 6;
             this.mtModificar.Text = "Modificar";
             this.mtModificar.UseSelectable = true;
             this.mtModificar.Click += new System.EventHandler(this.mtModificar_Click);
@@ -257,10 +258,11 @@
             // mtVolver
             // 
             this.mtVolver.ActiveControl = null;
-            this.mtVolver.Location = new System.Drawing.Point(243, 253);
+            this.mtVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtVolver.Location = new System.Drawing.Point(398, 253);
             this.mtVolver.Name = "mtVolver";
             this.mtVolver.Size = new System.Drawing.Size(120, 65);
-            this.mtVolver.TabIndex = 51;
+            this.mtVolver.TabIndex = 7;
             this.mtVolver.Text = "Volver";
             this.mtVolver.UseSelectable = true;
             this.mtVolver.Click += new System.EventHandler(this.mtVolver_Click);
@@ -269,7 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 412);
+            this.ClientSize = new System.Drawing.Size(541, 344);
             this.Controls.Add(this.mtVolver);
             this.Controls.Add(this.mtModificar);
             this.Controls.Add(this.lblErrorClaveConfirmacion);
@@ -287,6 +289,7 @@
             this.Controls.Add(this.txt_nombre);
             this.Name = "Form_M_Usuario_Modificar";
             this.Text = "Form_M_Usuario_Modificar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_M_Usuario_Modificar_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

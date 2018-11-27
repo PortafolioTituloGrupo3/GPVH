@@ -16,16 +16,27 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
         private GestionadorUsuario gestionador;
         private List<LB_GPVH.Modelo.Usuario> usuarios;
         private Form mainForm;
+        private Form anterior;
+        private bool changingSize;
 
-        public Form_M_Usuario(Form pMainForm)
+        public Form_M_Usuario(Form pMainForm, Form pAnterior)
         {
+            changingSize = true;
             InitializeComponent();
             mainForm = pMainForm;
+            anterior = pAnterior;
+            GridViewLimits();
             gestionador = new GestionadorUsuario();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             this.loadUsuarios();
 
             this.dgv_Usuarios.Columns[2].Visible = false;
+            changingSize = false;
+
+            if (anterior.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
 
         public void loadUsuarios()
@@ -85,9 +96,9 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
-            Form_M_Usuario_Agregar popUpAgregar = new Form_M_Usuario_Agregar(this);
+            Form_M_Usuario_Agregar popUpAgregar = new Form_M_Usuario_Agregar(mainForm,this);
             popUpAgregar.Show();
-            this.Enabled = false;
+            this.Visible = false;
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
@@ -97,9 +108,9 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
             else
             {
                 //int id_usuario_actual = int.Parse(this.dgv_Usuarios.CurrentRow.Cells[0].Value.ToString());
-                Form_M_Usuario_Modificar popUpEditar = new Form_M_Usuario_Modificar(this, usuarios[dgv_Usuarios.CurrentRow.Index].Id);
+                Form_M_Usuario_Modificar popUpEditar = new Form_M_Usuario_Modificar(mainForm,this, usuarios[dgv_Usuarios.CurrentRow.Index].Id);
                 popUpEditar.Show();
-                this.Enabled = false;
+                this.Visible = false;
             }
         }
 
@@ -142,9 +153,9 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
 
         private void mtAgregar_Click(object sender, EventArgs e)
         {
-            Form_M_Usuario_Agregar popUpAgregar = new Form_M_Usuario_Agregar(this);
+            Form_M_Usuario_Agregar popUpAgregar = new Form_M_Usuario_Agregar(mainForm,this);
             popUpAgregar.Show();
-            this.Enabled = false;
+            this.Visible = false;
         }
 
         private void mtEditar_Click(object sender, EventArgs e)
@@ -154,9 +165,9 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
             else
             {
                 //int id_usuario_actual = int.Parse(this.dgv_Usuarios.CurrentRow.Cells[0].Value.ToString());
-                Form_M_Usuario_Modificar popUpEditar = new Form_M_Usuario_Modificar(this, usuarios[dgv_Usuarios.CurrentRow.Index].Id);
+                Form_M_Usuario_Modificar popUpEditar = new Form_M_Usuario_Modificar(mainForm,this, usuarios[dgv_Usuarios.CurrentRow.Index].Id);
                 popUpEditar.Show();
-                this.Enabled = false;
+                this.Visible = false;
             }
         }
 
@@ -177,6 +188,29 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                         break;
                 }
             }
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            anterior.Visible = true;
+            this.Dispose();
+        }
+
+        private void Form_M_Usuario_SizeChanged(object sender, EventArgs e)
+        {
+            if (!changingSize)
+            {
+                changingSize = true;
+                GridViewLimits();
+                changingSize = false;
+            }
+        }
+
+        private void GridViewLimits()
+        {
+            dgv_Usuarios.MaximumSize = new Size(this.Size.Width - 50, this.Size.Height - 150);
+            dgv_Usuarios.Size = dgv_Usuarios.MaximumSize;
+            dgv_Usuarios.Refresh();
         }
     }
 }

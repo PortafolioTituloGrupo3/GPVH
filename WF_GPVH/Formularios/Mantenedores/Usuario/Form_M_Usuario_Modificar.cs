@@ -15,14 +15,16 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
     public partial class Form_M_Usuario_Modificar : MetroFramework.Forms.MetroForm
     {
         Form_M_Usuario padreTemp = null;
+        Form mainForm;
         LB_GPVH.Modelo.Usuario usuario;
         GestionadorUsuario gestionador;
         bool nombreValido, claveValida, claveConfirmacionValida, habilitarEventos;
 
 
-        public Form_M_Usuario_Modificar(Form_M_Usuario formPadre, int id_usuario)
+        public Form_M_Usuario_Modificar(Form pMainForm, Form_M_Usuario formPadre, int id_usuario)
         {
             InitializeComponent();
+            mainForm = pMainForm;
             padreTemp = formPadre;
             habilitarEventos = false;
             gestionador = new GestionadorUsuario();
@@ -56,53 +58,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
             }
             */
         }
-
-        private void btn_modificar_Click(object sender, EventArgs e)
-        {
-            if (nombreValido && claveValida && claveConfirmacionValida)
-            {
-                GestionadorUsuario.ResultadoGestionUsuario resultado = gestionador.ModificarUsuario(usuario);
-                switch (resultado)
-                {
-                    case GestionadorUsuario.ResultadoGestionUsuario.NombreVacio:
-                        MessageBox.Show("No se pudo modificar el usuario: El nombre esta vacio.");
-                        break;
-                    case GestionadorUsuario.ResultadoGestionUsuario.ClaveVacia:
-                        MessageBox.Show("No se pudo modificar el usuario: La clave esta vacio");
-                        break;
-                    case GestionadorUsuario.ResultadoGestionUsuario.Invalido:
-                        MessageBox.Show("Ocurrio un error no controlado al modificar.");
-                        break;
-                    case GestionadorUsuario.ResultadoGestionUsuario.Valido:
-                        padreTemp.loadUsuarios();
-                        MessageBox.Show("El usuario se modificó correctamente.");
-                        break;
-                }
-            }
-            else
-            {
-                MessageBox.Show("No se pudo modificar el usuario: Existen datos inválidos.");
-            }
-            
-            /*
-            string nombre = this.txt_nombre.Text;
-            string clave = this.Clave.Text;
-            string tipo = this.ddl_tipo.GetItemText(this.ddl_tipo.SelectedItem);
-            int run = int.Parse(this.ddl_funcionarios.SelectedValue.ToString());
-            using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
-            {
-                int salida = serviceUsuarios.modifyUsuario(usuario1.Id_usuario, nombre, clave, tipo, run);
-                if (salida == 0)
-                {
-                    padreTemp.loadUsuarios();
-                    MessageBox.Show("Datos modificados con exito!");
-                }
-                else
-                    MessageBox.Show("ERROR NRO: " + salida);
-            }
-            */
-        }
-
+        
         private void loadDdlTipos()
         {
             this.ddl_tipo.DataSource = MetodosTipoUsuario.Listar();
@@ -112,7 +68,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
         {
             this.ddl_funcionarios.DisplayMember = "Value";
             this.ddl_funcionarios.ValueMember = "Key";
-            this.ddl_funcionarios.DataSource = new BindingSource(new GestionadorFuncionario().DiccionarioFuncionariosClaveValor(false), null);
+            this.ddl_funcionarios.DataSource = new BindingSource(new GestionadorFuncionario().DiccionarioFuncionariosClaveValor(false).OrderBy(p=>p.Value), null);
         }
 
         private void ddl_tipo_SelectedIndexChanged(object sender, EventArgs e)
@@ -178,6 +134,11 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
             }
         }
 
+        private void Form_M_Usuario_Modificar_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.Close();
+        }
+
         private void mtModificar_Click(object sender, EventArgs e)
         {
             if (nombreValido && claveValida && claveConfirmacionValida)
@@ -190,6 +151,12 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                         break;
                     case GestionadorUsuario.ResultadoGestionUsuario.ClaveVacia:
                         MessageBox.Show("No se pudo modificar el usuario: La clave esta vacio");
+                        break;
+                    case GestionadorUsuario.ResultadoGestionUsuario.FuncionarioYaTieneCuenta:
+                        MessageBox.Show("El funcionario seleccionado ya tiene cuenta.");
+                        break;
+                    case GestionadorUsuario.ResultadoGestionUsuario.AlcaldeExiste:
+                        MessageBox.Show("Ya existe un usuario de tipo alcalde. El sistema solamente permite un alcalde.");
                         break;
                     case GestionadorUsuario.ResultadoGestionUsuario.Invalido:
                         MessageBox.Show("Ocurrio un error no controlado al modificar.");
@@ -208,8 +175,8 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
 
         private void mtVolver_Click(object sender, EventArgs e)
         {
-            padreTemp.Enabled = true;
-            this.Close(); 
+            padreTemp.Visible = true;
+            this.Dispose(); 
         }
 
         private void CargarCamposUsuario()
@@ -219,15 +186,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
             this.txt_clave_confirmacion.Text = usuario.Clave;
             this.ddl_funcionarios.SelectedValue = usuario.Funcionario.Run;
             this.ddl_tipo.SelectedItem = MetodosTipoUsuario.GetString(usuario.Tipo);
-        }
-
-
-
-
-        private void btn_cancelar_Click(object sender, EventArgs e)
-        {
-            padreTemp.Enabled = true;
-            this.Close(); 
         }
     }
 }

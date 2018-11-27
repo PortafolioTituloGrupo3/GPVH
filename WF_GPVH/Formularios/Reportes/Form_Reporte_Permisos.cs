@@ -15,10 +15,14 @@ namespace WF_GPVH.Formularios.Reportes
     public partial class Form_Reporte_Permisos : MetroFramework.Forms.MetroForm
     {
         private GestionadorPermiso gestionador = new GestionadorPermiso();
+        Form mainForm;
+        Form anterior;
 
-        public Form_Reporte_Permisos()
+        public Form_Reporte_Permisos(Form pMainForm, Form pAnterior)
         {
             InitializeComponent();
+            mainForm = pMainForm;
+            anterior = pAnterior;
         }
 
         private void crv_ReportePermisos_Load(object sender, EventArgs e)
@@ -74,6 +78,17 @@ namespace WF_GPVH.Formularios.Reportes
         private void Form_Reporte_Permisos_Load(object sender, EventArgs e)
         {
             this.cld_fechaInicio.Value = DateTime.Today.AddMonths(-1);
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            anterior.Visible = true;
+            this.Dispose();
+        }
+
+        private void Form_Reporte_Permisos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.Dispose();
         }
     }
 }

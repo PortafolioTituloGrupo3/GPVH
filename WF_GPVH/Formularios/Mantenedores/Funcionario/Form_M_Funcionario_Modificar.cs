@@ -135,7 +135,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             this.ddl_unidad.DisplayMember = "Value";
             this.ddl_unidad.ValueMember = "Key";
             this.ddl_unidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadClaveValor(false), null);
-            this.ddl_unidad.SelectedIndex = id_unidad;
+            this.ddl_unidad.SelectedValue = id_unidad;
         }
 
         private void CargarCamposUnidad()

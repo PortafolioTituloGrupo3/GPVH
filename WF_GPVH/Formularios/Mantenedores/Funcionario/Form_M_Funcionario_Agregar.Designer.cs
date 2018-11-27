@@ -541,6 +541,7 @@
             // mtAgregar
             // 
             this.mtAgregar.ActiveControl = null;
+            this.mtAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mtAgregar.Location = new System.Drawing.Point(24, 381);
             this.mtAgregar.Name = "mtAgregar";
             this.mtAgregar.Size = new System.Drawing.Size(94, 58);
@@ -552,7 +553,8 @@
             // mtVolver
             // 
             this.mtVolver.ActiveControl = null;
-            this.mtVolver.Location = new System.Drawing.Point(300, 381);
+            this.mtVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtVolver.Location = new System.Drawing.Point(418, 381);
             this.mtVolver.Name = "mtVolver";
             this.mtVolver.Size = new System.Drawing.Size(94, 58);
             this.mtVolver.TabIndex = 71;
@@ -564,7 +566,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1207, 531);
+            this.ClientSize = new System.Drawing.Size(535, 461);
             this.Controls.Add(this.mtVolver);
             this.Controls.Add(this.mtAgregar);
             this.Controls.Add(this.lblErrorCargo);

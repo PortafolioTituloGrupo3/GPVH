@@ -20,15 +20,26 @@ namespace WF_GPVH.Formularios.Permisos
         IEnumerable<Permiso> permisosGridView;
         GestionadorPermiso gestionador;
         Form formPadre;
+        Form mainForm;
+        bool changingSize;
         
-        public Form_BuscarPermiso(Form pFormPadre, Funcionario pFuncionario)
+        public Form_BuscarPermiso(Form pMainForm,Form pFormPadre, Funcionario pFuncionario)
         {
+            changingSize = true;
             InitializeComponent();
+            GridViewLimits();
             funcionario = pFuncionario;
+            mainForm = pMainForm;
             formPadre = pFormPadre;
             gestionador = new GestionadorPermiso();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             loadPermisos();
+            changingSize = false;
+
+            if(formPadre.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
 
         public void loadPermisos()
@@ -164,13 +175,36 @@ namespace WF_GPVH.Formularios.Permisos
         {
             if (e.ColumnIndex == 0 && e.RowIndex >= 0)
             {
-                new Form_ListarDocumentos(this, funcionario.Permisos[e.RowIndex].Id).Show();
+                new Form_ListarDocumentos(mainForm ,this, funcionario.Permisos[e.RowIndex].Id).Show();
                 this.Visible = false;
             }
             if (e.ColumnIndex == 1 && e.RowIndex >= 0)
             {
-                new Form_Ver_Permiso(funcionario.Permisos[e.RowIndex], this).Show();
-                this.Visible = false;
+                this.Enabled = false;
+                new Form_Ver_Permiso(funcionario.Permisos[e.RowIndex], mainForm, this).Show();
+            }
+        }
+
+        private void mtVolver_Click(object sender, EventArgs e)
+        {
+            formPadre.Visible = true;
+            this.Dispose();
+        }
+
+        private void GridViewLimits()
+        {
+            mgPermisos.MaximumSize = new Size(this.Size.Width-50, this.Size.Height - 300);
+            mgPermisos.Size = mgPermisos.MaximumSize;
+            mgPermisos.Refresh();
+        }
+
+        private void Form_BuscarPermiso_SizeChanged(object sender, EventArgs e)
+        {
+            if(!changingSize)
+            {
+                changingSize = true;
+                GridViewLimits();
+                changingSize = false;
             }
         }
     }

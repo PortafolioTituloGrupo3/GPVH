@@ -34,12 +34,14 @@
             this.cld_fechaTermino = new MetroFramework.Controls.MetroDateTime();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.mtVolver = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // crv_ReportePermisos
             // 
             this.crv_ReportePermisos.ActiveViewIndex = -1;
-            this.crv_ReportePermisos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.crv_ReportePermisos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.crv_ReportePermisos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crv_ReportePermisos.Cursor = System.Windows.Forms.Cursors.Default;
@@ -95,11 +97,23 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Hasta";
             // 
+            // mtVolver
+            // 
+            this.mtVolver.ActiveControl = null;
+            this.mtVolver.Location = new System.Drawing.Point(464, 18);
+            this.mtVolver.Name = "mtVolver";
+            this.mtVolver.Size = new System.Drawing.Size(102, 39);
+            this.mtVolver.TabIndex = 6;
+            this.mtVolver.Text = "Volver";
+            this.mtVolver.UseSelectable = true;
+            this.mtVolver.Click += new System.EventHandler(this.mtVolver_Click);
+            // 
             // Form_Reporte_Permisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 457);
+            this.Controls.Add(this.mtVolver);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cld_fechaTermino);
@@ -108,6 +122,7 @@
             this.Controls.Add(this.crv_ReportePermisos);
             this.Name = "Form_Reporte_Permisos";
             this.Text = "Form_Reporte_Permisos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Reporte_Permisos_FormClosing);
             this.Load += new System.EventHandler(this.Form_Reporte_Permisos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -122,5 +137,6 @@
         private MetroFramework.Controls.MetroDateTime cld_fechaTermino;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private MetroFramework.Controls.MetroTile mtVolver;
     }
 }

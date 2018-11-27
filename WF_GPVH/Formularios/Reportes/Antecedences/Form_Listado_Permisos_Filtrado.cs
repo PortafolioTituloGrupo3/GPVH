@@ -13,11 +13,16 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
     public partial class Form_Listado_Permisos_Filtrado : MetroFramework.Forms.MetroForm
     {
         Form form_temp = null;
+        bool changingSize;
+
         public Form_Listado_Permisos_Filtrado(int run, int filtro, Form form)
         {
+            changingSize = true;
             InitializeComponent();
+            GridViewLimits();
             this.loadUnidades(run, filtro);
             form_temp = form;
+            changingSize = true;
         }
 
         public void loadUnidades(int run, int filtro)
@@ -79,6 +84,23 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
         private void Form_Listado_Permisos_Filtrado_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.form_temp.Enabled = true;
+        }
+
+        private void Form_Listado_Permisos_Filtrado_SizeChanged(object sender, EventArgs e)
+        {
+            if (!changingSize)
+            {
+                changingSize = true;
+                GridViewLimits();
+                changingSize = false;
+            }
+        }
+
+        private void GridViewLimits()
+        {
+            dgv_Permisos.MaximumSize = new Size(this.Size.Width - 20, this.Size.Height - 100);
+            dgv_Permisos.Size = dgv_Permisos.MaximumSize;
+            dgv_Permisos.Refresh();
         }
     }
 }

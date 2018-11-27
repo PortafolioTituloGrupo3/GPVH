@@ -19,17 +19,25 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
         private List<LB_GPVH.Modelo.Unidad> unidades;
         private Form mainForm;
         private Form anterior;
+        private bool changingSize;
 
         public Form_M_Unidad(Form pMainForm, Form pAnterior)
         {
+            changingSize = true;
             InitializeComponent();
             mainForm = pMainForm;
             anterior = pAnterior;
-
+            GridViewLimits();
             gestionador = new GestionadorUnidad();
             this.loadUnidades();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             CargarUnidadGridview(this.unidades);
+            changingSize = false;
+
+            if (anterior.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
 
             /*
             bool prueba = AuxiliarString.ContieneCaracteresInvalidos("asdf");
@@ -118,7 +126,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
         {
             Form_M_Unidad_Agregar popUpAgregar = new Form_M_Unidad_Agregar(mainForm,this);
             popUpAgregar.Show();
-            this.Enabled = false;
+            this.Visible = false;
         }
 
         private void mtEditar_Click(object sender, EventArgs e)
@@ -127,10 +135,10 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                 MessageBox.Show("Primero debes seleccionar una fila!");
             else
             {
-                int id_unidad_actual = int.Parse(this.dgv_Unidades.CurrentRow.Cells[0].Value.ToString());
-                Form_M_Unidad_Modificar popUpEditar = new Form_M_Unidad_Modificar(this, id_unidad_actual);
+                //int id_unidad_actual = int.Parse(this.dgv_Unidades.CurrentRow.Cells[0].Value.ToString());
+                Form_M_Unidad_Modificar popUpEditar = new Form_M_Unidad_Modificar(mainForm,this, unidades[this.dgv_Unidades.CurrentRow.Index]);
                 popUpEditar.Show();
-                this.Enabled = false;
+                this.Visible = false;
             }
         }
 
@@ -157,6 +165,23 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
         {
             anterior.Visible = true;
             this.Dispose();
+        }
+
+        private void Form_M_Unidad_SizeChanged(object sender, EventArgs e)
+        {
+            if (!changingSize)
+            {
+                changingSize = true;
+                GridViewLimits();
+                changingSize = false;
+            }
+        }
+
+        private void GridViewLimits()
+        {
+            dgv_Unidades.MaximumSize = new Size(this.Size.Width - 50, this.Size.Height - 150);
+            dgv_Unidades.Size = dgv_Unidades.MaximumSize;
+            dgv_Unidades.Refresh();
         }
     }
 }

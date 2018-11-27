@@ -15,13 +15,15 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
     public partial class Form_M_Usuario_Agregar : MetroFramework.Forms.MetroForm
     {
         Form_M_Usuario padreTemp = null;
+        Form mainForm;
         LB_GPVH.Modelo.Usuario usuario;
         GestionadorUsuario gestionador;
         bool nombreValido, claveValida, claveConfirmacionValida;
 
-        public Form_M_Usuario_Agregar(Form_M_Usuario formPadre)
+        public Form_M_Usuario_Agregar(Form pMainForm, Form_M_Usuario formPadre)
         {
             InitializeComponent();
+            mainForm = pMainForm;
             padreTemp = formPadre;
             usuario = new LB_GPVH.Modelo.Usuario();
             gestionador = new GestionadorUsuario();
@@ -32,59 +34,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
             claveConfirmacionValida = true;
         }
 
-        private void btn_agregar_Click(object sender, EventArgs e)
-        {
-            if (nombreValido && claveValida && claveConfirmacionValida)
-            {
-                GestionadorUsuario.ResultadoGestionUsuario resultado = gestionador.AgregarUsuario(usuario);
-                switch (resultado)
-                {
-                    case GestionadorUsuario.ResultadoGestionUsuario.NombreVacio:
-                        MessageBox.Show("No se pudo ingresar el usuario: El nombre esta vacio.");
-                        break;
-                    case GestionadorUsuario.ResultadoGestionUsuario.ClaveVacia:
-                        MessageBox.Show("No se pudo ingresar el usuario: La clave esta vacio");
-                        break;
-                    case GestionadorUsuario.ResultadoGestionUsuario.Invalido:
-                        MessageBox.Show("Ocurrio un error no controlado al ingresar.");
-                        break;
-                    case GestionadorUsuario.ResultadoGestionUsuario.Valido:
-                        padreTemp.loadUsuarios();
-                        MessageBox.Show("El usuario se ingreso correctamente.");
-                        break;
-                }
-            }
-            else
-            {
-                MessageBox.Show("No se pudo ingresar el usuario: Existen datos inválidos.");
-            }
-
-
-
-            /*
-            string nombre = this.txt_nombre.Text;
-            string clave = this.lblClave.Text;
-            string tipo = this.ddl_tipo.GetItemText(this.ddl_tipo.SelectedItem);
-            int run = int.Parse(this.ddl_funcionarios.SelectedValue.ToString());
-            using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
-            {
-                int salida = serviceUsuarios.addUsuario(nombre, clave, tipo, run);
-                if (salida == 0)
-                {
-                    padreTemp.loadUsuarios();
-                    MessageBox.Show("Datos agregados con exito!");
-                }
-                else
-                    MessageBox.Show("ERROR NRO: " + salida);
-            }
-            */
-        }
-
-        private void btn_cancelar_Click(object sender, EventArgs e)
-        {
-            padreTemp.Enabled = true;
-            this.Dispose();
-        }
         private void loadDdlTipos()
         {
             this.ddl_tipo.DataSource = MetodosTipoUsuario.Listar();
@@ -94,7 +43,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
         {
             this.ddl_funcionarios.DisplayMember = "Value";
             this.ddl_funcionarios.ValueMember = "Key";
-            this.ddl_funcionarios.DataSource = new BindingSource(new GestionadorFuncionario().DiccionarioFuncionariosClaveValor(false), null);
+            this.ddl_funcionarios.DataSource = new BindingSource(new GestionadorFuncionario().DiccionarioFuncionariosClaveValor(false).OrderBy(p => p.Value), null);
         }
 
         private void txt_clave_TextChanged(object sender, EventArgs e)
@@ -148,7 +97,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
 
         private void Form_M_Usuario_Agregar_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.padreTemp.Close();
+            this.mainForm.Close();
         }
 
         private void ddl_tipo_SelectedIndexChanged(object sender, EventArgs e)
@@ -169,6 +118,12 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                     case GestionadorUsuario.ResultadoGestionUsuario.ClaveVacia:
                         MessageBox.Show("No se pudo ingresar el usuario: La clave esta vacio");
                         break;
+                    case GestionadorUsuario.ResultadoGestionUsuario.FuncionarioYaTieneCuenta:
+                        MessageBox.Show("El funcionario seleccionado ya tiene cuenta.");
+                        break;
+                    case GestionadorUsuario.ResultadoGestionUsuario.AlcaldeExiste:
+                        MessageBox.Show("Ya existe un usuario de tipo alcalde. El sistema solamente permite un alcalde.");
+                        break;
                     case GestionadorUsuario.ResultadoGestionUsuario.Invalido:
                         MessageBox.Show("Ocurrio un error no controlado al ingresar.");
                         break;
@@ -186,7 +141,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
 
         private void mtVolver_Click(object sender, EventArgs e)
         {
-            padreTemp.Enabled = true;
+            padreTemp.Visible = true;
             this.Dispose();
         }
 

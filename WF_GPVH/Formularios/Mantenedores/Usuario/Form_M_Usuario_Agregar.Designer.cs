@@ -88,7 +88,7 @@
             this.ddl_funcionarios.Location = new System.Drawing.Point(155, 193);
             this.ddl_funcionarios.Name = "ddl_funcionarios";
             this.ddl_funcionarios.Size = new System.Drawing.Size(187, 29);
-            this.ddl_funcionarios.TabIndex = 31;
+            this.ddl_funcionarios.TabIndex = 4;
             this.ddl_funcionarios.UseSelectable = true;
             this.ddl_funcionarios.SelectedIndexChanged += new System.EventHandler(this.ddl_funcionarios_SelectedIndexChanged);
             // 
@@ -99,7 +99,7 @@
             this.ddl_tipo.Location = new System.Drawing.Point(155, 154);
             this.ddl_tipo.Name = "ddl_tipo";
             this.ddl_tipo.Size = new System.Drawing.Size(187, 29);
-            this.ddl_tipo.TabIndex = 30;
+            this.ddl_tipo.TabIndex = 3;
             this.ddl_tipo.UseSelectable = true;
             this.ddl_tipo.SelectedIndexChanged += new System.EventHandler(this.ddl_tipo_SelectedIndexChanged);
             // 
@@ -128,7 +128,7 @@
             this.txt_clave.SelectionStart = 0;
             this.txt_clave.ShortcutsEnabled = true;
             this.txt_clave.Size = new System.Drawing.Size(187, 20);
-            this.txt_clave.TabIndex = 29;
+            this.txt_clave.TabIndex = 1;
             this.txt_clave.UseSelectable = true;
             this.txt_clave.UseSystemPasswordChar = true;
             this.txt_clave.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -160,7 +160,7 @@
             this.txt_nombre.SelectionStart = 0;
             this.txt_nombre.ShortcutsEnabled = true;
             this.txt_nombre.Size = new System.Drawing.Size(187, 20);
-            this.txt_nombre.TabIndex = 28;
+            this.txt_nombre.TabIndex = 0;
             this.txt_nombre.UseSelectable = true;
             this.txt_nombre.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_nombre.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -239,7 +239,7 @@
             this.txt_clave_confirmacion.SelectionStart = 0;
             this.txt_clave_confirmacion.ShortcutsEnabled = true;
             this.txt_clave_confirmacion.Size = new System.Drawing.Size(187, 20);
-            this.txt_clave_confirmacion.TabIndex = 42;
+            this.txt_clave_confirmacion.TabIndex = 2;
             this.txt_clave_confirmacion.UseSelectable = true;
             this.txt_clave_confirmacion.UseSystemPasswordChar = true;
             this.txt_clave_confirmacion.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -249,10 +249,11 @@
             // mtAgregar
             // 
             this.mtAgregar.ActiveControl = null;
+            this.mtAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mtAgregar.Location = new System.Drawing.Point(23, 281);
             this.mtAgregar.Name = "mtAgregar";
             this.mtAgregar.Size = new System.Drawing.Size(97, 52);
-            this.mtAgregar.TabIndex = 45;
+            this.mtAgregar.TabIndex = 5;
             this.mtAgregar.Text = "Agregar";
             this.mtAgregar.UseSelectable = true;
             this.mtAgregar.Click += new System.EventHandler(this.mtAgregar_Click);
@@ -260,10 +261,11 @@
             // mtVolver
             // 
             this.mtVolver.ActiveControl = null;
-            this.mtVolver.Location = new System.Drawing.Point(240, 281);
+            this.mtVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtVolver.Location = new System.Drawing.Point(512, 281);
             this.mtVolver.Name = "mtVolver";
             this.mtVolver.Size = new System.Drawing.Size(97, 52);
-            this.mtVolver.TabIndex = 46;
+            this.mtVolver.TabIndex = 6;
             this.mtVolver.Text = "Volver";
             this.mtVolver.UseSelectable = true;
             this.mtVolver.Click += new System.EventHandler(this.mtVolver_Click);

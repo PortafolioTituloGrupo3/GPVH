@@ -14,18 +14,20 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
     public partial class Form_M_Unidad_Modificar : MetroFramework.Forms.MetroForm
     {
         Form_M_Unidad padreTemp = null;
+        Form mainForm;
         LB_GPVH.Modelo.Unidad unidad;
         GestionadorUnidad gestionador;
-        bool nombreValido, direccionValida, descripcionValida;
+        bool nombreValido, direccionValida, descripcionValida, inicializando;
         string nombreOriginal;
 
-        public Form_M_Unidad_Modificar(Form_M_Unidad formPadre, int id)
+        public Form_M_Unidad_Modificar(Form pMainForm, Form_M_Unidad formPadre, LB_GPVH.Modelo.Unidad pUnidad)
         {
+            inicializando = true;
             InitializeComponent();
+            mainForm = pMainForm;
             padreTemp = formPadre;
             gestionador = new GestionadorUnidad();
-            unidad = gestionador.BuscarPorIdParcial(id);
-            nombreOriginal = unidad.Nombre;
+            nombreOriginal = pUnidad.Nombre;
             nombreValido = true;
             direccionValida = true;
             descripcionValida = true;
@@ -33,12 +35,19 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
 
             this.ddl_padre.DisplayMember = "Value";
             this.ddl_padre.ValueMember = "Key";
-            this.ddl_padre.DataSource = new BindingSource(gestionador.DiccionarioUnidadNoHijaClaveValor(id), null);
+            this.ddl_padre.DataSource = new BindingSource(gestionador.DiccionarioUnidadNoHijaClaveValor(pUnidad.Id).OrderBy(p => p.Value), null);
 
             this.ddl_jefe.DisplayMember = "Value";
             this.ddl_jefe.ValueMember = "Key";
-            this.ddl_jefe.DataSource = new BindingSource(new GestionadorFuncionario().DiccionarioFuncionariosNoJefes(), null);
+            Dictionary<int, string> posiblesJefes = new GestionadorFuncionario().DiccionarioFuncionariosNoJefes();
+            if (pUnidad.Jefe != null)
+                posiblesJefes.Add(pUnidad.Jefe.Run, pUnidad.Jefe.NombreCompleto);
+            this.ddl_jefe.DataSource = new BindingSource(posiblesJefes.OrderBy(p => p.Value), null);
+            unidad = pUnidad;
             this.cargarCamposUnidad();
+            inicializando = false;
+            gestionador.SetPadre(unidad, int.Parse(this.ddl_padre.SelectedValue.ToString()), ddl_padre.Text);
+
             /*
             ServiceWSUnidades.Unidad unidadTemp;
             using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
@@ -67,12 +76,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                     this.ddl_padre.SelectedValue = unidadTemp.Funcionario_run_sin_dv;
             }*/
         }
-
-        private void btn_cancelar_Click(object sender, EventArgs e)
-        {
-            padreTemp.Enabled = true;
-            this.Dispose();
-        }
+        
 
         private void btn_modificar_Click(object sender, EventArgs e)
         {
@@ -146,25 +150,31 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             else
                 this.chk_habilitado.Checked = false;
             if (unidad.UnidadPadre != null)
-                this.ddl_padre.SelectedValue = unidad.UnidadPadre.Id;
+                this.ddl_padre.SelectedIndex = ddl_padre.FindString(unidad.UnidadPadre.Nombre);
             if (unidad.Jefe != null)
-                this.ddl_padre.SelectedValue = unidad.Jefe.Run;
+                this.ddl_jefe.SelectedValue = unidad.Jefe.Run;
         }
 
         private void ddl_jefe_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.ddl_jefe.SelectedIndex != 0)
-                gestionador.SetJefe(unidad, int.Parse(this.ddl_jefe.SelectedValue.ToString()), ddl_jefe.Text);
-            else
-                gestionador.EliminarJefe(unidad);
+            if (!inicializando)
+            {
+                if (this.ddl_jefe.SelectedIndex > 0)
+                    gestionador.SetJefe(unidad, int.Parse(this.ddl_jefe.SelectedValue.ToString()), ddl_jefe.Text);
+                else
+                    gestionador.EliminarJefe(unidad);
+            }
         }
 
         private void ddl_padre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(this.ddl_padre.SelectedIndex != 0)
-                gestionador.SetPadre(unidad, int.Parse(this.ddl_padre.SelectedValue.ToString()), ddl_padre.Text);
-            else
-                gestionador.EliminarPadre(unidad);
+            if (!inicializando)
+            {
+                if (this.ddl_padre.SelectedIndex > 0)
+                    gestionador.SetPadre(unidad, int.Parse(this.ddl_padre.SelectedValue.ToString()), ddl_padre.Text);
+                else
+                    gestionador.EliminarPadre(unidad);
+            }
         }
 
         private void chk_habilitado_CheckedChanged(object sender, EventArgs e)
@@ -233,7 +243,8 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
 
         private void mtVolver_Click(object sender, EventArgs e)
         {
-            padreTemp.Enabled = true;
+            padreTemp.loadUnidades();
+            padreTemp.Visible = true;
             this.Dispose();
         }
 
@@ -287,7 +298,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
 
         private void Form_M_Unidad_Modificar_FormClosing(object sender, FormClosingEventArgs e)
         {
-            padreTemp.Close();
+            mainForm.Close();
         }
     }
 }

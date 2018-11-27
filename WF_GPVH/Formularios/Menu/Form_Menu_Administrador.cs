@@ -39,12 +39,14 @@ namespace WF_GPVH.Formularios.Menu
 
         private void mtGestionarUsuarios_Click(object sender, EventArgs e)
         {
-            new Mantenedores.Usuario.Form_M_Usuario().Show();
+            new Mantenedores.Usuario.Form_M_Usuario(mainForm, this).Show();
+            this.Hide();
         }
 
         private void mtGestionarUnidades_Click(object sender, EventArgs e)
         {
             new Mantenedores.Unidad.Form_M_Unidad(mainForm,this).Show();
+            this.Hide();
         }
 
         private void mtSalir_Click(object sender, EventArgs e)
@@ -56,16 +58,19 @@ namespace WF_GPVH.Formularios.Menu
         private void mtBuscarPermisos_Click(object sender, EventArgs e)
         {
             new Permisos.Form_SeleccionFuncionarioPermisos(mainForm,this,sesion).Show();
+            this.Hide();
         }
 
         private void mtGenerarReporte_Click(object sender, EventArgs e)
         {
-            new Reportes.Form_Reporte_Permisos().Show();
+            new Reportes.Form_Reporte_Permisos(mainForm,this).Show();
+            this.Hide();
         }
 
         private void mtAntecedentes_Click(object sender, EventArgs e)
         {
-            new Reportes.Antecedences.Form_Listado_Funcionarios().Show();
+            new Reportes.Antecedences.Form_Listado_Funcionarios(mainForm,this).Show();
+            this.Hide();
         }
 
         private void mtBuscarResoluciones_Click(object sender, EventArgs e)
@@ -98,6 +103,7 @@ namespace WF_GPVH.Formularios.Menu
         private void mtIdentificarDocumento_Click(object sender, EventArgs e)
         {
             new Permisos.Form_ValidarDocumento(mainForm, this, sesion).Show();
+            this.Enabled = false;
         }
     }
 }
