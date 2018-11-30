@@ -14,13 +14,12 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 {
     public partial class Form_M_Funcionario : MetroFramework.Forms.MetroForm
     {
-        private GestionadorFuncionario gestionador;
-        private List<LB_GPVH.Modelo.Funcionario> funcionarios;
-        private List<LB_GPVH.Modelo.Funcionario> funcionariosGridView;
-        private Form mainForm;
-        private Form anterior;
-
-
+        private GestionadorFuncionario gestionador; //Clase controlador
+        private List<LB_GPVH.Modelo.Funcionario> funcionarios; //Lista completa de funcionarios desde la base de datos
+        private List<LB_GPVH.Modelo.Funcionario> funcionariosGridView; //Lista de funcionarios para filtrar en el gridview
+        private Form mainForm; //Formulario principal
+        private Form anterior; //Formulario desde el cual se accedio
+        
         public Form_M_Funcionario(Form pMainForm, Form pAnterior)
         {
             InitializeComponent();
@@ -45,9 +44,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             this.mcmbUnidad.DataSource = new BindingSource(new GestionadorUnidad().DiccionarioUnidadClaveValor(true), null);
             this.mcmbUnidad.SelectedIndex = 0;
         }
-
-
-
+        
         //Funcion que agregara columnas con los parametros ingresados
         private void addColumn(int tipoColumna, string property, string titulo, bool visible,
                                             string valorPorDefecto, DataGridView dgv)
@@ -101,6 +98,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             mgFuncionarios.DataSource = funcionariosGridView;
         }
 
+        //Funcion que carga las columnas a mostrar del gridview, segun la lista a mostrar
         public void CargarHeadersGridView(List<String> nombrePropiedades)
         {
             //Se agreagan las columnas de forma personalisada
@@ -117,31 +115,33 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             this.addColumn(0, nombrePropiedades[10], "Unidad", true, "SIN UNIDAD", mgFuncionarios);
         }
 
+        #region eventos
         private void mtAgregar_Click(object sender, EventArgs e)
         {
+            //Se abre un formulario para ingresar los datos
             Form_M_Funcionario_Agregar popUpAgregar = new Form_M_Funcionario_Agregar(mainForm,this);
             popUpAgregar.Show();
             this.Visible = false;
         }
-
         private void mtEditar_Click(object sender, EventArgs e)
         {
             if (this.mgFuncionarios.CurrentRow == null)
                 MessageBox.Show("Primero debes seleccionar una fila!");
             else
             {
+                //Se abre un formulario para ingresar los datos
                 Form_M_Funcionario_Modificar popUpEditar = new Form_M_Funcionario_Modificar(mainForm,this, funcionariosGridView[mgFuncionarios.CurrentRow.Index].Run);
                 popUpEditar.Show();
                 this.Visible = false;
             }
         }
-
         private void mtEliminar_Click(object sender, EventArgs e)
         {
             if (this.mgFuncionarios.CurrentRow == null)
                 MessageBox.Show("Primero debe seleccionar una fila!");
             else
             {
+                //Recibe el resultado de la transaccion y muestra un mensaje al usuario
                 switch (gestionador.EliminarFuncionario(funcionariosGridView[this.mgFuncionarios.CurrentRow.Index].Run)) // Se entrega el run del funcionario seleccionado al gestionador para que este proceda a eliminar tal funcionario.
                 {
                     case GestionadorFuncionario.ResultadoGestionFuncionario.Valido:
@@ -154,26 +154,24 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                 }
             }
         }
-
         private void mchkVerSoloHabilitados_CheckedChanged(object sender, EventArgs e)
         {
             CargarFuncionariosGridView(funcionarios);
         }
-
         private void mcmbUnidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarFuncionariosGridView(funcionarios);
         }
-
         private void Form_M_Funcionario_FormClosing(object sender, FormClosingEventArgs e)
         {
             mainForm.Close();
         }
-
         private void mtVolver_Click(object sender, EventArgs e)
         {
             anterior.Visible = true;
             this.Dispose();
         }
+        #endregion
+
     }
 }

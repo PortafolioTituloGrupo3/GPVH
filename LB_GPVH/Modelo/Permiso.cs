@@ -20,8 +20,7 @@ namespace LB_GPVH.Modelo
         private string descripcion;
         private Funcionario solicitante;
         private Funcionario autorizante;
-
-
+        
         public Permiso()
         {
             id = -1;
@@ -30,8 +29,7 @@ namespace LB_GPVH.Modelo
             autorizante = null;
         }
 
-
-
+        #region propiedades
         public string TipoPermisoString
         {
             get
@@ -39,7 +37,6 @@ namespace LB_GPVH.Modelo
                 return MetodosTipoPermiso.GetString(Tipo);
             }
         }
-
         public string EstadoPermisoString
         {
             get
@@ -47,7 +44,6 @@ namespace LB_GPVH.Modelo
                 return MetodosEstadoPermiso.GetString(Estado);
             }
         }
-
         public bool setTipoPermiso(string tipo)
         {
             try
@@ -60,7 +56,6 @@ namespace LB_GPVH.Modelo
                 return false;
             }
         }
-
         public bool setEstadoPermiso(string estado)
         {
             try
@@ -73,7 +68,6 @@ namespace LB_GPVH.Modelo
                 return false;
             }
         }
-
         public string NombreAutorizante
         {
             get {
@@ -83,7 +77,6 @@ namespace LB_GPVH.Modelo
                     return null;
             }
         }
-
         public string NombreSolicitante
         {
             get {
@@ -93,54 +86,44 @@ namespace LB_GPVH.Modelo
                     return null;
             }
         }
-
         public Funcionario Autorizante
         {
             get { return autorizante; }
             set { autorizante = value; }
         }
-
-
         public Funcionario Solicitante
         {
             get { return solicitante; }
             set { solicitante = value; }
         }
-
-
         public string Descripcion
         {
             get { return descripcion; }
             set { descripcion = value; }
         }
-
-
         public DateTime FechaSolicitud
         {
             get { return fechaSolicitud; }
             set { fechaSolicitud = value; }
         }
-
         public DateTime FechaTermino
         {
             get { return fechaTermino; }
             set { fechaTermino = value; }
         }
-
         public DateTime FechaInicio
         {
             get { return fechaInicio; }
             set { fechaInicio = value; }
         }
-
-
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
+        #endregion
 
-
+        //Carga la propiedades mediante un documento
         public void LeerXML(XElement permisoXML)
         {
             if (permisoXML.Element("id") != null)

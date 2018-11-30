@@ -22,9 +22,7 @@ namespace LB_GPVH.Modelo
         private bool habilitado;
         private Unidad unidad;
         private List<Permiso> permisos;
-
-
-
+        
         public Funcionario()
         {
             run = -1;
@@ -40,108 +38,88 @@ namespace LB_GPVH.Modelo
             permisos = null;
         }
 
-
+        #region propiedades
         public List<Permiso> Permisos
         {
             get { return permisos; }
             set { permisos = value; } 
         }
-
         public string NombreUnidad
         {
             get { return unidad.Nombre; }
         }
-
         public Unidad Unidad
         {
             get { return unidad; }
             set { unidad = value; }
         }
-
         public bool Habilitado
         {
             get { return habilitado; }
             set { habilitado = value; }
         }
-
         public string Cargo
         {
             get { return cargo; }
             set { cargo = value; }
         }
-
-
         public string Direccion
         {
             get { return direccion; }
             set { direccion = value; }
         }
-
-
         public string Correo
         {
             get { return correo; }
             set { correo = value; }
         }
-
-
         public DateTime FechaNacimiento
         {
             get { return fechaNacimiento; }
             set { fechaNacimiento = value; }
         }
-
-
         public string ApellidoMaterno
         {
             get { return apellidoMaterno; }
             set { apellidoMaterno = value; }
         }
-
-
         public string ApellidoPaterno
         {
             get { return apellidoPaterno; }
             set { apellidoPaterno = value; }
         }
-
-
         public string Nombre
         {
             get { return nombre; }
             set { nombre = value; }
         }
-
-
         public int Dv
         {
             get { return dv; }
             set { dv = value; }
         }
-
-
         public int Run
         {
             get { return run; }
             set { run = value; }
         }
+        #endregion
 
-
-
+        #region validaciones
         public bool Modulo11(int run, int dv)
         {
             int resto = run, suma = 0, multiplicador = 2;
             if (dv == 0)
                 dv = 11;
-            while(true)
+            while (true)
             {
                 suma += multiplicador * (resto % 10);
                 resto /= 10;
-                if(resto == 0)
+                if (resto == 0)
                 {
                     break;
                 }
-                if(multiplicador == 7)
+                if (multiplicador == 7)
                 {
                     multiplicador = 2;
                 }
@@ -150,7 +128,7 @@ namespace LB_GPVH.Modelo
                     multiplicador++;
                 }
             }
-            if(dv == (11-(suma%11)))
+            if (dv == (11 - (suma % 11)))
             {
                 this.run = run;
                 this.dv = dv;
@@ -161,18 +139,9 @@ namespace LB_GPVH.Modelo
                 return false;
             }
         }
-
-
-        public string NombreCompleto
-        {
-            get
-            {
-                return nombre + " " + apellidoPaterno + " " + apellidoMaterno;
-            }
-        }
-
         public bool ValidarDireccion(string pDireccion)
         {
+            //Validacion de caracteres
             if (AuxiliarString.ContieneCaracteresInvalidos(pDireccion,true,true,false))
             {
                 return false;
@@ -181,9 +150,9 @@ namespace LB_GPVH.Modelo
             direccion = pDireccion;
             return true;
         }
-
         public bool ValidarNombre(string pNombre)
         {
+            //Validacion de caracteres
             if (!AuxiliarString.ContieneCaracteresAlfabeto(pNombre,false))
             {
                 return false;
@@ -192,9 +161,9 @@ namespace LB_GPVH.Modelo
             nombre = pNombre;
             return true;
         }
-
         public bool ValidarApellidoPaterno(string pApellidoPaterno)
         {
+            //Validacion de caracteres
             if (!AuxiliarString.ContieneCaracteresAlfabeto(pApellidoPaterno, false))
             {
                 return false;
@@ -203,9 +172,9 @@ namespace LB_GPVH.Modelo
             this.apellidoPaterno = pApellidoPaterno;
             return true;
         }
-
         public bool ValidarApellidoMaterno(string pApellidoMaterno)
         {
+            //Validacion de caracteres
             if (!AuxiliarString.ContieneCaracteresAlfabeto(pApellidoMaterno, false))
             {
                 return false;
@@ -214,9 +183,9 @@ namespace LB_GPVH.Modelo
             this.apellidoMaterno = pApellidoMaterno;
             return true;
         }
-
         public bool ValidarCargo(string pCargo)
         {
+            //Validacion de caracteres
             if (!AuxiliarString.ContieneCaracteresAlfabeto(pCargo, false))
             {
                 return false;
@@ -225,16 +194,15 @@ namespace LB_GPVH.Modelo
             this.cargo = pCargo;
             return true;
         }
-
         public bool ValidarCaracteresCorreo(string pCorreo)
         {
+            //Validacion de caracteres
             if (AuxiliarString.ContieneCaracteresInvalidos(pCorreo,false,false, true))
             {
                 return false;
             }
             return true;
         }
-
         public bool ValidarFormatoCorreo(string pCorreo)
         {
             if (!this.ValidarCaracteresCorreo(pCorreo))
@@ -285,11 +253,9 @@ namespace LB_GPVH.Modelo
                 return true;
             }
         }
-
-
         public bool ValidaFechaNacimiento(DateTime pFechaNacimiento)
         {
-
+            //Verificar que sea mayor de edad
             if((System.DateTime.Today - pFechaNacimiento).Days < 365.25 * 18)
             {
                 return false;
@@ -297,7 +263,18 @@ namespace LB_GPVH.Modelo
             this.fechaNacimiento = pFechaNacimiento;
             return true;
         }
+        #endregion
 
+
+        //Retorna la concatenacion de nombre y apellidos
+        public string NombreCompleto
+        {
+            get
+            {
+                return nombre + " " + apellidoPaterno + " " + apellidoMaterno;
+            }
+        }
+        //Carga la propiedades mediante un documento
         public void LeerXML(XElement funcionarioXML)
         {
             if (funcionarioXML.Element("run") != null)

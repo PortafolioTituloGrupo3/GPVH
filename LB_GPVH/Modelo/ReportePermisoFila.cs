@@ -12,7 +12,8 @@ namespace LB_GPVH.Modelo
         string unidad = "";
         string tipo_permiso = "";
         int cantidad = -1;
-        
+
+        #region propiedades 
         public string Unidad
         {
             get
@@ -49,6 +50,9 @@ namespace LB_GPVH.Modelo
                 cantidad = value;
             }
         }
+        #endregion
+
+        //Carga la propiedades mediante un documento
         public void LeerXML(XElement reportePermisoXML)
         {
             if (reportePermisoXML.Element("unidad") != null)

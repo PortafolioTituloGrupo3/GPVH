@@ -14,11 +14,11 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
 {
     public partial class Form_M_Funcionario_Agregar : MetroFramework.Forms.MetroForm
     {
-        Form_M_Funcionario padreTemp = null;
-        GestionadorFuncionario gestionador;
-        LB_GPVH.Modelo.Funcionario funcionario;
+        Form_M_Funcionario padreTemp = null; //Formulario desde el cual se accedio
+        GestionadorFuncionario gestionador; //Clase controlador
+        LB_GPVH.Modelo.Funcionario funcionario; //Funcionario a agregar
         bool nombreValido, apellidoPaternoValido, apellidoMaternoValido, direccionValida, correoValido, runValido, fechaNacimientoValida, cargoValido;
-        private Form mainForm;
+        private Form mainForm; //Formulario principal
 
         public Form_M_Funcionario_Agregar(Form pMainForm,Form_M_Funcionario formPadre)
         {
@@ -48,17 +48,18 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             this.ddl_unidad.SelectedIndex = 0;
         }
 
+        #region eventos
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             padreTemp.Visible = true;
             this.Dispose();
         }
-
         private void btn_agregar_Click(object sender, EventArgs e)
         {
             if (direccionValida && nombreValido && correoValido && apellidoPaternoValido && apellidoMaternoValido && fechaNacimientoValida && runValido && cargoValido)
             {
                 GestionadorFuncionario.ResultadoGestionFuncionario resultado = gestionador.AgregarFuncionario(funcionario);
+                //Recibe el resultado de la transaccion y muestra un mensaje al usuario
                 switch (resultado)
                 {
                     case GestionadorFuncionario.ResultadoGestionFuncionario.ApellidoPaternoVacio:
@@ -89,46 +90,15 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
             {
                 MessageBox.Show("No se pudo ingresar el funcionario: Existen datos inválidos.");
             }
-
-
-
-            /*
-            int run = int.Parse(this.txt_run.Text);
-            int dv = int.Parse(this.txt_dv.Text);
-            string nombre = this.txt_nombre.Text;
-            string ap_pat = this.txt_ap_pat.Text;
-            string ap_mat = this.txt_ap_mat.Text;
-            DateTime nacimiento = DateTime.Parse(this.cld_nacimiento.Text);
-            string correo = this.txt_correo.Text;
-            string direccion = this.txt_direccion.Text;
-            bool habilitado = this.chk_habilitado.Checked;
-            string tipo = this.ddl_tipo.GetItemText(this.ddl_tipo.SelectedItem);
-            int unidad = int.Parse(this.ddl_unidad.SelectedValue.ToString());
-            using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
-            {
-                int salida = serviceFuncionarios.addFuncionario(run, dv,nombre, ap_pat, ap_mat, nacimiento,
-                                                                    correo, direccion, tipo, unidad);
-                if (salida == 0)
-                {
-                    padreTemp.loadFuncionarios();
-                    MessageBox.Show("Datos agregados con exito!");
-                }
-                else
-                    MessageBox.Show("ERROR NRO: " + salida);
-            }
-            */
         }
-
         private void Form_M_Funcionario_Agregar_FormClosing(object sender, FormClosingEventArgs e)
         {
             mainForm.Close();
         }
-
         private void txt_run_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = gestionador.ControlarCaracterRun(e.KeyChar);
         }
-
         private void txt_run_TextChanged(object sender, EventArgs e)
         {
             if (txt_run.Text.Length == 0)
@@ -136,7 +106,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                 lblErrorRun.Visible = false;
             }
         }
-
         private void txt_dv_TextChanged(object sender, EventArgs e)
         {
             if (txt_run.Text.Length == 0)
@@ -144,7 +113,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                 lblErrorRun.Visible = false;
             }
         }
-
         private void txt_dv_Leave(object sender, EventArgs e)
         {
             if (txt_run.Text.Length > 0 && txt_dv.Text.Length > 0)
@@ -152,7 +120,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                 validarRun();
             }
         }
-
         private void txt_run_Leave(object sender, EventArgs e)
         {
             if(txt_run.Text.Length > 0 && txt_dv.Text.Length > 0)
@@ -160,31 +127,10 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                 validarRun();
             }
         }
-
-        private void validarRun()
-        {
-            int numeroDV = (AuxiliarString.EsNumerico(txt_dv.Text)) ? int.Parse(txt_dv.Text) : 10;
-
-
-            switch (gestionador.ValidarRun(funcionario, int.Parse(txt_run.Text), numeroDV))
-            {
-                case GestionadorFuncionario.ResultadoGestionFuncionario.DvInvalido:
-                    lblErrorRun.Text = "El digito verificador no es valido";
-                    lblErrorRun.Visible = true;
-                    runValido = false;
-                    break;
-                default:
-                    lblErrorRun.Visible = false;
-                    runValido = true;
-                    break;
-            }
-        }
-
         private void ddl_unidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             gestionador.setUnidadFuncionario(funcionario, int.Parse(this.ddl_unidad.SelectedValue.ToString()), ddl_unidad.Text);
         }
-        
         private void cld_nacimiento_ValueChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre la fecha de nacimiento y ve si es valida
@@ -201,18 +147,17 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                     break;
             }
         }
-
         private void mtVolver_Click(object sender, EventArgs e)
         {
             padreTemp.Visible = true;
             this.Dispose();
         }
-
         private void mtAgregar_Click(object sender, EventArgs e)
         {
             if (direccionValida && nombreValido && correoValido && apellidoPaternoValido && apellidoMaternoValido && fechaNacimientoValida && runValido && cargoValido)
             {
                 GestionadorFuncionario.ResultadoGestionFuncionario resultado = gestionador.AgregarFuncionario(funcionario);
+                //Recibe el resultado de la transaccion y muestra un mensaje al usuario
                 switch (resultado)
                 {
                     case GestionadorFuncionario.ResultadoGestionFuncionario.ApellidoPaternoVacio:
@@ -244,7 +189,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                 MessageBox.Show("No se pudo ingresar el funcionario: Existen datos inválidos.");
             }
         }
-
         private void txt_correo_Leave(object sender, EventArgs e)
         {
             switch (gestionador.ValidarFormatoCorreo(funcionario, txt_correo.Text))
@@ -260,7 +204,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                     break;
             }
         }
-
         private void txt_cargo_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre el cargo y ve si es valido
@@ -277,12 +220,10 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                     break;
             }
         }
-
         private void txt_dv_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = gestionador.ControlarCaracterDV(e.KeyChar);
         }
-
         private void txt_nombre_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre el nombre y ve si es valido
@@ -299,7 +240,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                     break;
             }
         }
-
         private void txt_ap_pat_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre el apellido paterno y ve si es valido
@@ -316,7 +256,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                     break;
             }
         }
-
         private void txt_ap_mat_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre el apellido materno y ve si es valido
@@ -333,7 +272,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                     break;
             }
         }
-
         private void txt_direccion_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre la direccion y ve si es valida
@@ -350,7 +288,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                     break;
             }
         }
-
         private void txt_correo_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre el correo y ve si es valido
@@ -364,6 +301,25 @@ namespace WF_GPVH.Formularios.Mantenedores.Funcionario
                 default:
                     lblErrorCorreo.Visible = false;
                     correoValido = true;
+                    break;
+            }
+        }
+        #endregion
+
+        private void validarRun()
+        {
+            int numeroDV = (AuxiliarString.EsNumerico(txt_dv.Text)) ? int.Parse(txt_dv.Text) : 10;
+
+            switch (gestionador.ValidarRun(funcionario, int.Parse(txt_run.Text), numeroDV))
+            {
+                case GestionadorFuncionario.ResultadoGestionFuncionario.DvInvalido:
+                    lblErrorRun.Text = "El digito verificador no es valido";
+                    lblErrorRun.Visible = true;
+                    runValido = false;
+                    break;
+                default:
+                    lblErrorRun.Visible = false;
+                    runValido = true;
                     break;
             }
         }

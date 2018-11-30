@@ -25,33 +25,27 @@ namespace LB_GPVH.Modelo
             funcionario = null;
         }
 
-
+        #region propiedades
         public Funcionario Funcionario
         {
             get { return funcionario; }
             set { funcionario = value; }
         }
-
         public string Clave
         {
             get { return clave; }
             set { clave = value; }
         }
-
-
         public string Nombre
         {
             get { return nombre; }
             set { nombre = value; }
         }
-
-
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
-
         public bool setTipoUsuario(string tipo)
         {
             try
@@ -65,7 +59,7 @@ namespace LB_GPVH.Modelo
             }
             
         }
-
+        //Retorna el tipo de usuario
         public string TipoToString
         {
             get
@@ -73,7 +67,7 @@ namespace LB_GPVH.Modelo
                 return Enums.MetodosTipoUsuario.GetString(this.Tipo);
             }
         }
-
+        //Retorna el nombre completo del funcionario asignado a la cuenta
         public string PropietarioCuenta
         {
             get
@@ -88,8 +82,9 @@ namespace LB_GPVH.Modelo
                 }
             }
         }
+        #endregion
 
-
+        #region validaciones
         public bool ValidarNombre(string pNombre)
         {
             if (AuxiliarString.ContieneCaracteresInvalidos(pNombre, false, false, false))
@@ -100,7 +95,6 @@ namespace LB_GPVH.Modelo
             this.nombre = pNombre;
             return true;
         }
-
         public bool ValidarClave(string pClave)
         {
             if (AuxiliarString.ContieneCaracteresInvalidos(pClave, false, false, true))
@@ -111,7 +105,9 @@ namespace LB_GPVH.Modelo
             this.clave = pClave;
             return true;
         }
+        #endregion
 
+        //Carga la propiedades mediante un documento
         public void LeerXML(XElement usuarioXML)
         {
             if (usuarioXML.Element("id") != null)
@@ -141,6 +137,5 @@ namespace LB_GPVH.Modelo
                 this.funcionario = funcionario;
             }
         }
-
     }
 }

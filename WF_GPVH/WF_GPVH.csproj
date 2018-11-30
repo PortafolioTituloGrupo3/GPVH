@@ -239,6 +239,11 @@
       <DependentUpon>CR_Permisos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Formularios\Reportes\Dataset\dsFilas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFilas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Reportes\Dataset\dsPermiso.cs">
       <DependentUpon>dsPermiso.xsd</DependentUpon>
     </Compile>
@@ -267,31 +272,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceWSFuncionarios\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\ServiceWSPermisos\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\ServiceWSReportes\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\ServiceWSUnidades\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\ServiceWSUsuarios\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Service References\wsIntegracionAppEscritorio\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -395,7 +375,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Comprobantes\CARTA GANTT PORTALPROFESORES.pdf" />
+    <None Include="Formularios\Reportes\Dataset\dsFilas.xsc">
+      <DependentUpon>dsFilas.xsd</DependentUpon>
+    </None>
+    <None Include="Formularios\Reportes\Dataset\dsFilas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFilas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Formularios\Reportes\Dataset\dsFilas.xss">
+      <DependentUpon>dsFilas.xsd</DependentUpon>
+    </None>
     <None Include="Formularios\Reportes\Dataset\dsPermiso.xsc">
       <DependentUpon>dsPermiso.xsd</DependentUpon>
     </None>
@@ -417,80 +407,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\ServiceWSFuncionarios\WF_GPVH.ServiceWSFuncionarios.Funcionario.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceWSFuncionarios\WSFuncionarios.wsdl" />
-    <None Include="Service References\ServiceWSFuncionarios\WSFuncionarios.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSFuncionarios\WSFuncionarios1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSFuncionarios\WSFuncionarios2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSFuncionarios\WSFuncionarios3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSPermisos\WF_GPVH.ServiceWSPermisos.Documento.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceWSPermisos\WF_GPVH.ServiceWSPermisos.Permiso.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceWSPermisos\WSPermisos.wsdl" />
-    <None Include="Service References\ServiceWSPermisos\WSPermisos.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSPermisos\WSPermisos1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSPermisos\WSPermisos2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSReportes\WF_GPVH.ServiceWSReportes.FilaReportePermisos.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceWSReportes\WSReportes.wsdl" />
-    <None Include="Service References\ServiceWSReportes\WSReportes.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSReportes\WSReportes1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSReportes\WSReportes2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSUnidades\WF_GPVH.ServiceWSUnidades.Unidad.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceWSUnidades\WSUnidades.wsdl" />
-    <None Include="Service References\ServiceWSUnidades\WSUnidades.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSUnidades\WSUnidades1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSUnidades\WSUnidades2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSUnidades\WSUnidades3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSUsuarios\WF_GPVH.ServiceWSUsuarios.Usuario.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceWSUsuarios\WSUsuarios.wsdl" />
-    <None Include="Service References\ServiceWSUsuarios\WSUsuarios.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSUsuarios\WSUsuarios1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ServiceWSUsuarios\WSUsuarios2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\wsIntegracionAppEscritorio\WebServiceAppEscritorio11.wsdl" />
     <None Include="Service References\wsIntegracionAppEscritorio\WebServiceAppEscritorio11.xsd">
       <SubType>Designer</SubType>
@@ -620,76 +536,11 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceWSFuncionarios\" />
-    <WCFMetadataStorage Include="Service References\ServiceWSPermisos\" />
-    <WCFMetadataStorage Include="Service References\ServiceWSReportes\" />
-    <WCFMetadataStorage Include="Service References\ServiceWSUnidades\" />
-    <WCFMetadataStorage Include="Service References\ServiceWSUsuarios\" />
     <WCFMetadataStorage Include="Service References\wsIntegracionAppEscritorio\" />
     <WCFMetadataStorage Include="Service References\wsSistemaAsistencia\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceWSUsuarios\WSUsuarios.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSUsuarios\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSUsuarios\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSUsuarios\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSUnidades\WSUnidades.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSUnidades\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSUnidades\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSUnidades\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSFuncionarios\WSFuncionarios.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSFuncionarios\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSFuncionarios\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSFuncionarios\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSReportes\WSReportes.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSReportes\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSReportes\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSReportes\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\LB_GPVH.dll" />
@@ -719,15 +570,6 @@
     </None>
     <None Include="Service References\wsIntegracionAppEscritorio\configuration.svcinfo" />
     <None Include="Service References\wsIntegracionAppEscritorio\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceWSPermisos\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\ServiceWSPermisos\configuration.svcinfo" />
-    <None Include="Service References\ServiceWSPermisos\configuration91.svcinfo" />
-    <None Include="Service References\ServiceWSPermisos\WSPermisos.disco" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\Reportes\Crystal Report\" />

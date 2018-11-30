@@ -14,11 +14,12 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
 {
     public partial class Form_M_Usuario_Agregar : MetroFramework.Forms.MetroForm
     {
-        Form_M_Usuario padreTemp = null;
-        LB_GPVH.Modelo.Usuario usuario;
-        GestionadorUsuario gestionador;
+        Form_M_Usuario padreTemp = null;  //Formulario desde el cual se accedio
+        LB_GPVH.Modelo.Usuario usuario; //Usuario a agregar
+        GestionadorUsuario gestionador; //Clase controlador
         bool nombreValido, claveValida, claveConfirmacionValida;
 
+        #region eventos
         public Form_M_Usuario_Agregar(Form_M_Usuario formPadre)
         {
             InitializeComponent();
@@ -31,12 +32,12 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
             claveValida = true;
             claveConfirmacionValida = true;
         }
-
         private void btn_agregar_Click(object sender, EventArgs e)
         {
             if (nombreValido && claveValida && claveConfirmacionValida)
             {
                 GestionadorUsuario.ResultadoGestionUsuario resultado = gestionador.AgregarUsuario(usuario);
+                //Recibe el resultado de la transaccion y muestra un mensaje al usuario
                 switch (resultado)
                 {
                     case GestionadorUsuario.ResultadoGestionUsuario.NombreVacio:
@@ -79,7 +80,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
             }
             */
         }
-
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             padreTemp.Enabled = true;
@@ -89,14 +89,12 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
         {
             this.ddl_tipo.DataSource = MetodosTipoUsuario.Listar();
         }
-
         private void loadDdlFuncionarios()
         {
             this.ddl_funcionarios.DisplayMember = "Value";
             this.ddl_funcionarios.ValueMember = "Key";
             this.ddl_funcionarios.DataSource = new BindingSource(new GestionadorFuncionario().DiccionarioFuncionariosClaveValor(false), null);
         }
-
         private void txt_clave_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre la clave y ve si es valida
@@ -113,7 +111,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                     break;
             }
         }
-
         private void txt_clave_confirmacion_Leave(object sender, EventArgs e)
         {
             //Verifica que la clave de confirmacion sea la misma que la clave de 
@@ -130,32 +127,26 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                     break;
             }
         }
-
         private void lblErrorClave_MouseEnter(object sender, EventArgs e)
         {
             lblErrorClave.ForeColor = Color.Blue;
         }
-
         private void lblErrorClave_MouseLeave(object sender, EventArgs e)
         {
             lblErrorClave.ForeColor = Color.Red;
         }
-
         private void lblErrorClave_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Los caracteres validos son: \n-Numeros\n-Letras del 'A' al 'Z'\n-Puntos, Guillones bajos");
         }
-
         private void Form_M_Usuario_Agregar_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.padreTemp.Close();
         }
-
         private void ddl_tipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             gestionador.setTipoUsuario(usuario, ddl_tipo.Text);
         }
-
         private void mtAgregar_Click(object sender, EventArgs e)
         {
             if (nombreValido && claveValida && claveConfirmacionValida)
@@ -183,20 +174,15 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                 MessageBox.Show("No se pudo ingresar el usuario: Existen datos inválidos.");
             }
         }
-
         private void mtVolver_Click(object sender, EventArgs e)
         {
             padreTemp.Enabled = true;
             this.Dispose();
         }
-
         private void ddl_funcionarios_SelectedIndexChanged(object sender, EventArgs e)
         {
             gestionador.setFuncionarioUsuario(usuario, int.Parse(this.ddl_funcionarios.SelectedValue.ToString()), ddl_funcionarios.Text);
         }
-
-        
-
         private void txt_nombre_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre el nombre y ve si es valido
@@ -213,5 +199,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Usuario
                     break;
             }
         }
+        #endregion
     }
 }

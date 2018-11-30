@@ -12,6 +12,7 @@ namespace LB_GPVH.Controlador
 {
     public class GestionadorFuncionario
     {
+        //Muestra posibles resultados de cada metodo, comprensibles para el usuario final
         public enum ResultadoGestionFuncionario
         {
             CaracteresNombreInvalido,
@@ -33,31 +34,45 @@ namespace LB_GPVH.Controlador
             Invalido
         }
 
+        #region xml
+        //Recibe un string con formato xml y lo convierte en una lista de funcionario
         public List<Funcionario> DesempaquetarListaXml(string xml)
         {
+            //Se crea la representacion de un documento xml
             XDocument doc = XDocument.Parse(xml);
+            //Se pasan lo elementos del documento
             IEnumerable<XElement> funcionariosXML = doc.Root.Elements();
+            //Variable de salida
             List<Funcionario> funcionarios = new List<Funcionario>();
+            //Se recorren los elementos del xml y se crean funcionarios
             foreach (var funcionarioXML in funcionariosXML)
             {
                 Funcionario funcionario = new Funcionario();
+                //Se cargan los datos del funcionario con la informacion del documento
                 funcionario.LeerXML(funcionarioXML);
+                //Se agrega el funcionario a la lista de salida
                 funcionarios.Add(funcionario);
             }
             return funcionarios;
         }
-
+        //Recibe un string con formato xml y lo convierte en un objeto "Funcionario"
         public Funcionario DesempaquetarFuncionarioXml(string xml)
         {
+            //Se crea la representacion de un documento xml
             XDocument doc = XDocument.Parse(xml);
+            //Variable de salida
             Funcionario funcionario = new Funcionario();
+            //Se cargan los datos del funcionario con la informacion del documento
             funcionario.LeerXML(doc.Root);
             return funcionario;
         }
-
+        //Recibe un string con formato xml y lo convierte en un diccionario con clave y valor
         public Dictionary<int, string> DesempaquetarDiccionarioXml(string xml)
         {
+            //Se llama a la funcion DesempaquetarListaXml para retornar un listado,
+            //el que se recorrera para cargar la informacion del diccionario
             List<Funcionario> funcionarios = DesempaquetarListaXml(xml);
+            //Variable de salida
             Dictionary<int, string> diccionario = new Dictionary<int, string>();
             foreach (var funcionario in funcionarios)
             {
@@ -65,7 +80,7 @@ namespace LB_GPVH.Controlador
             }
             return diccionario;
         }
-
+        //Devuelve el resultado de una consulta a la base de datos
         public int DesempaquetarRespuesta(string xml)
         {
             XDocument doc = XDocument.Parse(xml);
@@ -78,109 +93,33 @@ namespace LB_GPVH.Controlador
                 return -1;
             };
         }
+        #endregion
 
+        //Retorna solo la informacion del funcionario (excluyendo relaciones y llaves foraneas) por su run
         public Funcionario BuscarFuncionarioParcial(int run)
         {
-            if (ParametrosGlobales.usarIntegracion)
-            {
                 using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
                 {
                     return DesempaquetarFuncionarioXml(cliente.buscarFuncionarioParcial(run));
-                }
-            }
-            else
-            {
-                using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
-                {
-                    var wsFuncionario = serviceFuncionarios.getFuncionarioByRun(run);
-                    Funcionario funcionario = new Funcionario();
-                    funcionario.Run = wsFuncionario.Run_sin_dv;
-                    funcionario.Dv = wsFuncionario.Run_dv;
-                    funcionario.Nombre = wsFuncionario.Nom_funcionario;
-                    funcionario.ApellidoPaterno = wsFuncionario.Ap_paterno;
-                    funcionario.ApellidoMaterno = wsFuncionario.Ap_materno;
-                    funcionario.Correo = wsFuncionario.Correo;
-                    funcionario.Direccion = wsFuncionario.Direc_funcionario;
-                    funcionario.Cargo = wsFuncionario.Cargo;
-                    funcionario.FechaNacimiento = wsFuncionario.Fec_nacimiento;
-                    funcionario.Habilitado = (wsFuncionario.Habilitado == 0) ? false : true;
-                    return funcionario;
-                }
-            }
-
-            
-            
+                }   
         }
-
+        //Retorna a un funcionario por su run
         public Funcionario BuscarFuncionario(int run)
         {
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    return DesempaquetarFuncionarioXml(cliente.buscarFuncionario(run));
-                }
-            }
-            else
-            {
-                using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
-                {
-                    var wsFuncionario = serviceFuncionarios.getFuncionarioByRun(run);
-                    Funcionario funcionario = new Funcionario();
-                    funcionario.Run = wsFuncionario.Run_sin_dv;
-                    funcionario.Dv = wsFuncionario.Run_dv;
-                    funcionario.Nombre = wsFuncionario.Nom_funcionario;
-                    funcionario.ApellidoPaterno = wsFuncionario.Ap_paterno;
-                    funcionario.ApellidoMaterno = wsFuncionario.Ap_materno;
-                    funcionario.Correo = wsFuncionario.Correo;
-                    funcionario.Direccion = wsFuncionario.Direc_funcionario;
-                    funcionario.Cargo = wsFuncionario.Cargo;
-                    funcionario.FechaNacimiento = wsFuncionario.Fec_nacimiento;
-                    funcionario.Habilitado = (wsFuncionario.Habilitado == 0) ? false : true;
-                    funcionario.Unidad = new GestionadorUnidad().BuscarPorIdParcial(wsFuncionario.Unidad_id_unidad);
-                    return funcionario;
-                }
+                return DesempaquetarFuncionarioXml(cliente.buscarFuncionario(run));
             }
         }
-
-
+        //Retorna un listado de funcionario
         public List<Funcionario> ListarFuncionarios()
         {
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    return DesempaquetarListaXml(cliente.listarFuncionarios());
-                }
-            }
-            else
-            {
-                using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
-                {
-                    List<Funcionario> funcionarios = new List<Funcionario>();
-                    var listadoFuncionarios = serviceFuncionarios.getListadoFuncionarios();
-                    foreach (WS_GPVH.WebServices.Funcionarios.Funcionario wsFuncionario in listadoFuncionarios)
-                    {
-                        Funcionario funcionario = new Funcionario();
-                        funcionario.Run = wsFuncionario.Run_sin_dv;
-                        funcionario.Dv = wsFuncionario.Run_dv;
-                        funcionario.Nombre = wsFuncionario.Nom_funcionario;
-                        funcionario.ApellidoPaterno = wsFuncionario.Ap_paterno;
-                        funcionario.ApellidoMaterno = wsFuncionario.Ap_materno;
-                        funcionario.Correo = wsFuncionario.Correo;
-                        funcionario.Direccion = wsFuncionario.Direc_funcionario;
-                        funcionario.Cargo = wsFuncionario.Cargo;
-                        funcionario.FechaNacimiento = wsFuncionario.Fec_nacimiento;
-                        funcionario.Habilitado = (wsFuncionario.Habilitado == 0) ? false : true;
-                        funcionario.Unidad = new GestionadorUnidad().BuscarPorIdParcial(wsFuncionario.Unidad_id_unidad);
-                        funcionarios.Add(funcionario);
-                    }
-                    //****
-                    return funcionarios;
-                }
+                return DesempaquetarListaXml(cliente.listarFuncionarios());
             }
         }
-
+        //Retorna un listado de funcionario por unidad
         public List<Funcionario> ListarFuncionariosDeUnidad(int idUnidad)
         {
             if (ParametrosGlobales.usarIntegracion)
@@ -195,9 +134,7 @@ namespace LB_GPVH.Controlador
                 return new SQL.FuncionarioSQL().getListadoFuncionariosHijosUnidad(idUnidad);
             }
         }
-
-
-
+        //Agrega un nuevo funcionario
         public ResultadoGestionFuncionario AgregarFuncionario(Funcionario funcionario)
         {
             ResultadoGestionFuncionario validacion = this.ValidarFuncionario(funcionario);
@@ -206,31 +143,20 @@ namespace LB_GPVH.Controlador
                 return validacion;
             }
             int codigoRetorno;
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    codigoRetorno = DesempaquetarRespuesta(cliente.insertarFuncionario(
-                        funcionario.Run,
-                        funcionario.Dv,
-                        funcionario.Nombre,
-                        funcionario.ApellidoPaterno,
-                        funcionario.ApellidoMaterno,
-                        funcionario.FechaNacimiento,
-                        funcionario.Correo,
-                        funcionario.Direccion,
-                        funcionario.Cargo, 
-                        funcionario.Unidad.Id));
-                }
-            }
-            else
-            {
-                using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
-                {
-                    
-                    codigoRetorno = serviceFuncionarios.addFuncionario(funcionario.Run, funcionario.Dv, funcionario.Nombre, funcionario.ApellidoPaterno, funcionario.ApellidoMaterno, funcionario.FechaNacimiento,
-                                                                        funcionario.Correo, funcionario.Direccion, funcionario.Cargo, funcionario.Unidad.Id);
-                }
+                //Se pasa la informacion para la insercion de datos y se retorna un numero que indique el resultado
+                codigoRetorno = DesempaquetarRespuesta(cliente.insertarFuncionario(
+                    funcionario.Run,
+                    funcionario.Dv,
+                    funcionario.Nombre,
+                    funcionario.ApellidoPaterno,
+                    funcionario.ApellidoMaterno,
+                    funcionario.FechaNacimiento,
+                    funcionario.Correo,
+                    funcionario.Direccion,
+                    funcionario.Cargo, 
+                    funcionario.Unidad.Id));
             }
             switch (codigoRetorno)
             {
@@ -240,7 +166,7 @@ namespace LB_GPVH.Controlador
                     return ResultadoGestionFuncionario.Invalido;
             }
         }
-
+        //Modifica un funcionario
         public ResultadoGestionFuncionario ModificarFuncionario(Funcionario funcionario)
         {
             ResultadoGestionFuncionario validacion = this.ValidarFuncionario(funcionario);
@@ -249,31 +175,21 @@ namespace LB_GPVH.Controlador
                 return validacion;
             }
             int codigoRetorno;
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    codigoRetorno = DesempaquetarRespuesta(cliente.modificarFuncionario(
-                        funcionario.Run,
-                        funcionario.Dv,
-                        funcionario.Nombre,
-                        funcionario.ApellidoPaterno,
-                        funcionario.ApellidoMaterno,
-                        funcionario.FechaNacimiento,
-                        funcionario.Correo,
-                        funcionario.Direccion,
-                        funcionario.Cargo,
-                        funcionario.Habilitado,
-                        funcionario.Unidad.Id));
-                }
-            }
-            else
-            {
-                using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
-                {
-                    codigoRetorno = serviceFuncionarios.modifyFuncionario(funcionario.Run, funcionario.Nombre, funcionario.ApellidoPaterno, funcionario.ApellidoMaterno, funcionario.FechaNacimiento,
-                                                                        funcionario.Correo, funcionario.Direccion, funcionario.Cargo, funcionario.Habilitado, funcionario.Unidad.Id);
-                }
+                //Se pasa la informacion para la modificacion de datos y se retorna un numero que indique el resultado
+                codigoRetorno = DesempaquetarRespuesta(cliente.modificarFuncionario(
+                    funcionario.Run,
+                    funcionario.Dv,
+                    funcionario.Nombre,
+                    funcionario.ApellidoPaterno,
+                    funcionario.ApellidoMaterno,
+                    funcionario.FechaNacimiento,
+                    funcionario.Correo,
+                    funcionario.Direccion,
+                    funcionario.Cargo,
+                    funcionario.Habilitado,
+                    funcionario.Unidad.Id));
             }
             switch (codigoRetorno)
             {
@@ -283,23 +199,14 @@ namespace LB_GPVH.Controlador
                     return ResultadoGestionFuncionario.Invalido;
             }
         }
-
+        //Elimina un funcionario
         public ResultadoGestionFuncionario EliminarFuncionario(int run)
         {
             int salida;
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    salida = DesempaquetarRespuesta(cliente.eliminarFuncionario(run));
-                }
-            }
-            else
-            {
-                using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionario = new ServiceWSFuncionarios.WSFuncionariosClient())
-                {
-                    salida = serviceFuncionario.deleteFuncionario(run);
-                }
+                //Se pasa la informacion eliminar los datos y se retorna un numero que indique el resultado
+                salida = DesempaquetarRespuesta(cliente.eliminarFuncionario(run));
             }
             if (salida == 0)
             {
@@ -308,8 +215,7 @@ namespace LB_GPVH.Controlador
             else
                 return ResultadoGestionFuncionario.Invalido;
         }
-
-
+        //Valida los datos ingresados para agregar o modificar
         public ResultadoGestionFuncionario ValidarFuncionario(Funcionario funcionario)
         {
             if (funcionario.Nombre.Length == 0)
@@ -334,24 +240,13 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionFuncionario.Valido;
         }
-
-
+        //Retorna un diccionario de los funcionarios no jefes
         public Dictionary<int, string> DiccionarioFuncionariosNoJefes()
         {
             Dictionary<int, string> lista;
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    lista =  DesempaquetarDiccionarioXml(cliente.listarFuncionariosNoJefesClaveValor());
-                }
-            }
-            else
-            {
-                using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
-                {
-                    lista = serviceFuncionarios.getListadoFuncionariosNoJefesClaveValor();
-                }
+                lista =  DesempaquetarDiccionarioXml(cliente.listarFuncionariosNoJefesClaveValor());
             }
             Dictionary<int, string> listaFinal = new Dictionary<int, string>();
             listaFinal.Add(-1, "");
@@ -361,23 +256,13 @@ namespace LB_GPVH.Controlador
             }
             return listaFinal;
         }
-
+        //Retorna un diccionario de funcionarios
         public Dictionary<int, string> DiccionarioFuncionariosClaveValor(bool primeraFilaVacia)
         {
             Dictionary<int, string> lista = null;
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    lista = DesempaquetarDiccionarioXml(cliente.listarFuncionariosClaveValor());
-                }
-            }
-            else
-            {
-                using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
-                {
-                    lista = serviceFuncionarios.getListadoFuncionariosClaveValor();
-                }
+                lista = DesempaquetarDiccionarioXml(cliente.listarFuncionariosClaveValor());
             }
             if (primeraFilaVacia)
             {
@@ -394,8 +279,7 @@ namespace LB_GPVH.Controlador
                 return lista;
             }
         }
-
-
+        //Retorna una lista con los parametros que se usaran al desplegar informacion en la capa vista.
         public List<String> ListarNombresParametros()
         {
             List<String> parametros = new List<string>();
@@ -413,9 +297,7 @@ namespace LB_GPVH.Controlador
 
             return parametros;
         }
-
-        
-
+        //Cambia la unidad de un funcionario
         public void setUnidadFuncionario(Funcionario funcionario, int idUnidad, string nombreUnidad)
         {
             if (funcionario.Unidad == null)
@@ -425,7 +307,8 @@ namespace LB_GPVH.Controlador
             funcionario.Unidad.Id = idUnidad;
             funcionario.Unidad.Nombre = nombreUnidad;
         }
-
+        #region validacionDeDatos
+        //Valida el run con la funcion modulo11
         public ResultadoGestionFuncionario ValidarRun(Funcionario funcionario, int run, int dv)
         {
             if(funcionario.Modulo11(run, dv))
@@ -437,7 +320,6 @@ namespace LB_GPVH.Controlador
                 return ResultadoGestionFuncionario.DvInvalido;
             }
         }
-
         public ResultadoGestionFuncionario ValidarFormatoCorreo(Funcionario funcionario, string correo)
         {
             if (funcionario.ValidarFormatoCorreo(correo))
@@ -449,8 +331,6 @@ namespace LB_GPVH.Controlador
                 return ResultadoGestionFuncionario.CorreoInvalido;
             }
         }
-
-
         public bool ControlarCaracterRun(char caracter)
         {
             if (!AuxiliarString.EsNumerico(caracter) && caracter != 8)
@@ -458,7 +338,6 @@ namespace LB_GPVH.Controlador
             else
                 return false;
         }
-
         public bool ControlarCaracterDV(char caracter)
         {
             if (!AuxiliarString.EsNumerico(caracter) && caracter != 8 && caracter != 'k' && caracter != 'K')
@@ -466,7 +345,6 @@ namespace LB_GPVH.Controlador
             else
                 return false;
         }
-
         public ResultadoGestionFuncionario ValidarCaracterNombreFuncionario(Funcionario funcionario, string nombre)
         {
             if (!funcionario.ValidarNombre(nombre))
@@ -475,7 +353,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionFuncionario.Valido;
         }
-
         public ResultadoGestionFuncionario ValidarCaracterApellidoPaternoFuncionario(Funcionario funcionario, string apellidoPaterno)
         {
             if (!funcionario.ValidarApellidoPaterno(apellidoPaterno))
@@ -484,7 +361,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionFuncionario.Valido;
         }
-
         public ResultadoGestionFuncionario ValidarCaracterApellidoMaternoFuncionario(Funcionario funcionario, string apellidoMaterno)
         {
             if (!funcionario.ValidarApellidoMaterno(apellidoMaterno))
@@ -493,7 +369,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionFuncionario.Valido;
         }
-
         public ResultadoGestionFuncionario ValidarCaracterCorreo(Funcionario funcionario, string correo)
         {
             if (!funcionario.ValidarCaracteresCorreo(correo))
@@ -502,7 +377,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionFuncionario.Valido;
         }
-
         public ResultadoGestionFuncionario ValidarCaracterDireccion(Funcionario funcionario, string direccion)
         {
             if (!funcionario.ValidarDireccion(direccion))
@@ -511,7 +385,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionFuncionario.Valido;
         }
-
         public ResultadoGestionFuncionario ValidarCaracterCargo(Funcionario funcionario, string cargo)
         {
             if (!funcionario.ValidarCargo(cargo))
@@ -520,8 +393,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionFuncionario.Valido;
         }
-
-
         public ResultadoGestionFuncionario ValidarFechaNacimientoFuncionario(Funcionario funcionario, DateTime fechaNacimiento)
         {
             if (!funcionario.ValidaFechaNacimiento(fechaNacimiento))
@@ -530,6 +401,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionFuncionario.Valido;
         }
-
+        #endregion
     }
 }

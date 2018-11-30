@@ -30,8 +30,7 @@ namespace WF_GPVH.Formularios.Permisos
         private void cargarPDF(Documento documento)
         {
             documento.Base64aPdf();
-            pdfViewer.LoadFile(documento.DirTemp);
-
+            pdfViewer.LoadFile(documento.DirTemp); //Carga el archivo temporar en el contenedor "pdfViewer"
         }
     }
 }

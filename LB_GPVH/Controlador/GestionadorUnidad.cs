@@ -12,6 +12,7 @@ namespace LB_GPVH.Controlador
 {
     public class GestionadorUnidad
     {
+        //Muestra posibles resultados de cada metodo, comprensibles para el usuario final
         public enum ResultadoGestionUnidad
         {
             CaracteresNombreInvalido,
@@ -24,31 +25,39 @@ namespace LB_GPVH.Controlador
             Valido,
             Invalido
         }
-        
         public GestionadorUnidad()
         {
             
         }
 
-
         #region xml
+        //Recibe un string con formato xml y lo convierte en una lista de unidad
         public List<Unidad> DesempaquetarListaXml(string xml)
         {
+            //Se crea la representacion de un documento xml
             XDocument doc = XDocument.Parse(xml);
+            //Se pasan lo elementos del documento
             IEnumerable<XElement> unidadesXML = doc.Root.Elements();
+            //Variable de salida
             List<Unidad> unidades = new List<Unidad>();
+            //Se recorren los elementos del xml y se crean unidades
             foreach (var unidadXML in unidadesXML)
             {
                 Unidad unidad = new Unidad();
+                //Se cargan los datos de la unidad con la informacion del documento
                 unidad.LeerXML(unidadXML);
+                //Se agrega la unidad a la lista de salida
                 unidades.Add(unidad);
             }
             return unidades;
         }
-
+        //Recibe un string con formato xml y lo convierte en un diccionario con clave y valor
         public Dictionary<int, string> DesempaquetarDiccionarioXml(string xml)
         {
+            //Se llama a la funcion DesempaquetarListaXml para retornar un listado,
+            //el que se recorrera para cargar la informacion del diccionario
             List<Unidad> unidades = DesempaquetarListaXml(xml);
+            //Variable de salida
             Dictionary<int, string> diccionario = new Dictionary<int, string>();
             foreach (var unidad in unidades)
             {
@@ -56,15 +65,17 @@ namespace LB_GPVH.Controlador
             }
             return diccionario;
         }
-
+        //Recibe un string con formato xml y lo convierte en una unidad
         public Unidad DesempaquetarUnidadXml(string xml)
         {
+            //Se crea la representacion de un documento xml
             XDocument doc = XDocument.Parse(xml);
             Unidad unidad = new Unidad();
+            //Se cargan los datos de la unidad con la informacion del documento
             unidad.LeerXML(doc.Root);
             return unidad;
         }
-
+        //Devuelve el resultado de una consulta a la base de datos
         public int DesempaquetarRespuesta(string xml)
         {
             XDocument doc = XDocument.Parse(xml);
@@ -82,42 +93,12 @@ namespace LB_GPVH.Controlador
         #region webservice/sql
         public List<Unidad> ListarUnidades()
         {
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    return DesempaquetarListaXml(cliente.listarUnidades());
-                }
-            }
-            else
-            {
-                using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
-                {
-                    List<Unidad> unidades = new List<Unidad>();
-                    var listadoUnidades = serviceUnidades.getListadoUnidades();
-                    foreach (WS_GPVH.WebServices.Unidades.Unidad wsUnidad in listadoUnidades)
-                    {
-                        Unidad unidad = new Unidad();
-                        unidad.Id = wsUnidad.Id_unidad;
-                        unidad.Nombre = wsUnidad.Nombre_unidad;
-                        unidad.Descripcion = wsUnidad.Descripcion_unidad;
-                        unidad.Direccion = wsUnidad.Direccion_unidad;
-                        unidad.Habilitado = (wsUnidad.Habilitado == 0) ? false : true;
-                        if (wsUnidad.Funcionario_run_sin_dv != null)
-                        {
-                            unidad.Jefe = new GestionadorFuncionario().BuscarFuncionarioParcial((int)wsUnidad.Funcionario_run_sin_dv);
-                        }
-                        if (wsUnidad.Unidad_id_unidad != null)
-                        {
-                            unidad.UnidadPadre = new GestionadorUnidad().BuscarPorIdParcial((int)wsUnidad.Unidad_id_unidad);
-                        }
-                        unidades.Add(unidad);
-                    }
-                    return unidades;
-                }
+                return DesempaquetarListaXml(cliente.listarUnidades());
             }
         }
-
+        //Agrega un nueva unidad
         public ResultadoGestionUnidad AgregarUnidad(Unidad unidad)
         {
             ResultadoGestionUnidad validacion = this.ValidarUnidad(unidad);
@@ -126,45 +107,26 @@ namespace LB_GPVH.Controlador
                 return validacion;
             }
             int codigoRetorno;
-            if (ParametrosGlobales.usarIntegracion)
-            {
-                int idPadre;
-                if (unidad.UnidadPadre == null)
-                    idPadre = -1;
-                else
-                    idPadre = unidad.UnidadPadre.Id;
-                int runJefe;
-                if (unidad.Jefe == null)
-                    runJefe = -1;
-                else
-                    runJefe = unidad.Jefe.Run;
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    codigoRetorno = DesempaquetarRespuesta(cliente.insertarUnidad(
-                        unidad.Nombre,
-                        unidad.Descripcion,
-                        unidad.Direccion,
-                        idPadre,
-                        runJefe));
-                }
-            }
+            int idPadre;
+            if (unidad.UnidadPadre == null)
+                idPadre = -1;
             else
+                idPadre = unidad.UnidadPadre.Id;
+            int runJefe;
+            if (unidad.Jefe == null)
+                runJefe = -1;
+            else
+                runJefe = unidad.Jefe.Run;
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                int? padre;
-                if (unidad.UnidadPadre == null)
-                    padre = null;
-                else
-                    padre = unidad.UnidadPadre.Id;
-                int? jefe;
-                if (unidad.Jefe == null)
-                    jefe = null;
-                else
-                    jefe = unidad.Jefe.Run;
-                using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
-                {
-                    codigoRetorno = serviceUnidades.addUnidad(unidad.Nombre, unidad.Descripcion, unidad.Direccion, padre, jefe);
-                }
+                codigoRetorno = DesempaquetarRespuesta(cliente.insertarUnidad(
+                    unidad.Nombre,
+                    unidad.Descripcion,
+                    unidad.Direccion,
+                    idPadre,
+                    runJefe));
             }
+            
             switch (codigoRetorno)
             {
                 case 0:
@@ -173,7 +135,7 @@ namespace LB_GPVH.Controlador
                     return ResultadoGestionUnidad.Invalido;
             }
         }
-
+        //Modifica una unidad especificada
         public ResultadoGestionUnidad ModificarUnidad(Unidad unidad)
         {
             ResultadoGestionUnidad validacion = this.ValidarUnidad(unidad);
@@ -182,46 +144,26 @@ namespace LB_GPVH.Controlador
                 return validacion;
             }
             int codigoRetorno;
-            if (ParametrosGlobales.usarIntegracion)
-            {
-                int idPadre;
-                if (unidad.UnidadPadre == null)
-                    idPadre = -1;
-                else
-                    idPadre = unidad.UnidadPadre.Id;
-                int runJefe;
-                if (unidad.Jefe == null)
-                    runJefe = -1;
-                else
-                    runJefe = unidad.Jefe.Run;
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    codigoRetorno = DesempaquetarRespuesta(cliente.modificarUnidad(
-                        unidad.Id,
-                        unidad.Nombre,
-                        unidad.Descripcion,
-                        unidad.Direccion,
-                        unidad.Habilitado,
-                        idPadre,
-                        runJefe));
-                }
-            }
+            int idPadre;
+            if (unidad.UnidadPadre == null)
+                idPadre = -1;
             else
+                idPadre = unidad.UnidadPadre.Id;
+            int runJefe;
+            if (unidad.Jefe == null)
+                runJefe = -1;
+            else
+                runJefe = unidad.Jefe.Run;
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                int? padre;
-                if (unidad.UnidadPadre == null)
-                    padre = null;
-                else
-                    padre = unidad.UnidadPadre.Id;
-                int? jefe;
-                if (unidad.Jefe == null)
-                    jefe = null;
-                else
-                    jefe = unidad.Jefe.Run;
-                using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
-                {
-                    codigoRetorno = serviceUnidades.modifyUnidad(unidad.Id, unidad.Nombre, unidad.Descripcion, unidad.Direccion, unidad.Habilitado, padre, jefe);
-                }
+                codigoRetorno = DesempaquetarRespuesta(cliente.modificarUnidad(
+                    unidad.Id,
+                    unidad.Nombre,
+                    unidad.Descripcion,
+                    unidad.Direccion,
+                    unidad.Habilitado,
+                    idPadre,
+                    runJefe));
             }
             switch (codigoRetorno)
             {
@@ -231,23 +173,13 @@ namespace LB_GPVH.Controlador
                     return ResultadoGestionUnidad.Invalido;
             }
         }
-
+        //Elimina un  unidad especificada
         public ResultadoGestionUnidad EliminarUnidad(int id)
         {
             int salida;
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    salida = DesempaquetarRespuesta(cliente.eliminarUnidad(id));
-                }
-            }
-            else
-            {
-                using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
-                {
-                    salida = serviceUnidades.deleteUnidad(id);
-                }
+                salida = DesempaquetarRespuesta(cliente.eliminarUnidad(id));
             }
             if (salida == 0)
             {
@@ -256,23 +188,13 @@ namespace LB_GPVH.Controlador
             else
                 return ResultadoGestionUnidad.Invalido;
         }
-
+        //Retorna un diccionario de funcionarios
         public Dictionary<int, string> DiccionarioUnidadClaveValor(bool primeraFilaVacia)
         {
             Dictionary<int, string> lista = null;
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    lista = DesempaquetarDiccionarioXml(cliente.listadoUnidadClaveValor());
-                }
-            }
-            else
-            {
-                using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
-                {
-                    lista = serviceUnidades.getListadoUnidadesClaveValor();
-                }
+                lista = DesempaquetarDiccionarioXml(cliente.listadoUnidadClaveValor());
             }
             if (primeraFilaVacia)
             {
@@ -325,53 +247,24 @@ namespace LB_GPVH.Controlador
                 return lista;
             }
         }
-        
-
+        //Retorna solo la informacion de la unidad (excluyendo relaciones y llaves foraneas) por su id
         public Unidad BuscarPorIdParcial(int id)
         {
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    return DesempaquetarUnidadXml(cliente.buscarUnidadPorIdParcial(id));
-                }
-            }
-            else
-            {
-                using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
-                {
-                    var wsUnidad = serviceUnidades.getUnidadById(id);
-                    Unidad unidad = new Unidad();
-                    unidad.Id = wsUnidad.Id_unidad;
-                    unidad.Nombre = wsUnidad.Nombre_unidad;
-                    unidad.Descripcion = wsUnidad.Descripcion_unidad;
-                    unidad.Direccion = wsUnidad.Direccion_unidad;
-                    unidad.Habilitado = (wsUnidad.Habilitado == 0) ? false : true;
-                    return unidad;
-                }
+                return DesempaquetarUnidadXml(cliente.buscarUnidadPorIdParcial(id));
             }
         }
-
+        //Comprueba si existe el nombre de la unidad ingresada
         public bool NombreUnidadExiste(string nombre)
         {
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    return DesempaquetarRespuesta(cliente.nombreUnidadExiste(nombre)) != 0;
-                }
-            }
-            else
-            {
-                using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
-                {
-                    return serviceUnidades.unidadExiste(nombre);
-                }
+                return DesempaquetarRespuesta(cliente.nombreUnidadExiste(nombre)) != 0;
             }
         }
         #endregion
-
-
+        
         ///<summary>
         ///Busca las unidades que no tengan parentesco con la unidad cuyo id es el parametro.
         ///</summary>
@@ -403,7 +296,7 @@ namespace LB_GPVH.Controlador
 
             return lista;
         }
-
+        //Asigna los id de las unidades ijas a la lista ingresada por parametro
         public void ObtenerIdHijas(List<Unidad> unidadesTotales, List<int> idHijas, int idUnidad)
         {
             foreach (Unidad unidad in unidadesTotales)
@@ -418,7 +311,7 @@ namespace LB_GPVH.Controlador
                 }
             }
         }
-
+        //Retorna una lista con los parametros que se usaran al desplegar informacion en la capa vista.
         public List<String> ListarNombresParametros()
         {
             List<String> parametros = new List<string>();
@@ -431,7 +324,7 @@ namespace LB_GPVH.Controlador
             parametros.Add("NombreJefe");
             return parametros;
         }
-
+        //Define la unidad padre de una unidad
         public void SetPadre(Unidad unidad, int id, string nombre)
         {
             if (unidad.UnidadPadre == null)
@@ -441,12 +334,12 @@ namespace LB_GPVH.Controlador
             unidad.UnidadPadre.Nombre = nombre;
             unidad.UnidadPadre.Id = id;
         }
-
+        //Deja a la unidad ingresada sin unidad padre
         public void EliminarPadre(Unidad unidad)
         {
             unidad.UnidadPadre = null;
         }
-
+        //Define el jefe de una unidad
         public void SetJefe(Unidad unidad, int run, string nombreCompleto)
         {
             if (unidad.Jefe == null)
@@ -465,12 +358,12 @@ namespace LB_GPVH.Controlador
                 unidad.Jefe.ApellidoMaterno = nombreSplit[2];
             }
         }
-
+        //Deja a la unidad ingresada sin jefe
         public void EliminarJefe(Unidad unidad)
         {
             unidad.Jefe = null;
         }
-
+        #region validacionDeDatos
         public ResultadoGestionUnidad ValidarUnidad(Unidad unidad)
         {
             if (unidad.Nombre.Length == 0)
@@ -487,7 +380,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionUnidad.Valido;
         }
-
         public ResultadoGestionUnidad ValidarCaracterNombreUnidad(Unidad unidad, string nombre)
         {
             if(!unidad.ValidarNombre(nombre))
@@ -496,7 +388,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionUnidad.Valido;
         }
-        
         public ResultadoGestionUnidad ValidarNombreUnidad(Unidad unidad, string nombre)
         {
 
@@ -510,7 +401,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionUnidad.Valido;
         }
-
         public ResultadoGestionUnidad ValidarDescripcion(Unidad unidad, string descripcion)
         {
             if (!unidad.ValidarDescripcion(descripcion))
@@ -519,7 +409,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionUnidad.Valido;
         }
-
         public ResultadoGestionUnidad ValidarDireccion(Unidad unidad, string direccion)
         {
             if (!unidad.ValidarDireccion(direccion))
@@ -528,6 +417,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionUnidad.Valido;
         }
-        
+        #endregion
     }
 }

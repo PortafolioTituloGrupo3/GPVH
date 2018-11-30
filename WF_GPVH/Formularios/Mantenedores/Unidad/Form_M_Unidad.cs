@@ -15,10 +15,10 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
 {
     public partial class Form_M_Unidad : MetroFramework.Forms.MetroForm
     {
-        private GestionadorUnidad gestionador;
-        private List<LB_GPVH.Modelo.Unidad> unidades;
-        private Form mainForm;
-        private Form anterior;
+        private GestionadorUnidad gestionador; //Clase controlador
+        private List<LB_GPVH.Modelo.Unidad> unidades; //Lista completa de unidades desde la base de datos
+        private Form mainForm; //Formulario principal
+        private Form anterior; //Formulario desde el cual se accedio
 
         public Form_M_Unidad(Form pMainForm, Form pAnterior)
         {
@@ -30,42 +30,12 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             this.loadUnidades();
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             CargarUnidadGridview(this.unidades);
-
-            /*
-            bool prueba = AuxiliarString.ContieneCaracteresInvalidos("asdf");
-            if(prueba)
-                MessageBox.Show("invalido");
-            else
-                MessageBox.Show("valido");
-            */
         }
 
         public void loadUnidades()
         {
             unidades = gestionador.ListarUnidades();
             CargarUnidadGridview(this.unidades);
-
-            /*
-            this.dgv_Unidades.DataSource = null;
-            //Diccionario que contendra el <codigoProducto, nombreProducto>
-            using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
-            {
-                var listadoUnidades = serviceUnidades.getListadoUnidades();
-                //Inicialisar DGV
-                this.dgv_Unidades.AutoGenerateColumns = false;
-                this.dgv_Unidades.AutoSize = true;
-                this.dgv_Unidades.DataSource = listadoUnidades;
-
-                if (dgv_Unidades.ColumnCount <= 0) {
-                    DataTable espCol = new DataTable();
-                    espCol.Columns.Add("tipoColumna", typeof(int));
-                    espCol.Columns.Add("property", typeof(int));
-                    espCol.Columns.Add("titulo", typeof(int));
-                    espCol.Columns.Add("visible", typeof(int));
-                    espCol.Columns.Add("valorPorDefecto", typeof(int));   
-                }
-            }
-            */
         }
 
         //Funcion que agregara columnas con los parametros ingresados
@@ -94,14 +64,13 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             column.DefaultCellStyle.NullValue = valorPorDefecto;
             dgv.Columns.Add(column);
         }
-
         public void CargarUnidadGridview(List<LB_GPVH.Modelo.Unidad> unidades)
         {
             this.dgv_Unidades.AutoGenerateColumns = false;
             this.dgv_Unidades.AutoSize = true;
             this.dgv_Unidades.DataSource = unidades;
         }
-
+        //Funcion que carga las columnas a mostrar del gridview, segun la lista a mostrar
         public void CargarHeadersGridView(List<String> nombrePropiedades)
         {
             //Se agreagan las columnas de forma personalisada
@@ -114,32 +83,35 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             this.addColumn(0, nombrePropiedades[6], "Jefe unidad", true, "SIN JEFE", dgv_Unidades);
         }
 
+        #region eventos
         private void mtAgregar_Click(object sender, EventArgs e)
         {
+            //Se abre un formulario para ingresar los datos
             Form_M_Unidad_Agregar popUpAgregar = new Form_M_Unidad_Agregar(mainForm,this);
             popUpAgregar.Show();
             this.Enabled = false;
         }
-
         private void mtEditar_Click(object sender, EventArgs e)
         {
             if (this.dgv_Unidades.CurrentRow == null)
                 MessageBox.Show("Primero debes seleccionar una fila!");
             else
             {
+                //Se obtiene el id de la unidad en la fila seleccionada.
                 int id_unidad_actual = int.Parse(this.dgv_Unidades.CurrentRow.Cells[0].Value.ToString());
+                //Se abre un formulario para ingresar los datos
                 Form_M_Unidad_Modificar popUpEditar = new Form_M_Unidad_Modificar(this, id_unidad_actual);
                 popUpEditar.Show();
                 this.Enabled = false;
             }
         }
-
         private void mtEliminar_Click(object sender, EventArgs e)
         {
             if (this.dgv_Unidades.CurrentRow == null)
                 MessageBox.Show("Primero debe seleccionar una fila!");
             else
             {
+                //Recibe el resultado de la transaccion y muestra un mensaje al usuario
                 switch (gestionador.EliminarUnidad(unidades[this.dgv_Unidades.CurrentRow.Index].Id)) // Se entrega el id de la unidad seleccionada al gestionador para que este proceda a eliminar tal unidad.
                 {
                     case GestionadorUnidad.ResultadoGestionUnidad.Valido:
@@ -152,11 +124,11 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                 }
             }
         }
-
         private void mtVolver_Click(object sender, EventArgs e)
         {
             anterior.Visible = true;
             this.Dispose();
         }
+        #endregion 
     }
 }
