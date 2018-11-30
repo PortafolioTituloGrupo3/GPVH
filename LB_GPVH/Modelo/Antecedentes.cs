@@ -78,6 +78,7 @@ namespace LB_GPVH.Modelo
                         filaTemp.Add(int.Parse(fila.Element("estado").Value));
                         filaTemp.Add(fila.Element("tipo_permiso").Value);
                         filaTemp.Add(int.Parse(fila.Element("cantidad").Value));
+                        filaTemp.Add(int.Parse(fila.Element("periodo").Value));
                         filasTemp.Add(filaTemp);
                     }
                     this.Filas= filasTemp;

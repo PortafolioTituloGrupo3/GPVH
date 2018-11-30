@@ -35,14 +35,14 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
             this.dgv_Permisos.DataSource = listadoPermisos;
             if (dgv_Permisos.ColumnCount<=0) {
                 //Se agreagan las columnas de forma personalisada
-                this.addColumn(0, "Id_permiso", "ID", false, "-1", dgv_Permisos);
-                this.addColumn(0, "Tipo_permiso", "Tipo permiso", true, "SIN IDENTIFICAR", dgv_Permisos);
-                this.addColumn(0, "Fecha_inicio", "Fecha inicio", true, "-1", dgv_Permisos);
-                this.addColumn(0, "Fecha_termino", "Fecha termino", true, "-1", dgv_Permisos);
-                this.addColumn(0, "Fecha_solicitud", "Fecha solicitud", true, "-1", dgv_Permisos);
-                this.addColumn(0, "Desc_permiso", "Descripcion", true, "SIN DESRIPCION", dgv_Permisos);
-                this.addColumn(0, "Solicitante_run_sin_dv", "Solicitante", true, "-1", dgv_Permisos);
-                this.addColumn(0, "Autorizante_run_sin_dv", "Autorizante", true, "-1", dgv_Permisos);
+                this.addColumn(0, "id", "ID", false, "-1", dgv_Permisos);
+                this.addColumn(0, "TipoPermisoString", "Tipo permiso", true, "SIN IDENTIFICAR", dgv_Permisos);
+                this.addColumn(0, "FechaInicio", "Fecha inicio", true, "-1", dgv_Permisos);
+                this.addColumn(0, "FechaTermino", "Fecha termino", true, "-1", dgv_Permisos);
+                this.addColumn(0, "FechaSolicitud", "Fecha solicitud", true, "-1", dgv_Permisos);
+                this.addColumn(0, "Descripcion", "Descripcion", true, "SIN DESRIPCION", dgv_Permisos);
+                this.addColumn(0, "NombreSolicitante", "Solicitante", true, "Sin solicitante", dgv_Permisos);
+                this.addColumn(0, "NombreAutorizante", "Autorizante", true, "Sin autorizante", dgv_Permisos);
             }
         }
         //Funcion que agregara columnas con los parametros ingresados

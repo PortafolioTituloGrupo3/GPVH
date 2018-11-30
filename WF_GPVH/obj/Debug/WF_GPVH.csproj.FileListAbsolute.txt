@@ -193,3 +193,4 @@ C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Permisos.
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Reportes.Form_Ver_Permiso.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Menu.Form_Menu_Alcalde.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Reportes.Form_Ver_Permiso.resources
+C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Permisos.Form_ValidarDocumento.resources

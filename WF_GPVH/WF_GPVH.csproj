@@ -197,6 +197,12 @@
     <Compile Include="Formularios\Permisos\Form_SeleccionFuncionarioPermisos.Designer.cs">
       <DependentUpon>Form_SeleccionFuncionarioPermisos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Permisos\Form_ValidarDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Permisos\Form_ValidarDocumento.Designer.cs">
+      <DependentUpon>Form_ValidarDocumento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Reportes\Antecedences\CR_antecedentes1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -232,6 +238,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CR_Permisos.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Dataset\dsFilas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFilas.xsd</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Reportes\Dataset\dsPermiso.cs">
       <DependentUpon>dsPermiso.xsd</DependentUpon>
@@ -322,6 +333,9 @@
     <EmbeddedResource Include="Formularios\Permisos\Form_SeleccionFuncionarioPermisos.resx">
       <DependentUpon>Form_SeleccionFuncionarioPermisos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Permisos\Form_ValidarDocumento.resx">
+      <DependentUpon>Form_ValidarDocumento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\Antecedences\CR_antecedentes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CR_antecedentes1.cs</LastGenOutput>
@@ -361,6 +375,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Formularios\Reportes\Dataset\dsFilas.xsc">
+      <DependentUpon>dsFilas.xsd</DependentUpon>
+    </None>
+    <None Include="Formularios\Reportes\Dataset\dsFilas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFilas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Formularios\Reportes\Dataset\dsFilas.xss">
+      <DependentUpon>dsFilas.xsd</DependentUpon>
+    </None>
     <None Include="Formularios\Reportes\Dataset\dsPermiso.xsc">
       <DependentUpon>dsPermiso.xsd</DependentUpon>
     </None>

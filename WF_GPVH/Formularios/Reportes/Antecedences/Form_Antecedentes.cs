@@ -33,6 +33,7 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
             dt_ReportePermisos.Columns.Add("estado", typeof(string));
             dt_ReportePermisos.Columns.Add("tipo_permiso", typeof(string));
             dt_ReportePermisos.Columns.Add("cantidad", typeof(Int32));
+            dt_ReportePermisos.Columns.Add("periodo", typeof(Int32));
             //Datatable para carga de reporte
             DataTable dt_ReporteAntecedentes = new DataTable();
             dt_ReporteAntecedentes.Columns.Add("Feriados_anuales_restantes", typeof(Int32));
@@ -45,8 +46,8 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
             {
                 dt_ReportePermisos.Rows.Add(((LB_GPVH.Enums.EstadoPermiso)item.ElementAt(0)).ToString(),   //estado
                                             item.ElementAt(1).ToString(),   //Tipo_permiso
-                                            item.ElementAt(2).ToString());  //Cantidad
-
+                                            item.ElementAt(2).ToString(),   //Cantidad
+                                            item.ElementAt(3).ToString());  //Periodo
             }
             //Se crea un reporte de Crystal report y se cargan los datos
             CR_antecedentes reporte = new CR_antecedentes();
