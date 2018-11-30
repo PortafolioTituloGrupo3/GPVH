@@ -13,11 +13,11 @@ namespace WF_GPVH.Formularios.Permisos
 {
     public partial class Form_SeleccionFuncionarioPermisos : MetroFramework.Forms.MetroForm
     {
-        private GestionadorFuncionario gestionador;
-        private List<LB_GPVH.Modelo.Funcionario> funcionarios;
-        private List<LB_GPVH.Modelo.Funcionario> funcionariosGridView;
-        Form mainForm;
-        Form formAnterior;
+        private GestionadorFuncionario gestionador; //Clase controlador
+        private List<LB_GPVH.Modelo.Funcionario> funcionarios; //Lista completa de permisos desde la base de datos
+        private List<LB_GPVH.Modelo.Funcionario> funcionariosGridView; //Lista  de permisos a mostrar en el gridview segun filtros
+        Form mainForm; //Formulario principal
+        Form formAnterior; //Formulario de donde se accedio
         Sesion sesion;
 
         public Form_SeleccionFuncionarioPermisos(Form pMainForm, Form pFormAnterior, Sesion pSesion)
@@ -31,8 +31,7 @@ namespace WF_GPVH.Formularios.Permisos
             this.loadFuncionarios();
             this.loadDdlUnidades();
         }
-
-
+        
         public void loadFuncionarios()
         {
             if (sesion.Usuario.Tipo == LB_GPVH.Enums.TipoUsuario.JefeUnidadSuperior)
@@ -41,7 +40,6 @@ namespace WF_GPVH.Formularios.Permisos
                 funcionarios = gestionador.ListarFuncionarios();
             CargarFuncionariosGridView(this.funcionarios);
         }
-
         private void loadDdlUnidades()
         {
             this.mcmbUnidad.DisplayMember = "Value";
@@ -83,9 +81,6 @@ namespace WF_GPVH.Formularios.Permisos
             dgv.Refresh();
 
         }
-
-
-
         public void CargarFuncionariosGridView(List<LB_GPVH.Modelo.Funcionario> funcionarios)
         {
             this.mgFuncionarios.AutoGenerateColumns = false;
@@ -110,7 +105,7 @@ namespace WF_GPVH.Formularios.Permisos
             mgFuncionarios.DataSource = funcionariosGridView;
             mgFuncionarios.Refresh();
         }
-
+        //Funcion que carga las columnas a mostrar del gridview, segun la lista a mostrar
         public void CargarHeadersGridView(List<String> nombrePropiedades)
         {
             //Se agreagan las columnas de forma personalisada
@@ -127,16 +122,15 @@ namespace WF_GPVH.Formularios.Permisos
             this.addColumn(0, nombrePropiedades[10], "Unidad", true, "SIN UNIDAD", mgFuncionarios);
         }
 
+        #region eventos
         private void mcmbUnidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarFuncionariosGridView(funcionarios);
         }
-
         private void mchkVerSoloHabilitados_CheckedChanged(object sender, EventArgs e)
         {
             CargarFuncionariosGridView(funcionarios);
         }
-
         private void mgFuncionarios_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if(e.ColumnIndex == 0 && e.RowIndex >= 0)
@@ -145,16 +139,15 @@ namespace WF_GPVH.Formularios.Permisos
                 this.Visible = false;
             }
         }
-
         private void mtVolver_Click(object sender, EventArgs e)
         {
             formAnterior.Visible = true;
             this.Dispose();
         }
-
         private void Form_SeleccionFuncionarioPermisos_FormClosing(object sender, FormClosingEventArgs e)
         {
             mainForm.Dispose();
         }
+        #endregion  
     }
 }

@@ -19,18 +19,13 @@ namespace WF_GPVH.Formularios.Login
         {
             InitializeComponent();
         }
-        
-        private void mtIniciarSesion_Click(object sender, EventArgs e)
-        {
-            IniciarSesion();
-        }
-
         private void IniciarSesion()
         {
             string clave = txbClave.Text;
             string nombre = txbNombre.Text;
             txbClave.Text = "";
             Sesion sesion = new Sesion();
+            //Se verifica la autenticidad de los datos ingresados
             if (sesion.AutenticarUsuario(nombre, clave))
             {
                 txbNombre.Text = "";
@@ -59,18 +54,11 @@ namespace WF_GPVH.Formularios.Login
             }
         }
 
-
-
-        private void txbNombre_KeyPress(object sender, KeyPressEventArgs e)
+        #region eventos
+        private void mtIniciarSesion_Click(object sender, EventArgs e)
         {
-
+            IniciarSesion();
         }
-
-        private void txbNombre_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
         private void txbClave_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((int)e.KeyChar == 13) // 13 es ENTER en numeracion ANCII
@@ -79,12 +67,12 @@ namespace WF_GPVH.Formularios.Login
                 IniciarSesion();
             }
         }
-
         private void Form_Login_Load(object sender, EventArgs e)
         {
             this.BringToFront();
             this.ActiveControl = txbNombre;
             txbNombre.Select();
         }
+        #endregion 
     }
 }

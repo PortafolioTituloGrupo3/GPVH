@@ -17,7 +17,7 @@ namespace LB_GPVH.Controlador
         public Sesion()
         {
         }
-
+        //Comprueba la autenticidad de un usuario
         public bool AutenticarUsuario(string nombre, string clave)
         {
             if(ParametrosGlobales.usarIntegracion)
@@ -39,7 +39,6 @@ namespace LB_GPVH.Controlador
             }
             
         }
-        
 
         public TipoUsuario TipoUsuario
         {

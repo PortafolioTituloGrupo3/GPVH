@@ -92,8 +92,6 @@ C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.pdb
 C:\Users\thor\source\repos\GPVH\WF_GPVH\bin\Debug\MetroFramework.Design.dll
 C:\Users\thor\source\repos\GPVH\WF_GPVH\bin\Debug\MetroFramework.dll
 C:\Users\thor\source\repos\GPVH\WF_GPVH\bin\Debug\MetroFramework.Fonts.dll
-C:\Users\thor\source\repos\GPVH\WF_GPVH\bin\Debug\WS_GPVH.dll
-C:\Users\thor\source\repos\GPVH\WF_GPVH\bin\Debug\WS_GPVH.pdb
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Permisos.Form_BuscarPermiso.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Permisos.Form_SeleccionFuncionarioPermisos.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Reportes.Antecedences.Form_Antecedentes.resources
@@ -190,8 +188,8 @@ C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.exe
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.pdb
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Resoluciones.Form_BuscarResolucion.resources
 C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.csprojResolveAssemblyReference.cache
-C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.form_debug_ws.resources
-C:\Users\thor\source\repos\GPVH\WF_GPVH\bin\Debug\ApplicationInsights.config
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Menu.Form_Menu_Alcalde.resources
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Permisos.Form_ValidarDocumento.resources
 C:\Users\drjma\Source\Repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Reportes.Form_Ver_Permiso.resources
+C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Menu.Form_Menu_Alcalde.resources
+C:\Users\thor\source\repos\GPVH\WF_GPVH\obj\Debug\WF_GPVH.Formularios.Reportes.Form_Ver_Permiso.resources

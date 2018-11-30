@@ -26,11 +26,11 @@ namespace LB_GPVH.Modelo
             asistencia = null;
         }
 
+        #region propiedades
         public string EstadoResolucionString
         {
             get { return MetodosEstadoReolucion.GetString(Estado); }
         }
-
         public bool setEstadoResolucion(string estado)
         {
             try
@@ -43,7 +43,6 @@ namespace LB_GPVH.Modelo
                 return false;
             }
         }
-
         public string NombreSolicitantePermiso
         {
             get
@@ -54,7 +53,6 @@ namespace LB_GPVH.Modelo
                     return null;
             }
         }
-
         public string NombreAutorizantePermiso
         {
             get
@@ -65,7 +63,6 @@ namespace LB_GPVH.Modelo
                     return null;
             }
         }
-
         public string NombreResolvente
         {
             get
@@ -76,8 +73,7 @@ namespace LB_GPVH.Modelo
                     return null;
             }
         }
-
-
+        //Se recibe un string que se pasara a bool
         public string AsistenciaString
         {
             get
@@ -88,42 +84,34 @@ namespace LB_GPVH.Modelo
                     return null;
             }
         }
-
-        
         public Funcionario Resolvente
         {
             get { return resolvente; }
             set { resolvente = value; }
         }
-
-
         public Permiso Permiso
         {
             get { return permiso; }
             set { permiso = value; }
         }
-        
-
         public DateTime FechaResolucion
         {
             get { return fechaResolucion; }
             set { fechaResolucion = value; }
         }
-
-
         public bool? Asistencia
         {
             get { return asistencia; }
             set { asistencia = value; }
         }
-
-
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
+        #endregion
 
+        //Carga la propiedades mediante un documento
         public void LeerXML(XElement resolucionXML)
         {
             if (resolucionXML.Element("id") != null)

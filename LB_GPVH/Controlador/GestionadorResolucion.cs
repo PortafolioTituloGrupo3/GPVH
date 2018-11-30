@@ -13,6 +13,7 @@ namespace LB_GPVH.Controlador
 {
     public class GestionadorResolucion
     {
+        //Muestra posibles resultados de cada metodo, comprensibles para el usuario final
         public enum ResultadoGestionResolucion
         {
             idResolucionNoExiste,
@@ -20,39 +21,36 @@ namespace LB_GPVH.Controlador
             Error,
             valido
         }
-
-        public int DesempaquetarRespuesta(string xml)
-        {
-            XDocument doc = XDocument.Parse(xml);
-            try
-            {
-                return int.Parse(doc.Root.Value);
-            }
-            catch
-            {
-                return -1;
-            };
-        }
-
+        //Recibe un string con formato xml y lo convierte en una lista de resolucion
         public List<Resolucion> DesempaquetarListaXml(string xml)
         {
+            //Se crea la representacion de un documento xml
             XDocument doc = XDocument.Parse(xml);
+            //Se pasan lo elementos del documento
             IEnumerable<XElement> resolucionesXML = doc.Root.Elements();
+            //Variable de salida
             List<Resolucion> resoluciones = new List<Resolucion>();
+            //Se recorren los elementos del xml y se crean funcionarios
             foreach (var resolucionXML in resolucionesXML)
             {
                 Resolucion resolucion = new Resolucion();
+                //Se cargan los datos del funcionario con la informacion del documento
                 resolucion.LeerXML(resolucionXML);
+                //Se agrega el funcionario a la lista de salida
                 resoluciones.Add(resolucion);
             }
             return resoluciones;
         }
-
+        //Retorna unas lista con la informacion de la asistencia
         public List<Tuple<int, DateTime>> LeerXmlAsistencia(string xml)
         {
+            //Se crea la representacion de un documento xml
             XDocument doc = XDocument.Parse(xml);
+            //Se pasan lo elementos del documento
             IEnumerable<XElement> asistenciasXML = doc.Root.Elements();
+            //Variable de salida
             List<Tuple<int, DateTime>> asistencias = new List<Tuple<int, DateTime>>();
+            //Se recorren los elementos del xml y agregan tuplas a la lista
             foreach (var asistenciaXML in asistenciasXML)
             {
                 int run = -1;
@@ -76,25 +74,18 @@ namespace LB_GPVH.Controlador
             }
             return asistencias;
         }
-
+        //Retorna un listado con las resuluciones de un mes en especifico
         public List<Resolucion> BuscarResoluciones(int mes,int anno)
         {
             List<Resolucion> resoluciones = null;
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    resoluciones = DesempaquetarListaXml(cliente.buscarResoluciones(mes, anno));
-                }
-            }
-            else
-            {
-                resoluciones = new SQL.ResolucionSQL().BuscarResolucioness(mes, anno);
+                resoluciones = DesempaquetarListaXml(cliente.buscarResoluciones(mes, anno));
             }
             DeterminarAsistenciaPermiso(resoluciones);
             return resoluciones;
         }
-
+        //Retorna un listado con las resuluciones de un mes y unidad en especifico
         public List<Resolucion> BuscarResoluciones(int mes, int anno, int idUnidad)
         {
             List<Resolucion> resoluciones = null;
@@ -114,7 +105,6 @@ namespace LB_GPVH.Controlador
             return resoluciones;
         }
         
-
         private List<Resolucion> DeterminarAsistenciaPermiso(List<Resolucion> resoluciones)
         {
             if (resoluciones.Count > 0)
@@ -167,7 +157,7 @@ namespace LB_GPVH.Controlador
             }
             return resoluciones;
         }
-
+        //Valida una resoluciones y registra al funcionario que lo hizo
         public ResultadoGestionResolucion ValidarResolucion(int idResolucion, int runResolvente)
         {
             int resultado;
@@ -187,7 +177,7 @@ namespace LB_GPVH.Controlador
                     return ResultadoGestionResolucion.Error;
             }
         }
-
+        //Invalida una resoluciones y registra al funcionario que lo hizo
         public ResultadoGestionResolucion InvalidarResolucion(int idResolucion, int runResolvente)
         {
             int resultado;
@@ -207,7 +197,20 @@ namespace LB_GPVH.Controlador
                     return ResultadoGestionResolucion.Error;
             }
         }
-
+        //Devuelve el resultado de una consulta a la base de datos
+        public int DesempaquetarRespuesta(string xml)
+        {
+            XDocument doc = XDocument.Parse(xml);
+            try
+            {
+                return int.Parse(doc.Root.Value);
+            }
+            catch
+            {
+                return -1;
+            };
+        }
+        //Retorna una lista con los parametros que se usaran al desplegar informacion en la capa vista.
         public List<String> ListarNombresParametros()
         {
             List<String> parametros = new List<string>();

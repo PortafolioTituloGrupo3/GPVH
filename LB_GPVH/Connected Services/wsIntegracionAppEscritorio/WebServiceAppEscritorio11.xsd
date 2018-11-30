@@ -384,6 +384,16 @@
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="buscarPermisoPorId">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buscarPermisoPorIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="buscarResolucionesUnidadesSubHijas">
     <xs:sequence>
       <xs:element name="mes" type="xs:int" />
@@ -396,12 +406,13 @@
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="buscarPermisoPorId">
+  <xs:complexType name="invalidarResolucion">
     <xs:sequence>
-      <xs:element name="id" type="xs:int" />
+      <xs:element name="idResolucion" type="xs:int" />
+      <xs:element name="runResolvente" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="buscarPermisoPorIdResponse">
+  <xs:complexType name="invalidarResolucionResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
@@ -412,17 +423,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="buscarUnidadPorIdParcialResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="invalidarResolucion">
-    <xs:sequence>
-      <xs:element name="idResolucion" type="xs:int" />
-      <xs:element name="runResolvente" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="invalidarResolucionResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>

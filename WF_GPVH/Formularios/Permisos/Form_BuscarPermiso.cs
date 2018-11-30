@@ -16,11 +16,11 @@ namespace WF_GPVH.Formularios.Permisos
 {
     public partial class Form_BuscarPermiso : MetroFramework.Forms.MetroForm
     {
-        Funcionario funcionario;
-        IEnumerable<Permiso> permisosGridView;
-        GestionadorPermiso gestionador;
-        Form formPadre;
-        
+        Funcionario funcionario; //Funcionario del cual se buscaran los permisos
+        IEnumerable<Permiso> permisosGridView; //Listado de permisos
+        GestionadorPermiso gestionador; //Clase controlador
+        Form formPadre; //Formulario principal
+
         public Form_BuscarPermiso(Form pFormPadre, Funcionario pFuncionario)
         {
             InitializeComponent();
@@ -36,7 +36,6 @@ namespace WF_GPVH.Formularios.Permisos
             gestionador.AsignarPermisos(funcionario);
             CargarPermisosGridView(this.funcionario.Permisos);
         }
-
         public void CargarPermisosGridView(List<Permiso> permisos)
         {
             this.mgPermisos.AutoGenerateColumns = false;
@@ -71,20 +70,13 @@ namespace WF_GPVH.Formularios.Permisos
             permisosGridView = permisosFiltrados.ToList();
             mgPermisos.DataSource = permisosGridView;
         }
-
         public void CargarUsuariosGridView(List<Permiso> permisos)
         {
             this.mgPermisos.AutoGenerateColumns = false;
             this.mgPermisos.AutoSize = true;
             this.mgPermisos.DataSource = permisos;
         }
-
-        private void chkBuscarEntreFechas_CheckedChanged(object sender, EventArgs e)
-        {
-            mpBusquedaEntreFechas.Visible = chkBuscarEntreFechas.Checked;
-            this.CargarPermisosGridView(funcionario.Permisos);
-        }
-
+        //Funcion que carga las columnas a mostrar del gridview, segun la lista a mostrar
         public void CargarHeadersGridView(List<String> nombrePropiedades)
         {
             //Se agreagan las columnas de forma personalisada
@@ -98,7 +90,7 @@ namespace WF_GPVH.Formularios.Permisos
             this.addColumn(0, nombrePropiedades[7], "Solicitante", true, "SOLICITANTE DESCONOCIDO", mgPermisos);
             this.addColumn(0, nombrePropiedades[8], "Autorizante", true, "---", mgPermisos);
         }
-
+        //Funcion para agregar manualmente una columna a un gridview especificado
         private void addColumn(int tipoColumna, string property, string titulo, bool visible,
                                             string valorPorDefecto, DataGridView dgv)
         {
@@ -125,41 +117,40 @@ namespace WF_GPVH.Formularios.Permisos
             dgv.Columns.Add(column);
         }
 
+        #region eventos
+        private void chkBuscarEntreFechas_CheckedChanged(object sender, EventArgs e)
+        {
+            mpBusquedaEntreFechas.Visible = chkBuscarEntreFechas.Checked;
+            this.CargarPermisosGridView(funcionario.Permisos);
+        }
         private void mdtFechaInicio_ValueChanged(object sender, EventArgs e)
         {
             this.CargarPermisosGridView(funcionario.Permisos);
         }
-
         private void mdtFechaTermino_ValueChanged(object sender, EventArgs e)
         {
             this.CargarPermisosGridView(funcionario.Permisos);
         }
-
         private void rbVerTodos_CheckedChanged(object sender, EventArgs e)
         {
             if(rbVerTodos.Checked)
                 this.CargarPermisosGridView(funcionario.Permisos);
         }
-
         private void rbVerSoloAutorizados_CheckedChanged(object sender, EventArgs e)
         {
             if (rbVerSoloAutorizados.Checked)
                 this.CargarPermisosGridView(funcionario.Permisos);
         }
-
         private void rbVerSoloRechazados_CheckedChanged(object sender, EventArgs e)
         {
             if (rbVerSoloRechazados.Checked)
                 this.CargarPermisosGridView(funcionario.Permisos);
         }
-
         private void rbVerSoloPendientes_CheckedChanged(object sender, EventArgs e)
         {
             if (rbVerSoloPendientes.Checked)
                 this.CargarPermisosGridView(funcionario.Permisos);
         }
-        
-
         private void mgPermisos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.ColumnIndex == 0 && e.RowIndex >= 0)
@@ -173,5 +164,6 @@ namespace WF_GPVH.Formularios.Permisos
                 this.Visible = false;
             }
         }
+        #endregion
     }
 }

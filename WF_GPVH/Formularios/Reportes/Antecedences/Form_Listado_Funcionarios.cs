@@ -13,9 +13,9 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
 {
     public partial class Form_Listado_Funcionarios : MetroFramework.Forms.MetroForm
     {
-        private GestionadorFuncionario gestionador;
-        private List<LB_GPVH.Modelo.Funcionario> funcionarios;
-        private List<LB_GPVH.Modelo.Funcionario> funcionariosGridView;
+        private GestionadorFuncionario gestionador; //Clase controlador
+        private List<LB_GPVH.Modelo.Funcionario> funcionarios; //Lista completa de funcionarios desde la base de datos
+        private List<LB_GPVH.Modelo.Funcionario> funcionariosGridView; //Lista de funcionarios que se mostraran en el gridview segun filtros
 
         public Form_Listado_Funcionarios()
         {
@@ -24,38 +24,12 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
             CargarHeadersGridView(gestionador.ListarNombresParametros());
             this.loadFuncionarios();
         }
+
         public void loadFuncionarios()
         {
             funcionarios = gestionador.ListarFuncionarios();
             CargarFuncionariosGridView(this.funcionarios);
-        /* LOCAL
-        using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
-        {
-            var listadoFuncionarios = serviceFuncionarios.getListadoFuncionarios();
-            //Inicialisar DGV
-            this.dgv_funcionarios.AutoGenerateColumns = false;
-            this.dgv_funcionarios.AutoSize = true;
-            this.dgv_funcionarios.DataSource = listadoFuncionarios;
-
-            if (dgv_funcionarios.ColumnCount <= 0)
-            {
-                //Se agreagan las columnas de forma personalisada
-                this.addColumn(3, "revisar", "revisar", true, "Ver antecedentes", dgv_funcionarios);
-                this.addColumn(0, "run_sin_dv", "RUN", true, "1", dgv_funcionarios);
-                this.addColumn(0, "run_dv", "DV", true, "9", dgv_funcionarios);
-                this.addColumn(0, "nom_funcionario", "Nombre", true, "FUNCIONARIO SIN NOMBRE", dgv_funcionarios);
-                this.addColumn(0, "ap_paterno", "Apellido Paterno", true, "SIN APELLIDO PATERNO", dgv_funcionarios);
-                this.addColumn(0, "ap_materno", "Apellido Materno", true, "SIN APELLIDO MATERNO", dgv_funcionarios);
-                this.addColumn(0, "fec_nacimiento", "Fecha Nacimiento", true, "SIN FECHA", dgv_funcionarios);
-                this.addColumn(0, "correo", "Correo", true, "SIN CORREO", dgv_funcionarios);
-                this.addColumn(0, "direc_funcionario", "Direccion", true, "SIN DIRECCION", dgv_funcionarios);
-                this.addColumn(0, "tipo_funcionario", "Tipo funcionario", true, "SIN TIPO", dgv_funcionarios);
-                this.addColumn(1, "habilitado", "Habilitado", true, "1", dgv_funcionarios);
-                this.addColumn(0, "unidad_id_unidad", "Unidad", true, "SIN UNIDAD", dgv_funcionarios);
-            }
-        }*/
-    }
-
+        }
         public void CargarFuncionariosGridView(List<LB_GPVH.Modelo.Funcionario> funcionarios)
         {
             this.dgv_funcionarios.AutoGenerateColumns = false;
@@ -64,25 +38,11 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
             //ACTUALMENTE SE MUESTRAN TODOS
             funcionariosFiltrados = funcionarios;
             dgv_funcionarios.Columns[9].Visible = true;
-            /* if (mchkVerSoloHabilitados.Checked)
-            {
-                funcionariosFiltrados = funcionarios.Where(s => s.Habilitado == true);
-                mgFuncionarios.Columns[9].Visible = false;
-            }
-            else
-            {
-                funcionariosFiltrados = funcionarios;
-                dgv_funcionarios.Columns[9].Visible = true;
-            }
-            if (mcmbUnidad.SelectedIndex != 0 && mcmbUnidad.SelectedIndex != -1) // Por defecto un combobox tiene seleccionado al indexo -1
-            {
-                int idUnidad = (int)mcmbUnidad.SelectedValue;
-                funcionariosFiltrados = funcionariosFiltrados.Where(s => s.Unidad.Id == idUnidad);
-            } */
+
             funcionariosGridView = funcionariosFiltrados.ToList();
             dgv_funcionarios.DataSource = funcionariosGridView;
         }
-
+        //Funcion que carga las columnas a mostrar del gridview, segun la lista a mostrar
         public void CargarHeadersGridView(List<String> nombrePropiedades)
         {
             //Se agreagan las columnas de forma personalisada
@@ -99,7 +59,6 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
             this.addColumn(1, nombrePropiedades[9], "Habilitado", true, "1", dgv_funcionarios);
             this.addColumn(0, nombrePropiedades[10], "Unidad", true, "SIN UNIDAD", dgv_funcionarios);
         }
-
         //Funcion que agregara columnas con los parametros ingresados
         private void addColumn(int tipoColumna, string property, string titulo, bool visible,
                                             string valorPorDefecto, DataGridView dgv)

@@ -11,6 +11,7 @@ namespace LB_GPVH.Controlador
 {
     public class GestionadorUsuario
     {
+        //Muestra posibles resultados de cada metodo, comprensibles para el usuario final
         public enum ResultadoGestionUsuario
         {
             CaracteresNombreInvalido,
@@ -21,30 +22,38 @@ namespace LB_GPVH.Controlador
             Valido,
             Invalido
         }
-
+        #region xml
+        //Recibe un string con formato xml y lo convierte en una lista de usuario
         public List<Usuario> DesempaquetarListaXml(string xml)
         {
+            //Se crea la representacion de un documento xml
             XDocument doc = XDocument.Parse(xml);
+            //Se pasan lo elementos del documento
             IEnumerable<XElement> usuariosXML = doc.Root.Elements();
+            //Variable de salida
             List<Usuario> usuarios = new List<Usuario>();
+            //Se recorren los elementos del xml y se crean funcionarios
             foreach (var usuarioXML in usuariosXML)
             {
                 Usuario usuario = new Usuario();
+                //Se cargan los datos del usuario con la informacion del documento
                 usuario.LeerXML(usuarioXML);
+                //Se agrega el funcionario a la lista de salida
                 usuarios.Add(usuario);
             }
             return usuarios;
         }
-
-
+        //Recibe un string con formato xml y lo convierte en un usuario
         public Usuario DesempaquetarUsuarioXml(string xml)
         {
+            //Se crea la representacion de un documento xml
             XDocument doc = XDocument.Parse(xml);
             Usuario usuario = new Usuario();
+            //Se cargan los datos del usuario con la informacion del documento
             usuario.LeerXML(doc.Root);
             return usuario;
         }
-
+        //Devuelve el resultado de una consulta a la base de datos
         public int DesempaquetarRespuesta(string xml)
         {
             XDocument doc = XDocument.Parse(xml);
@@ -57,75 +66,26 @@ namespace LB_GPVH.Controlador
                 return -1;
             };
         }
+        #endregion
 
-
-
+        #region webservice/sql
         public List<Usuario> ListarUsuarios()
         {
             List<Usuario> usuarios = null;
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    usuarios = DesempaquetarListaXml(cliente.listarUsuarios());
-                }
-            }
-            else
-            {
-                using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
-                {
-                    usuarios = new List<Usuario>();
-                    //****Sujeto a cambios para intergracion
-                    var listadoUsuarios = serviceUsuarios.getListadoUsuarios();
-                    foreach (var wsUsuario in listadoUsuarios)
-                    {
-                        Usuario usuario = new Usuario();
-                        usuario.Id = wsUsuario.Id_usuario;
-                        usuario.Clave = wsUsuario.Clave;
-                        usuario.Nombre = wsUsuario.Nombre_usuario;
-                        usuario.Tipo = Enums.MetodosTipoUsuario.setTipo(wsUsuario.Tipo_usuario);
-                        usuario.Funcionario = new GestionadorFuncionario().BuscarFuncionarioParcial((int)wsUsuario.Funcionario_run_sin_dv);
-                        usuarios.Add(usuario);
-                    }
-                    //****
-                    
-                }
+                usuarios = DesempaquetarListaXml(cliente.listarUsuarios());
             }
             return usuarios;
         }
-
         public Usuario BuscarUsarioPorId(int id)
         {
-            if (ParametrosGlobales.usarIntegracion)
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                {
-                    return DesempaquetarUsuarioXml(cliente.buscarUsuario(id));
-                }
-            }
-            else
-            {
-                using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
-                {
-                    Usuario usuario = new Usuario();
-                    //****Sujeto a cambios para intergracion
-                    var wsUsuario = serviceUsuarios.getUsuarioById(id);
-                    usuario.Id = wsUsuario.Id_usuario;
-                    usuario.Clave = wsUsuario.Clave;
-                    usuario.Nombre = wsUsuario.Nombre_usuario;
-                    usuario.Tipo = Enums.MetodosTipoUsuario.setTipo(wsUsuario.Tipo_usuario);
-                    usuario.Funcionario = new GestionadorFuncionario().BuscarFuncionarioParcial((int)wsUsuario.Funcionario_run_sin_dv);
-                    //****
-                    return usuario;
-                }
+                return DesempaquetarUsuarioXml(cliente.buscarUsuario(id));
             }
         }
-
-
-
-
-
-
+        //Agrega un nuevo usuario
         public ResultadoGestionUsuario AgregarUsuario(Usuario usuario)
         {
             ResultadoGestionUsuario validacion = this.ValidarUsuario(usuario);
@@ -134,20 +94,10 @@ namespace LB_GPVH.Controlador
                 return validacion;
             }
             int codigoRetorno;
-            if (ParametrosGlobales.usarIntegracion)
-            {
                 using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
                 {
                     codigoRetorno = DesempaquetarRespuesta(cliente.insertarUsuario(usuario.Nombre, usuario.Clave, usuario.TipoToString, usuario.Funcionario.Run));
                 }
-            }
-            else
-            {
-                using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
-                {
-                    codigoRetorno = serviceUsuarios.addUsuario(usuario.Nombre, usuario.Clave, usuario.TipoToString, usuario.Funcionario.Run);
-                }
-            }
             switch (codigoRetorno)
             {
                 case 0:
@@ -156,7 +106,7 @@ namespace LB_GPVH.Controlador
                     return ResultadoGestionUsuario.Invalido;
             }
         }
-
+        //Modifica un usuario especificado
         public ResultadoGestionUsuario ModificarUsuario(Usuario usuario)
         {
             ResultadoGestionUsuario validacion = this.ValidarUsuario(usuario);
@@ -165,21 +115,10 @@ namespace LB_GPVH.Controlador
                 return validacion;
             }
             int codigoRetorno;
-            if (ParametrosGlobales.usarIntegracion)
-            {
                 using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
                 {
                     codigoRetorno = DesempaquetarRespuesta(cliente.modificarUsuario(usuario.Id, usuario.Nombre, usuario.Clave, usuario.TipoToString, usuario.Funcionario.Run));
                 }
-            }
-            else
-            {
-                using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
-                {
-                    codigoRetorno = serviceUsuarios.modifyUsuario(usuario.Id, usuario.Nombre, usuario.Clave, usuario.TipoToString, usuario.Funcionario.Run);
-
-                }
-            }
             switch (codigoRetorno)
             {
                 case 0:
@@ -188,24 +127,14 @@ namespace LB_GPVH.Controlador
                     return ResultadoGestionUsuario.Invalido;
             }
         }
-
+        //Elimina un usuario especificado
         public ResultadoGestionUsuario EliminarUsuario(int id)
         {
             int salida;
-            if (ParametrosGlobales.usarIntegracion)
-            {
                 using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
                 {
                     salida = DesempaquetarRespuesta(cliente.eliminarUsuario(id));
                 }
-            }
-            else
-            {
-                using (ServiceWSUsuarios.WSUsuariosClient serviceUsuarios = new ServiceWSUsuarios.WSUsuariosClient())
-                {
-                    salida = serviceUsuarios.deleteUsuario(id);
-                }
-            }
             if (salida == 0)
             {
                 return ResultadoGestionUsuario.Valido;
@@ -214,9 +143,9 @@ namespace LB_GPVH.Controlador
                 return ResultadoGestionUsuario.Invalido;
 
         }
+        #endregion
 
-
-
+        //Retorna una lista con los parametros que se usaran al desplegar informacion en la capa vista.
         public List<String> ListarNombresParametros()
         {
             List<String> parametros = new List<string>();
@@ -228,7 +157,7 @@ namespace LB_GPVH.Controlador
 
             return parametros;
         }
-
+        //Asigna un funcionario al usuario especificado
         public void setFuncionarioUsuario(Usuario usuario, int run, string nombreCompleto)
         {
             if (usuario.Funcionario == null)
@@ -247,12 +176,13 @@ namespace LB_GPVH.Controlador
                 usuario.Funcionario.ApellidoMaterno = nombreSplit[2];
             }
         }
-
+        //Asigna un tipo de usuario al usuario especificado y retorna true si se logro
         public bool setTipoUsuario(Usuario usuario, string tipo)
         {
             return usuario.setTipoUsuario(tipo);
         }
 
+        #region validaciones
         public ResultadoGestionUsuario ValidarUsuario(Usuario usuario)
         {
             if (usuario.Nombre.Length == 0)
@@ -265,7 +195,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionUsuario.Valido;
         }
-
         public ResultadoGestionUsuario ValidarClaveConfirmacion(string clave, string claveConfirmacion)
         {
             if(clave != claveConfirmacion)
@@ -274,7 +203,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionUsuario.Valido;
         }
-
         public ResultadoGestionUsuario ValidarCaracterNombre(Usuario usuario, string nombre)
         {
             if (!usuario.ValidarNombre(nombre))
@@ -283,7 +211,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionUsuario.Valido;
         }
-
         public ResultadoGestionUsuario ValidarCaracterClave(Usuario usuario, string clave)
         {
             if (!usuario.ValidarClave(clave))
@@ -292,5 +219,6 @@ namespace LB_GPVH.Controlador
             }
             return ResultadoGestionUsuario.Valido;
         }
+        #endregion
     }
 }

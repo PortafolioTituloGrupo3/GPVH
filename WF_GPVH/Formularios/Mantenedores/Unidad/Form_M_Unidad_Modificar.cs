@@ -13,9 +13,9 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
 {
     public partial class Form_M_Unidad_Modificar : MetroFramework.Forms.MetroForm
     {
-        Form_M_Unidad padreTemp = null;
-        LB_GPVH.Modelo.Unidad unidad;
-        GestionadorUnidad gestionador;
+        Form_M_Unidad padreTemp = null; //Formulario desde el cual se accedio
+        LB_GPVH.Modelo.Unidad unidad; //Unidad a modificar
+        GestionadorUnidad gestionador; //Clase controlador
         bool nombreValido, direccionValida, descripcionValida;
         string nombreOriginal;
 
@@ -29,8 +29,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             nombreValido = true;
             direccionValida = true;
             descripcionValida = true;
-
-
+            
             this.ddl_padre.DisplayMember = "Value";
             this.ddl_padre.ValueMember = "Key";
             this.ddl_padre.DataSource = new BindingSource(gestionador.DiccionarioUnidadNoHijaClaveValor(id), null);
@@ -39,46 +38,37 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             this.ddl_jefe.ValueMember = "Key";
             this.ddl_jefe.DataSource = new BindingSource(new GestionadorFuncionario().DiccionarioFuncionariosNoJefes(), null);
             this.cargarCamposUnidad();
-            /*
-            ServiceWSUnidades.Unidad unidadTemp;
-            using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
-            {
-                unidadTemp = serviceUnidades.getUnidadById(unidad.Id);
-                
-
-                Dictionary<int, string> salida = new Dictionary<int, string>();
-                //Cargar datos de unidades en ComboBox
-                salida = serviceUnidades.getListadoUnidadesNoHijasClaveValor(id);
-                this.ddl_padre.DisplayMember = "Value";
-                this.ddl_padre.ValueMember = "Key";
-                this.ddl_padre.DataSource = new BindingSource(salida, null);
-                if (unidadTemp.Unidad_id_unidad != null)
-                    this.ddl_padre.SelectedValue = unidadTemp.Unidad_id_unidad;
-            }
-            using (ServiceWSFuncionarios.WSFuncionariosClient serviceFuncionarios = new ServiceWSFuncionarios.WSFuncionariosClient())
-            {
-                Dictionary<int, string> salida = new Dictionary<int, string>();
-                //Cargar datos de funcionarios en ComboBox
-                salida = serviceFuncionarios.getListadoFuncionariosNoJefesNoClaveValorModificar(this.unidad.Id);
-                this.ddl_jefe.DisplayMember = "Value";
-                this.ddl_jefe.ValueMember = "Key";
-                this.ddl_jefe.DataSource = new BindingSource(salida, null);
-                if (unidadTemp.Funcionario_run_sin_dv != null)
-                    this.ddl_padre.SelectedValue = unidadTemp.Funcionario_run_sin_dv;
-            }*/
         }
 
+        //Carga los campos con los datos actuales a modificar
+        private void cargarCamposUnidad()
+        {
+            this.txt_nombre.Text = unidad.Nombre; //unidadTemp.Nombre_unidad;
+            this.txt_descripcion.Text = unidad.Descripcion; //unidadTemp.Descripcion_unidad;
+            this.txt_direccion.Text = unidad.Direccion; //unidadTemp.Direccion_unidad;
+
+            if (unidad.Habilitado)
+                this.chk_habilitado.Checked = true;
+            else
+                this.chk_habilitado.Checked = false;
+            if (unidad.UnidadPadre != null)
+                this.ddl_padre.SelectedValue = unidad.UnidadPadre.Id;
+            if (unidad.Jefe != null)
+                this.ddl_padre.SelectedValue = unidad.Jefe.Run;
+        }
+
+        #region eventos
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             padreTemp.Enabled = true;
             this.Dispose();
         }
-
         private void btn_modificar_Click(object sender, EventArgs e)
         {
             if (direccionValida && nombreValido && descripcionValida)
             {
                 GestionadorUnidad.ResultadoGestionUnidad resultado = gestionador.ModificarUnidad(unidad);
+                //Recibe el resultado de la transaccion y muestra un mensaje al usuario
                 switch (resultado)
                 {
                     case GestionadorUnidad.ResultadoGestionUnidad.DescripcionVacia:
@@ -104,53 +94,7 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             {
                 MessageBox.Show("No se pudo modificar la unidad: Existen datos inválidos.");
             }
-
-            /*
-            string nombre = this.txt_nombre.Text;
-            string descripcion = this.txt_descripcion.Text;
-            string direccion = this.txt_direccion.Text;
-            bool habilitado = this.chk_habilitado.Checked;
-            int? padre;
-            if (this.ddl_padre.SelectedValue == null)
-                padre = null;
-            else
-                padre = int.Parse(this.ddl_padre.SelectedValue.ToString());
-            int? jefe;
-            if (this.ddl_jefe.SelectedValue == null)
-                jefe = null;
-            else
-                jefe = int.Parse(this.ddl_jefe.SelectedValue.ToString());
-            using (ServiceWSUnidades.WSUnidadesClient serviceUnidades = new ServiceWSUnidades.WSUnidadesClient())
-            {
-                int salida = serviceUnidades.modifyUnidad(this.unidad.Id, nombre, descripcion,
-                                            direccion, habilitado, padre, jefe);
-                if (salida == 0)
-                {
-                    padreTemp.loadUnidades();
-                    MessageBox.Show("Datos modificados con exito!");
-                }
-                else
-                    MessageBox.Show("ERROR NRO: " + salida);
-            }
-            */
         }
-
-        private void cargarCamposUnidad()
-        {
-            this.txt_nombre.Text = unidad.Nombre; //unidadTemp.Nombre_unidad;
-            this.txt_descripcion.Text = unidad.Descripcion; //unidadTemp.Descripcion_unidad;
-            this.txt_direccion.Text = unidad.Direccion; //unidadTemp.Direccion_unidad;
-
-            if (unidad.Habilitado)
-                this.chk_habilitado.Checked = true;
-            else
-                this.chk_habilitado.Checked = false;
-            if (unidad.UnidadPadre != null)
-                this.ddl_padre.SelectedValue = unidad.UnidadPadre.Id;
-            if (unidad.Jefe != null)
-                this.ddl_padre.SelectedValue = unidad.Jefe.Run;
-        }
-
         private void ddl_jefe_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.ddl_jefe.SelectedIndex != 0)
@@ -158,7 +102,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             else
                 gestionador.EliminarJefe(unidad);
         }
-
         private void ddl_padre_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(this.ddl_padre.SelectedIndex != 0)
@@ -166,12 +109,10 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
             else
                 gestionador.EliminarPadre(unidad);
         }
-
         private void chk_habilitado_CheckedChanged(object sender, EventArgs e)
         {
             unidad.Habilitado = this.chk_habilitado.Checked;
         }
-
         private void txt_direccion_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre la direccion y ve si es valido
@@ -188,7 +129,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                     break;
             }
         }
-
         private void txt_descripcion_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre la descripcion y ve si es valido
@@ -205,7 +145,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                     break;
             }
         }
-
         private void txt_nombre_Leave(object sender, EventArgs e)
         {
             //Realiza validaciones sobre el nombre y ve si es valido
@@ -230,18 +169,17 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                 }
             }
         }
-
         private void mtVolver_Click(object sender, EventArgs e)
         {
             padreTemp.Enabled = true;
             this.Dispose();
         }
-
         private void mtAgregar_Click(object sender, EventArgs e)
         {
             if (direccionValida && nombreValido && descripcionValida)
             {
                 GestionadorUnidad.ResultadoGestionUnidad resultado = gestionador.ModificarUnidad(unidad);
+                //Recibe el resultado de la transaccion y muestra un mensaje al usuario
                 switch (resultado)
                 {
                     case GestionadorUnidad.ResultadoGestionUnidad.DescripcionVacia:
@@ -267,7 +205,6 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                 MessageBox.Show("No se pudo modificar la unidad: Existen datos inválidos.");
             }
         }
-
         private void txt_nombre_TextChanged(object sender, EventArgs e)
         {
             //Realiza validaciones sobre el nombre y ve si es valido
@@ -284,10 +221,10 @@ namespace WF_GPVH.Formularios.Mantenedores.Unidad
                     break;
             }
         }
-
         private void Form_M_Unidad_Modificar_FormClosing(object sender, FormClosingEventArgs e)
         {
             padreTemp.Close();
         }
+#endregion
     }
 }

@@ -25,33 +25,29 @@ namespace WF_GPVH.Formularios.Menu
             lblFuncionario.Text = "Funcionario: " + sesion.Usuario.Funcionario.NombreCompleto;
         }
 
+        #region eventos
         private void Form_Menu_Jefe_Unidad_Superior_FormClosing(object sender, FormClosingEventArgs e)
         {
             mainForm.Dispose();
         }
-
         private void mtBuscarPermisos_Click(object sender, EventArgs e)
         {
             new Permisos.Form_SeleccionFuncionarioPermisos(mainForm, this, sesion).Show();
             this.Visible = false;
         }
-
         private void mtBuscarResoluciones_Click(object sender, EventArgs e)
         {
             new Resoluciones.Form_BuscarResolucion(mainForm, this, sesion).Show();
             this.Visible = false;
         }
-
         private void mtGenerarReporte_Click(object sender, EventArgs e)
         {
             new Reportes.Form_Reporte_Permisos().Show();
         }
-
         private void mtAntecedentes_Click(object sender, EventArgs e)
         {
             new Reportes.Antecedences.Form_Listado_Funcionarios().Show();
         }
-
         private void mtSalir_Click(object sender, EventArgs e)
         {
             mainForm.Show();
@@ -60,7 +56,8 @@ namespace WF_GPVH.Formularios.Menu
 
         private void mtIdentificarDocumento_Click(object sender, EventArgs e)
         {
-            new Permisos.Form_ValidarDocumento(mainForm, this, sesion).Show();
+            //new Permisos.Form_ValidarDocumento(mainForm, this, sesion).Show();
         }
+        #endregion
     }
 }

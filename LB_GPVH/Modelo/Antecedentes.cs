@@ -12,7 +12,8 @@ namespace LB_GPVH.Modelo
         int permisos_administrativos_restantes = -1;
         int feriados_anuales_restantes = -1;
         List<List<object>> filas = new List<List<object>>();
-        
+
+        #region propiedades
         public int Permisos_administrativos_restantes
         {
             get
@@ -25,7 +26,6 @@ namespace LB_GPVH.Modelo
                 permisos_administrativos_restantes = value;
             }
         }
-
         public int Feriados_anuales_restantes
         {
             get
@@ -38,7 +38,6 @@ namespace LB_GPVH.Modelo
                 feriados_anuales_restantes = value;
             }
         }
-
         public List<List<object>> Filas
         {
             get
@@ -51,8 +50,9 @@ namespace LB_GPVH.Modelo
                 filas = value;
             }
         }
-
-
+        #endregion
+        
+        //Carga la propiedades mediante un documento
         public void LeerXML(XElement antecedentesXML)
         {
             if (antecedentesXML.Element("permisos_administrativos_restantes") != null)
@@ -85,6 +85,5 @@ namespace LB_GPVH.Modelo
                 catch { };
             }
         }
-
     }
 }

@@ -11,33 +11,36 @@ namespace LB_GPVH.Controlador
 {
     public class GestionadorPermiso
     {
-        public enum ResultadoGestionPermiso
-        {
-
-        }
-
+        //Recibe un string con formato xml y lo convierte en una lista de permiso
         public List<Permiso> DesempaquetarListaXml(string xml)
         {
+            //Se crea la representacion de un documento xml
             XDocument doc = XDocument.Parse(xml);
+            //Se pasan lo elementos del documento
             IEnumerable<XElement> permisosXML = doc.Root.Elements();
+            //Variable de salida
             List<Permiso> permisos = new List<Permiso>();
+            //Se recorren los elementos del xml y se crean permisos
             foreach (var permisoXML in permisosXML)
             {
                 Permiso permiso = new Permiso();
+                //Se cargan los datos del permiso con la informacion del documento
                 permiso.LeerXML(permisoXML);
+                //Se agrega el permiso a la lista de salida
                 permisos.Add(permiso);
             }
             return permisos;
         }
-
+        //Recibe un string con formato xml y lo convierte en un objeto "permiso"
         public Permiso DesempaquetarPermisoXml(string xml)
         {
+
             XDocument doc = XDocument.Parse(xml);
             Permiso permiso = new Permiso();
             permiso.LeerXML(doc.Root);
             return permiso;
         }
-
+        //Cargo los permisos en el objeto funcionario
         public bool AsignarPermisos(Funcionario funcionario)
         {
             if(funcionario == null)
@@ -46,21 +49,14 @@ namespace LB_GPVH.Controlador
             }
             else
             {
-                if (ParametrosGlobales.usarIntegracion)
+                using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
                 {
-                    using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
-                    {
-                        funcionario.Permisos = DesempaquetarListaXml(cliente.buscarPermisos(funcionario.Run));
-                    }
-                }
-                else
-                {
-                    funcionario.Permisos = new SQL.PermisoSQL().BuscarPermisos(funcionario.Run);
+                    funcionario.Permisos = DesempaquetarListaXml(cliente.buscarPermisos(funcionario.Run));
                 }
                 return true;
             }
         }
-
+        //Retorna los permisos anuales con un objeto XDocument
         public XDocument ObtenerArchivoPermisosAnuales()
         {
             try
@@ -80,8 +76,7 @@ namespace LB_GPVH.Controlador
                 throw new Exception("Ocurrio un problema al generar el archivo xml: "+ex.Message);
             }
         }
-
-
+        
         public Permiso BuscarPermiso(int id)
         {
             return new SQL.PermisoSQL().BuscarPermiso(id);
@@ -96,61 +91,16 @@ namespace LB_GPVH.Controlador
         {
             return new SQL.PermisoSQL().BuscarPermisoParcial(id);
         }
-
+        
+        //Retorna un listado de permiso
         public List<Permiso> ListarPermisos(int run)
         {
-            using (ServiceWSPermisos.WSPermisosClient servicePermisos = new ServiceWSPermisos.WSPermisosClient())
+            using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
-                List<Permiso> permisos = new List<Permiso>();
-                //****Sujeto a cambios para intergracion
-                var listadoPermisos = servicePermisos.getPermisosByFuncionario(run, -1);
-                foreach (WS_GPVH.WebServices.Permisos.Permiso wsPermiso in listadoPermisos)
-                {
-                    Permiso permiso = new Permiso();
-                    permiso.Id = wsPermiso.Id_permiso;
-                    switch (wsPermiso.Tipo_permiso)
-                    {
-                        case ("Administrativo"):
-                            permiso.Tipo = Enums.TipoPermiso.Administrativo;
-                            break;
-                        case ("Feriado Legal"):
-                            permiso.Tipo = Enums.TipoPermiso.FeriadoLegal;
-                            break;
-                        case ("Nacimiento De Hijo"):
-                            permiso.Tipo = Enums.TipoPermiso.NacimientoDeHijo;
-                            break;
-                        case ("Deceso de Familiar"):
-                            permiso.Tipo = Enums.TipoPermiso.DecesoDeFamiliar;
-                            break;
-                    }
-                    /**
-                    switch (wsPermiso.Estado)
-                    {
-                        case (""):
-                            permiso.Estado = Enums.EstadoPermiso.Autorizado;
-                            break;
-                        case (""):
-                            permiso.Estado = Enums.EstadoPermiso.Autorizado;
-                            break;
-                        case (""):
-                            permiso.Estado = Enums.EstadoPermiso.Autorizado;
-                            break;
-                    }
-                    **/
-                    permiso.Estado = Enums.EstadoPermiso.Autorizado;
-                    permiso.FechaInicio = wsPermiso.Fecha_inicio;
-                    permiso.FechaTermino = wsPermiso.Fecha_termino;
-                    permiso.FechaSolicitud = wsPermiso.Fecha_solicitud;
-                    permiso.Descripcion = wsPermiso.Desc_permiso;
-                    permiso.Solicitante = new GestionadorFuncionario().BuscarFuncionario(wsPermiso.Solicitante_run_sin_dv);
-                    permiso.Autorizante = new GestionadorFuncionario().BuscarFuncionario(wsPermiso.Autorizante_run_sin_dv);
-
-                    permisos.Add(permiso);
-                }
-                return permisos;
+                return DesempaquetarListaXml(cliente.buscarPermisos(run));
             }
         }
-
+        //Retorna un permiso segun su id
         public Permiso ValidarDocumento(int codigo)
         {
             using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
@@ -158,8 +108,7 @@ namespace LB_GPVH.Controlador
                 return DesempaquetarPermisoXml(cliente.buscarPermisoPorId(codigo));
             }
         }
-
-
+        //Retorna un reporte de antecedentes
         public Antecedentes ReporteAntecedentes(int run)
         {
             Antecedentes antecedentes = new Antecedentes();
@@ -167,32 +116,35 @@ namespace LB_GPVH.Controlador
             using(WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
                 string xml = cliente.getAntecedentes(run);
-
+                //Se crea la representacion de un documento xml
                 XDocument doc = XDocument.Parse(xml);
+                //Se cargan los datos del permiso con la informacion del documento
                 antecedentes.LeerXML(doc.Root);
             }
-            
             return antecedentes;
         }
-
+        //Retorna un reporte de permisos segun un rango de fechas ingresado
         public List<ReportePermisoFila> ReportePermisos(DateTime inicio, DateTime termino)
         {
             List<ReportePermisoFila> filas = new List<ReportePermisoFila>();
             using (WebServiceAppEscritorioClient cliente = new WebServiceAppEscritorioClient())
             {
                 string xml = cliente.getReportePermisos(inicio, termino);
+                //Se crea la representacion de un documento xml
                 XDocument doc = XDocument.Parse(xml);
                 IEnumerable<XElement> reporteXML = doc.Root.Elements();
                 foreach (var filaTemp in reporteXML)
                 {
                     ReportePermisoFila fila = new ReportePermisoFila();
+                    //Se cargan los datos del permiso con la informacion del documento
                     fila.LeerXML(filaTemp);
+                    //Se agrega a las filas
                     filas.Add(fila);
                 }
             }
             return filas;
         }
-
+        //Retorna una lista con los parametros que se usaran al desplegar informacion en la capa vista.
         public List<String> ListarNombresParametros()
         {
             List<String> parametros = new List<string>();
@@ -207,7 +159,6 @@ namespace LB_GPVH.Controlador
             parametros.Add("NombreAutorizante");
             return parametros;
         }
-
         public bool ControlarCaracterCodigo(string codigo)
         {
             return Auxiliares.AuxiliarString.EsNumerico(codigo);

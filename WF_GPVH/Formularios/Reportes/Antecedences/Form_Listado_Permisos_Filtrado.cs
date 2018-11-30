@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LB_GPVH.Controlador;
 
 namespace WF_GPVH.Formularios.Reportes.Antecedences
 {
     public partial class Form_Listado_Permisos_Filtrado : MetroFramework.Forms.MetroForm
     {
-        Form form_temp = null;
+        GestionadorPermiso gestionador = new GestionadorPermiso(); //Clase controlador
+        Form form_temp = null; //Formulario de donde se accedio
+
         public Form_Listado_Permisos_Filtrado(int run, int filtro, Form form)
         {
             InitializeComponent();
@@ -20,28 +23,26 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
             form_temp = form;
         }
 
+        
         public void loadUnidades(int run, int filtro)
         {
             this.dgv_Permisos.DataSource = null;
             //Diccionario que contendra el <codigoProducto, nombreProducto>
-            using (ServiceWSPermisos.WSPermisosClient servicePermisos = new ServiceWSPermisos.WSPermisosClient())
-            {
-                var listadoPermisos = servicePermisos.getPermisosByFuncionario(run, filtro);
-                //Inicialisar DGV
-                this.dgv_Permisos.AutoGenerateColumns = false;
-                this.dgv_Permisos.AutoSize = true;
-                this.dgv_Permisos.DataSource = listadoPermisos;
-                if (dgv_Permisos.ColumnCount<=0) {
-                    //Se agreagan las columnas de forma personalisada
-                    this.addColumn(0, "Id_permiso", "ID", false, "-1", dgv_Permisos);
-                    this.addColumn(0, "Tipo_permiso", "Tipo permiso", true, "SIN IDENTIFICAR", dgv_Permisos);
-                    this.addColumn(0, "Fecha_inicio", "Fecha inicio", true, "-1", dgv_Permisos);
-                    this.addColumn(0, "Fecha_termino", "Fecha termino", true, "-1", dgv_Permisos);
-                    this.addColumn(0, "Fecha_solicitud", "Fecha solicitud", true, "-1", dgv_Permisos);
-                    this.addColumn(0, "Desc_permiso", "Descripcion", true, "SIN DESRIPCION", dgv_Permisos);
-                    this.addColumn(0, "Solicitante_run_sin_dv", "Solicitante", true, "-1", dgv_Permisos);
-                    this.addColumn(0, "Autorizante_run_sin_dv", "Autorizante", true, "-1", dgv_Permisos);
-                }
+            List<LB_GPVH.Modelo.Permiso> listadoPermisos = gestionador.ListarPermisos(run);
+            //Inicialisar DGV
+            this.dgv_Permisos.AutoGenerateColumns = false;
+            this.dgv_Permisos.AutoSize = true;
+            this.dgv_Permisos.DataSource = listadoPermisos;
+            if (dgv_Permisos.ColumnCount<=0) {
+                //Se agreagan las columnas de forma personalisada
+                this.addColumn(0, "Id_permiso", "ID", false, "-1", dgv_Permisos);
+                this.addColumn(0, "Tipo_permiso", "Tipo permiso", true, "SIN IDENTIFICAR", dgv_Permisos);
+                this.addColumn(0, "Fecha_inicio", "Fecha inicio", true, "-1", dgv_Permisos);
+                this.addColumn(0, "Fecha_termino", "Fecha termino", true, "-1", dgv_Permisos);
+                this.addColumn(0, "Fecha_solicitud", "Fecha solicitud", true, "-1", dgv_Permisos);
+                this.addColumn(0, "Desc_permiso", "Descripcion", true, "SIN DESRIPCION", dgv_Permisos);
+                this.addColumn(0, "Solicitante_run_sin_dv", "Solicitante", true, "-1", dgv_Permisos);
+                this.addColumn(0, "Autorizante_run_sin_dv", "Autorizante", true, "-1", dgv_Permisos);
             }
         }
         //Funcion que agregara columnas con los parametros ingresados
@@ -70,12 +71,7 @@ namespace WF_GPVH.Formularios.Reportes.Antecedences
             column.DefaultCellStyle.NullValue = valorPorDefecto;
             dgv.Columns.Add(column);
         }
-
-        private void Form_Listado_Permisos_Filtrado_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void Form_Listado_Permisos_Filtrado_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.form_temp.Enabled = true;

@@ -19,7 +19,6 @@ namespace LB_GPVH.Modelo
         private Funcionario jefe;
         private List<Funcionario> funcionarios;
 
-
         public Unidad()
         {
             UnidadPadre = null;
@@ -30,7 +29,7 @@ namespace LB_GPVH.Modelo
             direccion = "";
             habilitado = true;
         }
-
+        #region propiedades
         public List<Funcionario> Funcionarios
         {
             get {
@@ -41,19 +40,16 @@ namespace LB_GPVH.Modelo
                 return funcionarios; }
             set { funcionarios = value; }
         }
-
         public Funcionario Jefe
         {
             get { return jefe; }
             set { jefe = value; }
         }
-
         public Unidad UnidadPadre
         {
             get { return unidadPadre; }
             set { unidadPadre = value; }
         }
-
         public String NombrePadre
         {
             get {
@@ -62,7 +58,6 @@ namespace LB_GPVH.Modelo
                 else
                     return unidadPadre.Nombre; }
         }
-
         public String NombreJefe
         {
             get {
@@ -71,34 +66,34 @@ namespace LB_GPVH.Modelo
                 else
                     return jefe.NombreCompleto; }
         }
-
         public bool Habilitado
         {
             get { return habilitado; }
             set { habilitado = value; }
         }
-
-
         public string Direccion
         {
             get { return direccion; }
             set { direccion = value; }
         }
-
-
         public string Descripcion
         {
             get { return descripcion; }
             set { descripcion = value; }
         }
-
-
         public string Nombre
         {
             get { return nombre; }
             set { nombre = value; }
         }
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+        #endregion
 
+        #region validaciones
         public bool ValidarNombre(string pNombre)
         {
             if(!AuxiliarString.ContieneCaracteresAlfabeto(pNombre,true))
@@ -109,7 +104,6 @@ namespace LB_GPVH.Modelo
             nombre = pNombre;
             return true;
         }
-
         public bool ValidarDescripcion(string pDescripcion)
         {
             if (AuxiliarString.ContieneCaracteresInvalidos(pDescripcion,true,true,false))
@@ -120,7 +114,6 @@ namespace LB_GPVH.Modelo
             descripcion = pDescripcion;
             return true;
         }
-
         public bool ValidarDireccion(string pDireccion)
         {
             if (AuxiliarString.ContieneCaracteresInvalidos(pDireccion, true, true,false))
@@ -131,16 +124,9 @@ namespace LB_GPVH.Modelo
             direccion = pDireccion;
             return true;
         }
-        
+        #endregion
 
-
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-
+        //Carga la propiedades mediante un documento
         public void LeerXML(XElement unidadXML)
         {
             if (unidadXML.Element("id") != null)

@@ -14,9 +14,9 @@ namespace WF_GPVH.Formularios.Permisos
 {
     public partial class Form_ListarDocumentos : MetroFramework.Forms.MetroForm
     {
-        private List<Documento> documentos = new List<Documento>();
-        private GestionadorDocumento gestionador = new GestionadorDocumento();
-        int permisoActual=-1;
+        private List<Documento> documentos = new List<Documento>(); //Listado de documentos
+        private GestionadorDocumento gestionador = new GestionadorDocumento(); //Clase controlador
+        int permisoActual=-1; //Id del permiso seleccionado
         public Form_ListarDocumentos(Form pFormPadre, int permiso)
         {
             InitializeComponent();

@@ -14,10 +14,11 @@ namespace LB_GPVH.Modelo
         string nombre_documento = "documento";
         string formato_documento = "";
         DateTime fecha_creacion = DateTime.MinValue;
-        string pdfBinario = "";
-        string dirTemp = "";
+        string pdfBinario = ""; //Archivo codificado a Base64
+        string dirTemp = ""; //Direccion temporal del documento real a crear
         int id_permiso = -1;
-        
+
+        #region propiedades
         public int Id_documento
         {
             get
@@ -102,7 +103,9 @@ namespace LB_GPVH.Modelo
                 dirTemp = value;
             }
         }
+        #endregion
 
+        //Carga la propiedades mediante un documento
         public void LeerXML(XElement documentoXML)
         {
             if (documentoXML.Element("id_documento") != null)
@@ -147,6 +150,7 @@ namespace LB_GPVH.Modelo
             }
         }
 
+        //Crea un archivo PDF temporal usando la propiedad pdfBinario
         public void Base64aPdf()
         {
             this.dirTemp = Path.GetTempFileName() + Guid.NewGuid().ToString() + ".pdf";
